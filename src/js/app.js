@@ -2,8 +2,7 @@ angular.module('ZJSY_WeChat', [
     //'ngRoute',
     'ui.router',
     //'ui.bootstrap',
-    'mobile-angular-ui',
-    'ZJSY_WeChat.controllers.Main'
+    'mobile-angular-ui'
 ])
 
     //.config(function($routeProvider) {
@@ -21,12 +20,21 @@ angular.module('ZJSY_WeChat', [
     //});
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('home', {
-                url: '/',
+            .state('store', {
+                url: '/store',
                 views: {
                     '': {
-                        templateUrl: 'home.html',
-                        controller: 'HomeController'
+                        templateUrl: 'store.html',
+                        controller: 'StoreController'
+                    }
+                }
+            })
+            .state('store.product', {
+                url: '/store-product',
+                views: {
+                    '': {
+                        templateUrl: 'storeProduct.html',
+                        controller: 'StoreProductController'
                     }
                 }
             })
@@ -39,5 +47,7 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             })
+
+        $urlRouterProvider.otherwise('/store');
 
     });

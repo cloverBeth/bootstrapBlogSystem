@@ -19,12 +19,13 @@ var config = {
       './src/sass' //'./bower_components'
     ],
     libcss:{
-        src :['./bower_components/angular-bootstrap/ui-bootstrap-csp.css']//'./bower_components/mobile-angular-ui/dist/css/*.min.css'
+        src :[]//'./bower_components/mobile-angular-ui/dist/css/*.min.css'
     }
   },
     less: {
         src: [
-            './bower_components/mobile-angular-ui/src/less/mobile-angular-ui-base.less'
+            './bower_components/mobile-angular-ui/src/less/mobile-angular-ui-base.less',
+            './bower_components/Swiper/src/less/swiper.less'
         ],
         paths: [
             './bower_components'
@@ -33,6 +34,8 @@ var config = {
     },
   vendor: {
     js: [
+      './bower_components/jquery/dist/jquery.min.js',
+      './bower_components/Swiper/dist/js/swiper.min.js',
       './bower_components/angular/angular.js',
       //'./bower_components/angular-route/angular-route.js',
       './bower_components/angular-ui-router/release/angular-ui-router.js',
@@ -161,7 +164,7 @@ gulp.task('livereload', function () {
 =====================================*/
 
 gulp.task('images', function () {
-  return gulp.src('src/images/**/*')
+  return gulp.src(['src/images/**/*','src/images/*'])
         .pipe(gulp.dest(path.join(config.dest, 'images')));
 });
 

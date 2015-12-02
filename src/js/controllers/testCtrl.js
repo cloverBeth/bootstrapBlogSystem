@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat.controllers.Main')
+angular.module('ZJSY_WeChat')
 
 .controller('TestController', function($scope){
 
