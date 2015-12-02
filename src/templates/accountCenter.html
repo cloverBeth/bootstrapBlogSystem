@@ -1,0 +1,39 @@
+<div class="bge">
+
+<header class="header">
+    <div class="back">
+        <a ui-sref="store"><img src="images/ico_1.png" /></a>
+    </div>
+    <div class="title">
+        {{account.title}}
+    </div>
+</header>
+
+    <div class="main"style="margin-top:47px">
+        <div class="head clearfix">
+            <em><img src="images/head.png" /></em>
+            <p>
+                {{account.tel}}
+            </p>
+        </div>
+        <div class="personal">
+            <ul>
+                <li>
+                    <a href="#"><em><img src="images/ico_12.png" /></em>我的订单</a>
+                </li>
+                <li>
+                    <a ui-sref="accountAddress"><em><img src="images/ico_13.png" /></em>收货地址</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <strong><em><img src="images/ico_14.png" /></em>联系我们</strong>
+                    <span>{{account.contact}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="btnQ">
+            <a ui-sref="login">退出登录</a>
+        </div>
+    </div>
+</div>

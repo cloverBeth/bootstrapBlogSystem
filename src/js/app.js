@@ -47,6 +47,54 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             })
+            .state('store.detail',{
+                url: '/store-detail',
+                views:{
+                    '':{
+                        templateUrl:'storeDetail.html',
+                        controller:'StoreDetailController'
+                    }
+                }
+            })
+
+        .state('accountCenter', {
+            url: '/account-center',
+            views: {
+                '': {
+                    templateUrl: 'accountCenter.html',
+                    controller: 'AccountCenterController'
+                }
+            }
+        })
+        .state('accountAddress',{
+            url:'/account-address',
+            views:{
+                '':{
+                templateUrl:'accountAddress.html',
+                controller:'AccountAddressController'
+                }
+            }
+        })
+
+        .state('editAddress',{
+            url:'/edit-address',
+            views:{
+                '':{
+                    templateUrl:'editAddress.html',
+                    controller:'EditAddressController'
+                }
+            }
+        })
+        .state('login',{
+            url: '/login',
+            views: {
+                '': {
+                    templateUrl: 'login.html',
+                    controller: 'LoginController'
+                }
+            }
+
+        })
 
         $urlRouterProvider.otherwise('/store');
 
