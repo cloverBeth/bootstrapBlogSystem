@@ -1,0 +1,32 @@
+
+<div class="bge">
+
+    <header class="header">
+        <div class="back">
+            <a ui-sref="accountCenter"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            {{login.title}}
+        </div>
+    </header>
+
+    <div class="main"style="margin-top:50px;">
+        <div class="iphone">
+            <ul>
+                <li><span>您的手机号</span>
+                    <input type="text" value="" class="input1"style="font-size: 20px" ng-model="telphone"/>
+                </li>
+                <li><span>您的验证码</span>
+                    <input type="text" value="" class="input2" style="font-size: 20px"ng-model="captcha"/>
+                    <a type="button" href="javascript:;" ng-class="{disabled:captchaDisabled}" class="btn btn-default" ng-click="setTime()">
+                        {{captchaBtn}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="redBtn">
+            <a href="#">确定</a>
+        </div>
+    </div>
+
+</div>
