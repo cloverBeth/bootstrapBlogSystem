@@ -1,361 +1,108 @@
 
-<div class="main bge">
+<div class="main bge" ng-style="{height:mainHeight-42}">
 
     <div class="sound">
-        本店推出30元起送货上门服务，欢迎预定！ <a href="javascript:;" id="notice" class="blue">详情 ></a>
+        {{notice.title}}<a href="javascript:;" id="notice" class="blue">详情</a>
     </div>
-    <div class="sideNav fl">
+    <div class="sideNav fl" ng-style="{height:mainHeight-79}">
         <ul>
-            <li class="hover1"><a href="#hot" class="hover"><img src="images/ico_3.png" />热卖推荐</a></li>
-            <li><a href="#cfood">中式快车</a></li>
-            <li><a href="#wfood">西餐咖啡</a></li>
-            <li><a href="#noodle">面食面条</a></li>
-            <li><a href="#wonton">馄饨砂锅</a></li>
+            <li class="hover1">
+                <a scroll-on-click scrollBase="#base" scrollFirst="#hot" scrollHref="#hot"
+                   class="hover" href="javascript:;"><img src="images/ico_3.png" />热卖推荐</a>
+            </li>
+            <li ng-repeat="cate in cates track by $index">
+                <a scroll-on-click scrollBase="#base" scrollFirst="#hot" scrollHref="#{{cate.sec}}" href="javascript:;">{{cate.name}}</a>
+            </li>
         </ul>
+
     </div>
-    <div class="productList fr">
-        <div class="greens relR scrollable-content">
+    <div class="productList fr" ng-style="{height:mainHeight-79}">
+        <div class="greens relR scrollable-content" id="base">
             <ul class="clearfix" id="hot">
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
+                <li ng-repeat="hot in hots track by $index">
+                    <em><a href="javascript:;" class="showPH">
+                        <img src="{{hot.img}}" /></a></em>
                     <p>
-                        <strong>热卖推荐</strong>
-                        <b class="org">￥18.5</b>
+                        <strong>{{hot.name}}</strong>
+                        <b class="org">￥{{hot.price}}</b>
                     </p>
                     <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-            </ul>
-
-            <ul class="clearfix" id="cfood">
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>中式快车</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>中式快车</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-            </ul>
-
-            <ul class="clearfix" id="wfood">
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>西餐咖啡</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>西餐咖啡</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
+                        <a href="javascript:;" ng-click="addProduct(hot.id)" class="add"><img src="images/ico_a.png" /></a>
+                        <span>
+                            {{
+                               _.find(cart.products,{id:hot.id})
+                            ? _.find(cart.products,{id:hot.id}).buyNum
+                            : 0
+                            }}
+                        </span>
+                        <a href="javascript:;" ng-click="removeProduct(hot.id)" class="sub"><img src="images/ico_j.png" /></a>
                     </div>
                 </li>
 
             </ul>
 
-            <ul class="clearfix" id="noodle">
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
+            <ul class="clearfix" ng-repeat="cate in cates track by $index" id="{{cate.sec}}">
+                <li ng-repeat="pro in cate.products">
+                    <em >
+                        <a href="javascript:;" class="showPH"><img src="{{pro.img}}" /></a>
+                    </em>
                     <p>
-                        <strong>面食面条</strong>
-                        <b class="org">￥18.5</b>
+                        <strong>{{pro.name}}</strong>
+                        <b class="org">￥{{pro.price}}</b>
                     </p>
                     <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
+                        <a href="javascript:;" class="add" ng-click="addProduct($event,pro.id)"><img src="images/ico_a.png" /></a>
+                        <span>
+                            {{
+                                _.find(cart.products,{id:pro.id})?
+                            _.find(cart.products,{id:pro.id}).buyNum :
+                            0
+                            }}
+                        </span>
+                        <a href="javascript:;" class="sub" ng-click="removeProduct($event,pro.id)"><img src="images/ico_j.png" /></a>
                     </div>
                 </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>面食面条</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-
             </ul>
-
-            <ul class="clearfix" id="wonton">
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>馄饨砂锅</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>馄饨砂锅</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-                <li>
-                    <em><a href="javascript:;" class="showPH"><img src="images/ph_1.jpg" /></a></em>
-                    <p>
-                        <strong>鸡翅饭套餐</strong>
-                        <b class="org">￥18.5</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add"><img src="images/ico_a.png" /></a><span>0</span><a href="javascript:;" class="sub"><img src="images/ico_j.png" /></a>
-                    </div>
-                </li>
-
-            </ul>
-
         </div>
     </div>
 
     <div class="clear"></div>
+
 </div>
+
 <footer class="footer">
     <div class="shop clearfix">
-        <p><font>满￥30起送</font><img src="images/ico_9.png" /> 购物车是空的</p>
-        <div class="clearfix"  style="display:none">
-            <em><img src="images/ico_9.png" /><b>0</b></em>
-            <strong>￥24.00<font>还差￥6起送</font></strong>
+        <p ng-show="cart.products.length == 0">
+            <font>满￥{{cart.min}}起送</font>
+            <img src="images/ico_9.png"/>
+            购物车是空的
+        </p>
+        <div class="clearfix" ng-show="cart.products.length > 0">
+            <em ng-click="toggleCart()">
+                <img src="images/ico_9.png" />
+                <b>{{cart.products.length}}</b>
+            </em>
+            <strong>￥{{totalPrice}}
+                <font ng-show="cart.min > totalPrice">还差￥{{cart.min - totalPrice}}起送</font>
+            </strong>
             <span><a href="javascript:;">选好了</a></span>
         </div>
     </div>
 </footer>
-
-<div class="shopN">
-    <dl>
-        <dt class="clearfix"><span><a href="javascript:;" id="qk"><img src="images/ico_5.png" /></a></span></dt>
+<div class="cart shopN" ng-show="showCart">
+    <dl ng-style="{height:showCart?'400px':'0px'}">
+        <dt class="clearfix">
+            <span ng-click="toggleCart()" ><a href="javascript:;" id="qk"><img src="images/ico_5.png" /></a></span>
+        </dt>
         <dd>
             <ul>
-                <li><strong>台湾鸡腿饭</strong>
-                    <b class="org">￥13</b>
+                <li ng-repeat="pro in cart.products track by $index">
+                    <strong>{{pro.name}}</strong>
+                    <b class="org">￥{{pro.price * pro.buyNum}}</b>
                     <div class="numN fr">
-                        <a href="javascript:;" class="add1"><img src="images/ico_a1.png" /></a><span>1</span><a href="javascript:;" class="sub1"><img src="images/ico_j1.png" /></a>
-                    </div>
-                </li>
-                <li><strong>鸡腿饭套餐</strong>
-                    <b class="org">￥13</b>
-                    <div class="numN fr">
-                        <a href="javascript:;" class="add1"><img src="images/ico_a1.png" /></a><span>1</span><a href="javascript:;" class="sub1"><img src="images/ico_j1.png" /></a>
-                    </div>
-                </li>
-                <li><strong>台湾鸡腿饭</strong>
-                    <b class="org">￥13</b>
-                    <div class="numN fr">
-                        <a href="javascript:;" class="add1"><img src="images/ico_a1.png" /></a><span>1</span><a href="javascript:;" class="sub1"><img src="images/ico_j1.png" /></a>
-                    </div>
-                </li>
-                <li><strong>鸡腿饭套餐</strong>
-                    <b class="org">￥13</b>
-                    <div class="numN fr">
-                        <a href="javascript:;" class="add1"><img src="images/ico_a1.png" /></a><span>1</span><a href="javascript:;" class="sub1"><img src="images/ico_j1.png" /></a>
+                        <a href="javascript:;" class="add1" ng-click="addProduct(pro.id)"><img src="images/ico_a1.png" /></a>
+                        <span>{{pro.buyNum}}</span>
+                        <a href="javascript:;" class="sub1" ng-click="removeProduct(pro.id)"><img src="images/ico_j1.png" /></a>
                     </div>
                 </li>
             </ul>

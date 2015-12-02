@@ -36,6 +36,7 @@ var config = {
     js: [
       './bower_components/jquery/dist/jquery.min.js',
       './bower_components/Swiper/dist/js/swiper.min.js',
+      './bower_components/lodash/lodash.min.js',
       './bower_components/angular/angular.js',
       //'./bower_components/angular-route/angular-route.js',
       './bower_components/angular-ui-router/release/angular-ui-router.js',
@@ -258,7 +259,7 @@ gulp.task('js', function() {
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
     .pipe(ngAnnotate())
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.join(config.dest, 'js')));

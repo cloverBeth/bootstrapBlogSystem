@@ -15,6 +15,7 @@ body {
   min-height: 100%;
   font-size:12px;
   font-family: '微软雅黑';
+  overflow:auto;
 }
 input,button, textarea, select {-webkit-appearance: none;-moz-appearance:none;appearance: none;border-radius: 0;
   margin: 0;
@@ -95,7 +96,10 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 /*************************首页***************************/
 
 .header{ position:fixed;left:0;top:0; z-index:9;width:100%;background:#fff;border-bottom:1px solid #dddddd;}
-.swiper-container{ position:static;left:0;top:46px;width:100%;z-index:9;}
+.swiper-container{ position:static;left:0;top:46px;width:100%;z-index:9;height: 150px;}
+.swiper-slide img {
+  height: 100%;
+}
 .title{color:#555;text-align:center;font-size:18px;line-height:2.6em;}
 .back{ position:absolute;left:10px;top:13px;}
 .back img{width:10px;}
@@ -124,9 +128,17 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .productList{
   width:75%;
   overflow:auto;
-  position: absolute;
+  position: relative;
+  //height: 100%;
+}
+.sideNav{
+  //height: 100%;
+  overflow:auto;
+  position: relative;
+}
+.main{
   height: 100%;
-  left: 25%;
+  position: relative;
 }
 
 .greens{width:100%; position:relative; background:#fff;}
@@ -141,9 +153,9 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 /*************************加减按钮***************************/
 .num{ position:absolute;right:5%;bottom:10px;width:50%;text-align:right;}
 .num img{width:18px;float:right;}
-.num span{ display:none;float:right;width:28%;text-align:center;font-size:12px;line-height:1.4em;color:#666;}
+.num span{float:right;width:28%;text-align:center;font-size:12px;line-height:1.4em;color:#666;}
 
-.sub{ display:none;}
+.sub{}
 
 /*************************购物车***************************/
 .shop{ position:absolute;left:0;bottom:0;z-index:99;width:100%;background:#404144; z-index:99;}
@@ -156,7 +168,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .shop span{ display:block;float:right;}
 .shop span a{ display:block;font-size:18px;padding:0.4em 1em;line-height:1.6em;color:#fff; background:#dd0000;}
 
-.shop em{ display:block;float:left;width:26px;padding:0.6em;font-size:15px;font-style:normal; cursor:pointer; position:relative;}
+.shop em{ display:block;float:left;width:40px;padding:0.6em;font-size:15px;font-style:normal; cursor:pointer; position:relative;}
 .shop em img{width:26px;margin-right:10px;margin-left:5px;}
 
 .shop em b{ display:block;position:absolute;right:-8px;top:5px; z-index:99;width:22px;height:18px;line-height:17px;padding:0;font-size:12px;text-align:center;font-weight:normal;color:#fff;
@@ -164,17 +176,22 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   -webkit-border-radius:5px;
   border-radius:5px;
 }
+p{
+  margin: 0 !important;
+}
 /*************************购物车弹出框***************************/
-.shopN{ display:none;position:fixed;left:0;top:0;width:100%;height:100%; z-index:10;background:url(../images/bg_1.png) repeat;}
-.shopN dl{ position:absolute;left:0;bottom:-600px;width:100%; z-index:9;background:#fff;}
-.shopN dl dt{padding:0 3%;color:#999999;background:#fff;border-top:2px solid #00aaff;}
-.shopN dl dt span{ display:block;width:33px;}
-.shopN dl dt span img{margin-right:2vw;margin-top:-23px;}
-.shopN dl dt span a{color:#999999;}
-.shopN dl dd{height:80vw; overflow:auto;}
-.shopN li{border-bottom:1px solid #eee;color:#333;padding:8px 3%;width:94%; clear:both; overflow:hidden;}
-.shopN li strong{ display:block;float:left;width:50%;font-size:15px;line-height:2em;}
-.shopN li b{ display:block;float:left;font-size:15px;line-height:2em;width:20%;text-align:right;}
+.cart{position:fixed;left:0;top:0;width:100%;height:100%; z-index:10;background:url(../images/bg_1.png) repeat;}
+.cart dl{
+  transition:all .5s ease-in-out;
+  position:absolute;left:0;bottom:0px;width:100%; z-index:9;background:#fff;}
+.cart dl dt{padding:0 3%;color:#999999;background:#fff;border-top:2px solid #00aaff;}
+.cart dl dt span{ display:block;width:33px;}
+.cart dl dt span img{margin-right:2vw;margin-top:-23px;}
+.cart dl dt span a{color:#999999;}
+.cart dl dd{height:80vw; overflow:auto;}
+.cart li{border-bottom:1px solid #eee;color:#333;padding:8px 3%;width:94%; clear:both; overflow:hidden;}
+.cart li strong{ display:block;float:left;width:50%;font-size:15px;line-height:2em;}
+.cart li b{ display:block;float:left;font-size:15px;line-height:2em;width:20%;text-align:right;}
 
 .numN{width:30%;text-align:right;padding-top:4px;}
 .numN img{ display:block;width:23px;float:right;}
@@ -363,7 +380,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .org{color:#ff4a00;}
 .bge{
   background:#eee;
-  height : 100%;
+  //height : 100%;
 }
 
 .hidd{ overflow:hidden;}
