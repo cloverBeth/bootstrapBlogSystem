@@ -47,15 +47,16 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             })
-            .state('store.detail',{
-                url: '/store-detail',
-                views:{
-                    '':{
-                        templateUrl:'storeDetail.html',
-                        controller:'StoreDetailController'
-                    }
+
+        .state('store.detail',{
+            url: '/store-detail',
+            views:{
+                '':{
+                    templateUrl:'storeDetail.html',
+                    controller:'StoreDetailController'
                 }
-            })
+            }
+        })
 
         .state('accountCenter', {
             url: '/account-center',

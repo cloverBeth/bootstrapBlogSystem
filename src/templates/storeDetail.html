@@ -1,19 +1,88 @@
-<div class="main bge">
-	<div class="store">
-		<em><img src="images/ph_3.jpg" /></em>
-		<strong>{{store.name}}</strong>
-		<div class="clear"></div>
-		<p>
-			起送价:<font>{{store.startrule|currency}}</font> / 配送费:<font>{{store.distribution|currency}}</font>
-		</p>
-	</div>
-	<div class="stores">
-		<h3>商家信息</h3>
-		<ul>
-			<li><span>商家简介：</span><p>{{store.intro}}</p></li>
-			<li><span>商家地址：</span><p>{{store.addr}}</p></li>
-			<li><span>营业时间：</span><p>{{store.openTime}}</p></li>
-			<li><span>商家电话：</span><p>{{store.tel}}</p></li>
-		</ul>
+<div class="main-section">
+	<header class="header">
+		<div class="back">
+			<a ui-sref="store"><img src="images/ico_1.png" /></a>
+		</div>
+		<div class="title">
+			{{storeDetail.title}}
+		</div>
+		<div class="vip">
+			<a ui-sref="accountCenter"><img src="images/vip.png" /></a>
+		</div>
+	</header>
+
+	<div class="main">
+
+
+		<div class="store">
+			<em><img src="images/ph_3.jpg" /></em>
+			<strong ng-model="shop.name">{{storeDetail.name}}</strong>
+			<div class="clear"></div>
+			<p>
+				起送价:<font>{{storeDetail.startrule|currency}}</font> / 配送费:<font>{{storeDetail.distribution|currency}}</font>
+			</p>
+		</div>
+
+		<div class="stores">
+			<h3>商家信息</h3>
+			<ul>
+				<li><span>商家简介：</span><p>{{storeDetail.intro}}</p></li>
+				<li><span>商家地址：</span><p>{{storeDetail.addr}}</p></li>
+				<li><span>营业时间：</span><p>{{storeDetail.openTime}}</p></li>
+				<li><span>商家电话：</span><p>{{storeDetail.tel}}</p></li>
+			</ul>
+		</div>
+
 	</div>
 </div>
+
+
+
+
+
+<!--<header class="header">-->
+	<!--<div class="back">-->
+		<!--<a href="#"><img src="images/ico_1.png" /></a>-->
+	<!--</div>-->
+	<!--<div class="title">-->
+		<!--{{store.title}}-->
+	<!--</div>-->
+	<!--<div class="vip">-->
+		<!--<a href="#"><img src="images/vip.png" /></a>-->
+	<!--</div>-->
+<!--</header>-->
+
+<!--<div class="main bge">-->
+	<!--<div class="navTop">-->
+		<!--<ul class="clearfix">-->
+			<!--<li><a href="#">商品</a></li>-->
+			<!--<li><a href="#">优惠</a></li>-->
+			<!--<li><a href="#" class="hover">商家</a></li>-->
+		<!--</ul>-->
+	<!--</div>-->
+
+	<!--<div class="store">-->
+		<!--<em><img src="images/ph_3.jpg" /></em>-->
+		<!--<strong ng-model="shop.name">{{shops.name}}</strong>-->
+		<!--<div class="clear"></div>-->
+		<!--<p>-->
+			<!--起送价<font>{{shops.startrule|currency}}</font> / 配送费<font>{{shops.distribution|currency}}</font>-->
+		<!--</p>-->
+	<!--</div>-->
+
+	<!--<div class="stores">-->
+		<!--<h3>商家信息</h3>-->
+		<!--<ul>-->
+			<!--<li><span>商家简介：</span><p>{{shops.intro}}</p></li>-->
+			<!--<li><span>商家地址：</span><p>{{shops.addr}}</p></li>-->
+			<!--<li><span>营业时间：</span><p>{{shops.time}}</p></li>-->
+			<!--<li><span>商家电话：</span><p>{{shops.tel}}</p></li>-->
+		<!--</ul>-->
+	<!--</div>-->
+
+<!--</div>-->
+
+
+
+
+

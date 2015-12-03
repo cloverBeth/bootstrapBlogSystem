@@ -12,6 +12,7 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
     $scope.captchaDisabled=false;
     $scope.setTime=function(){
         $scope.captchaDisabled=true;
+        $scope.ensureBtn=true;
         var timer=60;
         var interval=$interval(function(){
             $scope.captchaBtn='请您稍后：'+timer;
@@ -19,9 +20,9 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
             if(timer==0){
                 $interval.cancel(interval);
                 $scope.captchaDisabled=false;
+                $scope.ensureBtn=false;
                 $scope.captchaBtn=btnStr;
             }
         },1000);
-
     }
 });
