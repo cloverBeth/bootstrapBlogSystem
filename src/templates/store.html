@@ -1,4 +1,15 @@
-<div class="swiper-container">
+<header class="header">
+  <div class="back">
+    <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+  </div>
+  <div class="title">
+    盛银中餐厅
+  </div>
+  <div class="vip">
+    <a ui-sref="accountCenter"><img src="images/vip.png" /></a>
+  </div>
+</header>
+<div class="swiper-container" ng-show="isActive('/store-product')">
   <div class="swiper-wrapper">
     <div class="swiper-slide"><img src="images/banner.jpg" width="100%" /></div>
     <div class="swiper-slide"><img src="images/banner.jpg" width="100%" /></div>
@@ -9,9 +20,12 @@
 </div>
 <div class="navTop">
   <ul class="clearfix">
-    <li><a href="#" class="hover">商品</a></li>
-    <li><a href="#">优惠</a></li>
-    <li><a href="shops.html">商家</a></li>
+    <li><a href="javascript:;" ui-sref="store.product"
+           ng-class="{hover:isActive('/store-product')}">商品</a></li>
+    <li><a href="javascript:;" ui-sref="store.sale"
+           ng-class="{hover:isActive('/store-sale')}">优惠</a></li>
+    <li><a href="javascript:;" ui-sref="store.detail"
+           ng-class="{hover:isActive('/store-detail')}">商家</a></li>
   </ul>
 </div>
 <ui-view></ui-view>

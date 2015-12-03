@@ -20,34 +20,33 @@ angular.module('ZJSY_WeChat', [
     //});
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('store', {
-                url: '/store',
-                views: {
-                    '': {
-                        templateUrl: 'store.html',
-                        controller: 'StoreController'
-                    }
+        .state('store', {//将sotreid放在此路由
+            url: '/store',
+            views: {
+                '': {
+                    templateUrl: 'store.html',
+                    controller: 'StoreController'
                 }
-            })
-            .state('store.product', {
-                url: '/store-product',
-                views: {
-                    '': {
-                        templateUrl: 'storeProduct.html',
-                        controller: 'StoreProductController'
-                    }
+            }
+        })
+        .state('store.product', {
+            url: '/store-product',
+            views: {
+                '': {
+                    templateUrl: 'storeProduct.html',
+                    controller: 'StoreProductController'
                 }
-            })
-            .state('test', {
-                url: '/test',
-                views: {
-                    '': {
-                        templateUrl: 'test.html',
-                        controller: 'TestController'
-                    }
+            }
+        })
+        .state('store.sale', {
+            url: '/store-sale',
+            views: {
+                '': {
+                    templateUrl: 'storeSale.html',
+                    controller: 'StoreSaleController'
                 }
-            })
-
+            }
+        })
         .state('store.detail',{
             url: '/store-detail',
             views:{

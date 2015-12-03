@@ -1,0 +1,158 @@
+
+<div class="main bge" ng-style="{height:mainHeight-42}">
+
+	<div class="sound">
+		{{notice.title}}<a href="javascript:;" id="notice" class="blue" ui-turn-on="noticeModal">详情</a>
+	</div>
+
+	<div class="productSaleList fr" ng-style="{height:mainHeight-79}">
+		<div class="greensSale relR scrollable-content" id="base">
+			<ul class="clearfix" id="hot">
+				<li ng-repeat="hot in hots track by $index">
+					<em>
+						<img  ng-click="showProduct(hot.id)" src="{{hot.img}}" />
+					</em>
+					<p>
+						<strong>{{hot.name}}</strong>
+						<b class="org">￥{{hot.price}}</b>
+					</p>
+					<div class="num">
+						<a href="javascript:;"
+						   ng-click="addProduct(hot.id);fly($event)"
+						   ng-hide="_.find(cart.products,{id:hot.id}) &&
+					   		_.find(cart.products,{id:hot.id}).buyNum == _.find(cart.products,{id:hot.id}).num"
+						   class="add">
+							<img src="images/ico_a.png" /></a>
+						<div ng-show="_.find(cart.products,{id:hot.id})">
+						<span>
+							{{
+							   _.find(cart.products,{id:hot.id})
+							? _.find(cart.products,{id:hot.id}).buyNum
+							: 0
+							}}
+						</span>
+							<a href="javascript:;" ng-click="removeProduct(hot.id)" class="sub">
+								<img src="images/ico_j.png" /></a>
+
+						</div>
+					</div>
+				</li>
+
+			</ul>
+			</div>
+		</div>
+</div>
+
+<footer class="footer">
+	<div class="shop clearfix" style="z-index: 20;">
+		<p ng-show="cart.products.length == 0">
+			<font>满￥{{cart.min}}起送</font>
+			<img class="cart-img-zero" src="images/ico_9.png"/>
+			购物车是空的
+		</p>
+		<div class="clearfix" ng-show="cart.products.length > 0">
+			<em ng-click="toggleCart()">
+				<img class="cart-img" src="images/ico_9.png" />
+				<b>{{cart.products.length}}</b>
+			</em>
+			<strong>￥{{totalPrice}}
+				<font ng-show="cart.min > totalPrice">还差￥{{cart.min - totalPrice}}起送</font>
+			</strong>
+			<span><a href="javascript:;">选好了</a></span>
+		</div>
+	</div>
+</footer>
+<div class="cart-cover shopN" ng-show="showCart">
+
+</div>
+
+<div class="cart">
+	<dl ng-style="{'height':showCart?'400px':'0px'}">
+		<dt class="clearfix">
+			<span ng-click="toggleCart()" ><a href="javascript:;" id="qk"><img src="images/ico_5.png" /></a></span>
+		</dt>
+		<dd>
+			<ul>
+				<li ng-repeat="pro in cart.products track by $index">
+					<strong>{{pro.name}}</strong>
+					<b class="org">￥{{pro.price * pro.buyNum}}</b>
+					<div class="numN fr">
+						<a href="javascript:;" class="add1" ng-click="addProduct(pro.id)">
+							<img src="images/ico_a1.png" />
+						</a>
+						<span>{{pro.buyNum}}</span>
+						<a href="javascript:;" class="sub1" ng-click="removeProduct(pro.id)">
+							<img src="images/ico_j1.png" />
+						</a>
+					</div>
+				</li>
+			</ul>
+		</dd>
+	</dl>
+</div>
+
+<div class="product-detail" ng-show="prodectShown">
+	<dl>
+		<dt><em ng-click="prodectShown=false"><img src="images/ico_5.png" /></em></dt>
+		<dd>
+			<em><img src="{{productDetail.img}}" /></em>
+			<h3>{{productDetail.name}}</h3>
+
+			<div class="money clearfix">
+				<strong>￥{{productDetail.price}}</strong>
+
+				<div class="numN fr" style="padding:0;">
+					<a href="javascript:;" class="add1" ng-click="addProduct(productDetail.id)">
+						<img src="images/ico_a1.png">
+					</a>
+				<span>
+					{{
+						_.find(cart.products,{id:productDetail.id})?
+						_.find(cart.products,{id:productDetail.id}).buyNum :
+						0
+					}}
+				</span>
+					<a href="javascript:;" class="sub1" ng-click="removeProduct(productDetail.id)">
+						<img src="images/ico_j1.png">
+					</a>
+				</div>
+			</div>
+
+			<div class="product-detail-content">
+				<strong>商品详情</strong>
+
+				<p>
+					{{productDetail.detail}}
+				</p>
+
+			</div>
+		</dd>
+	</dl>
+</div>
+
+<div ui-content-for="modals">
+	<div class="modal modal-overlay" ui-if='noticeModal' ui-state='noticeModal'>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close"
+							ui-turn-off="noticeModal">&times;</button>
+					<h4 class="modal-title">店家公告</h4>
+				</div>
+				<div class="modal-body">
+					<p >
+						{{notice.content}}
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button ui-turn-off="noticeModal" class="btn btn-default">知道了</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
