@@ -272,8 +272,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         $scope.proLIst = $scope.proLIst.concat(cate.products);
     })
 
-    $scope.addProduct = function($event,id){
-        console.log($event,id)
+    $scope.addProduct = function(id){
         if(_.find($scope.cart.products,{id:id})){
             _.find($scope.cart.products,{id:id}).buyNum ++;
         }else{
@@ -282,12 +281,30 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             );
             _.find($scope.cart.products,{id:id}).buyNum = 1;
         }
+
+    };
+
+    $scope.removeProduct = function(id){
+        if(!_.find($scope.cart.products,{id:id}))return;
+        if(_.find($scope.cart.products,{id:id}).buyNum > 1){
+            _.find($scope.cart.products,{id:id}).buyNum --;
+        }else{
+            $scope.cart.products = _.reject($scope.cart.products,{id:id});
+        }
+    };
+
+    $scope.fly = function($event){
         flyItem($event);
     }
 
     function flyItem(event){
-        var offset = $('.shop em b').offset(),
-            flyer = $('<img class="flyer" src="images/bg_5.png"/>');
+        if($('.cart-img-zero').offset().top == 0){
+            var offset = $('.cart-img').offset();
+        }else{
+            var offset = $('.cart-img-zero').offset();
+        }
+
+        var flyer = $('<img class="flyer" src="images/bg_5.png"/>');
         flyer.fly({
             start: {
                 left: event.pageX,
@@ -302,8 +319,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             peed: 10, //越大越快，默认1.2
             vertex_Rtop:100,
             onEnd: function(){
+                $('.flyer').remove();
                 $(".shop em").addClass("a-shake");
-
 
                 setTimeout(function() {
                     $(".shop em").removeClass("a-shake");
@@ -311,15 +328,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
             }
         });
-    }
-
-    $scope.removeProduct = function($event,id){
-        if(!_.find($scope.cart.products,{id:id}))return;
-        if(_.find($scope.cart.products,{id:id}).buyNum > 1){
-            _.find($scope.cart.products,{id:id}).buyNum --;
-        }else{
-            $scope.cart.products = _.reject($scope.cart.products,{id:id});
-        }
     }
 
 

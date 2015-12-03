@@ -2,7 +2,7 @@
 <div class="main bge" ng-style="{height:mainHeight-42}">
 
     <div class="sound">
-        {{notice.title}}<a href="javascript:;" id="notice" class="blue">详情</a>
+        {{notice.title}}<a href="javascript:;" id="notice" class="blue" ui-turn-on="noticeModal">详情</a>
     </div>
     <div class="sideNav fl" ng-style="{height:mainHeight-79}">
         <ul>
@@ -27,7 +27,7 @@
                         <b class="org">￥{{hot.price}}</b>
                     </p>
                     <div class="num">
-                        <a href="javascript:;" ng-click="addProduct(hot.id)" class="add"><img src="images/ico_a.png" /></a>
+                        <a href="javascript:;" ng-click="addProduct(hot.id);fly($event)" class="add"><img src="images/ico_a.png" /></a>
                         <span>
                             {{
                                _.find(cart.products,{id:hot.id})
@@ -51,7 +51,7 @@
                         <b class="org">￥{{pro.price}}</b>
                     </p>
                     <div class="num">
-                        <a href="javascript:;" class="add" ng-click="addProduct($event,pro.id)"><img src="images/ico_a.png" /></a>
+                        <a href="javascript:;" class="add" ng-click="fly($event);addProduct(pro.id);"><img src="images/ico_a.png" /></a>
                         <span>
                             {{
                                 _.find(cart.products,{id:pro.id})?
@@ -59,7 +59,7 @@
                             0
                             }}
                         </span>
-                        <a href="javascript:;" class="sub" ng-click="removeProduct($event,pro.id)"><img src="images/ico_j.png" /></a>
+                        <a href="javascript:;" class="sub" ng-click="removeProduct(pro.id)"><img src="images/ico_j.png" /></a>
                     </div>
                 </li>
             </ul>
@@ -71,15 +71,15 @@
 </div>
 
 <footer class="footer">
-    <div class="shop clearfix">
+    <div class="shop clearfix" style="z-index: 20;">
         <p ng-show="cart.products.length == 0">
             <font>满￥{{cart.min}}起送</font>
-            <img src="images/ico_9.png"/>
+            <img class="cart-img-zero" src="images/ico_9.png"/>
             购物车是空的
         </p>
         <div class="clearfix" ng-show="cart.products.length > 0">
             <em ng-click="toggleCart()">
-                <img src="images/ico_9.png" />
+                <img class="cart-img" src="images/ico_9.png" />
                 <b>{{cart.products.length}}</b>
             </em>
             <strong>￥{{totalPrice}}
@@ -89,8 +89,12 @@
         </div>
     </div>
 </footer>
-<div class="cart shopN" ng-show="showCart">
-    <dl ng-style="{height:showCart?'400px':'0px'}">
+<div class="cart-cover shopN" ng-show="showCart">
+
+</div>
+
+<div class="cart">
+    <dl ng-style="{'height':showCart?'400px':'0px'}">
         <dt class="clearfix">
             <span ng-click="toggleCart()" ><a href="javascript:;" id="qk"><img src="images/ico_5.png" /></a></span>
         </dt>
@@ -137,14 +141,25 @@
     </dl>
 </div>
 
-<div class="notice">
-    <dl>
-        <dt><em class="close"><img src="images/ico_close.png" /></em></dt>
-        <dd>
-            <h3>商家公告</h3>
-            <p>
-                本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！
-            </p>
-        </dd>
-    </dl>
+
+<div ui-content-for="modals">
+    <div class="modal modal-overlay" ui-if='noticeModal' ui-state='noticeModal'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close"
+                            ui-turn-off="noticeModal">&times;</button>
+                    <h4 class="modal-title">店家公告</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！本地现在冲100元送10元，欢迎充值！
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button ui-turn-off="noticeModal" class="btn btn-default">知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
