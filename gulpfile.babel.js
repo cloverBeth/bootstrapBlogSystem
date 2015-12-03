@@ -112,7 +112,7 @@ import sass from 'gulp-sass';
 
 gulp.on('error', (e) => {
     console.log(e.stack);
-  throw(e);
+  //throw(e);
 });
 
 
@@ -145,7 +145,7 @@ gulp.task('connect', function() {
       livereload: true
     });
   } else {
-    throw new Error('Connect is not configured');
+    //throw new Error('Connect is not configured');
   }
 });
 
@@ -305,7 +305,7 @@ gulp.task('weinre', function() {
     var weinre = require('./node_modules/weinre/lib/weinre');
     weinre.run(config.weinre);
   } else {
-    throw new Error('Weinre is not configured');
+    //throw new Error('Weinre is not configured');
   }
 });
 
