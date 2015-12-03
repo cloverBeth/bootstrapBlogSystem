@@ -131,6 +131,12 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   position: relative;
   //height: 100%;
 }
+.productSaleList{
+  width:100%;
+  overflow:auto;
+  position: relative;
+  //height: 100%;
+}
 .sideNav{
   //height: 100%;
   overflow:auto;
@@ -143,12 +149,23 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 
 .greens{width:100%; position:relative; background:#fff;}
 .greens h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}
-
 .greens li{ position:relative;width:49%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
 .greens li em{ display:block;width:100%;}
 .greens li p{line-height:1.4em;padding-left:10px;padding-bottom:12px;}
 .greens li p strong{ display:block;font-size:15px;color:#666;}
 .greens li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
+
+.greensSale h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}
+.greensSale li{
+  padding-bottom: 20px;
+  background: white;
+  height:100px;
+  position:relative;width:100%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
+.greensSale li em{ display:inline-block;width:50%;height: 100%;}
+.greensSale li em img{ display:block;width:90px;height:90px;margin: auto;}
+.greensSale li p{display:inline-block;line-height:1.4em;padding-left:10px;padding-bottom:12px;}
+.greensSale li p strong{ display:block;font-size:15px;color:#666;}
+.greensSale li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
 
 /*************************加减按钮***************************/
 .num{ position:absolute;right:5%;bottom:10px;width:50%;text-align:right;}
