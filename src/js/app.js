@@ -67,22 +67,22 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('accountAddress',{
-            url:'/account-address',
+        .state('addressAccount',{
+            url:'/address-account',
             views:{
                 '':{
-                templateUrl:'accountAddress.html',
-                controller:'AccountAddressController'
+                templateUrl:'addressAccount.html',
+                controller:'AddressAccountController'
                 }
             }
         })
 
-        .state('editAddress',{
-            url:'/edit-address',
+        .state('addressEdit',{
+            url:'/address-edit',
             views:{
                 '':{
-                    templateUrl:'editAddress.html',
-                    controller:'EditAddressController'
+                    templateUrl:'addressEdit.html',
+                    controller:'AddressEditController'
                 }
             }
         })

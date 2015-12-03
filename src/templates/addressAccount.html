@@ -13,11 +13,11 @@
             <ul>
                 <li>
                     <p>
-                        张三丰    13812348787<br />
-                        苏州市 吴中区 学府花园 10栋 101室
+                        {{address.user}}    {{address.telphone}}<br />
+                        {{address.city}} {{address.district}} {{address.garden}} {{address.house}} {{address.room}}
                     </p>
                         <span>
-                            <a ui-sref="editAddress"><img src="images/ico_10.png" />编辑</a>
+                            <a ui-sref="addressEdit"><img src="images/ico_10.png" />编辑</a>
                         </span>
                 </li>
             </ul>
