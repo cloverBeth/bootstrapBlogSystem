@@ -93,7 +93,15 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-
+        .state('orderSucceed',{
+                url:'/order-succeed',
+                views:{
+                    '':{
+                        templateUrl:'orderSucceed.html',
+                        controller:'OrderSucceedController'
+                    }
+                }
+            })
         .state('addressEdit',{
             url:'/address-edit',
             views:{
