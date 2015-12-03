@@ -76,6 +76,15 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('order',{
+            url:'/order',
+            views:{
+                '':{
+                    templateUrl:'order.html',
+                    controller:'OrderController'
+                }
+            }
+        })
         .state('orderDetail',{
             url:'/order-detail',
             views:{
@@ -85,6 +94,7 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+
         .state('addressEdit',{
             url:'/address-edit',
             views:{

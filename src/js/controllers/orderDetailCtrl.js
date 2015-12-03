@@ -1,6 +1,7 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope){
     $scope.state='未处理';
+    $scope.title='我的订单';
     $scope.carriage=5;
     $scope.credits=0.5;
     $scope.total='';
@@ -16,9 +17,7 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
             price:11.5
         }
     ];
-    console.log($scope.orderDetail)
     $scope.total=45.00;
-    console.log($scope.total);
     $scope.relity=44.50;
     $scope.delivery=[
         {
