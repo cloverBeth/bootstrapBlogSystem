@@ -1,0 +1,45 @@
+<div class="main-section">
+
+    <div class="main main-section"style="margin-top:60px;">
+
+        <dl class="dandl">
+            <dt class="clearfix">
+                <strong>订单详情</strong>
+                <span>{{state}}</span>
+            </dt>
+            <dd>
+                <ul class="danq"
+                        ng-repeat="goods in orderDetail ">
+                    <li><p>{{goods.brands}}{{goods.weight}}*{{goods.standard}}{{goods.units}}</p><span>× {{goods.quantity}}</span><strong>{{goods.price|currency}}</strong></li>
+                </ul>
+            </dd>
+        </dl>
+        <dl class="dandl">
+            <dt class="clearfix">
+                <strong>收货地址</strong>
+            </dt>
+            <dd>
+                <ul class="shou"
+                        ng-repeat="items in delivery ">
+                    <li><span>订单编号</span><p>{{items.number}}</p></li>
+                    <li><span>收货地址</span><p>{{items.city}}  {{items.district}}  {{items.garden}} {{items.house}}<br />{{items.units}} {{items.room}}</p></li>
+                    <li><span>收  货  人</span><p>张三</p></li>
+                    <li><span>支付方式</span><p>货到付款</p></li>
+                </ul>
+            </dd>
+        </dl>
+        <dl class="dandl">
+            <dt class="clearfix">
+                <strong>价格详情</strong>
+            </dt>
+            <dd>
+                <ul class="shou">
+                    <li><span>商品总价</span><p>{{total|currency}}</p></li>
+                    <li><span>运费</span><p>{{carriage|currency}}</p></li>
+                    <li><span>积分抵用</span><p>-{{credits|currency}}</p></li>
+                    <li><span>实付金额</span><p class="org">{{relity|currency}}</p></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</div>

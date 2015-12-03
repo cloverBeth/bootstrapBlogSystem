@@ -5,6 +5,6 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
     }
     $scope.user='sunny';
     $scope.telphone="12345667";
-    $scope.addressdetail="江西抚州临川皇家"
-    console.log('hahah');
+    $scope.addressdetail="江西抚州临川皇家";
+    console.log('哈哈哈');
 });

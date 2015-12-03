@@ -1,0 +1,35 @@
+"use strict";
+angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope){
+    $scope.state='未处理';
+    $scope.carriage=5;
+    $scope.credits=0.5;
+    $scope.total='';
+    $scope.relity='';
+    $scope.orderDetail=[
+        {
+            state:'未处理',
+            brands:'雪碧',
+            weight:'250ml',
+            standard:6,
+            units:'罐装',
+            quantity:3,
+            price:11.5
+        }
+    ];
+    console.log($scope.orderDetail)
+    $scope.total=45.00;
+    console.log($scope.total);
+    $scope.relity=44.50;
+    $scope.delivery=[
+        {
+            number:12225643,
+            city:'苏州市',
+            district:'吴中区',
+            garden:'学府花园',
+            house:'10幢',
+            units:'二单元',
+            room:'103室'
+        }
+    ]
+    console.log('哈哈哈');
+});
