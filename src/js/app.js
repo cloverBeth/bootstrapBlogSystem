@@ -76,7 +76,15 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-
+        .state('orderDetail',{
+            url:'/order-detail',
+            views:{
+                '':{
+                    templateUrl:'orderDetail.html',
+                    controller:'OrderDetailController'
+                }
+            }
+        })
         .state('addressEdit',{
             url:'/address-edit',
             views:{
@@ -96,6 +104,7 @@ angular.module('ZJSY_WeChat', [
             }
 
         })
+
 
         $urlRouterProvider.otherwise('/store');
 
