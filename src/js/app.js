@@ -75,12 +75,12 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('order',{
-            url:'/order',
+        .state('orderList',{
+            url:'/order-list',
             views:{
                 '':{
-                    templateUrl:'order.html',
-                    controller:'OrderController'
+                    templateUrl:'orderList.html',
+                    controller:'OrderListController'
                 }
             }
         })
