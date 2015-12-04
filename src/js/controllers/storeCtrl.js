@@ -1,7 +1,9 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$location,$state){
+angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$location,$state,$stateParams){
     $scope.storeTitle = "盛银中餐厅";
     $scope.title = "";
+
+    console.log('storeId',$stateParams.storeId);
 
     $scope.isActive = function (route) {
         if(_.indexOf($location.path().split('/'),route.split('/')[1])>0){
