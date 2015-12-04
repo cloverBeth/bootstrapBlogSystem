@@ -56,6 +56,15 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('store.cart',{
+            url: '/store-cart',
+            views:{
+                '':{
+                    templateUrl:'storeCart.html',
+                    controller:'StoreCartController'
+                }
+            }
+        })
 
         .state('accountCenter', {
             url: '/account-center',
@@ -109,6 +118,16 @@ angular.module('ZJSY_WeChat', [
                 '': {
                     templateUrl: 'login.html',
                     controller: 'LoginController'
+                }
+            }
+
+        })
+        .state('getOrder',{
+            url: '/getOrder',
+            views: {
+                '': {
+                    templateUrl: 'getOrder.html',
+                    controller: 'GetOrderController'
                 }
             }
 

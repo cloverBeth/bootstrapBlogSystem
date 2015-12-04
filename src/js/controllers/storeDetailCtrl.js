@@ -1,5 +1,8 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('StoreDetailController',function($scope){
+
+    $scope.$parent.title = $scope.$parent.storeTitle;
+
     $scope.storeDetail={
             title:'盛银中餐厅',
             name:'肯德基',

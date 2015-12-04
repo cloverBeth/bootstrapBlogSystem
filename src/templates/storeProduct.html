@@ -84,37 +84,10 @@
 
 </div>
 
-<footer class="footer">
-    <div class="shop clearfix" style="z-index: 20;">
-        <p ng-show="cart.products.length == 0">
-            <font>满￥{{cart.min}}起送</font>
-            <img class="cart-img-zero" src="images/ico_9.png"/>
-            购物车是空的
-        </p>
-        <div class="clearfix" ng-show="cart.products.length > 0">
-            <em ng-click="toggleCart()">
-                <img class="cart-img" src="images/ico_9.png" />
-                <b>{{cart.products.length}}</b>
-            </em>
-            <strong>
-                ￥{{totalPrice}}
-                <font ng-show="cart.min > totalPrice">还差￥{{cart.min - totalPrice}}起送</font>
-            </strong>
-            <span >
-                <a ng-disabled="cart.min > totalPrice" href="javascript:;" ui-sref="store.cart">选好了</a>
-            </span>
-        </div>
-    </div>
-</footer>
-<div class="cart-cover shopN" ng-show="showCart">
 
-</div>
-
-
-
-<div class="product-detail" ng-show="prodectShown">
+<div class="product-detail" ng-show="productShown">
     <dl>
-        <dt><em ng-click="prodectShown=false"><img src="images/ico_5.png" /></em></dt>
+        <dt><em ng-click="productShown=false"><img src="images/ico_5.png" /></em></dt>
         <dd>
             <em><img src="{{productDetail.img}}" /></em>
             <h3>{{productDetail.name}}</h3>

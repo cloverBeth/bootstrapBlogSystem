@@ -262,9 +262,12 @@ p{
 .stores li{width:100%; clear:both; overflow:hidden;padding:8px 0;font-size:15px;line-height:1.4em;color:#888;border-bottom:1px solid #ddd;}
 .stores li span{ display:block;float:left;padding-left:15px;}
 
-.dizi{padding:15px 15px;background:#fff url(../images/ico_7.png) no-repeat 95% center; background-size:10px;border-bottom:1px solid #ddd;}
-.dizi em{ display:block;float:left;width:20px;padding-right:10px;}
-.dizi p{float:left;font-size:15px;line-height:1.6em;color:#666;}
+.address{padding:15px 15px;background:#fff url(../images/ico_7.png) no-repeat 95% center; background-size:10px;border-bottom:1px solid #ddd;}
+.addressNoArrow{
+  background-image: none;
+}
+.address em{ display:block;float:left;width:20px;padding-right:10px;}
+.address p{float:left;font-size:15px;line-height:1.6em;color:#666;}
 
 .shopList{margin-top:15px;background:#fff;font-size:15px;}
 .shopList h3{padding:12px 0;font-size:15px;line-height:1.4em;color:#444;padding-left:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
@@ -274,8 +277,8 @@ p{
 .shopList li p strong{ display:block;color:#666666;font-size:16px;line-height:1.4em;}
 .shopList li p b{ display:block;color:#ff6600;font-size:18px;line-height:1.4em;font-weight:normal;margin-left:-2px;}
 
-.tigo{font-size:15px;line-height:2em;padding:6px 12px;text-align:right;color:#999;}
-.tigo a{color:#666;padding:0 3px;}
+.supply{font-size:15px;line-height:2em;padding:6px 12px;text-align:right;color:#999;}
+.supply a{color:#666;padding:0 3px;}
 
 .parcel{margin-top:15px;background:#fff;font-size:15px;}
 .parcel h3{padding:12px 0;font-size:15px;line-height:1.4em;color:#444;padding-left:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}

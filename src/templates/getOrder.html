@@ -1,0 +1,42 @@
+<header class="header">
+    <div class="back">
+        <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+    </div>
+    <div class="title">
+        结算付款
+    </div>
+</header>
+<div class="navTop" ></div>
+<div class="main ">
+
+    <div class="addressNoArrow address clearfix">
+        <em><img src="images/ico_6.png" /></em>
+        <p>
+            {{username}}    {{phone}}<br />
+            {{address}}
+        </p>
+    </div>
+    <div class="parcel">
+        <h3>包裹详情</h3>
+        <ul>
+            <li ng-repeat="item in order track by $index">
+                <em><a href="#"><img src="{{item.img}}" /></a></em>
+                <p>
+                    <strong>{{item.name}}</strong>
+                    <b>{{item.buyNum}}</b>
+                </p>
+                <span>￥{{item.price * item.buyNum}}</span>
+            </li>
+            <li>
+                <span style="float: right;">
+                    总价 : {{totalPrice}}
+                </span>
+            </li>
+        </ul>
+
+    </div>
+    <div class="pay clearfix">
+        <h3>支付方式</h3><strong>货到付款</strong>
+    </div>
+</div>
+<div class="kong"></div>

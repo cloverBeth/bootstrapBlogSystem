@@ -3,6 +3,8 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope){
     "use strict";
     $scope._ = _;
 
+    $scope.$parent.title = $scope.$parent.storeTitle;
+
     console.log($scope.$parent.$parent.cart,$scope.$parent.$parent.storeId);
 
     $scope.cart = $scope.$parent.$parent.cart;
@@ -72,23 +74,9 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope){
         }
     ]
 
-
-    $scope.totalPrice = 0;
-
     $scope.productDetail = {};
     $scope.prodectShown = false;
 
-    $scope.showCart = false;
-    $scope.toggleCart = function(){
-        $scope.showCart =  !$scope.showCart;
-    };
-
-    $scope.$watch('cart.products',function(cart){
-        $scope.totalPrice = 0;
-        _.forEach($scope.cart.products,function(prod,key){
-            $scope.totalPrice += prod.price * prod.buyNum;
-        });
-    },true);
 
     $scope.mainHeight = $('body').css('height').split('px')[0] -
         $('.navTop').css('height').split('px')[0] -
@@ -124,7 +112,8 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope){
 
     $scope.showProduct = function(id){
         //get data from api instead
-        $scope.productDetail = _.find($scope.proList,{id:id});
+        console.log(id);
+        $scope.productDetail = _.find($scope.hots,{id:id});
         if($scope.productDetail){
             $scope.prodectShown = true;
         }
