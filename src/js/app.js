@@ -1,3 +1,6 @@
+var X_context = {};
+X_context.authorization = "guest";
+
 angular.module('ZJSY_WeChat', [
     //'ngRoute',
     'ui.router',
@@ -18,10 +21,27 @@ angular.module('ZJSY_WeChat', [
     //        });
     //
     //});
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
+
+        $httpProvider.defaults.headers.post = {
+            "Content-Type" : "application/json;charset=utf-8",
+            "x-access-token" : X_context.authorization
+        };
+        $httpProvider.defaults.headers.put = {
+            "Content-Type" : "application/json;charset=utf-8",
+            "x-access-token" : X_context.authorization
+        };
+        $httpProvider.defaults.headers.get = {
+            "x-access-token" : X_context.authorization
+        };
+        $httpProvider.defaults.headers.delete = {
+            "Content-Type" : "application/json;charset=utf-8",
+            "x-access-token" : X_context.authorization
+        };
+
         $stateProvider
         .state('store', {//将sotreid放在此路由
-            url: '/store',
+            url: '/store/{storeId}',
             views: {
                 '': {
                     templateUrl: 'store.html',
@@ -61,17 +81,26 @@ angular.module('ZJSY_WeChat', [
             views:{
                 '':{
                     templateUrl:'storeCart.html',
-                    controller:'StoreCartController'
+                    //controller:'StoreCartController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "StoreCartController";
+                        return ctrlName;
+                    }
                 }
             }
         })
-
         .state('accountCenter', {
             url: '/account-center',
             views: {
                 '': {
                     templateUrl: 'accountCenter.html',
-                    controller: 'AccountCenterController'
+                    //controller: 'AccountCenterController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "AccountCenterController";
+                        return ctrlName;
+                    }
                 }
             }
         })
@@ -79,8 +108,13 @@ angular.module('ZJSY_WeChat', [
             url:'/address-account',
             views:{
                 '':{
-                templateUrl:'addressAccount.html',
-                controller:'AddressAccountController'
+                    templateUrl:'addressAccount.html',
+                    //controller:'AddressAccountController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "AddressAccountController";
+                        return ctrlName;
+                    }
                 }
             }
         })
@@ -90,7 +124,12 @@ angular.module('ZJSY_WeChat', [
             views:{
                 '':{
                     templateUrl:'addressEdit.html',
-                    controller:'AddressEditController'
+                    //controller:'AddressEditController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "AddressEditController";
+                        return ctrlName;
+                    }
                 }
             }
         })
@@ -99,7 +138,12 @@ angular.module('ZJSY_WeChat', [
             views:{
                 '':{
                     templateUrl:'orderList.html',
-                    controller:'OrderListController'
+                    //controller:'OrderListController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "OrderListController";
+                        return ctrlName;
+                    }
                 }
             }
         })
@@ -108,7 +152,12 @@ angular.module('ZJSY_WeChat', [
             views:{
                 '':{
                     templateUrl:'orderDetail.html',
-                    controller:'OrderDetailController'
+                    //controller:'OrderDetailController',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "OrderDetailController";
+                        return ctrlName;
+                    }
                 }
             }
         })
@@ -117,7 +166,12 @@ angular.module('ZJSY_WeChat', [
             views: {
                 '': {
                     templateUrl: 'login.html',
-                    controller: 'LoginController'
+                    //controller: 'LoginController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(checkAuth.check())return $state.go('accountCenter');
+                        var ctrlName = "LoginController";
+                        return ctrlName;
+                    }
                 }
             }
 
@@ -127,7 +181,12 @@ angular.module('ZJSY_WeChat', [
             views: {
                 '': {
                     templateUrl: 'getOrder.html',
-                    controller: 'GetOrderController'
+                    //controller: 'GetOrderController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "GetOrderController";
+                        return ctrlName;
+                    }
                 }
             }
 
@@ -137,12 +196,17 @@ angular.module('ZJSY_WeChat', [
             views:{
                 '':{
                     templateUrl:'orderSucceed.html',
-                    controller:'OrderSucceedController'
+                    //controller:'OrderSucceedController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "OrderSucceedController";
+                        return ctrlName;
+                    }
                 }
             }
         })
 
 
-        $urlRouterProvider.otherwise('/store/store-product');
+        $urlRouterProvider.otherwise('/store/1/store-product');
 
     });
