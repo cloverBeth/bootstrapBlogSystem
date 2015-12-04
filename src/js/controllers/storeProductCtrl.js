@@ -325,7 +325,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     $scope.proList = [];
     _.forEach($scope.cates,function(cate,index){
         $scope.proList = $scope.proList.concat(cate.products);
-    })
+    });
 
     $scope.addProduct = function(id){
         var exist = _.find($scope.cart.products,{id:id});
@@ -400,11 +400,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
 
 //jquery
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 1
 
-    });
 
     $(".greens").on('scroll',function() {
         for(var i=0;i<$(".greens ul").length;i++)

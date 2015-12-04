@@ -9,7 +9,24 @@ table{border-collapse: collapse;border-spacing: 0;}
 html {
   height: 100%;
   -webkit-text-size-adjust: 100%;
+  -webkit-user-select:none;
 }
+a{
+  text-decoration:none;
+}
+a:link{
+  text-decoration: none!important;
+}
+a:hover{
+  text-decoration:none;
+  outline:none;
+}
+
+a:focus{
+  text-decoration:none;
+  outline:none;
+}
+
 body {
   position: relative;
   min-height: 100%;
@@ -184,6 +201,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .shop strong font{font-size:12px;color:#666;padding-left:10px;}
 .shop span{ display:block;float:right;}
 .shop span a{ display:block;font-size:18px;padding:0.4em 1em;line-height:1.6em;color:#fff; background:#dd0000;}
+.shop span button{ display:block;font-size:18px;padding:0.4em 1em;line-height:1.6em;color:#fff; background:#dd0000;}
 
 .shop em{ display:block;float:left;width:40px;padding:0.6em;font-size:15px;font-style:normal; cursor:pointer; position:relative;}
 .shop em img{width:26px;margin-right:10px;margin-left:5px;}
@@ -192,6 +210,9 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   moz-border-radius:5px; background:#dd0000;
   -webkit-border-radius:5px;
   border-radius:5px;
+}
+a[disabled]{
+  opacity: .5;
 }
 p{
   margin: 0 !important;

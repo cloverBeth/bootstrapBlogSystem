@@ -96,10 +96,13 @@
                 <img class="cart-img" src="images/ico_9.png" />
                 <b>{{cart.products.length}}</b>
             </em>
-            <strong>￥{{totalPrice}}
+            <strong>
+                ￥{{totalPrice}}
                 <font ng-show="cart.min > totalPrice">还差￥{{cart.min - totalPrice}}起送</font>
             </strong>
-            <span><a href="javascript:;">选好了</a></span>
+            <span >
+                <a ng-disabled="cart.min > totalPrice" href="javascript:;" ui-sref="store.cart">选好了</a>
+            </span>
         </div>
     </div>
 </footer>
@@ -107,30 +110,7 @@
 
 </div>
 
-<div class="cart">
-    <dl ng-style="{'height':showCart?'400px':'0px'}">
-        <dt class="clearfix">
-            <span ng-click="toggleCart()" ><a href="javascript:;" id="qk"><img src="images/ico_5.png" /></a></span>
-        </dt>
-        <dd>
-            <ul>
-                <li ng-repeat="pro in cart.products track by $index">
-                    <strong>{{pro.name}}</strong>
-                    <b class="org">￥{{pro.price * pro.buyNum}}</b>
-                    <div class="numN fr">
-                        <a href="javascript:;" class="add1" ng-click="addProduct(pro.id)">
-                            <img src="images/ico_a1.png" />
-                        </a>
-                        <span>{{pro.buyNum}}</span>
-                        <a href="javascript:;" class="sub1" ng-click="removeProduct(pro.id)">
-                            <img src="images/ico_j1.png" />
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </dd>
-    </dl>
-</div>
+
 
 <div class="product-detail" ng-show="prodectShown">
     <dl>

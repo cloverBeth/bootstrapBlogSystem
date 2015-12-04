@@ -7,5 +7,11 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
             return false;
         }
     }
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 1
 
+    });
+
+    $scope.cart = $scope.$parent.cart;
 });
