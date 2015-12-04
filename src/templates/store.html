@@ -29,3 +29,27 @@
   </ul>
 </div>
 <ui-view></ui-view>
+<div class="cart" ng-show="isActive('/store-product') || isActive('/store-sale')">
+  <dl ng-style="{'height':showCart?'400px':'0px'}">
+    <dt class="clearfix">
+      <span ng-click="toggleCart()" ><a href="javascript:;" id="qk"><img src="images/ico_5.png" /></a></span>
+    </dt>
+    <dd>
+      <ul>
+        <li ng-repeat="pro in cart.products track by $index">
+          <strong>{{pro.name}}</strong>
+          <b class="org">￥{{pro.price * pro.buyNum}}</b>
+          <div class="numN fr">
+            <a href="javascript:;" class="add1" ng-click="addProduct(pro.id)">
+              <img src="images/ico_a1.png" />
+            </a>
+            <span>{{pro.buyNum}}</span>
+            <a href="javascript:;" class="sub1" ng-click="removeProduct(pro.id)">
+              <img src="images/ico_j1.png" />
+            </a>
+          </div>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+</div>
