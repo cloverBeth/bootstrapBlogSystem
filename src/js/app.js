@@ -77,6 +77,7 @@ angular.module('ZJSY_WeChat', [
         })
         .state('addressAccount',{
             url:'/address-account',
+            params: {from: null},
             views:{
                 '':{
                 templateUrl:'addressAccount.html',
@@ -87,6 +88,7 @@ angular.module('ZJSY_WeChat', [
 
         .state('addressEdit',{
             url:'/address-edit',
+            params: {from: null},
             views:{
                 '':{
                     templateUrl:'addressEdit.html',

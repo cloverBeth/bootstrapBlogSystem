@@ -8,16 +8,16 @@
         </div>
     </header>
 
-    <div class="main mt-48"ng-click="">
+    <div class="main mt-48" >
         <div class="address">
             <ul>
                 <li style="border:none;">
-                    <p>
+                    <p ng-click="goToCart()">
                         {{address.user}}    {{address.telphone}}<br />
                         {{address.city}} {{address.district}} {{address.garden}} {{address.house}} {{address.room}}
                     </p>
                         <span>
-                            <a ui-sref="addressEdit"><img src="images/ico_10.png" />编辑</a>
+                            <a ng-click="editAddress()"><img src="images/ico_10.png" />编辑</a>
                         </span>
                 </li>
             </ul>
