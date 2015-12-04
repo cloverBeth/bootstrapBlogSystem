@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('OrderController',function($scope){
+angular.module('ZJSY_WeChat').controller('OrderListController',function($scope){
     $scope.total='100';
     $scope.title="我的订单";
     $scope.orderlist=[

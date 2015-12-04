@@ -84,12 +84,22 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('order',{
-            url:'/order',
+
+        .state('addressEdit',{
+            url:'/address-edit',
             views:{
                 '':{
-                    templateUrl:'order.html',
-                    controller:'OrderController'
+                    templateUrl:'addressEdit.html',
+                    controller:'AddressEditController'
+                }
+            }
+        })
+        .state('orderList',{
+            url:'/order-list',
+            views:{
+                '':{
+                    templateUrl:'orderList.html',
+                    controller:'OrderListController'
                 }
             }
         })
@@ -99,16 +109,6 @@ angular.module('ZJSY_WeChat', [
                 '':{
                     templateUrl:'orderDetail.html',
                     controller:'OrderDetailController'
-                }
-            }
-        })
-
-        .state('addressEdit',{
-            url:'/address-edit',
-            views:{
-                '':{
-                    templateUrl:'addressEdit.html',
-                    controller:'AddressEditController'
                 }
             }
         })
