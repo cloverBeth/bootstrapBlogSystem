@@ -38,4 +38,9 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
 
         }
     ];
+
+    $scope.totalPrice = 0;
+    _.forEach($scope.order,function(item,index){
+        $scope.totalPrice += item.price * item.buyNum;
+    })
 });
