@@ -14,7 +14,9 @@ angular.module('ZJSY_WeChat').controller('AddressAccountController',function($sc
 
     $scope.goToCart = function(){
         console.log('click');
-        if($stateParams.from && $stateParams.from.fromCart)$state.go('store.cart');
+        if($stateParams.from && $stateParams.from.fromCart){
+            $state.go('store.cart');
+        }
     }
 
 

@@ -9,20 +9,49 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
     $scope.telphone = '';
     $scope.captcha = '';
     $scope.captchaBtn = btnStr;
-    $scope.captchaDisabled=false;
+    $scope.captchaDisabled = false;
+
     $scope.setTime=function(){
-        $scope.captchaDisabled=true;
-        $scope.ensureBtn=true;
-        var timer=60;
-        var interval=$interval(function(){
-            $scope.captchaBtn='请您稍后：'+timer;
-            timer--;
-            if(timer==0){
-                $interval.cancel(interval);
-                $scope.captchaDisabled=false;
-                $scope.ensureBtn=false;
-                $scope.captchaBtn=btnStr;
-            }
-        },1000);
+        if($scope.captchaDisabled==true){
+            return;
+        }
+            $scope.captchaDisabled=true;
+            $scope.ensureBtn=true;
+            var timer=60;
+            var interval=$interval(function(){
+                    $scope.captchaBtn='请您稍后：'+timer;
+                    timer--;
+                    if(timer==0){
+                        $interval.cancel(interval);
+                        $scope.captchaDisabled=false;
+                        $scope.captchaBtn=btnStr;
+                    }
+
+
+            },1000);
     }
+
+    $scope.phoneReg=/^([0-9]{11})$/;
+
+    $scope.getCheckNum=function(){
+        if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
+            $scope.captchaDisabled=false;
+            console.log( $scope.captchaDisabled);
+        }
+        else{
+            $scope.captchaDisabled=true;
+            console.log( $scope.captchaDisabled);
+        }
+    }
+
+    $(function(){
+        $scope.befocus=function(){
+            $('#usertel').focus();
+        }
+        $scope.getfocus=function(){
+            $('#usercheck').focus();
+        }
+
+    });
+
 });
