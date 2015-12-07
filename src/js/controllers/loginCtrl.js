@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$interval){
+angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$interval,$http){
 
     $scope.login = {
         title: '验证手机'
@@ -10,7 +10,7 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
     $scope.captcha = '';
     $scope.captchaBtn = btnStr;
     $scope.captchaDisabled=false;
-    $scope.setTime=function(){
+    function setTime(){
         $scope.captchaDisabled=true;
         $scope.ensureBtn=true;
         var timer=60;
@@ -24,5 +24,16 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
                 $scope.captchaBtn=btnStr;
             }
         },1000);
+    };
+
+    $scope.getCaptcha = function(){
+        $http.post(`${X_context.api}member/fetchAuthCode`,{
+            phoneNum : $scope.telphone
+        })
+            .success(function(data){
+                console.log('data',data);
+            });
+        setTime();
     }
+
 });

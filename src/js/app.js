@@ -1,5 +1,6 @@
 var X_context = {};
 X_context.authorization = "guest";
+X_context.api = "http://192.168.3.192:8080/zjsy/api/v1/";
 
 angular.module('ZJSY_WeChat', [
     //'ngRoute',
@@ -22,21 +23,26 @@ angular.module('ZJSY_WeChat', [
     //
     //});
     .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
+        //$httpProvider.defaults.useXDomain = true;
 
         $httpProvider.defaults.headers.post = {
             "Content-Type" : "application/json;charset=utf-8",
-            "x-access-token" : X_context.authorization
-        };
+            "Authorization" : X_context.authorization
+
+    };
         $httpProvider.defaults.headers.put = {
             "Content-Type" : "application/json;charset=utf-8",
-            "x-access-token" : X_context.authorization
+            "Authorization" : X_context.authorization
+
         };
         $httpProvider.defaults.headers.get = {
-            "x-access-token" : X_context.authorization
+            "Authorization" : X_context.authorization
+
         };
         $httpProvider.defaults.headers.delete = {
             "Content-Type" : "application/json;charset=utf-8",
-            "x-access-token" : X_context.authorization
+            "Authorization" : X_context.authorization
+
         };
 
         $stateProvider
