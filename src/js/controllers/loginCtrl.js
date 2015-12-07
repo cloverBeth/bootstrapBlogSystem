@@ -37,7 +37,7 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
 
     $scope.phoneReg=/^([0-9]{11})$/;
 
-    $scope.getCheckNum=function(){
+    $scope.getEnSure=function(){
         if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
             $scope.captchaDisabled=false;
             console.log( $scope.captchaDisabled);
