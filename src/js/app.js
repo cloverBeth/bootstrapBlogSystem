@@ -24,7 +24,7 @@ angular.module('ZJSY_WeChat', [
     //});
     .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         //$httpProvider.defaults.useXDomain = true;
-
+        $httpProvider.interceptors.push('ajaxInterceptor');
         $httpProvider.defaults.headers.post = {
             "Content-Type" : "application/json;charset=utf-8",
             "Authorization" : X_context.authorization
@@ -216,5 +216,6 @@ angular.module('ZJSY_WeChat', [
 
 
         $urlRouterProvider.otherwise('/store/1/store-product');
+
 
     });
