@@ -15,7 +15,7 @@
         <form class="main mt-48 form-horizontal"name="addForm">
             <div class="iphone form-group">
                     <label for="telphone" class="col-sm-3 control-label">您的手机号:</label>
-                    <input id="telphone" type="phone"  id="telphone" ng-pattern="phoneReg" placeholder="您的手机号"class="input1"style="font-size: 20px"
+                    <input id="telphone" type="phone" ng-pattern="phoneReg"class="input1"style="font-size: 20px"
                            ng-model="telphone"name="phoneInput"required/>
             </div>
             <div class="iphone form-group">
@@ -30,7 +30,7 @@
                     </button>
             </div>
             <div class="redBtn form-group">
-                <button type="submit" ng-disabled="addForm.$invalid" class="btn btn-lg btn-block ensure"ng-click="getCheckNum()">确定</button>
+                <button type="submit" ng-disabled="addForm.$invalid" class="btn col-sm-8 btn-lg btn-block ensure"ng-click="getEnSure()">确定</button>
             </div>
     </form>
 </div>
