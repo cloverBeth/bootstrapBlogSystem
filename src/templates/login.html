@@ -12,61 +12,25 @@
 
 
 
-
-    <!--<form class="form-horizontal mt-48">-->
-        <!--<div class="form-group">-->
-            <!--<label for="inputEmail3" class="col-sm-2 control-label">您的手机</label>-->
-            <!--<div class="col-sm-10">-->
-                <!--<input type="email" class="form-control" id="inputEmail3" placeholder="您的手机">-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="form-group">-->
-            <!--<label for="inputPassword3" class="col-sm-2 control-label">您的验证码</label>-->
-            <!--<div class="col-sm-10">-->
-                <!--<input type="password" class="form-control" id="inputPassword3" placeholder="您的验证码">-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="form-group">-->
-            <!--<div class="col-sm-offset-2 col-sm-10">-->
-                    <!--<a type="button" href="javascript:;"-->
-                       <!--ng-class="{disabled:captchaDisabled}"-->
-                       <!--class="btn btn-default"-->
-                       <!--ng-click="setTime()">-->
-                        <!--{{captchaBtn}}-->
-                    <!--</a>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="form-group redBtn">-->
-                    <!--<a href="#" ng-class="{disabled:ensureBtn}"class="btn col-sm-8 btn-danger"ng-click="">确定</a>-->
-        <!--</div>-->
-    <!--</form>-->
-
         <form class="main mt-48 form-horizontal"name="addForm">
             <div class="iphone form-group">
-                <ul>
-                    <li>
-                        <label for="inputEmail3" class="col-sm-3 control-label"
-                               ng-click="befocus()">您的手机号</label>
-                        <input id="usertel" type="phone"  id="inputEmail3" ng-pattern="phoneReg" placeholder="您的手机号"class="input1"style="font-size: 20px"
-
-                               ng-model="telphone"required name="phoneInput"/>
-                    </li>
-                    <li>
-                        <label class="col-sm-3 control-label"for="inputPassword3"
-                               ng-click="getfocus()">您的验证码</label>
-                        <input id="usercheck"type="text" id="inputPassword3" value=""class="input2" style="font-size: 20px"
-                               ng-model="captcha"required/>
-                        <button type="button" href="javascript:;"
-                           ng-disabled="addForm.phoneInput.$invalid"
-                           class="btn btn-default"
-                           ng-click="setTime()">
-                            {{captchaBtn}}
-                        </button>
-                    </li>
-                </ul>
+                    <label for="telphone" class="col-sm-3 control-label">您的手机号:</label>
+                    <input id="telphone" type="phone"  id="telphone" ng-pattern="phoneReg" placeholder="您的手机号"class="input1"style="font-size: 20px"
+                           ng-model="telphone"name="phoneInput"required/>
+            </div>
+            <div class="iphone form-group">
+                    <label class="col-sm-3 control-label"for="checknum">您的验证码:</label>
+                    <input type="text" id="checknum" value="" class="input2" style="font-size: 20px"
+                           ng-model="captcha"required/>
+                    <button type="button" href="javascript:;"
+                       ng-disabled="addForm.phoneInput.$invalid"
+                       class="btn btn-default"
+                       ng-click="setTime()">
+                        {{captchaBtn}}
+                    </button>
             </div>
             <div class="redBtn form-group">
-                <button type="submit" ng-disabled="addForm.$invalid" class="btn btn-lg btn-block btn-danger"ng-click="getCheckNum()">确定</button>
+                <button type="submit" ng-disabled="addForm.$invalid" class="btn btn-lg btn-block ensure"ng-click="getCheckNum()">确定</button>
             </div>
     </form>
 </div>

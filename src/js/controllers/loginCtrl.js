@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$interval){
+angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$interval,$http){
 
     $scope.login = {
         title: '验证手机'
@@ -15,10 +15,15 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
         if($scope.captchaDisabled==true){
             return;
         }
-            $scope.captchaDisabled=true;
-            $scope.ensureBtn=true;
-            var timer=60;
-            var interval=$interval(function(){
+        $http.post(X_context.api + "member/fetchAuthCode",{
+            "phoneNum" : $scope.telphone
+        })
+            .success(function(data){
+                console.log(data);
+                $scope.captchaDisabled=true;
+                $scope.ensureBtn=true;
+                var timer=60;
+                var interval=$interval(function(){
                     $scope.captchaBtn='请您稍后：'+timer;
                     timer--;
                     if(timer==0){
@@ -26,9 +31,8 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
                         $scope.captchaDisabled=false;
                         $scope.captchaBtn=btnStr;
                     }
-
-
-            },1000);
+                },1000);
+            });
     }
 
     $scope.phoneReg=/^([0-9]{11})$/;
@@ -37,21 +41,33 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
         if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
             $scope.captchaDisabled=false;
             console.log( $scope.captchaDisabled);
+            $http.post(X_context.api + "member/weixinLogin",{
+                phoneNum : $scope.telphone,
+                authCode : $scope.captcha
+            })
+            .success(function(data){
+                    console.log('data.data.token',data.data.token)
+                if(data.data.token){
+                    X_context.authorization = data.data.token;
+                }
+                window.history.back();
+            })
         }
-        else{
-            $scope.captchaDisabled=true;
-            console.log( $scope.captchaDisabled);
-        }
+        //else{
+        //    $scope.captchaDisabled=true;
+        //    console.log( $scope.captchaDisabled);
+        //}
     }
 
-    $(function(){
-        $scope.befocus=function(){
-            $('#usertel').focus();
-        }
-        $scope.getfocus=function(){
-            $('#usercheck').focus();
-        }
+    //$(function(){
+    //    $scope.befocus=function(){
+    //        $('#usertel').focus();
+    //    }
+    //    $scope.getfocus=function(){
+    //        $('#usercheck').focus();
+    //    }
+    //});
 
-    });
+
 
 });
