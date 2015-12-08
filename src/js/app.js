@@ -1,5 +1,5 @@
 var X_context = {};
-X_context.authorization = "ad1"//"guest";
+X_context.authorization = "ad"//"guest";
 X_context.api = "http://192.168.6.43/zjsy/api/v1/";
 
 angular.module('ZJSY_WeChat', [
@@ -207,7 +207,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('orderDetail',{
-            url:'/order-detail',
+            url:'/order-detail/{orderId}',
             views:{
                 '':{
                     templateUrl:'orderDetail.html',
