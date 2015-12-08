@@ -1,0 +1,30 @@
+
+<div class="main-section">
+
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            {{card.title}}
+        </div>
+    </header>
+
+
+
+    <form class="main mt-48 form-horizontal row"name="addForm">
+        <div class="iphone form-group">
+            <label for="cardnum" class="col-sm-3 control-label">卡号</label>
+            <input id="cardnum" type="text"class="input1"style="font-size:18px"
+                   ng-model="cardnum"name="cardnum"required/>
+        </div>
+        <div class="iphone form-group mt-0">
+            <label class="col-sm-3 control-label"for="cardpwd">密码</label>
+            <input type="password" id="cardpwd"class="input1" placeholder="请输入密码"style="font-size:18px"
+                   ng-model="cardpwd"required/>
+        </div>
+        <div class="redBtn form-group">
+            <button type="submit"  class="btn col-sm-8 btn-block ensure"ng-click="getEnSure()">确定</button>
+        </div>
+    </form>
+</div>
