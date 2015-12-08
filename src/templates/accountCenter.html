@@ -24,6 +24,9 @@
                 <li>
                     <a ui-sref="addressAccount"><em><img src="images/ico_13.png" /></em>收货地址</a>
                 </li>
+                <li>
+                    <a ui-sref="getOrderByCard"><em><img src="images/ico_13.png" /></em>{{account.payWay}}</a>
+                </li>
             </ul>
             <ul>
                 <li>
@@ -31,6 +34,7 @@
                     <span>{{account.contact}}</span>
                 </li>
             </ul>
+
         </div>
         <div class="btnQ">
             <a ui-sref="login">退出登录</a>
