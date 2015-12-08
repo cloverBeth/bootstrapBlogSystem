@@ -44,7 +44,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
     var productPromise =
     $scope.$parent.storePromise.then(function(){
-        return productPromise = $http.post(X_context.api + 'product/list',{
+        return $http.post(X_context.api + 'product/list',{
             storeId : $scope.$parent.storeId
         }).success(function(data){
             _.forEach(data.data,function(pro,index){
@@ -61,70 +61,90 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         })
     });
 
+    $scope.hotList = [];
+    $scope.$parent.storePromise.then(function(){
+        return $http.post(X_context.api + 'product/list',{
+            storeId : $scope.$parent.storeId,
+            isHot : true
+        }).success(function(data){
+            _.forEach(data.data,function(pro,index){
+                $scope.hotList.push({
+                    id : pro.id,
+                    name : pro.name,
+                    num : pro.amount,
+                    img : pro.img ? pro.img : "images/ph_1.jpg",
+                    detail : pro.specification,
+                    cateId : pro.category,
+                    price : pro.marketPrice
+                });
+            })
+        })
+    });
+
     $q.all([catePromise,productPromise]).then(function(){
 
         console.log('$scope.cateList',$scope.cateList)
         _.forEach($scope.cateList,function(item,index){
-            console.log('asd', _.filter($scope.proList,{cateId : item.id}))
             item.products = _.filter($scope.proList,{cateId : item.id});
         });
     });
 
-    $scope.hots = [
-        {
-            id : 7,
-            name : "中餐盒饭1",
-            price : "18.5",
-            num : "5",
-            img : "images/ph_1.jpg",
-            detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-        },
-        {
-            id : 10,
-            name : "中餐盒饭4",
-            price : "18.5",
-            num : "5",
-            img : "images/ph_1.jpg",
-            detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-
-        },
-        {
-            id : 11,
-            name : "中餐盒饭5",
-            price : "18.5",
-            num : "5",
-            img : "images/ph_1.jpg",
-            detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-
-        },
-        {
-            id : 12,
-            name : "中餐盒饭6",
-            price : "18.5",
-            num : "5",
-            img : "images/ph_1.jpg",
-            detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-
-        },
-        {
-            id : 13,
-            name : "西餐咖啡1",
-            price : "18.5",
-            num : "5",
-            img : "images/ph_1.jpg",
-            detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-
-        },
-        {
-            id : 14,
-            name : "西餐咖啡2",
-            price : "18.5",
-            num : "5",
-            img : "images/ph_1.jpg",
-            detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-
-        }
-    ]
+    $scope.hots = $scope.hotList;
+    //    [
+    //    {
+    //        id : 7,
+    //        name : "中餐盒饭1",
+    //        price : "18.5",
+    //        num : "5",
+    //        img : "images/ph_1.jpg",
+    //        detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
+    //    },
+    //    {
+    //        id : 10,
+    //        name : "中餐盒饭4",
+    //        price : "18.5",
+    //        num : "5",
+    //        img : "images/ph_1.jpg",
+    //        detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
+    //
+    //    },
+    //    {
+    //        id : 11,
+    //        name : "中餐盒饭5",
+    //        price : "18.5",
+    //        num : "5",
+    //        img : "images/ph_1.jpg",
+    //        detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
+    //
+    //    },
+    //    {
+    //        id : 12,
+    //        name : "中餐盒饭6",
+    //        price : "18.5",
+    //        num : "5",
+    //        img : "images/ph_1.jpg",
+    //        detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
+    //
+    //    },
+    //    {
+    //        id : 13,
+    //        name : "西餐咖啡1",
+    //        price : "18.5",
+    //        num : "5",
+    //        img : "images/ph_1.jpg",
+    //        detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
+    //
+    //    },
+    //    {
+    //        id : 14,
+    //        name : "西餐咖啡2",
+    //        price : "18.5",
+    //        num : "5",
+    //        img : "images/ph_1.jpg",
+    //        detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
+    //
+    //    }
+    //]
 
     $scope.cates = $scope.cateList;
     //    [

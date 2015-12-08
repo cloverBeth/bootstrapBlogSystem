@@ -34,7 +34,7 @@
   <footer class="footer">
     <div class="shop clearfix" style="z-index: 20;">
       <p ng-show="cart.products.length == 0">
-        <font>满￥{{cart.min}}起送</font>
+        <font>满￥{{cart.min}}免配送费</font>
         <img class="cart-img-zero" src="images/ico_9.png"/>
         购物车是空的
       </p>
@@ -44,14 +44,14 @@
           <b>{{cart.products.length}}</b>
         </em>
         <strong>￥{{totalPrice}}
-          <font ng-show="cart.min > totalPrice">还差￥{{cart.min - totalPrice}}起送</font>
+          <font ng-show="cart.min > totalPrice">还差￥{{cart.min - totalPrice}}免配送费</font>
         </strong>
         <span ng-hide="isActive('/store-cart')">
-            <a ng-disabled="cart.min > totalPrice" href="javascript:;" ng-click="goToCart()">选好了</a>
+            <a ng-disabled="totalPrice == 0" href="javascript:;" ng-click="goToCart()">选好了</a>
         </span>
 
         <span ng-show="isActive('/store-cart')">
-            <a ng-disabled="cart.min > totalPrice" href="javascript:;" ng-click="getOrder()">去下单</a>
+            <a ng-disabled="totalPrice == 0" href="javascript:;" ng-click="getOrder()">去下单</a>
         </span>
       </div>
     </div>

@@ -1,5 +1,5 @@
-angular.module('ZJSY_WeChat')
 
+angular.module('ZJSY_WeChat')
 .controller('MainController', function($scope,$location){
         "use strict";
         $scope.cart = {
@@ -34,7 +34,9 @@ angular.module('ZJSY_WeChat')
                 //
                 //}
             ],
-            min : 30
+            min : 0,
+            freightFee : 0
         };
         $scope.order = [];
+        X_context.authorization = cookieTool.readCookie('authorization') || X_context.authorization;
 });

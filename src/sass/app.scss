@@ -162,6 +162,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .main{
   height: 100%;
   position: relative;
+  overflow: auto;
 }
 
 .greens{width:100%; position:relative; background:#fff;}
@@ -387,7 +388,7 @@ dl{
 .product-detail dl dt{padding:0 3%;color:#999999;text-align:right;background:#fff;border-top:2px solid #00aaff;}
 .product-detail dl dt em{ display:inline-block;width:33px;}
 .product-detail dl dt em img{margin-right:2vw;margin-top:-23px;}
-.product-detail dd{height:400px; overflow:auto;}
+.product-detail dd{height:450px; overflow:auto;}
 .product-detail dd em{ display:block;padding:0 35px;}
 .product-detail dd h3{font-size:17px;color:#444;line-height:1.6em;padding:0px 0 10px;padding-left:10px;}
 
