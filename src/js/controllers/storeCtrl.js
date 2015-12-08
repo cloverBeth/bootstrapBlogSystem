@@ -1,16 +1,20 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$location,$state,$stateParams,$http){
-    $scope.storeTitle = "盛银中餐厅";
+    $scope.storeTitle = "";
     $scope.title = "";
 
     console.log('storeId',$stateParams.storeId);
     $scope.storeId = $stateParams.storeId;
 
-    var storePromise = $http.post(X_context.api + 'store/list',{
+    $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId
     }).success(function(data){
-        $scope.storeTitle = data.data.rootCategories.storeName;
+        $scope.storeDetail = data.data[0];
+        $scope.storeTitle = data.data[0].storeName;
+        $scope.title = data.data[0].storeName;
     });
+
+
 
 
 
