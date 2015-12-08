@@ -1,6 +1,6 @@
 var X_context = {};
 X_context.authorization = "guest";
-X_context.api = "http://192.168.6.43/zjsy/api/v1/";
+X_context.api = "http:// 192.168.2.193:8080/zjsy/api/v1/";
 
 angular.module('ZJSY_WeChat', [
     //'ngRoute',
@@ -193,6 +193,21 @@ angular.module('ZJSY_WeChat', [
                     controllerProvider: function($state,$stateParams,checkAuth) {
                         if(!checkAuth.check())return $state.go('login');
                         var ctrlName = "GetOrderController";
+                        return ctrlName;
+                    }
+                }
+            }
+
+        })
+        .state('getOrderByCard',{
+            url: '/getOrderByCard',
+            views: {
+                '': {
+                    templateUrl: 'getOrderByCard.html',
+                    //controller: 'GetOrderController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "GetOrderByCardController";
                         return ctrlName;
                     }
                 }
