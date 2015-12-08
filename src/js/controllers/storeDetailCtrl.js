@@ -1,18 +1,17 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('StoreDetailController',function($scope){
 
-    $scope.$parent.title = $scope.$parent.storeTitle;
+    console.log('parent',$scope.$parent);
 
-    $scope.storeDetail={
-            title:'盛银中餐厅',
-            name:'肯德基',
-            startrule:'30',
-            distribution:'6',
-            intro:'the shop is a restaurnt has a long history',
-            addr:'JinJiHu road 1355 park district',
-            openTime:'7:00am-10:00pm',
-            tel:'123456'
+    $scope.$parent.storePromise.then(function(){
+        $scope.storeDetail = {
+            name : $scope.$parent.storeDetail.storeName,
+            startrule : $scope.$parent.storeDetail.start || '30',
+            distribution : $scope.$parent.storeDetail.post || '6',
+            intro : $scope.$parent.storeDetail.post || 'the shop is a restaurnt has a long history',
+            addr : $scope.$parent.storeDetail.address || 'JinJiHu road 1355 park district',
+            openTime : $scope.$parent.storeDetail.open || '7:00am-10:00pm',
+            tel : $scope.$parent.storeDetail.telephone
         }
-
-console.log('hahah');
+    })
 });

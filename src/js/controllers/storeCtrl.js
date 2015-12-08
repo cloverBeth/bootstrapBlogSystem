@@ -6,12 +6,15 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     console.log('storeId',$stateParams.storeId);
     $scope.storeId = $stateParams.storeId;
 
-    var storePromise = $http.post(X_context.api + 'store/list',{
+    $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId
     }).success(function(data){
+        $scope.storeDetail = data.data[0];
         $scope.storeTitle = data.data[0].storeName;
         $scope.title = data.data[0].storeName;
     });
+
+
 
 
 
