@@ -507,7 +507,15 @@ dl{
 .mt-48{
   margin-top:48px;
 }
-
+.site-alert{
+  width:50%;
+  margin-left: 25%;
+  margin-top : 30%;
+  position : absolute !important;
+  top : 0px;
+  z-index: 99999;
+  text-align: center;
+}
 
 
 
