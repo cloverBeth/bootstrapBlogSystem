@@ -1,5 +1,6 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope){
+angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope,$stateParams){
+    console.log($stateParams.orderId);
     $scope.state='未处理';
     $scope.title='我的订单';
     $scope.carriage=5;

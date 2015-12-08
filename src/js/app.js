@@ -142,6 +142,57 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('card',{
+                url:'/card',
+                views:{
+                    '':{
+                        templateUrl:'card.html',
+                        //controller:'CardAccountController'
+                        controllerProvider:function($state,$stateParams,checkAuth){
+                            if(!checkAuth.check()){
+                                return $state.go('login');
+                            }
+                            var ctrlName="CardController";
+                            return ctrlName;
+
+                        }
+                    }
+                }
+            })
+        .state('cardLogin',{
+            url:'/card-login',
+            views:{
+                '':{
+                    templateUrl:'cardLogin.html',
+                    //controller:'CardAccountController'
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check()){
+                            return $state.go('login');
+                        }
+                        var ctrlName="CardLoginController";
+                        return ctrlName;
+
+                    }
+                }
+            }
+        })
+        .state('transactionDetail',{
+            url:'/transaction-detail',
+            views:{
+                '':{
+                    templateUrl:'transactionDetail.html',
+                    //controller:'CardAccountController'
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check()){
+                            return $state.go('login');
+                        }
+                        var ctrlName="TransactionDetailController";
+                        return ctrlName;
+
+                    }
+                }
+            }
+        })
         .state('orderList',{
             url:'/order-list',
             views:{
@@ -157,7 +208,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('orderDetail',{
-            url:'/order-detail',
+            url:'/order-detail/{orderId}',
             views:{
                 '':{
                     templateUrl:'orderDetail.html',
@@ -200,22 +251,7 @@ angular.module('ZJSY_WeChat', [
             }
 
         })
-        .state('getOrderByCard',{
-            url: '/getOrderByCard',
-            views: {
-                '': {
-                    templateUrl: 'getOrderByCard.html',
-                    //controller: 'GetOrderController'
-                    controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(!checkAuth.check())return $state.go('login');
-                        var ctrlName = "GetOrderByCardController";
-                        return ctrlName;
-                    }
-                }
-            }
-
-        })
-        .state('orderSucceed',{
+       .state('orderSucceed',{
             url:'/order-succeed',
             views:{
                 '':{

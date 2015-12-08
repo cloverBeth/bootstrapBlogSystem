@@ -13,6 +13,7 @@ angular.module('ZJSY_WeChat').controller('StoreDetailController',function($scope
             openTime : $scope.$parent.storeDetail.worktime,
             tel : $scope.$parent.storeDetail.telephone,
             storeImage : $scope.$parent.storeDetail.image || 'images/ph_3.jpg'
+
         }
     })
 });

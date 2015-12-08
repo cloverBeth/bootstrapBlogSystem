@@ -291,8 +291,8 @@ p{
 .parcel li span{ display:block;float:right;color:#ff6600;font-size:18px;padding-right:12px;}
 
 .pay{margin:15px 0;background:#fff;font-size:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
-.pay h3{float:left;padding:12px 0;font-size:15px;line-height:1.4em;color:#444;padding-left:15px;}
-.pay strong{ display:block;float:right;color:#999;padding:12px 0;font-size:14px;line-height:1.4em;padding-right:15px;}
+.pay h3{float:left;padding:12px 0;font-size:15px;line-height:.4em;color:#444;padding-left:15px;}
+.pay strong{ display:block;float:right;color:#999;padding:12px 0;font-size:14px;line-height:2.4em;padding-right:15px;}
 
 .succeed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_8.png) no-repeat 10px 16px;background-size:18px;border-bottom:1px solid #ddd;}
 .succeed em{ display:block;float:left;width:20px;padding-right:10px;}
@@ -303,14 +303,14 @@ p{
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
 
-.iphone{margin:15px 0; background:#fff;border-top:1px solid #ddd;}
+.iphone{position:relative;top:15px;background:#fff;border-top:1px solid #ddd;}
 .iphone li{padding:12px 0;font-size:15px;line-height:2em;border-bottom:1px solid #ddd;}
 .iphone li span{padding:0 12px;color:#666;}
 .iphone label.control-label{
-  padding:0 10px 0 40px;font-size:15px;line-height:2em;
+  padding:0 10px 0 40px;font-size:15px;line-height:3em;
 }
 .iphone button.btn{
-  padding:6px 2px;
+  padding:6px 6px;
 }
 .del{ position:absolute;right:15px;top:12px;font-size:15px;line-height:1.4em;}
 
@@ -329,7 +329,7 @@ dl{
 .head em{ display:block;float:left;width:80px;}
 .head p{float:left;padding:20px 0;padding-left:20px;color:#fff;font-size:20px;line-height:2em;}
 
-.personal ul{margin-top:15px; background:#fff;border-top:1px solid #ddd;}
+.personal ul{margin-top:5px; background:#fff;border-top:1px solid #ddd;}
 .personal ul li{clear:both; overflow:hidden;padding:10px;border-bottom:1px solid #ddd;border-bottom:1px solid #ddd;font-size:16px;color:#999;line-height:2.2em;}
 .personal ul li em img{width:28px;margin-top:-3px;padding-right:8px;}
 .personal ul li a{ display:block;font-size:16px;color:#999;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center; background-size:10px;}
@@ -415,8 +415,10 @@ dl{
 }
 
 .redBtn{text-align:center;padding:0 15px 15px;}
-.redBtn button{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#dd0000;
+.redBtn button{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#dd0000;width:80%;
   moz-border-radius:5px;
+  margin:0 auto;
+  margin-top:15px;
   -webkit-border-radius:5px;
   border-radius:5px;}
 
@@ -505,9 +507,7 @@ dl{
 .modal-overlay {
   opacity: 0.8;
 }
-.mt-48{
-  margin-top:48px;
-}
+
 .site-alert{
   width:50%;
   margin-left: 25%;
@@ -519,5 +519,8 @@ dl{
 }
 
 
-
+/****************************************************/
+.mt-48{
+  margin-top:48px;
+}
 
