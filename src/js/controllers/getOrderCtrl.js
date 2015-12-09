@@ -13,4 +13,16 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     _.forEach($scope.order,function(item,index){
         $scope.totalPrice += item.price * item.buyNum;
     })
+
+    $scope.postOrder = function(){
+        var orderList = [];
+        _.forEach($scope.order,function(item,index){
+            orderList.push({
+                productId : item.id,
+                quantity : item.num
+            });
+        });
+
+        $state.go('orderSucceed');
+    }
 });

@@ -1,10 +1,12 @@
 "use strict";
+
 angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$location,$state,$stateParams,$http){
     $scope.storeTitle = "";
     $scope.title = "";
 
     console.log('storeId',$stateParams.storeId);
-    $scope.storeId = $stateParams.storeId;
+    $scope.storeId = $stateParams.storeId || 1;
+    $scope.cart = $scope.$parent.cart;
 
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId
@@ -12,6 +14,8 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         $scope.storeDetail = data.data[0];
         $scope.storeTitle = data.data[0].storeName;
         $scope.title = data.data[0].storeName;
+        $scope.cart.min = data.data[0].freight;
+        $scope.cart.freightFee = data.data[0].freightfee;
     });
 
 
@@ -33,7 +37,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
 
     });
 
-    $scope.cart = $scope.$parent.cart;
+
 
     $scope.showCart = false;
     $scope.toggleCart = function(){
@@ -75,13 +79,13 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     };
 
     $scope.goToCart = function(){
-        if($scope.cart.min > $scope.totalPrice)return;
+        if($scope.totalPrice == 0)return;
         $state.transitionTo('store.cart');
 
     }
 
     $scope.getOrder = function(){
-        if($scope.cart.min > $scope.totalPrice)return;
+        if($scope.totalPrice == 0)return;
         $scope.$parent.order = $scope.cart.products;
         $state.transitionTo('getOrder');
 

@@ -1,12 +1,13 @@
 var X_context = {};
-X_context.authorization = "ad"//"guest";
+X_context.guest = "guest";
+X_context.authorization = X_context.guest;
 X_context.api = "http://192.168.6.43/zjsy/api/v1/";
 
 angular.module('ZJSY_WeChat', [
     //'ngRoute',
     'ui.router',
     //'ui.bootstrap',
-    'mobile-angular-ui'
+    'mobile-angular-ui',
 ])
 
     //.config(function($routeProvider) {
