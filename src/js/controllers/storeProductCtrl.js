@@ -2,6 +2,7 @@
 angular.module('ZJSY_WeChat').controller('StoreProductController', function($scope,$timeout,$http,$q){
 
     $scope._ = _;
+    
 
     $scope.$parent.title = $scope.$parent.storeTitle;
 
