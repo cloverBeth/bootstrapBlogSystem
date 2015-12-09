@@ -291,8 +291,39 @@ p{
 .parcel li span{ display:block;float:right;color:#ff6600;font-size:18px;padding-right:12px;}
 
 .pay{margin:15px 0;background:#fff;font-size:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
-.pay h3{float:left;padding:12px 0;font-size:15px;line-height:.4em;color:#444;padding-left:15px;}
+.pay h3{float:left;padding:12px 0;font-size:15px;line-height:2.4em;color:#444;padding-left:15px;margin-bottom: 0;}
 .pay strong{ display:block;float:right;color:#999;padding:12px 0;font-size:14px;line-height:2.4em;padding-right:15px;}
+
+.pay li {
+  height: 3.5rem;
+  line-height: 3.5rem;
+
+}
+.pay hr{
+  margin: 0;
+}
+.pay-icon {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 10px;
+  background-position: 99% center;
+  background-repeat: no-repeat;
+  background-size: 2.5rem;
+}
+.pay-icon-wechat{
+  float: left;
+  background-image:url(../images/pay-wechat.png)
+}
+.pay-icon-delivery{
+  float: left;
+  background-image:url(../images/pay-freight.png)
+}
+.pay-icon-selected{
+  float: right;
+  background-size: 2rem;
+  background-image:url(../images/ico_8.png)
+}
 
 .succeed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_8.png) no-repeat 10px 16px;background-size:18px;border-bottom:1px solid #ddd;}
 .succeed em{ display:block;float:left;width:20px;padding-right:10px;}

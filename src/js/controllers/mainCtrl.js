@@ -4,39 +4,31 @@ angular.module('ZJSY_WeChat')
         "use strict";
         $scope.cart = {
             products : [
-                //{
-                //    id : 7,
-                //    name : "中餐盒饭1",
-                //    price : "18.5",
-                //    num : "5",
-                //    img : "images/ph_1.jpg",
-                //    buyNum : "1",
-                //    detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-                //},
-                //{
-                //    id : 10,
-                //    name : "中餐盒饭4",
-                //    price : "18.5",
-                //    num : "5",
-                //    buyNum : "2",
-                //    img : "images/ph_1.jpg",
-                //    detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-                //
-                //},
-                //{
-                //    id : 11,
-                //    name : "中餐盒饭5",
-                //    price : "18.5",
-                //    num : "5",
-                //    buyNum : "3",
-                //    img : "images/ph_1.jpg",
-                //    detail : "鸡腿饭是一道菜，使用鸡腿、青椒、黄瓜、米饭做成。依据食谱步骤来完成这道料理。照烧（照り焼き，てりやき，Teriyaki），知名日本菜肴及烹饪方法。"
-                //
-                //}
+                {
+                    id: 0,
+                    name: "雀巢麦片",
+                    num: 156,
+                    img: "images/ph_1.jpg",
+                    detail: "营养高，味道好",
+                    cateId: 1,
+                    price: 30,
+                    buyNum: 1
+                }
             ],
             min : 0,
             freightFee : 0
         };
-        $scope.order = [];
+        $scope.order = [
+            {
+                id: 0,
+                name: "雀巢麦片",
+                num: 156,
+                img: "images/ph_1.jpg",
+                detail: "营养高，味道好",
+                cateId: 1,
+                price: 30,
+                buyNum: 1
+            }
+        ];
         X_context.authorization = cookieTool.readCookie('authorization') || X_context.authorization;
 });

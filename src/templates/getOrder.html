@@ -24,7 +24,7 @@
                     <em><a href="#"><img src="{{item.img}}" /></a></em>
                     <p>
                         <strong>{{item.name}}</strong>
-                        <b>{{item.buyNum}}</b>
+                        <b>x {{item.buyNum}}</b>
                     </p>
                     <span>￥{{item.price * item.buyNum}}</span>
                 </li>
@@ -39,11 +39,30 @@
 
         </div>
         <div class="pay clearfix">
-            <h3>支付方式</h3><strong>货到付款</strong>
+            <!--<h3>支付方式</h3><strong>货到付款</strong>-->
+            <ul class="pay-list block">
+                <li class="pay-item tap-action pay-item-wapweixin icon-ok" ng-click="payOption='card'">
+                    <i class="pay-icon pay-icon-wechat"></i>
+                    一卡通支付
+                    <i class="pay-icon pay-icon-selected"
+                       ng-show="payOption=='card'"></i>
+                </li>
+                <hr>
+                <li class="pay-item tap-action  pay-item-delivery" ng-click="payOption='delivery'">
+                    <i class="pay-icon pay-icon-delivery"></i>
+                    货到付款
+                    <i class="pay-icon pay-icon-selected"
+                       ng-show="payOption=='delivery'"></i>
+            </li>
+            </ul>
         </div>
         <div style="width: 80%;margin: 20px auto;">
-            <button class="btn btn-lg" style="background: #dd0000;width: 100%;" ng-click="postOrder()">
+            <button ng-show="payOption=='delivery'" class="btn btn-lg" style="background: #dd0000;width: 100%;" ng-click="postOrder()">
                 提交订单
+            </button>
+
+            <button ng-show="payOption=='card'" class="btn btn-lg" style="background: #dd0000;width: 100%;" ng-click="postOrderAndPay()">
+                立即支付
             </button>
         </div>
 
