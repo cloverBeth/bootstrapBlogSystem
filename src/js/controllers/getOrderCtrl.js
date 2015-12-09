@@ -7,6 +7,8 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     $scope.phone = "13232311009";
     $scope.address = "香港XX摄影工作室";
 
+    $scope.payOption = "delivery";
+
 
 
     $scope.totalPrice = 0;
@@ -25,4 +27,18 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
 
         $state.go('orderSucceed');
     }
+
+    $scope.postOrderAndPay = function(){
+        var orderList = [];
+        _.forEach($scope.order,function(item,index){
+            orderList.push({
+                productId : item.id,
+                quantity : item.num
+            });
+        });
+
+        $state.go('orderSucceed');
+    }
+
+
 });
