@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 "use strict";
 angular.module('ZJSY_WeChat').controller('StoreProductController', function($scope,$timeout,$http,$q){
 
@@ -490,4 +489,3 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     });
 
 });
->>>>>>> d2f6970b1a5a17d43d3fcfaf6e3b27d1a63ef006

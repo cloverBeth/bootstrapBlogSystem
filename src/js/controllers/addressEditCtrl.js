@@ -18,4 +18,8 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
             window.history.back();
         }
     }
+
+    $scope.goIndex=function(){
+        $state.go('store.product');
+    }
 });
