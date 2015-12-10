@@ -9,7 +9,6 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
     ];
     $http.post(orderListApi,{
         memberId : 3,
-        id:1
     })
         .success(function(data){
             if(!data.data)return;
