@@ -17,7 +17,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
                     number : data.data[i].id,
                     states : data.data[i].orderStatus,
                     orderDate : data.data[i].createDate,
-                    products : [],
+                    products : data.data[i].orderDetail,
                     total : data.data[i].totalPrice,
                     totalNum : 0
                 };
