@@ -4,7 +4,7 @@
 angular.module('ZJSY_WeChat').factory('checkAuth', function () {
     return {
         check : function () {
-            return X_context.authorization != "guest"
+            return X_context.authorization != "guest" && X_context.authorization;
         }
     };
 });
