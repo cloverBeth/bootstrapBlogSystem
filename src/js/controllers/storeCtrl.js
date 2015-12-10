@@ -92,4 +92,9 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         $state.transitionTo('getOrder');
 
     }
+
+    $scope.goIndex=function(){
+        $state.go('store.product',{storeId:X_context.storeId});
+    }
+
 });
