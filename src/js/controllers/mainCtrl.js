@@ -32,5 +32,4 @@ angular.module('ZJSY_WeChat')
                 }
             ]
         };
-        X_context.authorization = cookieTool.readCookie('authorization') || X_context.authorization;
 });

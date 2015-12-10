@@ -50,7 +50,7 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
                 if(data.data[0].token){
                     X_context.authorization = data.data[0].token;
                     //$cookies.put('authorization',X_context.authorization);
-                    cookieTool.createCookie('authorization',X_context.authorization)
+                    createCookie('authorization',X_context.authorization)
                 }
                 window.history.back();
             })

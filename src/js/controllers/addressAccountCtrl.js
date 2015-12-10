@@ -25,6 +25,6 @@ angular.module('ZJSY_WeChat').controller('AddressAccountController',function($sc
     }
 
     $scope.goIndex=function(){
-        $state.go('store.product');
+        $state.go('store.product',{storeId:X_context.storeId});
     }
 });

@@ -8,7 +8,8 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
     }
     console.log('hahah');
     $scope.signOut = function(){
+        console.log('here,logout');
         X_context.authorization = X_context.guest;
-        $state.go('store.product');
+        $state.go('store.product',{storeId:X_context.storeId});
     }
 });

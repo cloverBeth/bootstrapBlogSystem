@@ -4,6 +4,6 @@ angular.module('ZJSY_WeChat').controller('CardController',function($scope,$state
         title:'我的一卡通'
         }
     $scope.goIndex=function(){
-        $state.go('store.product');
+        $state.go('store.product',{storeId:X_context.storeId});
     }
 });

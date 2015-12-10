@@ -20,7 +20,7 @@
 </div>
 <div class="navTop" >
   <ul class="clearfix" ng-show="isActive('/store-product') || isActive('/store-sale') || isActive('/store-detail')">
-    <li><a href="javascript:;" ui-sref="store.product"
+    <li><a href="javascript:;" ui-sref="store.product({storeId:X_context.storeId})"
            ng-class="{hover:isActive('/store-product')}">商品</a></li>
     <li><a href="javascript:;" ui-sref="store.sale"
            ng-class="{hover:isActive('/store-sale')}">优惠</a></li>

@@ -8,6 +8,6 @@ angular.module('ZJSY_WeChat').controller('TransactionDetailController',function(
         order_date:'2015-12-08 00:00:20'
     }];
     $scope.goIndex=function(){
-        $state.go('store.product');
+        $state.go('store.product',{storeId:X_context.storeId});
     }
 });

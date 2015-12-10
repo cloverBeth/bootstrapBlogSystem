@@ -1,9 +1,7 @@
 /**
  * Created by gujun on 15/12/8.
  */
-
-var cookieTool = {
-    createCookie : function(name, value, days) {
+function createCookie(name, value, days) {
         var expires;
 
         if (days) {
@@ -14,9 +12,9 @@ var cookieTool = {
             expires = "";
         }
         document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
-    },
+    }
 
-    readCookie : function(name) {
+function readCookie(name) {
         var nameEQ = encodeURIComponent(name) + "=";
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
@@ -25,10 +23,9 @@ var cookieTool = {
             if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
         }
         return null;
-    },
+    }
 
-    eraseCookie : function(name) {
+function eraseCookie(name) {
         this.createCookie(name, "", -1);
     }
-}
 
