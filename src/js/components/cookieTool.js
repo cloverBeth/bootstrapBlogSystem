@@ -26,6 +26,6 @@ function readCookie(name) {
     }
 
 function eraseCookie(name) {
-        this.createCookie(name, "", -1);
-    }
+        createCookie(name, "", -1);
+}
 

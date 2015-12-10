@@ -23,7 +23,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
         _.forEach($scope.order.product,function(item,index){
             orderList.push({
                 productId : item.id,
-                quantity : item.num,
+                quantity : item.buyNum,
                 unitPrice : item.price
             });
         });
@@ -46,7 +46,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
         _.forEach($scope.order.product,function(item,index){
             orderList.push({
                 productId : item.id,
-                quantity : item.num
+                quantity : item.buyNum
             });
         });
         $state.go('cardLogin',{from:{fromOrder : true, orderId : 1}});

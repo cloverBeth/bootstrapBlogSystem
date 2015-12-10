@@ -28,6 +28,9 @@
            ng-class="{hover:isActive('/store-detail')}">商家</a></li>
   </ul>
 </div>
+<div class="sound" ng-show="isActive('/store-product') || isActive('/store-sale')">
+  {{notice.title}}<a href="javascript:;" style="float: right;margin-right: 20px;" id="notice" class="blue" ui-turn-on="noticeModal">详情</a>
+</div>
 <ui-view></ui-view>
 
 <div ng-show="isActive('/store-product') || isActive('/store-sale') || isActive('/store-cart')">
@@ -82,5 +85,26 @@
         </ul>
       </dd>
     </dl>
+  </div>
+</div>
+<div ui-content-for="modals">
+  <div class="modal modal-overlay" ui-if='noticeModal' ui-state='noticeModal'>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close"
+                  ui-turn-off="noticeModal">&times;</button>
+          <h4 class="modal-title">店家公告</h4>
+        </div>
+        <div class="modal-body">
+          <p >
+            {{notice.content}}
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button ui-turn-off="noticeModal" class="btn btn-default">知道了</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

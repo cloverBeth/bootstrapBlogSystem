@@ -1,11 +1,10 @@
 var X_context = {
     guest : "guest",
-    authorization : readCookie('authorization') || X_context.authorization,
     api : "http://192.168.6.43/zjsy/api/v1/",
     memberId : null,
     memberPhone : ""
 };
-
+X_context.authorization = readCookie('authorization') || X_context.authorization;
 
 angular.module('ZJSY_WeChat', [
     //'ngRoute',

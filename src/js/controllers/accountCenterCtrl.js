@@ -1,8 +1,8 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('AccountCenterController',function($scope,$state,$http){
     console.log('X_context.memberPhone',X_context.memberPhone);
-    if($scope.memberPromise){
-        $scope.memberPromise.then(function(){
+    if($scope.$parent.memberPromise){
+        $scope.$parent.memberPromise.then(function(){
             $scope.account={
                 title : '我的中心',
                 tel : X_context.memberPhone,

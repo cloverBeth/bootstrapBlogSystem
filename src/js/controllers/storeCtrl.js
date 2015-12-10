@@ -8,6 +8,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     $scope.storeId = $stateParams.storeId || X_context.storeId || 1;
     X_context.storeId = $scope.storeId;
     $scope.cart = $scope.$parent.cart;
+    $scope.notice = {};
 
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId
@@ -17,6 +18,8 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         $scope.title = data.data[0].storeName;
         $scope.cart.min = data.data[0].freight;
         $scope.cart.freightFee = data.data[0].freightfee;
+        $scope.notice.title = data.data[0].annTitle;
+        $scope.notice.content = data.data[0].announcement;
     });
 
 

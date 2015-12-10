@@ -11,15 +11,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
     $scope.cart = $scope.$parent.$parent.cart;
 
-    $scope.notice = {
-        title :  "本店推出30元起送货上门服务，欢迎预定!",
-        content : `本地现在冲100元送10元，欢迎充值！\n
-                    本地现在冲100元送10元，欢迎充值！\n
-                    本地现在冲100元送10元，欢迎充值！\n
-                    本地现在冲100元送10元，欢迎充值！\n
-                    本地现在冲100元送10元，欢迎充值！`
-    };
-
     $scope.cateList = [];
     $scope.proList = [];
 

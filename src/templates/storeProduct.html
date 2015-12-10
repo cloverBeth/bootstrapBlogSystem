@@ -1,9 +1,7 @@
 
 <div class="main bge" ng-style="{height:mainHeight-42}">
 
-    <div class="sound">
-        {{notice.title}}<a href="javascript:;" id="notice" class="blue" ui-turn-on="noticeModal">详情</a>
-    </div>
+
     <div class="sideNav fl" ng-style="{height:mainHeight-79}">
         <ul>
             <li class="hover1">
@@ -126,24 +124,3 @@
 </div>
 
 
-<div ui-content-for="modals">
-    <div class="modal modal-overlay" ui-if='noticeModal' ui-state='noticeModal'>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="close"
-                            ui-turn-off="noticeModal">&times;</button>
-                    <h4 class="modal-title">店家公告</h4>
-                </div>
-                <div class="modal-body">
-                    <p >
-                        {{notice.content}}
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button ui-turn-off="noticeModal" class="btn btn-default">知道了</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
