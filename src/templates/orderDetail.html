@@ -17,12 +17,15 @@
         <dl class="dandl">
             <dt class="clearfix">
                 <strong>订单详情</strong>
-                <span>{{state}}</span>
+                <span>{{orderone.states}}</span>
             </dt>
             <dd>
-                <ul class="danq"
-                        ng-repeat="goods in orderDetail ">
-                    <li><p>{{goods.brands}}{{goods.weight}}*{{goods.standard}}{{goods.units}}</p><span>× {{goods.quantity}}</span><strong>¥{{goods.price}}</strong></li>
+                <ul class="danq">
+                    <li ng-repeat="pills in orderone.orderpills track by $index">
+                        <p>{{pills.brands}}{{pills.weight}}*{{pills.standard}}{{pills.bottle}}</p>
+                        <span>× {{pills.quantity}}</span>
+                        <strong>¥{{pills.price}}</strong>
+                    </li>
                 </ul>
             </dd>
         </dl>
@@ -31,12 +34,11 @@
                 <strong>收货地址</strong>
             </dt>
             <dd>
-                <ul class="shou"
-                        ng-repeat="items in delivery ">
-                    <li><span>订单编号</span><p>{{items.number}}</p></li>
-                    <li><span>收货地址</span><p>{{items.city}}  {{items.district}}  {{items.garden}} {{items.house}}<br />{{items.units}} {{items.room}}</p></li>
-                    <li><span>收  货  人</span><p>张三</p></li>
-                    <li><span>支付方式</span><p>货到付款</p></li>
+                <ul class="shou">
+                    <li><span>订单编号</span><p>{{orderone.orderNum}}</p></li>
+                    <li><span>收货地址</span><p>{{orderone.address}}</p></li>
+                    <li><span>收  货  人</span><p>{{orderone.guest}}</p></li>
+                    <li><span>支付方式</span><p>{{orderone.payway}}</p></li>
                 </ul>
             </dd>
         </dl>
@@ -46,10 +48,10 @@
             </dt>
             <dd>
                 <ul class="shou">
-                    <li><span>商品总价</span><p>¥{{total}}</p></li>
-                    <li><span>运费</span><p>¥{{carriage}}</p></li>
-                    <li><span>积分抵用</span><p>-¥{{credits}}</p></li>
-                    <li><span>实付金额</span><p class="org">¥{{relity}}</p></li>
+                    <li><span>商品总价</span><p>¥{{orderone.total}}</p></li>
+                    <li><span>运费</span><p>¥{{orderone.carriage}}</p></li>
+                    <!--<li><span>积分抵用</span><p>-¥{{orderone.credits}}</p></li>-->
+                    <li><span>实付金额</span><p class="org">¥{{orderone.realpay}}</p></li>
                 </ul>
             </dd>
         </dl>

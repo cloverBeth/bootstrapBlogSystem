@@ -1,37 +1,58 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope,$stateParams,$state){
+angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope,$stateParams,$http,$state) {
     console.log($stateParams.orderId);
-    $scope.state='未处理';
-    $scope.title='我的订单';
-    $scope.carriage=5;
-    $scope.credits=0.5;
-    $scope.total='';
-    $scope.relity='';
-    $scope.orderDetail=[
-        {
-            state:'未处理',
-            brands:'雪碧',
-            weight:'250ml',
-            standard:6,
-            units:'罐装',
-            quantity:3,
-            price:11.5
-        }
-    ];
-    $scope.total=45.00;
-    $scope.relity=44.50;
-    $scope.delivery=[
-        {
-            number:12225643,
-            city:'苏州市',
-            district:'吴中区',
-            garden:'学府花园',
-            house:'10幢',
-            units:'二单元',
-            room:'103室'
-        }
-    ]
-    $scope.goIndex=function(){
+
+    $scope.title = '我的订单';
+    var orderListApi = X_context.api + "order/list";
+
+    $scope.orderpills=[];
+
+    $http.post(orderListApi,{
+        id : $stateParams.orderId
+    })
+        .success(function(data){
+            console.log(data.data)
+            var datas=data.data;
+            if(!datas[0]){return;}
+          $scope.orderone = {
+                orderNum :datas[0].orderSn,
+                states : datas[0].orderStatus,
+                address : datas[0].address,
+                guest:datas[0].receiver,
+                payway:datas[0].paymentMethod,
+                total :datas[0].totalPrice,
+                carriage:datas[0].shippingPrice,
+                //credits:datas[0].userPoint,
+                realpay :datas[0].totalPrice+datas[0].shippingPrice,
+                orderpills:[],
+
+            };
+
+            _.forEach(datas[0].orderDetail,function(item){
+
+                $scope.orderone.orderpills.push({
+                    quantity : item.quantity,
+                    standard:item.unitName,
+                    brands:item.productName,
+                    weight:item.itemSn,
+                    id:item.id,
+                    price:item.unitPrice,
+                });
+            })
+            $scope.orderpills.push($scope.orderone);
+            console.log($scope.orderone.orderpills);
+
+        })
+
+
+
+
+
+   $scope.goIndex=function(){
         $state.go('store.product',{storeId:X_context.storeId});
     }
+
+
+
 });
+
