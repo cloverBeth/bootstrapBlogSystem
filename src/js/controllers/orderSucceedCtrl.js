@@ -10,4 +10,9 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
         telphone:'410-567589067'
 
     }
+
+
+    $scope.goIndex=function(){
+        $state.go('store.product',{storeId:X_context.storeId});
+    }
 })

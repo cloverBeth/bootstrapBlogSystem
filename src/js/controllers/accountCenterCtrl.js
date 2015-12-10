@@ -12,4 +12,7 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
         X_context.authorization = X_context.guest;
         $state.go('store.product',{storeId:X_context.storeId});
     }
+    $scope.goIndex=function(){
+        $state.go('store.product',{storeId:X_context.storeId});
+    }
 });
