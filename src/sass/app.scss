@@ -334,8 +334,8 @@ p{
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
 
-.iphone{position:relative;top:15px;background:#fff;border-top:1px solid #ddd;}
-.iphone li{padding:12px 0;font-size:15px;line-height:2em;border-bottom:1px solid #ddd;}
+.iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding: 5px 0;line-height:2.5rem; }
+.iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-bottom:1px solid #ddd;}
 .iphone li span{padding:0 12px;color:#666;}
 .iphone label.control-label{
   padding:0 10px 0 40px;font-size:15px;line-height:3em;
@@ -540,8 +540,8 @@ dl{
 }
 
 .site-alert{
-  width:50%;
-  margin-left: 25%;
+  width:70%;
+  margin-left: 15%;
   margin-top : 30%;
   position : absolute !important;
   top : 0px;
@@ -553,5 +553,20 @@ dl{
 /****************************************************/
 .mt-48{
   margin-top:48px;
+}
+
+.alert-danger {
+  background-color: white !important;
+}
+.card{
+  height: 5rem;
+  line-height: 5rem;
+  background-color: white;
+  margin: 10px 0;
+  padding: 0 10px;
+  font-size: 1.5rem;
+}
+.ng-dirty input.ng-invalid, input.ng-invalid{
+  border: hidden !important;
 }
 

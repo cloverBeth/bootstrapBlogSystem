@@ -86,7 +86,8 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
 
     $scope.getOrder = function(){
         if($scope.totalPrice == 0)return;
-        $scope.$parent.order = $scope.cart.products;
+        $scope.$parent.order.product = $scope.cart.products;
+        $scope.$parent.order.storeId = $scope.storeId;
         $state.transitionTo('getOrder');
 
     }

@@ -161,6 +161,7 @@ angular.module('ZJSY_WeChat', [
             })
         .state('cardLogin',{
             url:'/card-login',
+            params: {from: null},
             views:{
                 '':{
                     templateUrl:'cardLogin.html',

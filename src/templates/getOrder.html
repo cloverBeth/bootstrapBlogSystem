@@ -20,7 +20,7 @@
         <div class="parcel">
             <h3>包裹详情</h3>
             <ul>
-                <li ng-repeat="item in order track by $index">
+                <li ng-repeat="item in order.product track by $index">
                     <em><a href="#"><img src="{{item.img}}" /></a></em>
                     <p>
                         <strong>{{item.name}}</strong>
@@ -30,8 +30,8 @@
                 </li>
                 <li>
                 <span style="float: right;">
-                    总价 : {{totalPrice}} {{$parent.cart.freightFee==0 || totalPrice >= $parent.cart.min
-                                                ? "" : "+" + $parent.cart.freightFee}}
+                    总价 :￥{{totalPrice}} (含配送费￥{{$parent.cart.freightFee==0 || totalPrice >= $parent.cart.min
+                                                ? "0" : $parent.cart.freightFee}})
                 </span>
 
                 </li>

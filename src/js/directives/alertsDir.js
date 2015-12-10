@@ -34,9 +34,9 @@ angular.module('ZJSY_WeChat')
 
                 scope.$on('alerts',function(event, alert){
                     scope.alerts.push({type: alert.type, msg: alert.message});
-                    //$timeout(function(){
-                    //    scope.alerts = _.drop(scope.alerts);
-                    //},5000);
+                    $timeout(function(){
+                        scope.alerts = _.drop(scope.alerts);
+                    },5000);
                 })
             }
         };

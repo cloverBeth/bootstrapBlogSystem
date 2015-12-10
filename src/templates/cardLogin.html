@@ -10,21 +10,27 @@
         </div>
     </header>
 
+    <div style="height: 46px;"></div>
+    <div class="card" ng-show="card.num && !showEdit">
+        <span style="margin-right: 20px;">卡号</span>
+        <span>{{card.num | card:4}}</span>
+        <a href="javascript:;" ng-click="editCard($event)" style="float:right;">修改</a>
+    </div>
 
 
-    <form class="main mt-48 form-horizontal row"name="addForm">
-        <div class="iphone form-group">
+    <div class="form-horizontal row" name="addForm" ng-show="showEdit || !card.num" autocomplete="off">
+        <div class="iphone">
             <label for="cardnum" class="col-sm-3 control-label">卡号</label>
-            <input id="cardnum" type="text"class="input1"style="font-size:18px"
-                   ng-model="cardnum"name="cardnum"required/>
+            <input id="cardnum" type="text" class="input1" style="font-size:18px"
+                   ng-model="card.num" name="cardnum" required/>
         </div>
-        <div class="iphone form-group">
+        <div class="iphone">
             <label class="col-sm-3 control-label"for="cardpwd">密码</label>
-            <input type="password" id="cardpwd"class="input1" placeholder="请输入密码"style="font-size:18px"
-                   ng-model="cardpwd"required/>
+            <input type="password" id="cardpwd"class="input1" style="font-size:18px"
+                   ng-model="card.pwd"required/>
         </div>
-        <div class="redBtn form-group">
-            <button type="submit"  class="btn col-sm-8 btn-block ensure"ng-click="getEnSure()">确定</button>
-        </div>
-    </form>
+    </div>
+    <div class="redBtn form-group">
+        <button type="submit"  class="btn col-sm-8 btn-block ensure" style="line-height:2rem" ng-click="getEnSure()">确定</button>
+    </div>
 </div>
