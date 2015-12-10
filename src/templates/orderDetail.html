@@ -6,7 +6,7 @@
         {{title}}
     </div>
     <div class="del">
-        <a ui-sref="store" class="blue">主页</a>
+        <a ng-click="goIndex()" class="blue">主页</a>
     </div>
 </header>
 
@@ -22,7 +22,7 @@
             <dd>
                 <ul class="danq"
                         ng-repeat="goods in orderDetail ">
-                    <li><p>{{goods.brands}}{{goods.weight}}*{{goods.standard}}{{goods.units}}</p><span>× {{goods.quantity}}</span><strong>{{goods.price | currency}}</strong></li>
+                    <li><p>{{goods.brands}}{{goods.weight}}*{{goods.standard}}{{goods.units}}</p><span>× {{goods.quantity}}</span><strong>¥{{goods.price}}</strong></li>
                 </ul>
             </dd>
         </dl>
@@ -46,10 +46,10 @@
             </dt>
             <dd>
                 <ul class="shou">
-                    <li><span>商品总价</span><p>{{total | currency}}</p></li>
-                    <li><span>运费</span><p>{{carriage | currency}}</p></li>
-                    <li><span>积分抵用</span><p>-{{credits | currency}}</p></li>
-                    <li><span>实付金额</span><p class="org">{{relity | currency}}</p></li>
+                    <li><span>商品总价</span><p>¥{{total}}</p></li>
+                    <li><span>运费</span><p>¥{{carriage}}</p></li>
+                    <li><span>积分抵用</span><p>-¥{{credits}}</p></li>
+                    <li><span>实付金额</span><p class="org">¥{{relity}}</p></li>
                 </ul>
             </dd>
         </dl>

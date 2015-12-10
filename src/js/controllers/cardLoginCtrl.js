@@ -9,11 +9,18 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         num : "11133322313",
         pwd : ""
     };
+
     var posted = false;
 
     $scope.editCard = function($event){
         $event.stopPropagation();
         $scope.showEdit = true;
+    }
+
+
+
+    $scope.goIndex=function(){
+        $state.go('store.product');
     }
 
 

@@ -23,4 +23,8 @@ angular.module('ZJSY_WeChat').controller('AddressAccountController',function($sc
     $scope.editAddress = function(){
         $state.go('addressEdit',{from:{fromCart : $stateParams.from && $stateParams.from.fromCart}});
     }
+
+    $scope.goIndex=function(){
+        $state.go('store.product');
+    }
 });

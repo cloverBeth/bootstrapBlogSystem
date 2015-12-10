@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope,$stateParams){
+angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope,$stateParams,$state){
     console.log($stateParams.orderId);
     $scope.state='未处理';
     $scope.title='我的订单';
@@ -31,5 +31,7 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
             room:'103室'
         }
     ]
-    console.log('哈哈哈');
+    $scope.goIndex=function(){
+        $state.go('store.product');
+    }
 });

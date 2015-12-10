@@ -1,7 +1,9 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('CardController',function($scope){
+angular.module('ZJSY_WeChat').controller('CardController',function($scope,$state){
     $scope.card={
         title:'我的一卡通'
         }
-    console.log('hahah');
+    $scope.goIndex=function(){
+        $state.go('store.product');
+    }
 });

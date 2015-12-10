@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$http){
+angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$http,$state){
     var orderListApi=X_context.api+"order/list";
     //console.log('parent',$scope.$parent);
     $scope.total='100';
@@ -7,9 +7,9 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
     $scope.orderlist=[
 
     ];
-
     $http.post(orderListApi,{
-        memberId : 3
+        memberId : 3,
+        id:1
     })
         .success(function(data){
             if(!data.data)return;
@@ -34,4 +34,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
                 $scope.orderlist.push(order);
             }
         })
+    $scope.goIndex=function(){
+        $state.go('store.product');
+    }
 })

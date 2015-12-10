@@ -5,7 +5,7 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
     }
     $scope.user='sunny';
     $scope.telphone="12345667";
-    $scope.addressdetail="江西抚州临川皇家";
+    $scope.addressdetail="大不列颠帝国英国伦敦";
     console.log('哈哈哈');
 
     console.log("$stateParams",$stateParams.from && $stateParams.from.fromCart);
@@ -17,5 +17,9 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
         } else {
             window.history.back();
         }
+    }
+
+    $scope.goIndex=function(){
+        $state.go('store.product');
     }
 });
