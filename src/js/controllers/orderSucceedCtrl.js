@@ -2,7 +2,7 @@
 angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scope,$state,$http,$stateParams){
     console.log($stateParams.orderId);
     $scope.title="购物成功";
-    $scope.telphone='012-7654987';
+    //$scope.telphone='012-7654987';
 
     var orderListApi = X_context.api + "order/list";
     $http.post(orderListApi,{
@@ -18,6 +18,7 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
                 payway:datas[0].paymentMethod,
                 distribution:datas[0].shippingPrice,
                 expense:datas[0].totalPrice+datas[0].shippingPrice,
+                //telphone:datas[0].telephone
 
             };
 
