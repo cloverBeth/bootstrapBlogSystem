@@ -1,7 +1,8 @@
 
 angular.module('ZJSY_WeChat')
-.controller('MainController', function($scope,$location){
+.controller('MainController', function($scope,$location,$http){
         "use strict";
+        $scope.memberPromise = null;
         $scope.cart = {
             products : [
                 {
@@ -32,4 +33,15 @@ angular.module('ZJSY_WeChat')
                 }
             ]
         };
+        if(X_context.authorization && X_context.authorization!=X_context.guest){
+            $scope.memberPromise = $http.get(X_context.api + 'member/getCurMem')
+                .success(function(data){
+                    if(!data.data[0])return;
+                    X_context.memberId = data.data[0]._id;
+                    X_context.memberPhone = data.data[0].mobile;
+                });
+        }
+
+
+
 });

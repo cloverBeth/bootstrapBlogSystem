@@ -47,10 +47,22 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
             })
             .success(function(data){
                     console.log('data.data.token',data.data.token)
-                if(data.data[0].token){
-                    X_context.authorization = data.data[0].token;
+                if(data.data.token){
+                    X_context.authorization = data.data.token;
+                    $http.defaults.headers.post['Authorization'] = X_context.authorization;
+                    $http.defaults.headers.put['Authorization'] = X_context.authorization;
+                    $http.defaults.headers.get['Authorization'] = X_context.authorization;
+                    $http.defaults.headers.delete['Authorization'] = X_context.authorization;
                     //$cookies.put('authorization',X_context.authorization);
-                    createCookie('authorization',X_context.authorization)
+                    createCookie('authorization',X_context.authorization);
+
+                    $scope.$parent.memberPromise = $http.get(X_context.api + 'member/getCurMem')
+                        .success(function(data){
+                            if(!data.data[0])return;
+                            X_context.memberId = data.data[0]._id;
+                            X_context.memberPhone = data.data[0].mobile;
+                        });
+
                 }
                 window.history.back();
             })
