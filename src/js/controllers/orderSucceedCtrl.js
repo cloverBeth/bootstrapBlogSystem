@@ -1,5 +1,6 @@
 "use strict";
-angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scope,$state){
+angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scope,$state,$stateParams){
+    console.log($stateParams.orderId);
     $scope.title="购物成功";
     $scope.orderSucceed={
         orderNumber:'58579689560',

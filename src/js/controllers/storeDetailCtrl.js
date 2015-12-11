@@ -1,8 +1,6 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('StoreDetailController',function($scope){
 
-    console.log('parent',$scope.$parent);
-
     $scope.$parent.storePromise.then(function(){
         $scope.storeDetail = {
             name : $scope.$parent.storeDetail.storeName,
