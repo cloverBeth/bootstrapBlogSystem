@@ -10,7 +10,7 @@
     </div>
 </header>
 
-<div class="main">
+<div class="main orderdetail">
     <div class="dan"style="margin-top:55px"
             ng-repeat="order in orderlist track by $index">
         <div class="hao clearfix">
@@ -36,3 +36,8 @@
 
 
 </div>
+<script>
+    $(function(){
+        $('div.orderdetail:last').css('padding-bottom','50px');
+    })
+</script>
