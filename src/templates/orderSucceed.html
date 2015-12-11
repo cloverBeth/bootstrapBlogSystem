@@ -19,7 +19,7 @@
         <div class="danhao">
             <p><font>订单编号</font>{{orderSucceed.orderNumber}}</p>
             <p><font>商品数量</font>{{orderSucceed.quantity}}件</p>
-            <p><font>本次消费</font>{{orderSucceed.expense | currency}} （含配送费{{orderSucceed.distribution | currency}}）</p>
+            <p><font>本次消费</font>{{orderSucceed.expense}} （含配送费{{orderSucceed.distribution}}）</p>
         </div>
         <div class="pay clearfix">
             <h3>支付方式</h3><strong>{{orderSucceed.mode}}</strong>
