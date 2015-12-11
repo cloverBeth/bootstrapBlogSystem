@@ -12,25 +12,25 @@
 
 
 
-        <form class="main mt-48 form-horizontal"name="addForm">
-            <div class="iphone form-group">
-                    <label for="telphone" class="col-sm-3 control-label">您的手机号:</label>
-                    <input id="telphone" type="phone" ng-pattern="phoneReg"class="input1"style="font-size: 20px"
-                           ng-model="telphone"name="phoneInput"required/>
-            </div>
-            <div class="iphone form-group">
-                    <label class="col-sm-3 control-label"for="checknum">您的验证码:</label>
-                    <input type="text" id="checknum" value="" class="input2" style="font-size: 20px"
-                           ng-model="captcha"required/>
-                    <button type="button" href="javascript:;"
-                       ng-disabled="addForm.phoneInput.$invalid"
-                       class="btn btn-default"
-                       ng-click="setTime()">
-                        {{captchaBtn}}
-                    </button>
-            </div>
-            <div class="redBtn form-group">
-                <button type="submit" ng-disabled="addForm.$invalid" class="btn col-sm-8 btn-block ensure"ng-click="getEnSure()">确定</button>
-            </div>
+    <form class="main mt-48 form-horizontal container"name="addForm">
+        <div class="iphone form-group row">
+                <label for="telphone" class="col-sm-3 control-label">您的手机号:</label>
+                <input id="telphone" type="phone" ng-pattern="phoneReg"class="input1"style="font-size: 20px"
+                       ng-model="telphone"name="phoneInput"required/>
+        </div>
+        <div class="iphone form-group row">
+                <label class="col-sm-3 control-label"for="checknum">您的验证码:</label>
+                <input type="text" id="checknum" value="" class="input2" style="font-size: 20px"
+                       ng-model="captcha"required/>
+                <button type="button" href="javascript:;"
+                   ng-disabled="addForm.phoneInput.$invalid"
+                   class="btn btn-default"
+                   ng-click="setTime()">
+                    {{captchaBtn}}
+                </button>
+        </div>
+        <div class="redBtn form-group">
+            <button type="submit" ng-disabled="addForm.$invalid" class="btn col-sm-8 btn-block ensure"ng-click="getEnSure()">确定</button>
+        </div>
     </form>
 </div>
