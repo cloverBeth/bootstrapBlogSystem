@@ -37,7 +37,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             "orderItems" : orderList
 
         }).success(function(data){
-                $state.go('orderSucceed',{orderId:data.data[0].id});
+                $state.go('orderSucceed',{orderId:data.data[0]._id});
             });
         }
 
