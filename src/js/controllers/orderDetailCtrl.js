@@ -36,7 +36,6 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
                     brands:item.productName,
                     weight:item.itemSn,
                     id:item.id,
-                    unit:item.unitName,
                     price:item.unitPrice,
 
                 });

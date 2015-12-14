@@ -1,18 +1,19 @@
-<header class="header">
-    <div class="back">
-        <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
-    </div>
-    <div class="title">
-        {{title}}
-    </div>
-    <div class="del">
-        <a ng-click="goIndex()" class="blue">主页</a>
-    </div>
-</header>
+<div class="main-section"style="padding-bottom:50px">
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            {{title}}
+        </div>
+        <div class="del">
+            <a ng-click="goIndex()" class="blue">主页</a>
+        </div>
+    </header>
 
-<div class="main-section">
 
-    <div class="main main-section mt-48">
+
+    <div class="main mt-48">
 
         <dl class="dandl">
             <dt class="clearfix">
@@ -22,7 +23,7 @@
             <dd>
                 <ul class="danq">
                     <li ng-repeat="pills in orderone.orderpills track by $index">
-                        <p>{{pills.brands}}{{pills.weight}}*{{pills.standard}}{{pills.unit}}</p>
+                        <p>{{pills.brands}}{{pills.weight}}*{{pills.standard}}</p>
                         <span>× {{pills.quantity}}</span>
                         <strong>¥{{pills.price}}</strong>
                     </li>

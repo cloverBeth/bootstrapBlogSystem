@@ -114,6 +114,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 /*************************首页***************************/
 
 .header{ position:fixed;left:0;top:0; z-index:9;width:100%;background:#fff;border-bottom:1px solid #dddddd;}
+.orderlistheader{position:relative;}
 .swiper-container{ position:static;left:0;top:46px;width:100%;z-index:9;height: 150px;}
 .swiper-slide img {
   height: 100%;
@@ -335,15 +336,17 @@ p{
 .danhao{margin-top:15px;padding:12px;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
-
-.iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding: 5px 0;line-height:2.5rem; }
-.iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-bottom:1px solid #ddd;}
+form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position:relative;right:-110px;}
+.iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding:0;line-height:2.5rem; }
+.iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
 .iphone li span{padding:0 12px;color:#666;}
 .iphone label.control-label{
-  padding:0 10px 0 40px;font-size:15px;line-height:3em;
+  margin:0 0 0 35px;padding:2px;font-size:15px;line-height:3em;
 }
-.iphone button.btn{
-  padding:6px 6px;
+.iphone button.btn {
+  padding: 5px 6px;
+  background: #666666;
+  color: white;
 }
 .del{ position:absolute;right:15px;top:12px;font-size:15px;line-height:1.4em;}
 
@@ -358,34 +361,38 @@ dl{
   margin-bottom:0 !important;
 }
 /*************************个人中心***************************/
-.head{ background:#00aaff;padding:20px;}
+.head{ background:#00aaff;height:95px;}
 .head em{ display:block;float:left;width:80px;}
-.head p{float:left;padding:20px 0;padding-left:20px;color:#fff;font-size:20px;line-height:2em;}
+.head p{float:left;color:#fff;font-size:20px;text-align:center;line-height:2em;padding:30px 0 30px 20px;}
 
+.main .personal{margin-top:10px;}
 .personal ul{margin-top:5px; background:#fff;border-top:1px solid #ddd;}
-.personal ul li{clear:both; overflow:hidden;padding:10px;border-bottom:1px solid #ddd;border-bottom:1px solid #ddd;font-size:16px;color:#999;line-height:2.2em;}
+.personal ul li{clear:both; overflow:hidden;padding:7px;border-bottom:1px solid #ddd;border-bottom:1px solid #ddd;font-size:16px;color:#999;line-height:2.2em;}
 .personal ul li em img{width:28px;margin-top:-3px;padding-right:8px;}
-.personal ul li a{ display:block;font-size:16px;color:#999;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center; background-size:10px;}
+.personal ul li a{ display:block;font-size:16px;color:#999;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center;
+                    background-size:10px;background-position:98% 50%;}
 
 .personal ul li strong{ display:block;float:left;font-size:16px;color:#999;line-height:2.2em;}
 .personal ul li span{ display:block;float:right;font-size:16px;color:#999;line-height:2.2em;}
 
 .dan{margin-top:10px;background:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 
-.hao{font-size:14px;line-height:2em;padding:10px 10px;color:#999;border-bottom:1px solid #ddd;}
-.hao strong{ display:block;float:left;}
-.hao span{ display:block;float:right;color:#ff6600;}
+.hao{font-size:14px;line-height:2em;padding:5px 10px;color:#999;border-bottom:1px solid #ddd;}
+.hao strong{ display:block;float:left;font-size:12px;color:#999999;}
+.hao span{ display:block;float:right;color:#ff6600;font-size:12px;}
+.main .dan  div.orderno strong,
+.main .dan  div.orderno span{height:25px;}
 
 .pic{width:100%;}
 .pic ul{float:left;}
-.pic li{float:left;width:50px;padding:10px 10px;text-align:center;}
+.pic li{float:left;width:40px;padding:5px 10px;text-align:center;}
 .pic li p{font-size:15px;line-height:1.4em;color:#999;}
-.pic span{ display:block;float:right;margin-top:35px;font-size:15px;color:#999;padding-right:15px;margin-right:10px;background:url(../images/ico_7.png) no-repeat right center; background-size:9px;}
+.pic span{ display:block;float:right;margin:30px 10px;font-size:12px;color:#999;padding-right:15px;background:url(../images/ico_7.png) no-repeat right center; background-size:9px;}
 
-.time{font-size:14px;line-height:2em;padding:10px 10px;color:#999;border-bottom:1px solid #ddd;border-top:1px solid #ddd;}
-.time strong{ display:block;float:left;}
+.time{font-size:12px;line-height:2em;padding:5px 10px;color:#999;border-bottom:1px solid #ddd;border-top:1px solid #ddd;}
+.time strong{ display:block;float:left;color:#999999;font-weight:lighter;}
 .time span{ display:block;float:right;color:#999;}
-.time font{color:#ff6600;}
+.time font{color:#ff6600;font-size:14px;}
 
 .dandl{margin-top:-4px;border-top:1px solid #ddd; background:#fff;}
 .dandl dt{background:#fff;font-size:14px;line-height:2em;padding:10px 10px;color:#666;border-bottom:1px solid #ddd;}
@@ -457,14 +464,17 @@ dl{
   border-radius:5px;
 }
 
-.redBtn{text-align:center;padding:0 15px 15px;}
-.redBtn button{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#dd0000;width:80%;
+.redBtn{text-align:center;}
+.redBtn button{ display:block;padding:0;font-size:16px;line-height:2.6em;color:#fff; background:#dd0000;width:90%;
   moz-border-radius:5px;
   margin:0 auto;
-  margin-top:20px;
+  margin-top:15px;
+  height:40px;
   -webkit-border-radius:5px;
   border-radius:5px;}
-
+#checknum{
+  margin-right:10%;
+}
 .btnQ{text-align:center;padding:15px 10px 15px;}
 .btnQ a{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#999999;
   moz-border-radius:5px;
@@ -585,5 +595,13 @@ dl{
   width: 98px;
   height: 98px;
   margin-left:15px;
+}
+
+
+/****************************************************/
+div.main div.head em img{
+  width:55px;
+  height:55px;
+  margin:20px 25px 20px 20px;
 }
 
