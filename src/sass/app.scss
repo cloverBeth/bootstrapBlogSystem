@@ -334,7 +334,7 @@ p{
 .danhao{margin-top:15px;padding:12px;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
-form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;}
+form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position:relative;right:-110px;}
 .iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding:0;line-height:2.5rem; }
 .iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
 .iphone li span{padding:0 12px;color:#666;}
@@ -449,14 +449,16 @@ dl{
   border-radius:5px;
 }
 
-.redBtn{text-align:center;padding:0 15px 15px;}
-.redBtn button{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#dd0000;width:80%;
+.redBtn{text-align:center;}
+.redBtn button{ display:block;padding:0;font-size:16px;line-height:2.6em;color:#fff; background:#dd0000;width:90%;
   moz-border-radius:5px;
   margin:0 auto;
   margin-top:20px;
   -webkit-border-radius:5px;
   border-radius:5px;}
-
+#checknum{
+  margin-right:10%;
+}
 .btnQ{text-align:center;padding:15px 10px 15px;}
 .btnQ a{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#999999;
   moz-border-radius:5px;
