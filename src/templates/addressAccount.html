@@ -4,7 +4,7 @@
             <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
         </div>
         <div class="title">
-            {{address.title}}
+            {{title}}
         </div>
         <div class="del">
             <a ng-click="goIndex()"href="javascript:;" class="blue">主页</a>
@@ -17,7 +17,7 @@
                 <li style="border:none;">
                     <p ng-click="goToCart()">
                         {{address.user}}    {{address.telphone}}<br />
-                        {{address.city}} {{address.district}} {{address.garden}} {{address.house}} {{address.room}}
+                        {{address.detailArea}}
                     </p>
                         <span>
                             <a ng-click="editAddress()"><img src="images/ico_10.png" />编辑</a>

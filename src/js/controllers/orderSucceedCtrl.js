@@ -6,7 +6,7 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
 
     var orderListApi = X_context.api + "order/list";
     $http.post(orderListApi,{
-        id : $stateParams.orderId
+        id : $stateParams.orderId,
     })
         .success(function(data){
             console.log(data.data);

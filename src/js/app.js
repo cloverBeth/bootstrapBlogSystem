@@ -115,7 +115,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('addressAccount',{
-            url:'/address-account',
+            url:'/address-account/',
             params: {from: null},
             views:{
                 '':{
@@ -131,7 +131,7 @@ angular.module('ZJSY_WeChat', [
         })
 
         .state('addressEdit',{
-            url:'/address-edit',
+            url:'/address-edit/{addressId}',
             params: {from: null},
             views:{
                 '':{
