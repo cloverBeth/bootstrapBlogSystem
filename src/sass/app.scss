@@ -188,8 +188,8 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greensSale li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
 
 /*************************加减按钮***************************/
-.num{ position:absolute;right:5%;bottom:10px;width:50%;text-align:right;}
-.num img {width: 18px;float: right;margin-right: 10px;}
+.num{ position:absolute;right:5%;bottom:10px;width:65%;text-align:right;}
+.num img {width: 18px;float: right;}
 .num span{float:right;width:28%;text-align:center;font-size:12px;line-height:1.4em;color:#666;}
 
 .sub{}
@@ -233,7 +233,7 @@ p{
 .cart dl dt{padding:0 3%;color:#999999;background:#fff;border-top:2px solid #00aaff;}
 .cart dl dt span{ display:block;width:33px;}
 .cart dl dt span img{margin-right:2vw;margin-top:-23px;}
-.cart dl dt span a{color:#999999;}
+.cart dl dt span a{color:#999999;}.numN a.sub1 img
 .cart dl dd{height:80vw; overflow:auto;}
 .cart li{border-bottom:1px solid #eee;color:#333;padding:8px 3%;width:94%; clear:both; overflow:hidden;}
 .cart li strong{ display:block;float:left;width:50%;font-size:15px;line-height:2em;}
