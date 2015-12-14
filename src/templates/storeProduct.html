@@ -1,126 +1,124 @@
-
 <div class="main bge" ng-style="{height:mainHeight-42}">
 
 
-    <div class="sideNav fl" ng-style="{height:mainHeight-79}">
-        <ul>
-            <li class="hover1">
-                <a scroll-on-click scrollBase="#base" scrollFirst="#hot" scrollHref="#hot"
-                   class="hover" href="javascript:;"><img src="images/ico_3.png" />热卖推荐</a>
+<div class="sideNav fl" ng-style="{height:mainHeight-79}">
+    <ul>
+        <li class="hover1">
+            <a scroll-on-click scrollBase="#base" scrollFirst="#hot" scrollHref="#hot"
+               class="hover" href="javascript:;"><img src="images/ico_3.png" />热卖推荐</a>
+        </li>
+        <li ng-repeat="cate in cates track by $index">
+            <a scroll-on-click scrollBase="#base" scrollFirst="#hot" scrollHref="#{{cate.sec}}" href="javascript:;">{{cate.name}}</a>
+        </li>
+    </ul>
+
+
+</div>
+<div class="productList fr" ng-style="{height:mainHeight-79}">
+    <div class="greens relR scrollable-content" id="base">
+        <ul class="clearfix" id="hot">
+            <li ng-repeat="hot in hots track by $index">
+                <em><a ng-click="showProduct(hot.id)" href="javascript:;" class="showPH">
+                    <img  src="{{hot.img}}" /></a></em>
+                <p>
+                    <strong>{{hot.name}}</strong>
+                    <b class="org">￥{{hot.price}}</b>
+                </p>
+                <div class="num">
+                    <a href="javascript:;"
+                       ng-click="addProduct(hot.id);fly($event)"
+                       ng-hide="_.find(cart.products,{id:hot.id}) &&
+                       _.find(cart.products,{id:hot.id}).buyNum == _.find(cart.products,{id:hot.id}).num"
+                       class="add">
+                        <img src="images/ico_a.png" /></a>
+                    <div ng-show="_.find(cart.products,{id:hot.id})">
+                        <span>
+                            {{
+                               _.find(cart.products,{id:hot.id})
+                            ? _.find(cart.products,{id:hot.id}).buyNum
+                            : 0
+                            }}
+                        </span>
+                        <a href="javascript:;" ng-click="removeProduct(hot.id)" class="sub">
+                            <img src="images/ico_j.png" /></a>
+
+                    </div>
+                </div>
             </li>
-            <li ng-repeat="cate in cates track by $index">
-                <a scroll-on-click scrollBase="#base" scrollFirst="#hot" scrollHref="#{{cate.sec}}" href="javascript:;">{{cate.name}}</a>
-            </li>
+
         </ul>
 
-
-    </div>
-    <div class="productList fr" ng-style="{height:mainHeight-79}">
-        <div class="greens relR scrollable-content" id="base">
-            <ul class="clearfix" id="hot">
-                <li ng-repeat="hot in hots track by $index">
-                    <em><a ng-click="showProduct(hot.id)" href="javascript:;" class="showPH">
-                        <img  src="{{hot.img}}" /></a></em>
-                    <p>
-                        <strong>{{hot.name}}</strong>
-                        <b class="org">￥{{hot.price}}</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;"
-                           ng-click="addProduct(hot.id);fly($event)"
-                           ng-hide="_.find(cart.products,{id:hot.id}) &&
-                           _.find(cart.products,{id:hot.id}).buyNum == _.find(cart.products,{id:hot.id}).num"
-                           class="add">
-                            <img src="images/ico_a.png" /></a>
-                        <div ng-show="_.find(cart.products,{id:hot.id})">
-                            <span>
-                                {{
-                                   _.find(cart.products,{id:hot.id})
-                                ? _.find(cart.products,{id:hot.id}).buyNum
-                                : 0
-                                }}
-                            </span>
-                            <a href="javascript:;" ng-click="removeProduct(hot.id)" class="sub">
-                                <img src="images/ico_j.png" /></a>
-
-                        </div>
+        <ul class="clearfix" ng-repeat="cate in cates track by $index" id="{{cate.sec}}">
+            <li ng-repeat="pro in cate.products">
+                <em >
+                    <a href="javascript:;" class="showPH" ng-click="showProduct(pro.id)"><img src="{{pro.img}}" /></a>
+                </em>
+                <p>
+                    <strong>{{pro.name}}</strong>
+                    <b class="org">￥{{pro.price}}</b>
+                </p>
+                <div class="num">
+                    <a href="javascript:;" class="add" ng-click="fly($event);addProduct(pro.id);"
+                       ng-hide="_.find(cart.products,{id:pro.id}) &&
+                       _.find(cart.products,{id:pro.id}).buyNum == _.find(cart.products,{id:pro.id}).num">
+                        <img src="images/ico_a.png" /></a>
+                    <div ng-show="_.find(cart.products,{id:pro.id})">
+                        <span>
+                            {{
+                                _.find(cart.products,{id:pro.id})?
+                            _.find(cart.products,{id:pro.id}).buyNum :
+                            0
+                            }}
+                        </span>
+                        <a href="javascript:;" class="sub" ng-click="removeProduct(pro.id)"><img src="images/ico_j.png" /></a>
                     </div>
-                </li>
-
-            </ul>
-
-            <ul class="clearfix" ng-repeat="cate in cates track by $index" id="{{cate.sec}}">
-                <li ng-repeat="pro in cate.products">
-                    <em >
-                        <a href="javascript:;" class="showPH" ng-click="showProduct(pro.id)"><img src="{{pro.img}}" /></a>
-                    </em>
-                    <p>
-                        <strong>{{pro.name}}</strong>
-                        <b class="org">￥{{pro.price}}</b>
-                    </p>
-                    <div class="num">
-                        <a href="javascript:;" class="add" ng-click="fly($event);addProduct(pro.id);"
-                           ng-hide="_.find(cart.products,{id:pro.id}) &&
-                           _.find(cart.products,{id:pro.id}).buyNum == _.find(cart.products,{id:pro.id}).num">
-                            <img src="images/ico_a.png" /></a>
-                        <div ng-show="_.find(cart.products,{id:pro.id})">
-                            <span>
-                                {{
-                                    _.find(cart.products,{id:pro.id})?
-                                _.find(cart.products,{id:pro.id}).buyNum :
-                                0
-                                }}
-                            </span>
-                            <a href="javascript:;" class="sub" ng-click="removeProduct(pro.id)"><img src="images/ico_j.png" /></a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </li>
+        </ul>
     </div>
+</div>
 
-    <div class="clear"></div>
+<div class="clear"></div>
 
 </div>
 
 
 <div class="product-detail" ng-show="productShown">
-    <dl>
-        <dt><em ng-click="productShown=false"><img src="images/ico_5.png" /></em></dt>
-        <dd>
-            <em><img src="{{productDetail.img}}" /></em>
-            <h3>{{productDetail.name}}</h3>
+<dl>
+    <dt><em ng-click="productShown=false"><img src="images/ico_5.png" /></em></dt>
+    <dd>
+        <em><img src="{{productDetail.img}}" /></em>
+        <h3>{{productDetail.name}}</h3>
 
-            <div class="money clearfix">
-                <strong>￥{{productDetail.price}}</strong>
+        <div class="money clearfix">
+            <strong>￥{{productDetail.price}}</strong>
 
-                <div class="numN fr" style="padding:0;">
-                    <a href="javascript:;" class="add1" ng-click="addProduct(productDetail.id)">
-                        <img src="images/ico_a1.png">
-                    </a>
-                    <span>
-                        {{
-                            _.find(cart.products,{id:productDetail.id})?
-                            _.find(cart.products,{id:productDetail.id}).buyNum :
-                            0
-                        }}
-                    </span>
-                    <a href="javascript:;" class="sub1" ng-click="removeProduct(productDetail.id)">
-                        <img src="images/ico_j1.png">
-                    </a>
-                </div>
+            <div class="numN fr" style="padding:0;">
+                <a href="javascript:;" class="add1" ng-click="addProduct(productDetail.id)">
+                    <img src="images/ico_a1.png">
+                </a>
+                <span>
+                    {{
+                        _.find(cart.products,{id:productDetail.id})?
+                        _.find(cart.products,{id:productDetail.id}).buyNum :
+                        0
+                    }}
+                </span>
+                <a href="javascript:;" class="sub1" ng-click="removeProduct(productDetail.id)">
+                    <img src="images/ico_j1.png">
+                </a>
             </div>
+        </div>
 
-            <div class="product-detail-content">
-                <strong>商品详情</strong>
+        <div class="product-detail-content">
+            <strong>商品详情</strong>
 
-                <p>
-                    {{productDetail.detail}}
-                </p>
+            <p>
+                {{productDetail.detail}}
+            </p>
 
-            </div>
-        </dd>
-    </dl>
+        </div>
+    </dd>
+</dl>
 </div>
-
 

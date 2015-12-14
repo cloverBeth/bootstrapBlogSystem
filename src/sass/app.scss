@@ -168,7 +168,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 
 .greens{width:100%; position:relative; background:#fff;}
 .greens h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}
-.greens li{ position:relative;width:49%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
+.greens li{ position:relative;width:50%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
 .greens li em{ display:block;width:100%;}
 .greens li p{line-height:1.4em;padding-left:10px;padding-bottom:12px;}
 .greens li p strong{ display:block;font-size:15px;color:#666;}
@@ -188,7 +188,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 
 /*************************加减按钮***************************/
 .num{ position:absolute;right:5%;bottom:10px;width:50%;text-align:right;}
-.num img{width:18px;float:right;}
+.num img {width: 18px;float: right;margin-right: 10px;}
 .num span{float:right;width:28%;text-align:center;font-size:12px;line-height:1.4em;color:#666;}
 
 .sub{}
@@ -240,7 +240,7 @@ p{
 
 .numN{width:30%;text-align:right;padding-top:4px;}
 .numN img{ display:block;width:23px;float:right;}
-.numN span{float:right;width:26px;height:21px;text-align:center;font-size:12px;line-height:21px;border-top:1px solid #dedede;border-bottom:1px solid #dedede;color:#666;}
+.numN span{float:right;width:26px;height:23px;text-align:center;font-size:12px;line-height:21px;border-top:1px solid #dedede;border-bottom:1px solid #dedede;color:#666;}
 
 
 .footer{ position:fixed;left:0;bottom:0;width:100%; z-index:999999;}
@@ -285,11 +285,11 @@ p{
 .parcel{margin-top:5px;background:#fff;font-size:15px;}
 .parcel h3{padding:12px 0;font-size:15px;line-height:1.4em;color:#444;padding-left:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 .parcel li{width:100%; clear:both; overflow:hidden;padding:12px 0;border-bottom:1px solid #ddd;}
-.parcel li em{ display:block;float:left;width:24%;padding:0 3%;}
+.parcel li em{ display:block;float:left;width:26%;height:64px;padding:0 3%;}
 .parcel li p{float:left;width:36%;}
-.parcel li p strong{ display:block;color:#666666;font-size:16px;line-height:1.4em;}
-.parcel li p b{ display:block;color:#ff6600;font-size:16px;line-height:2em;font-weight:normal;color:#999;}
-.parcel li span{ display:block;float:right;color:#ff6600;font-size:18px;padding-right:12px;}
+.parcel li p strong{ display:block;color:#666666;font-size:14px;line-height:1.4em;}
+.parcel li p b{ display:block;color:#ff6600;font-size:12px;line-height:2em;font-weight:normal;color:#999;}
+.parcel li span{ display:block;float:right;color:#ff6600;font-size:14px;padding-right:12px;}
 
 .pay{margin:5px 0;background:#fff;font-size:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 
