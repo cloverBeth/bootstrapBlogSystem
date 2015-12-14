@@ -5,32 +5,32 @@ angular.module('ZJSY_WeChat')
         $scope.memberPromise = null;
         $scope.cart = {
             products : [
-                {
-                    id: 0,
-                    name: "雀巢麦片",
-                    num: 156,
-                    img: "images/ph_1.jpg",
-                    detail: "营养高，味道好",
-                    cateId: 1,
-                    price: 30,
-                    buyNum: 1
-                }
+                //{
+                //    id: 0,
+                //    name: "雀巢麦片",
+                //    num: 156,
+                //    img: "images/ph_1.jpg",
+                //    detail: "营养高，味道好",
+                //    cateId: 1,
+                //    price: 30,
+                //    buyNum: 1
+                //}
             ],
             min : 0,
             freightFee : 0
         };
         $scope.order = {
             product : [
-                {
-                    id: 0,
-                    name: "雀巢麦片",
-                    num: 156,
-                    img: "images/ph_1.jpg",
-                    detail: "营养高，味道好",
-                    cateId: 1,
-                    price: 30,
-                    buyNum: 1
-                }
+                //{
+                //    id: 0,
+                //    name: "雀巢麦片",
+                //    num: 156,
+                //    img: "images/ph_1.jpg",
+                //    detail: "营养高，味道好",
+                //    cateId: 1,
+                //    price: 30,
+                //    buyNum: 1
+                //}
             ]
         };
         if(X_context.authorization && X_context.authorization!=X_context.guest){

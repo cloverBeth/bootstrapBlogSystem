@@ -10,7 +10,7 @@ angular.module('ZJSY_WeChat', [
     //'ngRoute',
     'ui.router',
     //'ui.bootstrap',
-    'mobile-angular-ui',
+    'mobile-angular-ui'
 ])
 
     //.config(function($routeProvider) {
@@ -60,7 +60,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('store.product', {
-            url: '/store-product',
+            url: '/store-product/{productId}',
             views: {
                 '': {
                     templateUrl: 'storeProduct.html',
@@ -271,7 +271,7 @@ angular.module('ZJSY_WeChat', [
         })
 
 
-        $urlRouterProvider.otherwise('/store/1/store-product');
+        $urlRouterProvider.otherwise('/store/1/store-product/');
 
 
     });

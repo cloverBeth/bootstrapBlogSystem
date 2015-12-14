@@ -30,7 +30,9 @@
                 </li>
                 <li>
                 <span style="float: right;">
-                    总价 :￥{{totalPrice}} (含配送费￥{{$parent.cart.freightFee==0 || totalPrice >= $parent.cart.min
+                    总价 :￥{{totalPrice + parseInt($parent.cart.freightFee==0 || totalPrice >= $parent.cart.min
+                                                ? "0" : $parent.cart.freightFee)}}
+                    (含配送费￥{{$parent.cart.freightFee==0 || totalPrice >= $parent.cart.min
                                                 ? "0" : $parent.cart.freightFee}})
                 </span>
 
