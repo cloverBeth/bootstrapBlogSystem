@@ -113,6 +113,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 /*************************首页***************************/
 
 .header{ position:fixed;left:0;top:0; z-index:9;width:100%;background:#fff;border-bottom:1px solid #dddddd;}
+.orderlistheader{position:relative;}
 .swiper-container{ position:static;left:0;top:46px;width:100%;z-index:9;height: 150px;}
 .swiper-slide img {
   height: 100%;
@@ -367,27 +368,30 @@ dl{
 .personal ul{margin-top:5px; background:#fff;border-top:1px solid #ddd;}
 .personal ul li{clear:both; overflow:hidden;padding:7px;border-bottom:1px solid #ddd;border-bottom:1px solid #ddd;font-size:16px;color:#999;line-height:2.2em;}
 .personal ul li em img{width:28px;margin-top:-3px;padding-right:8px;}
-.personal ul li a{ display:block;font-size:16px;color:#999;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center; background-size:10px;}
+.personal ul li a{ display:block;font-size:16px;color:#999;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center;
+                    background-size:10px;background-position:98% 50%;}
 
 .personal ul li strong{ display:block;float:left;font-size:16px;color:#999;line-height:2.2em;}
 .personal ul li span{ display:block;float:right;font-size:16px;color:#999;line-height:2.2em;}
 
 .dan{margin-top:10px;background:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 
-.hao{font-size:14px;line-height:2em;padding:10px 10px;color:#999;border-bottom:1px solid #ddd;}
-.hao strong{ display:block;float:left;}
-.hao span{ display:block;float:right;color:#ff6600;}
+.hao{font-size:14px;line-height:2em;padding:5px 10px;color:#999;border-bottom:1px solid #ddd;}
+.hao strong{ display:block;float:left;font-size:12px;color:#999999;}
+.hao span{ display:block;float:right;color:#ff6600;font-size:12px;}
+.main .dan  div.orderno strong,
+.main .dan  div.orderno span{height:25px;}
 
 .pic{width:100%;}
 .pic ul{float:left;}
-.pic li{float:left;width:50px;padding:10px 10px;text-align:center;}
+.pic li{float:left;width:40px;padding:5px 10px;text-align:center;}
 .pic li p{font-size:15px;line-height:1.4em;color:#999;}
-.pic span{ display:block;float:right;margin-top:35px;font-size:15px;color:#999;padding-right:15px;margin-right:10px;background:url(../images/ico_7.png) no-repeat right center; background-size:9px;}
+.pic span{ display:block;float:right;margin:30px 10px;font-size:12px;color:#999;padding-right:15px;background:url(../images/ico_7.png) no-repeat right center; background-size:9px;}
 
-.time{font-size:14px;line-height:2em;padding:10px 10px;color:#999;border-bottom:1px solid #ddd;border-top:1px solid #ddd;}
-.time strong{ display:block;float:left;}
+.time{font-size:12px;line-height:2em;padding:5px 10px;color:#999;border-bottom:1px solid #ddd;border-top:1px solid #ddd;}
+.time strong{ display:block;float:left;color:#999999;font-weight:lighter;}
 .time span{ display:block;float:right;color:#999;}
-.time font{color:#ff6600;}
+.time font{color:#ff6600;font-size:14px;}
 
 .dandl{margin-top:-4px;border-top:1px solid #ddd; background:#fff;}
 .dandl dt{background:#fff;font-size:14px;line-height:2em;padding:10px 10px;color:#666;border-bottom:1px solid #ddd;}
