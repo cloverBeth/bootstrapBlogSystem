@@ -340,7 +340,7 @@ form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position
 .iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
 .iphone li span{padding:0 12px;color:#666;}
 .iphone label.control-label{
-  padding:0 5px 0 15px;font-size:15px;line-height:3em;
+  margin:0 0 0 35px;padding:2px;font-size:15px;line-height:3em;
 }
 .iphone button.btn {
   padding: 5px 6px;
@@ -457,7 +457,8 @@ dl{
 .redBtn button{ display:block;padding:0;font-size:16px;line-height:2.6em;color:#fff; background:#dd0000;width:90%;
   moz-border-radius:5px;
   margin:0 auto;
-  margin-top:20px;
+  margin-top:15px;
+  height:40px;
   -webkit-border-radius:5px;
   border-radius:5px;}
 #checknum{
