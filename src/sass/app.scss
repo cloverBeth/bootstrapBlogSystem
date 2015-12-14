@@ -430,7 +430,9 @@ dl{
 .product-detail dl dt em img{margin-right:2vw;margin-top:-23px;}
 .product-detail dd{height:450px; overflow:auto;}
 .product-detail dd em{ display:block;}
-.product-detail dd h3{font-size:17px;color:#444;line-height:1.6em;padding:0px 0 10px;padding-left:10px;}
+.product-detail dd h3{font-size:16px;color:#666;line-height:1.6em;padding:0px 0 10px;padding-left:10px;}
+h3.ng-binding{margin:10px 0 0 0;}
+strong.ng-binding{font-weight:lighter;}
 
 .project-detail-img{
   width: 240px;
@@ -441,15 +443,19 @@ dl{
   width: 240px;
   height: 200px;
 }
+.project-detail-img, .project-detail-img img {
+  width: 170px;
+  height: 170px;
+}
 
 
 /*************************产品详情***************************/
 
 .money{padding:10px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
-.money strong{ display:block;float:left;color:#ff6600;font-size:16px;line-height:1.4em;}
+.money strong{ display:block;float:left;color:#ff6600;font-size:18px;line-height:1.4em;}
 
 .product-detail-content{border-top:12px solid #f0f0f0;}
-.product-detail-content strong{ display:block;font-size:16px;line-height:1.6em;padding:8px 10px;color:#666;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
+.product-detail-content strong{ display:block;font-size:14px;line-height:1.6em;padding:8px 10px;color:#666;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 .product-detail-content div{height:100px; overflow:auto;}
 .product-detail-content p{padding:12px;font-size:14px;color:#666;line-height:1.6em;}
 
@@ -594,7 +600,7 @@ dl{
 .product-image {
   width: 98px;
   height: 98px;
-  margin-left:15px;
+  margin:10px 15px;
 }
 
 
