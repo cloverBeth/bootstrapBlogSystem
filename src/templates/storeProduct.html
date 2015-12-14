@@ -18,9 +18,10 @@
     <div class="productList fr" ng-style="{height:mainHeight-79}">
         <div class="greens relR scrollable-content" id="base">
             <ul class="clearfix" id="hot">
-                <li ng-repeat="hot in hots track by $index">
+                <li class="product-item" ng-repeat="hot in hots track by $index">
                     <em><a ng-click="showProduct(hot.id)" href="javascript:;" class="showPH">
-                        <img  src="{{hot.img}}" /></a></em>
+                        <img class="product-image" src="{{hot.img}}" />
+                    </a></em>
                     <p>
                         <strong>{{hot.name}}</strong>
                         <b class="org">￥{{hot.price}}</b>
@@ -52,7 +53,8 @@
             <ul class="clearfix" ng-repeat="cate in cates track by $index" id="{{cate.sec}}">
                 <li ng-repeat="pro in cate.products">
                     <em >
-                        <a href="javascript:;" class="showPH" ng-click="showProduct(pro.id)"><img src="{{pro.img}}" /></a>
+                        <a href="javascript:;" class="showPH" ng-click="showProduct(pro.id)">
+                            <img class="product-image" src="{{pro.img}}" /></a>
                     </em>
                     <p>
                         <strong>{{pro.name}}</strong>
@@ -88,7 +90,7 @@
     <dl>
         <dt><em ng-click="productShown=false"><img src="images/ico_5.png" /></em></dt>
         <dd>
-            <em><img src="{{productDetail.img}}" /></em>
+            <em class="project-detail-img"><img src="{{productDetail.img}}" /></em>
             <h3>{{productDetail.name}}</h3>
 
             <div class="money clearfix">

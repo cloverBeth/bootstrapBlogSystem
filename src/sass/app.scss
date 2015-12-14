@@ -31,8 +31,9 @@ body {
   position: relative;
   min-height: 100%;
   font-size:12px;
-  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Segoe UI", "Microsoft Yahei", Tahoma, Arial, STHeiti, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Segoe UI", "Microsoft Yahei", Tahoma, Arial, STHeiti, sans-serif !important;
   overflow:auto;
+  font-weight: 400 !important;
 }
 input,button, textarea, select {-webkit-appearance: none;-moz-appearance:none;appearance: none;border-radius: 0;
   margin: 0;
@@ -169,7 +170,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greens h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}
 .greens li{ position:relative;width:49%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
 .greens li em{ display:block;width:100%;}
-.greens li p{line-height:1.4em;padding-left:10px;padding-bottom:12px;}
+.greens li p{line-height:1.4em;padding-left:15px;padding-bottom:12px;}
 .greens li p strong{ display:block;font-size:15px;color:#666;}
 .greens li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
 
@@ -421,8 +422,18 @@ dl{
 .product-detail dl dt em{ display:inline-block;width:33px;}
 .product-detail dl dt em img{margin-right:2vw;margin-top:-23px;}
 .product-detail dd{height:450px; overflow:auto;}
-.product-detail dd em{ display:block;padding:0 35px;}
+.product-detail dd em{ display:block;}
 .product-detail dd h3{font-size:17px;color:#444;line-height:1.6em;padding:0px 0 10px;padding-left:10px;}
+
+.project-detail-img{
+  width: 240px;
+  height: 200px;
+  margin: auto;
+}
+.project-detail-img img{
+  width: 240px;
+  height: 200px;
+}
 
 
 /*************************产品详情***************************/
@@ -569,5 +580,10 @@ dl{
 }
 .ng-dirty input.ng-invalid, input.ng-invalid{
   border: hidden !important;
+}
+.product-image {
+  width: 98px;
+  height: 98px;
+  margin-left:15px;
 }
 
