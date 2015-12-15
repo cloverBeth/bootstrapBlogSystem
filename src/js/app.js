@@ -2,7 +2,8 @@ var X_context = {
     guest : "guest",
     api : "http://192.168.6.43/zjsy/api/v1/",
     memberId : null,
-    memberPhone : ""
+    memberPhone : "",
+    addrId:""
 };
 X_context.authorization = readCookie('authorization') || X_context.authorization;
 
@@ -131,7 +132,7 @@ angular.module('ZJSY_WeChat', [
         })
 
         .state('addressEdit',{
-            url:'/address-edit/{addressId}',
+            url:'/address-edit/{addrId}',
             params: {from: null},
             views:{
                 '':{
