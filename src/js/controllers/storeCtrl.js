@@ -3,6 +3,7 @@
 angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$location,$state,$stateParams,$http){
     $scope.storeTitle = "";
     $scope.title = "";
+    $scope.navHeight = 150;
 
     console.log('storeId',$stateParams.storeId);
     $scope.storeId = $stateParams.storeId || X_context.storeId || 1;

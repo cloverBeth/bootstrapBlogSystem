@@ -22,6 +22,7 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
     $scope.signOut = function(){
         console.log('here,logout');
         X_context.authorization = X_context.guest;
+        eraseCookie('authorization');
         $state.go('store.product',{storeId:X_context.storeId});
     }
     $scope.goIndex=function(){

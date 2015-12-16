@@ -222,6 +222,12 @@ angular.module('ZJSY_WeChat').directive(
                 win.on( "resize.bnLazySrc", windowChanged );
                 win.on( "scroll.bnLazySrc", windowChanged );
 
+                //hardcode for productList
+                $('.lazy-sec').on( "resize.bnLazySrc", windowChanged );
+                $('.lazy-sec').on( "scroll.bnLazySrc", windowChanged );
+
+
+
                 // Set up a timer to watch for document-height changes.
                 documentTimer = setInterval( checkDocumentHeight, documentDelay );
 

@@ -102,11 +102,17 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     //};
 
 
-    $scope.mainHeight = $('body').css('height').split('px')[0] -
-        $('.navTop').css('height').split('px')[0] -
-        150-
-        $('header').css('height').split('px')[0];
+    //$scope.mainHeight = $('body').css('height').split('px')[0] -
+    //    $('.navTop').css('height').split('px')[0] -
+    //    $scope.$parent.navHeight-
+    //    $('header').css('height').split('px')[0];
 
+    $scope.$watch('$parent.navHeight',function(){
+        $scope.mainHeight = $('body').css('height').split('px')[0] -
+            $('.navTop').css('height').split('px')[0] -
+            $scope.$parent.navHeight-
+            $('header').css('height').split('px')[0];
+    })
     //$scope.proList = [];
     //_.forEach($scope.cates,function(cate,index){
     //    $scope.proList = $scope.proList.concat(cate.products);
@@ -188,12 +194,50 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
 //jquery
 
+    var scrollPass = true;
+    $scope.$$postDigest(function(){
+        scrollPass = true;
+    });
+    $scope.$parent.$$postDigest(function(){
+        scrollPass = true;
+    });
+
 
     $(".greens").on('scroll',function() {
+
+        if(!scrollPass){
+            return;
+        }else{
+            scrollPass = false;
+            console.log('scroll')
+        }
+
+        var headerTop = $(".header").height()+$scope.$parent.navHeight+$(".sound").height()+$(".navTop").height()+30;
+
+        if($scope.$parent.navHeight == 150){
+            if(parseInt($(".greens ul:eq(0)").offset().top) < (headerTop-30)){
+                $scope.$parent.navHeight = 0;
+                //$scope.$apply();
+                $scope.$digest();
+                $scope.$parent.$digest();
+
+            }
+            scrollPass = true;
+        }else if($scope.$parent.navHeight == 0){
+            if(parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop-30)){
+                $scope.$parent.navHeight = 150;
+                //$scope.$apply();
+                $scope.$digest();
+                $scope.$parent.$digest();
+            }
+            scrollPass = true;
+        }
+
+
         for(var i=0;i<$(".greens ul").length;i++)
         {
             var top = parseInt($(".greens ul:eq("+i+")").offset().top);
-            if(top < $(".header").height()+$(".swiper-container").height()+$(".sound").height()+$(".navTop").height()+30)
+            if(top < headerTop)
             {
                 $(".sideNav li a").removeClass("hover");
                 $(".sideNav li:eq("+i+") a").addClass("hover")
