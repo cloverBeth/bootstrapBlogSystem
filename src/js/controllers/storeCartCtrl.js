@@ -16,10 +16,6 @@ angular.module('ZJSY_WeChat').controller('StoreCartController',function($scope,$
         })
             .success(function (data) {
                 var datas = data.data;
-                if (datas.length == 0) {
-                    $scope.addNewAddr = true;
-                    return;
-                }
                 $scope.username = datas[0].receiver;
                 $scope.phone = datas[0].mobile;
                 $scope.address = datas[0].addressFullname;
