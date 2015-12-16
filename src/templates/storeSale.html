@@ -2,11 +2,11 @@
 <div class="main bge" ng-style="{height:mainHeight-42}">
 
 	<div class="productSaleList fr" ng-style="{height:mainHeight-79}">
-		<div class="greensSale relR scrollable-content" id="base">
+		<div class="greensSale lazy-sec relR scrollable-content-div" id="base">
 			<ul class="clearfix" id="hot">
 				<li ng-repeat="hot in hots track by $index">
 					<em class="project-detail-img">
-						<img  ng-click="showProduct(hot.id)" src="{{hot.img}}" />
+						<img  ng-click="showProduct(hot.id)" bn-lazy-src="{{hot.img}}" />
 					</em>
 					<p>
 						<strong>{{hot.name}}</strong>

@@ -16,12 +16,18 @@
 
     </div>
     <div class="productList fr" ng-style="{height:mainHeight-79}">
-        <div class="greens relR scrollable-content" id="base">
+        <div class="greens lazy-sec relR scrollable-content-div" id="base">
             <ul class="clearfix" id="hot">
                 <li class="product-item" ng-repeat="hot in hots track by $index">
-                    <em><a ng-click="showProduct(hot.id)" href="javascript:;" class="showPH">
-                        <img class="product-image" src="{{hot.img}}" />
-                    </a></em>
+                    <em>
+                        <div class="product-image-div">
+                            <a ng-click="showProduct(hot.id)" href="javascript:;" class="showPH">
+
+                                <img class="product-image" bn-lazy-src="{{hot.img}}" />
+
+                            </a>
+                        </div>
+                    </em>
                     <p>
                         <strong>{{hot.name}}</strong>
                         <b class="org">￥{{hot.price}}</b>
@@ -32,7 +38,8 @@
                            ng-hide="_.find(cart.products,{id:hot.id}) &&
                            _.find(cart.products,{id:hot.id}).buyNum == _.find(cart.products,{id:hot.id}).num"
                            class="add">
-                            <img src="images/ico_a.png" /></a>
+                            <img src="images/ico_a.png" />
+                        </a>
                         <div ng-show="_.find(cart.products,{id:hot.id})">
                             <span>
                                 {{
@@ -53,8 +60,10 @@
             <ul class="clearfix" ng-repeat="cate in cates track by $index" id="{{cate.sec}}">
                 <li ng-repeat="pro in cate.products">
                     <em >
-                        <a href="javascript:;" class="showPH" ng-click="showProduct(pro.id)">
-                            <img class="product-image" src="{{pro.img}}" /></a>
+                        <div class="product-image-div">
+                            <a href="javascript:;" class="showPH" ng-click="showProduct(pro.id)">
+                            <img class="product-image" bn-lazy-src="{{pro.img}}" /></a>
+                        </div>
                     </em>
                     <p>
                         <strong>{{pro.name}}</strong>
