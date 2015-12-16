@@ -7,16 +7,23 @@ angular.module('ZJSY_WeChat').controller('AddressAccountController',function($sc
         id : null
     };
 
-
-
-    var addressAccountApi= X_context.api + "addr/list";
-    $scope.$parent.memberPromise.then(function(){
-        $http.post(addressAccountApi,{
-            memberId : X_context.memberId,
+    $scope.$parent.memberPromise.then(function () {
+        $http.post(X_context.api + "addr/list", {
+            memberId: X_context.memberId,
+            addrId:$stateParams.addrId,
         })
-            .success(function(data){
+            .success(function (data) {
                 var datas = data.data;
-                if(datas.length == 0){
+                if (datas.length == 0) {
+                    $http.post(X_context.api + "addr/add",{
+                        "member" : X_context.memberId,
+                        "receiver" : $scope.user,
+                        "addressFullname" : $scope.detailArea,
+                        "mobile" : $scope.telphone,
+                    })
+                        .success(function(data){
+                            console.log(data.data);
+                        })
                     $scope.addNewAddr = true;
                     return;
                 }
@@ -36,7 +43,7 @@ angular.module('ZJSY_WeChat').controller('AddressAccountController',function($sc
         }
     }
 
-    $scope.editAddress = function(addrId){
+    $scope.editAddress = function(){
         $state.go('addressEdit',{from:{fromCart : $stateParams.from && $stateParams.from.fromCart},addrId:$scope.address.id});
     }
 
