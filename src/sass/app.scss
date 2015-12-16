@@ -336,7 +336,7 @@ p{
 .danhao{margin-top:15px;padding:12px;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
-form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position:relative;right:-110px;}
+//form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position:relative;right:-110px;}
 .iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding:0;line-height:2.5rem; }
 .iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
 .iphone li span{padding:0 12px;color:#666;}
@@ -345,8 +345,9 @@ form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position
 }
 .iphone button.btn {
   padding: 5px 6px;
-  background: #666666;
-  color: white;
+  background: #666;
+  margin-left: -15px;
+  color: #fff;
 }
 .del{ position:absolute;right:15px;top:12px;font-size:15px;line-height:1.4em;}
 
