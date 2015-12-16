@@ -15,15 +15,6 @@ angular.module('ZJSY_WeChat').controller('AddressAccountController',function($sc
             .success(function (data) {
                 var datas = data.data;
                 if (datas.length == 0) {
-                    $http.post(X_context.api + "addr/add",{
-                        "member" : X_context.memberId,
-                        "receiver" : $scope.user,
-                        "addressFullname" : $scope.detailArea,
-                        "mobile" : $scope.telphone,
-                    })
-                        .success(function(data){
-                            console.log(data.data);
-                        })
                     $scope.addNewAddr = true;
                     return;
                 }
