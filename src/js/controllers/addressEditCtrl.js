@@ -22,7 +22,7 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
 
 
     $scope.update=function(){
-        if(!$scope.addrId && !X_context.memberId){
+        if(!$stateParams.addrId){
             $http.post(X_context.api + "addr/add",{
                 "member" : X_context.memberId,
                 "receiver" : $scope.user,
