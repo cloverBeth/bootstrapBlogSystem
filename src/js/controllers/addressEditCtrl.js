@@ -3,41 +3,50 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
     $scope.title='编辑地址';
 
 
-    var addressAccountApi = X_context.api + "addr/list";
+    var addressAccountListApi = X_context.api + "addr/list";
+    console.log('$stateParams.addrId',$stateParams.addrId);
 
-    $http.post(addressAccountApi,{
-        id :  $stateParams.id,
-    })
-        .success(function(data){
-            var datas=data.data;
-            //if(!datas[0])return;
-
-            $scope.user = datas[0].receiver;
-            $scope.telphone = datas[0].mobile;
-            $scope.detailArea = datas[0].addressFullname;
-
+    if($stateParams.addrId){
+        $http.post(addressAccountListApi,{
+            addrId : $stateParams.addrId
         })
+            .success(function(data){
+                var datas=data.data;
+                $scope.user = datas[0].receiver;
+                $scope.telphone = datas[0].mobile;
+                $scope.detailArea = datas[0].addressFullname;
+
+            })
+    };
+
+
 
     $scope.update=function(){
-        var addressAccountApi = X_context.api + "addr/update";
-        $http.post(addressAccountApi,{
-            "id" :  $stateParams.id,
-            "receiver" : $scope.user,
-            "addressFullname" : $scope.detailArea,
-            "mobile" : $scope.telphone,
-        })
-            .success(function(){
-                console.log($scope.detailArea)
+        if(!$scope.addrId && !X_context.memberId){
+            $http.post(X_context.api + "addr/add",{
+                "member" : X_context.memberId,
+                "receiver" : $scope.user,
+                "addressFullname" : $scope.detailArea,
+                "mobile" : $scope.telphone,
             })
+                .success(function(data){
+                    console.log(data.data);
+                    $scope.goBack();
+                })
+        }else{
+            $http.post(X_context.api + "addr/update",{
+                "addrId" :  $stateParams.addrId,
+                "receiver" : $scope.user,
+                "addressFullname" : $scope.detailArea,
+                "mobile" : $scope.telphone,
+            })
+                .success(function(data){
+                    console.log(data);
+                    $scope.goBack();
+                })
+        }
+
     }
-
-    
-
-
-
-
-
-
 
 
     console.log("$stateParams",$stateParams.from && $stateParams.from.fromCart);
@@ -47,8 +56,6 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
         } else {
             window.history.back();
         }
-
-
 
     }
 
