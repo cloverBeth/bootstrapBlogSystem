@@ -2,9 +2,9 @@
 angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$location,$state,$stateParams,$http){
     $scope.order = $scope.$parent.order;
 
-    $scope.username = "陈冠希";
-    $scope.phone = "13232311009";
-    $scope.address = "香港XX摄影工作室";
+    //$scope.username = "陈冠希";
+    //$scope.phone = "13232311009";
+    //$scope.address = "香港XX摄影工作室";
 
     $scope.payOption = "delivery";
 
@@ -40,6 +40,21 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
                 $state.go('orderSucceed',{orderId:data.data[0]._id});
             });
         }
+
+
+
+    $scope.$parent.memberPromise.then(function () {
+        $http.post(X_context.api + "addr/list", {
+            memberId: X_context.memberId,
+            addrId:$stateParams.addrId,
+        })
+            .success(function (data) {
+                var datas = data.data;
+                $scope.username = datas[0].receiver;
+                $scope.phone = datas[0].mobile;
+                $scope.address = datas[0].addressFullname;
+            })
+    });
 
     $scope.postOrderAndPay = function(){
         var orderList = [];

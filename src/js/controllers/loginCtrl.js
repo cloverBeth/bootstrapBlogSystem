@@ -24,7 +24,7 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
                 $scope.ensureBtn=true;
                 var timer=60;
                 var interval=$interval(function(){
-                    $scope.captchaBtn='请您稍后：'+timer;
+                    $scope.captchaBtn='请您稍后:'+timer;
                     timer--;
                     if(timer==0){
                         $interval.cancel(interval);

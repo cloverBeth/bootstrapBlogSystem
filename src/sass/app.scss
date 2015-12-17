@@ -344,12 +344,12 @@ p{
 .iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
 .iphone li span{padding:0 12px;color:#666;}
 .iphone label.control-label{
-  margin:0 0 0 35px;padding:2px;font-size:15px;line-height:3em;
+  margin:0 0 0 13px;padding:2px;font-size:15px;line-height:3em;
 }
 .iphone button.btn {
   padding: 5px 6px;
   background: #666;
-  margin-left: -25px;
+  margin-left:-1%;
   color: #fff;
 }
 .del{ position:absolute;right:15px;top:12px;font-size:15px;line-height:1.4em;}
@@ -617,6 +617,9 @@ div.main div.head em img{
   height:55px;
   margin:20px 25px 20px 20px;
 }
+
+
+form.loginForm{margin-top:60px;}
 
 .scrollable-content-div {
   height: 100%;
