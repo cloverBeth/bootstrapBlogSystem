@@ -20,17 +20,18 @@ angular.module('ZJSY_WeChat')
             freightFee : 0
         };
         $scope.order = {
+            storeId : 1,
             product : [
-                //{
-                //    id: 0,
-                //    name: "雀巢麦片",
-                //    num: 156,
-                //    img: "images/ph_1.jpg",
-                //    detail: "营养高，味道好",
-                //    cateId: 1,
-                //    price: 30,
-                //    buyNum: 1
-                //}
+                {
+                    id: 1,
+                    name: "雀巢麦片",
+                    num: 99999,
+                    img: "https://www.baidu.com/img/bd_logo1.png",
+                    detail: "frfr飒飒",
+                    cateId: 29,
+                    price: 30,
+                    buyNum:1
+                }
             ]
         };
         if(X_context.authorization && X_context.authorization!=X_context.guest){

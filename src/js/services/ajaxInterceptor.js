@@ -11,20 +11,20 @@ angular.module('ZJSY_WeChat').factory('ajaxInterceptor', function ($q,$rootScope
             return response;
           }else{
               $rootScope.$broadcast('alerts',{type:'danger',message:response.data.message || "系统错误。"});
-              return $q.reject(response);
+              return response;
         }
       }
       }
       if(response.data.status == 404 ){
         $rootScope.$broadcast('alerts',{type:'danger',message:'资源不存在。'});
         $location.path('/');
-        return $q.reject(response);
+        return response;
       }
       return response;
     },
     responseError: function(response) {
       $rootScope.$broadcast('alerts',{type:'danger',message:response.data.message || "系统错误。"});
-      return $q.reject(response);
+      return response;
     }
   };
 });

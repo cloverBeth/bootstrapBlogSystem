@@ -81,7 +81,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
 
         }).success(function(data){
             $scope.cart.products = [];
-            $state.go('cardLogin',{from:{fromOrder : true, orderId : data.data[0]._id}});
+            $state.go('cardLogin',{from:{fromOrder : true,orderId : data.data[0]._id}});
         });
 
 

@@ -2,6 +2,8 @@
 angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$interval,$http,$stateParams,$state){
 
     $scope.fromOrder = $stateParams.from && $stateParams.from.fromOrder;
+    $scope.orderId = $stateParams.from && $stateParams.from.orderId;
+
 
     $scope.showEdit = false;
     $scope.card = {
@@ -14,6 +16,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     $scope.payModal = false;
 
     var posted = false;
+    var payPosted = false;
 
     $scope.editCard = function($event){
         $event.stopPropagation();
@@ -28,8 +31,10 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     }
 
 
+
+
     $scope.getEnSure=function(){
-        if($scope.card.num == null || $scope.card.pwd ==null)return;
+        if($scope.card.num == null)return;
         if(posted == true)return;
         posted = true;
 
@@ -60,8 +65,27 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         }
     }
 
-    $scope.$parent.memberPromise.then(function(data){
-        $scope.card.num = data.data.data[0].allincardNo;
-        $scope.originNo = data.data.data[0].allincardNo;
+    $scope.pay = function(){
+        if(payPosted == true)return;
+        payPosted = true;
+        if(!$scope.card.pwd || !$scope.card.num || !$scope.orderId)return;
+        $http.post(X_context.api + 'pay/consume',{
+            "orderId" : $scope.orderId,
+            "memberCard" : $scope.card.num,
+            "passwd" : $scope.card.pwd
+        }).success(function(data){
+            $scope.$parent.cart.products = [];
+            payPosted = false;
+            $state.go('orderSucceed',{orderId:data.data[0]._id});
+        }).error(function(data){
+            console.log(data);
+            payPosted = false;
+            $state.go('orderSucceed',{orderId:data.data[0]._id});
+        });
+    }
+
+    $http.get(X_context.api + 'member/getCurMem').success(function(data){
+        $scope.card.num = data.data[0].allincardNo;
+        $scope.originNo = data.data[0].allincardNo;
     });
 });
