@@ -1,6 +1,6 @@
 
 angular.module('ZJSY_WeChat')
-.controller('MainController', function($scope,$location,$http){
+.controller('MainController', function($scope,$location,$http,$rootScope){
         "use strict";
         $scope.memberPromise = null;
         $scope.cart = {
@@ -20,20 +20,23 @@ angular.module('ZJSY_WeChat')
             freightFee : 0
         };
         $scope.order = {
-            storeId : 1,
+            //storeId : 1,
             product : [
                 {
-                    id: 1,
-                    name: "雀巢麦片",
-                    num: 99999,
-                    img: "https://www.baidu.com/img/bd_logo1.png",
-                    detail: "frfr飒飒",
-                    cateId: 29,
-                    price: 30,
-                    buyNum:1
+                    //id: 1,
+                    //name: "雀巢麦片",
+                    //num: 99999,
+                    //img: "https://www.baidu.com/img/bd_logo1.png",
+                    //detail: "frfr飒飒",
+                    //cateId: 29,
+                    //price: 30,
+                    //buyNum:1
                 }
             ]
         };
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+            $('#zjsy_modal').empty();
+        });
         if(X_context.authorization && X_context.authorization!=X_context.guest){
             $scope.memberPromise = $http.get(X_context.api + 'member/getCurMem')
                 .success(function(data){

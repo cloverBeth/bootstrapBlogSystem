@@ -28,6 +28,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
                 })
 
                 $scope.orderlist.push(order);
+
             }
         })
     $scope.goIndex=function(){

@@ -20,7 +20,7 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope,$
                     id : pro.id,
                     name : pro.name,
                     num : pro.amount,
-                    img : pro.img ? pro.img : "images/ph_1.jpg",
+                    img : pro.image,
                     detail : pro.specification,
                     cateId : pro.category,
                     price : pro.marketPrice

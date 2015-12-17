@@ -18,7 +18,7 @@
         <dl class="dandl">
             <dt class="clearfix">
                 <strong>订单详情</strong>
-                <span>{{orderone.states}}</span>
+                <span>{{orderone.status}}</span>
             </dt>
             <dd>
                 <ul class="danq">
@@ -38,7 +38,7 @@
                 <ul class="shou">
                     <li><span>订单编号</span><p>{{orderone.orderNum}}</p></li>
                     <li><span>收货地址</span><p>{{orderone.address}}</p></li>
-                    <li><span>收  货  人</span><p>{{orderone.guest}}</p></li>
+                    <li><span>收 货 人</span><p>{{orderone.guest}}</p></li>
                     <li><span>支付方式</span><p>{{orderone.payway}}</p></li>
                 </ul>
             </dd>
@@ -56,5 +56,9 @@
                 </ul>
             </dd>
         </dl>
+
+        <button ng-show="orderone.status=='未付款'" class="btn" style="background: #dd0000;width:60%;margin:10px 20%;" ng-click="payAgain()">
+            立即支付
+        </button>
     </div>
 </div>
