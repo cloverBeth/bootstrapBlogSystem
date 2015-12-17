@@ -14,12 +14,12 @@
     <form class="main loginForm form-horizontal container"name="addForm">
         <div class="iphone row">
                 <label for="telphone" class="col-sm-3 control-label">您的手机号:</label>
-                <input id="telphone" type="phone" ng-pattern="phoneReg"class="input1"style="font-size: 20px"
+                <input id="telphone" type="tel" ng-pattern="phoneReg"class="input1"style="font-size: 20px"
                        ng-model="telphone"name="phoneInput"required/>
         </div>
         <div class="iphone row">
                 <label class="col-sm-3 control-label"for="checknum">您的验证码:</label>
-                <input type="text" id="checknum" value="" class="input2" style="font-size: 20px"
+                <input type="number" id="checknum" value="" class="input2" style="font-size: 20px"
                        ng-model="captcha"required/>
                 <button type="button" href="javascript:;"
                    ng-disabled="addForm.phoneInput.$invalid"

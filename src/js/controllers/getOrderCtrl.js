@@ -1,6 +1,7 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$location,$state,$stateParams,$http){
     $scope.order = $scope.$parent.order;
+    $scope.cart = $scope.$parent.cart;
 
     //$scope.username = "陈冠希";
     //$scope.phone = "13232311009";
@@ -37,6 +38,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             "orderItems" : orderList
 
         }).success(function(data){
+                $scope.cart.products = [];
                 $state.go('orderSucceed',{orderId:data.data[0]._id});
             });
         }
@@ -57,14 +59,33 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     });
 
     $scope.postOrderAndPay = function(){
+
+        if(posted == true)return;
+        posted = true;
         var orderList = [];
         _.forEach($scope.order.product,function(item,index){
             orderList.push({
                 productId : item.id,
-                quantity : item.buyNum
+                quantity : item.buyNum,
+                unitPrice : item.price
             });
         });
-        $state.go('cardLogin',{from:{fromOrder : true, orderId : 1}});
+        $http.post(X_context.api + 'order/add',{
+            "storeId" : $scope.order.storeId,
+            "address" : $scope.address,
+            "orderStatus" : "未处理",
+            "payMethod" : $scope.payOption=="delivery"?"现金":"一卡通",
+            "phone" : $scope.phone,
+            "receiver" : $scope.username,
+            "orderItems" : orderList
+
+        }).success(function(data){
+            $scope.cart.products = [];
+            $state.go('cardLogin',{from:{fromOrder : true, orderId : data.data[0]._id}});
+        });
+
+
+
     }
 
 

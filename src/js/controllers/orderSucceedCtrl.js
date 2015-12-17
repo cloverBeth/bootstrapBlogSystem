@@ -17,7 +17,7 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
                 quantity : datas[0].orderDetail.length,
                 payway:datas[0].paymentMethod,
                 distribution:datas[0].shippingPrice,
-                expense:datas[0].totalPrice+datas[0].shippingPrice,
+                expense:datas[0].totalPrice,
                 //telphone:datas[0].telephone
 
             };

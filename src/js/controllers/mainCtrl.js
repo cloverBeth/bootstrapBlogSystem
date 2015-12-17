@@ -41,6 +41,13 @@ angular.module('ZJSY_WeChat')
                     X_context.memberPhone = data.data[0].mobile;
                 });
         }
+        $scope.isActive = function (route) {
+            if(_.indexOf($location.path().split('/'),route.split('/')[1])>0){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
 
 

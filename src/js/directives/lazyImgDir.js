@@ -133,7 +133,7 @@ angular.module('ZJSY_WeChat').directive(
 
                 // Log here so we can see how often this
                 // gets called during page activity.
-                console.log( "Checking for visible images..." );
+                //console.log( "Checking for visible images..." );
 
                 var visible = [];
                 var hidden = [];

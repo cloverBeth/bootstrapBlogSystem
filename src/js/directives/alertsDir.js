@@ -36,7 +36,7 @@ angular.module('ZJSY_WeChat')
                     scope.alerts.push({type: alert.type, msg: alert.message});
                     $timeout(function(){
                         scope.alerts = _.drop(scope.alerts);
-                    },5000);
+                    },2000);
                 })
             }
         };

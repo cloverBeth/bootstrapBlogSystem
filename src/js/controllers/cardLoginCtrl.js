@@ -6,9 +6,12 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     $scope.showEdit = false;
     $scope.card = {
         title: '一卡通',
-        num : "11133322313",
+        num : "",
         pwd : ""
     };
+    $scope.originNo = "";
+
+    $scope.payModal = false;
 
     var posted = false;
 
@@ -16,6 +19,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         $event.stopPropagation();
         $scope.showEdit = true;
     }
+
 
 
 
@@ -29,13 +33,35 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         if(posted == true)return;
         posted = true;
 
-        if(!$scope.showEdit && $scope.fromOrder){
-            console.log($stateParams.from.orderId);
-            $state.go('orderSucceed');
+        if(!$scope.showEdit ){
+            if($scope.fromOrder){
+                console.log($stateParams.from.orderId);
+                $scope.payModal = true;
+                //$state.go('orderSucceed');
+                $scope.showEdit = false;
+                posted = false;
+            }else{
+                $scope.showEdit = false;
+                posted = false;
+            }
         }else{
-
+            if($scope.card.num != $scope.originNo){
+                $http.post(X_context.api + "member/updateCard",{
+                    memberId : X_context.memberId,
+                    cardNo : $scope.card.num
+                }).success(function(data){
+                    $state.go($state.current, $stateParams, {reload: true, inherit: false});
+                    $scope.showEdit = false;
+                    posted = false;
+                })
+            }
+            $scope.showEdit = false;
+            posted = false;
         }
-        $scope.showEdit = false;
-        posted = false;
     }
+
+    $scope.$parent.memberPromise.then(function(data){
+        $scope.card.num = data.data.data[0].allincardNo;
+        $scope.originNo = data.data.data[0].allincardNo;
+    });
 });
