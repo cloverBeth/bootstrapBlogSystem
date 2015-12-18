@@ -13,7 +13,9 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
             for(var i in data.data){
                 var order ={
                     number : data.data[i].id,
-                    states : data.data[i].orderStatus,
+                    states : (data.data[i].orderStatus == "未处理"
+                            && data.data[i].paymentMethod == "一卡通"
+                            && !data.data[i].paidSn) ? "未付款" : data.data[i].orderStatus,
                     orderDate : data.data[i].createDate,
                     products : [],
                     total : data.data[i].totalPrice,
@@ -28,8 +30,10 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
                 })
 
                 $scope.orderlist.push(order);
-
             }
+            $scope.orderlist = _.sortBy($scope.orderlist,(n =>{
+                return -n.orderDate;
+            }))
         })
     $scope.goIndex=function(){
         $state.go('store.product',{storeId:X_context.storeId});

@@ -1,7 +1,7 @@
 "use strict";
 angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scope,$state,$http,$stateParams){
     console.log($stateParams.orderId);
-    $scope.title="购物成功";
+    $scope.title="";
     //$scope.telphone='012-7654987';
 
     var orderListApi = X_context.api + "order/list";
@@ -18,9 +18,11 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
                 payway:datas[0].paymentMethod,
                 distribution:datas[0].shippingPrice,
                 expense:datas[0].totalPrice,
-                //telphone:datas[0].telephone
-
+                status : (datas[0].orderStatus == "未处理"
+                        && datas[0].paymentMethod == "一卡通"
+                        && !datas[0].paidSn) ? "未付款" : datas[0].orderStatus,
             };
+            $scope.title = $scope.orderSucceed.status == "未付款" ? "购物未成功" : "购物成功"
 
         })
 
