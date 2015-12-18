@@ -12,7 +12,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
             if(!data.data)return;
             for(var i in data.data){
                 var order ={
-                    number : data.data[i].id,
+                    number : data.data[i].orderSn,
                     states : (data.data[i].orderStatus == "未处理"
                             && data.data[i].paymentMethod == "一卡通"
                             && !data.data[i].paidSn) ? "未付款" : data.data[i].orderStatus,

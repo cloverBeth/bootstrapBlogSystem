@@ -8,7 +8,7 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
     $scope.orderpills=[];
 
     $http.post(orderListApi,{
-        id : $stateParams.orderId
+        id : $stateParams.orderSn
     })
         .success(function(data){
             console.log(data.data)
