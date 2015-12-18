@@ -15,15 +15,18 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
             var datas=data.data;
             if(!datas[0]){return;}
           $scope.orderone = {
+                id : datas[0].id,
                 orderNum :datas[0].orderSn,
-                states : datas[0].orderStatus,
+                status : (datas[0].orderStatus == "未处理"
+                            && datas[0].paymentMethod == "一卡通"
+                            && !datas[0].paidTime) ? "未付款" : datas[0].orderStatus,
                 address : datas[0].address,
                 guest:datas[0].receiver,
                 payway:datas[0].paymentMethod,
                 total :datas[0].totalPrice,
                 carriage:datas[0].shippingPrice,
                 //credits:datas[0].userPoint,
-                realpay :datas[0].totalPrice+datas[0].shippingPrice,
+                realpay :datas[0].totalPrice,
                 orderpills:[],
 
             };
@@ -52,7 +55,9 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
         $state.go('store.product',{storeId:X_context.storeId});
     }
 
-
+    $scope.payAgain = function(){
+        $state.go('cardLogin',{from:{fromOrder : true,orderId : $scope.orderone.id}});
+    }
 
 });
 

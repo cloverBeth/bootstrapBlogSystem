@@ -74,13 +74,15 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
             "memberCard" : $scope.card.num,
             "passwd" : $scope.card.pwd
         }).success(function(data){
+            $scope.payModal = false;
             $scope.$parent.cart.products = [];
+            $scope.showEdit = false;
             payPosted = false;
-            $state.go('orderSucceed',{orderId:data.data[0]._id});
+            $state.go('orderSucceed',{orderId:$scope.orderId});
         }).error(function(data){
-            console.log(data);
+            $scope.payModal = false;
             payPosted = false;
-            $state.go('orderSucceed',{orderId:data.data[0]._id});
+            $state.go('orderSucceed',{orderId:$scope.orderId});
         });
     }
 
