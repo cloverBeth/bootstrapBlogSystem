@@ -19,7 +19,7 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
                 orderNum :datas[0].orderSn,
                 status : (datas[0].orderStatus == "未处理"
                             && datas[0].paymentMethod == "一卡通"
-                            && !datas[0].paidTime) ? "未付款" : datas[0].orderStatus,
+                            && !datas[0].paidSn) ? "未付款" : datas[0].orderStatus,
                 address : datas[0].address,
                 guest:datas[0].receiver,
                 payway:datas[0].paymentMethod,

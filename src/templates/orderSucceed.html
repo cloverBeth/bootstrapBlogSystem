@@ -27,8 +27,13 @@
         <div class="pay clearfix">
             <h3>商家电话</h3><strong>{{telphone}}</strong>
         </div>
-        <div class="redBtn">
-            <a class="btn btn-danger"ng-click="goIndex()"href="javascript:;">继续逛逛</a>
+        <div style="width: 80%;margin: 10px 10%;">
+            <button class="redBtn btn"ng-click="goIndex()"href="javascript:;"
+                    ng-style="{'width': '30%',
+                    'margin-left':orderSucceed.status=='未付款'?'0' : '35%'}">返回购物</button>
+
+            <button class="redBtn btn"ng-click="goIndex()"href="javascript:;" ng-show="orderSucceed.status=='未付款'"
+                    style="width: 30%;">继续付款</button>
         </div>
     </div>
     <div class="kong"></div>
