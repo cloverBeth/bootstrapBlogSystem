@@ -24,7 +24,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
                 _.forEach(data.data[i].orderDetail,function(item,i){
                     order.products.push({
                         quantity : item.quantity,
-                        image : item.image,
+                        image : item.productImage,
                         id : item.id
                     });
                 })

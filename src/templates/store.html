@@ -29,7 +29,7 @@
   </ul>
 </div>
 <div class="sound" ng-show="isActive('/store-product') || isActive('/store-sale')">
-  {{notice.title}}<a href="javascript:;" style="float: right;margin-right: 20px;" id="notice" class="blue" ui-turn-on="noticeModal">详情</a>
+  <span class="attention">{{notice.title}}</span><a href="javascript:;" id="notice" class="blue" ui-turn-on="noticeModal">详情</a>
 </div>
 <ui-view></ui-view>
 
