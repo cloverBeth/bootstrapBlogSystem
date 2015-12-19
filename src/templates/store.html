@@ -71,7 +71,7 @@
         <ul>
           <li ng-repeat="pro in cart.products track by $index">
             <strong>{{pro.name}}</strong>
-            <b class="org">￥{{pro.price * pro.buyNum}}</b>
+            <b class="org">￥{{(pro.price * pro.buyNum).toFixed(1)}}</b>
             <div class="numN fr">
               <a href="javascript:;" class="add1" ng-click="addProduct(pro.id)">
                 <img src="images/ico_a1.png" />
