@@ -15,7 +15,6 @@ angular.module('ZJSY_WeChat').controller('TransactionDetailController',function(
                 $scope.transaction =[{
                     number : data.data[i].paidSn,
                     order : data.data[i].orderSn,
-
                     order_date : data.data[i].createDate,
                     cost : data.data[i].totalPrice,}
                 ];}

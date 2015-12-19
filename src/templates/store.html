@@ -46,8 +46,8 @@
           <img class="cart-img" src="images/ico_9.png" />
           <b>{{cart.products.length}}</b>
         </em>
-        <strong>￥{{totalPrice}}
-          <font ng-show="cart.min > totalPrice">还差￥{{cart.min - totalPrice}}免配送费</font>
+        <strong>￥{{(totalPrice).toFixed(1)}}
+          <font ng-show="cart.min > totalPrice">还差￥{{(cart.min - totalPrice).toFixed(1)}}免配送费</font>
         </strong>
         <span ng-hide="isActive('/store-cart')">
             <a ng-disabled="totalPrice == 0" href="javascript:;" ng-click="goToCart()">选好了</a>
