@@ -12,10 +12,10 @@
     </header>
 
     <div class="main mt-48" >
-        <div class="address" ng-hide="addNewAddr">
+        <div class="address"  ng-click="goToCart()"ng-hide="addNewAddr">
             <ul>
                 <li style="border:none;">
-                    <p ng-click="goToCart()">
+                    <p>
                         {{address.user}}    {{address.telphone}}<br />
                         {{address.detailArea}}
                     </p>
