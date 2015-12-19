@@ -28,7 +28,7 @@
            ng-class="{hover:isActive('/store-detail')}">商家</a></li>
   </ul>
 </div>
-<div class="sound" ng-show="isActive('/store-product') || isActive('/store-sale')">
+<div class="sound" ng-show="isActive('/store-product')">
   <span class="attention">{{notice.title}}</span><a href="javascript:;" id="notice" class="blue" ui-turn-on="noticeModal">详情</a>
 </div>
 <ui-view></ui-view>

@@ -18,6 +18,7 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
                 payway:datas[0].paymentMethod,
                 distribution:datas[0].shippingPrice,
                 expense:datas[0].totalPrice,
+                telphone:datas[0].storePhone,
                 status : (datas[0].orderStatus == "未处理"
                         && datas[0].paymentMethod == "一卡通"
                         && !datas[0].paidSn) ? "未付款" : datas[0].orderStatus,
