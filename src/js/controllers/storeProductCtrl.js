@@ -1,7 +1,7 @@
 
 "use strict";
 angular.module('ZJSY_WeChat').controller('StoreProductController', function($scope,$timeout,$http,$q,$stateParams){
-
+    $scope.$broadcast('showLoading');
     $scope._ = _;
 
 
@@ -83,6 +83,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             console.log('hahaha',$scope.proList);
             $scope.showProduct($stateParams.productId);
         }
+        $scope.$broadcast('hideLoading');
+
     });
 
     $scope.hots = $scope.hotList;

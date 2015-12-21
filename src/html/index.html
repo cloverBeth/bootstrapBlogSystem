@@ -41,8 +41,14 @@
           <div ui-view style="height: 100%;"class="main-section"></div>
         </div>
       </div>
-
     </div><!-- ~ .app -->
+
+
+    <div class="loading" ng-show="showLoading">
+      <div class="loading-img">
+        <img src="images/loading.gif" alt=""/>
+      </div>
+    </div>
 
     <div ui-yield-to="modals" id="zjsy_modal"></div>
   </body>
