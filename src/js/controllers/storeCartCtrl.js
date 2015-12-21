@@ -18,6 +18,7 @@ angular.module('ZJSY_WeChat').controller('StoreCartController',function($scope,$
         })
             .success(function (data) {
                 var datas = data.data;
+                if(!datas[0])return;
                 $scope.storecart.id=datas[0].id;
                 $scope.storecart.username = datas[0].receiver;
                 $scope.storecart.phone = datas[0].mobile;

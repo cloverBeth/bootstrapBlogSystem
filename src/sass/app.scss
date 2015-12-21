@@ -350,7 +350,7 @@ p{
 //form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position:relative;right:-110px;}
 .iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding:0;line-height:2.5rem; }
 .iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
-.iphone li span{padding:0 12px;color:#666;}
+.iphone li span {padding:0 12px;color:#666;background:none;}
 .iphone label.control-label{
   margin:0 0 0 13px;padding:2px;font-size:15px;line-height:3em;
 }
@@ -375,7 +375,7 @@ dl{
 /*************************个人中心***************************/
 .head{ background:#00aaff;height:95px;}
 .head em{ display:block;float:left;width:80px;}
-.head p{float:left;color:#fff;font-size:20px;text-align:center;line-height:2em;padding:30px 0 30px 20px;}
+.head p a{display:inline-block;float:left;color:#fff;font-size:20px;text-align:center;line-height:2em;padding:30px 0 30px 20px;}
 
 .main .personal{margin-top:10px;}
 .personal ul{margin-top:5px; background:#fff;border-top:1px solid #ddd;}
@@ -385,7 +385,7 @@ dl{
                     background-size:10px;background-position:98% 50%;}
 
 .personal ul li strong{ display:block;float:left;font-size:16px;color:#999;line-height:2.2em;}
-.personal ul li span { display:block;margin-right:20px;float:right;font-size:16px;color:#999;line-height:2.2em;}
+.personal ul li span a#nobg{ display:block;margin-right:20px;float:right;font-size:16px;color:#999;line-height:2.2em;background:none;}
 
 .dan{margin-top:10px;background:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 

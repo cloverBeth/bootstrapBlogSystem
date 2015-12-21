@@ -14,8 +14,6 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     $scope.totalPrice = 0;
     _.forEach($scope.order.product, function (item, index) {
             $scope.totalPrice += item.price * item.buyNum;
-
-
     })
     if( $scope.totalPrice<$scope.$parent.cart.min)
     {
@@ -56,7 +54,9 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             addrId:$stateParams.addrId,
         })
             .success(function (data) {
+
                 var datas = data.data;
+                if(!datas[0])return;
                 $scope.username = datas[0].receiver;
                 $scope.phone = datas[0].mobile;
                 $scope.address = datas[0].addressFullname;
