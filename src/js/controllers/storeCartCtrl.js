@@ -3,7 +3,9 @@ angular.module('ZJSY_WeChat').controller('StoreCartController',function($scope,$
     $scope.$parent.title = "购物车";
 
     $scope.cart = $scope.$parent.$parent.cart;
+    $scope.storecart={
 
+    }
 
 
     //$scope.username = "陈冠希";
@@ -16,9 +18,10 @@ angular.module('ZJSY_WeChat').controller('StoreCartController',function($scope,$
         })
             .success(function (data) {
                 var datas = data.data;
-                $scope.username = datas[0].receiver;
-                $scope.phone = datas[0].mobile;
-                $scope.address = datas[0].addressFullname;
+                $scope.storecart.id=datas[0].id;
+                $scope.storecart.username = datas[0].receiver;
+                $scope.storecart.phone = datas[0].mobile;
+                $scope.storecart.address = datas[0].addressFullname;
             })
     });
 

@@ -14,13 +14,13 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     $scope.totalPrice = 0;
     _.forEach($scope.order.product, function (item, index) {
             $scope.totalPrice += item.price * item.buyNum;
-        if( $scope.totalPrice<$scope.$parent.cart.min)
-        {
-            $scope.totalPrice=$scope.totalPrice+$scope.$parent.cart.freightFee;
-        }
+
 
     })
-
+    if( $scope.totalPrice<$scope.$parent.cart.min)
+    {
+        $scope.totalPrice=$scope.totalPrice+$scope.$parent.cart.freightFee;
+    }
     $scope.postOrder = function(){
         if(posted == true)return;
         posted = true;
