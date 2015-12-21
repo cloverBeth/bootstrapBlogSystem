@@ -101,4 +101,12 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         $state.go('store.product',{storeId:X_context.storeId});
     }
 
+    $scope.getProductLength = function(){
+        var length = 0;
+        _.forEach($scope.cart.products,function(item,key){
+            length += item.buyNum;
+        });
+        return length;
+    }
+
 });

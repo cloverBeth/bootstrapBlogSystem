@@ -44,7 +44,7 @@
       <div class="clearfix" ng-show="cart.products.length > 0">
         <em ng-click="toggleCart()">
           <img class="cart-img" src="images/ico_9.png" />
-          <b>{{cart.products.length}}</b>
+          <b>{{getProductLength()}}</b>
         </em>
         <strong>￥{{(totalPrice).toFixed(1)}}
           <font ng-show="cart.min > totalPrice">还差￥{{(cart.min - totalPrice).toFixed(1)}}免配送费</font>
