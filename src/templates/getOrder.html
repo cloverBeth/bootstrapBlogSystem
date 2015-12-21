@@ -30,9 +30,8 @@
                 </li>
                 <li>
                 <span style="float: right;">
-                    总价 :￥{{(totalPrice ).toFixed(1)}}
-                    (含配送费￥{{$parent.cart.freightFee==0 || totalPrice-$parent.cart.freightFee >= $parent.cart.min
-                                                ? "0" : $parent.cart.freightFee}})
+                    总价 :￥{{(totalPrice + freight).toFixed(1)}}
+                    (含配送费￥{{freight}})
                 </span>
 
                 </li>

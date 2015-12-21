@@ -2,6 +2,7 @@
 angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$location,$state,$stateParams,$http){
     $scope.order = $scope.$parent.order;
     $scope.cart = $scope.$parent.cart;
+    $scope.freight = 0;
 
     //$scope.username = "陈冠希";
     //$scope.phone = "13232311009";
@@ -15,10 +16,9 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     _.forEach($scope.order.product, function (item, index) {
             $scope.totalPrice += item.price * item.buyNum;
     })
-    if( $scope.totalPrice<$scope.$parent.cart.min)
-    {
-        $scope.totalPrice=$scope.totalPrice+$scope.$parent.cart.freightFee;
-    }
+
+    $scope.freight = $scope.totalPrice < $scope.$parent.cart.min ? $scope.$parent.cart.freightFee : 0;
+
     $scope.postOrder = function(){
         if(posted == true)return;
         posted = true;
