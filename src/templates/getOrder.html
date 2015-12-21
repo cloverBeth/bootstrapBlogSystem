@@ -26,12 +26,11 @@
                         <strong>{{item.name}}</strong>
                         <b>x {{item.buyNum}}</b>
                     </p>
-                    <span>￥{{item.price * item.buyNum}}</span>
+                    <span>￥{{(item.price * item.buyNum).toFixed(1)}}</span>
                 </li>
                 <li>
                 <span style="float: right;">
-                    总价 :￥{{totalPrice + parseInt($parent.cart.freightFee==0 || totalPrice >= $parent.cart.min
-                                                ? "0" : $parent.cart.freightFee)}}
+                    总价 :￥{{(totalPrice).toFixed(1)}}
                     (含配送费￥{{$parent.cart.freightFee==0 || totalPrice >= $parent.cart.min
                                                 ? "0" : $parent.cart.freightFee}})
                 </span>

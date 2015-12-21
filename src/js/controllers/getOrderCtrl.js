@@ -11,10 +11,14 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
 
 
     var posted = false;
-
     $scope.totalPrice = 0;
-    _.forEach($scope.order.product,function(item,index){
-        $scope.totalPrice += item.price * item.buyNum;
+    _.forEach($scope.order.product, function (item, index) {
+            $scope.totalPrice += item.price * item.buyNum;
+        if( $scope.totalPrice<$scope.$parent.cart.min)
+        {
+            $scope.totalPrice=$scope.totalPrice+$scope.$parent.cart.freightFee;
+        }
+
     })
 
     $scope.postOrder = function(){
@@ -42,6 +46,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
                 $state.go('orderSucceed',{orderId:data.data[0]._id});
             });
         }
+
 
 
 
