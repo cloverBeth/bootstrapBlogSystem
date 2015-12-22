@@ -18,7 +18,7 @@
                 <strong>订单号：{{order.number}}</strong>
                 <span>{{order.states}}</span>
             </div>
-            <span ui-sref="orderDetail({orderId:order.number})">
+            <span ui-sref="orderDetail({orderId:order.id})">
             <div class="pic clearfix">
                 <ul>
                     <li ng-repeat="product in order.products">
@@ -26,7 +26,7 @@
                         <p>×{{product.quantity}}</p>
                     </li>
                 </ul>
-                <span ui-sref="orderDetail({orderId:order.number})">共 {{order.totalNum}} 件</span>
+                <span ui-sref="orderDetail({orderId:order.id})">共 {{order.totalNum}} 件</span>
             </div>
             </span>
             <div class="time clearfix">
