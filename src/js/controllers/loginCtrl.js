@@ -15,12 +15,12 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
         if($scope.captchaDisabled==true){
             return;
         }
+        $scope.captchaDisabled=true;
         $http.post(X_context.api + "member/fetchAuthCode",{
             "phoneNum" : $scope.telphone
         })
             .success(function(data){
                 console.log(data);
-                $scope.captchaDisabled=true;
                 $scope.ensureBtn=true;
                 var timer=60;
                 var interval=$interval(function(){
