@@ -20,33 +20,52 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
     };
 
 
-
+    $scope.phoneReg=/^([0-9]{11})$/;
     $scope.update=function(){
-        if(!$stateParams.addrId){
-            $http.post(X_context.api + "addr/add",{
-                "member" : X_context.memberId,
-                "receiver" : $scope.user,
-                "addressFullname" : $scope.detailArea,
-                "mobile" : $scope.telphone,
-            })
-                .success(function(data){
-                    console.log(data.data);
-                    $scope.goBack();
+
+            if(!$stateParams.addrId){
+                $http.post(X_context.api + "addr/add",{
+                    "member" : X_context.memberId,
+                    "receiver" : $scope.user,
+                    "addressFullname" : $scope.detailArea,
+                    "mobile" : $scope.telphone,
                 })
-        }else{
-            $http.post(X_context.api + "addr/update",{
-                "addrId" :  $stateParams.addrId,
-                "receiver" : $scope.user,
-                "addressFullname" : $scope.detailArea,
-                "mobile" : $scope.telphone,
-            })
-                .success(function(data){
-                    console.log(data);
-                    $scope.goBack();
+                    .success(function(data){
+                        //console.log(data.data);
+                        if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
+                             $scope.goBack();
+                        }
+                        else{
+                            alert("请您输入正确的手机号")
+                            return;
+
+                        }
+                    })
+            }else{
+                $http.post(X_context.api + "addr/update",{
+                    "addrId" :  $stateParams.addrId,
+                    "receiver" : $scope.user,
+                    "addressFullname" : $scope.detailArea,
+                    "mobile" : $scope.telphone,
                 })
+
+                .success(function(data){
+                    //console.log(data);
+                        if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
+                            $scope.goBack();
+                        }
+                        else{
+                            alert("请您输入正确的手机号")
+                            return;
+                        }
+                })
+
         }
 
     }
+
+
+
 
 
     console.log("$stateParams",$stateParams.from && $stateParams.from.fromCart);
