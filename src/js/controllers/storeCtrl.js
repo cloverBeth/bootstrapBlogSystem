@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$location,$state,$stateParams,$http){
+angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$location,$state,$stateParams,$http,$rootScope){
     $scope.storeTitle = "";
     $scope.title = "";
     $scope.navHeight = 150;
@@ -14,6 +14,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId
     }).success(function(data){
+
         $scope.storeDetail = data.data[0];
         $scope.storeTitle = data.data[0].storeName;
         $scope.title = data.data[0].storeName;
@@ -89,7 +90,18 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
 
     }
 
+    $scope.address = {};
+
+    $scope.$on('addressGet',function(name,data){
+        console.log(name,data);
+        $scope.address = data;
+    });
+
     $scope.getOrder = function(){
+        if(!$scope.address.username || !$scope.address.phone || !$scope.address.address){
+            $rootScope.$broadcast('alerts',{type:'danger',message:'地址填写不完整。'});
+            return;
+        }
         if($scope.totalPrice == 0)return;
         $scope.$parent.order.product = $scope.cart.products;
         $scope.$parent.order.storeId = $scope.storeId;

@@ -45,6 +45,7 @@ angular.module('ZJSY_WeChat')
 
         $rootScope.$on('hideLoading',function(){
             $scope.showLoading = false;
+
         });
 
         if(X_context.authorization && X_context.authorization!=X_context.guest){

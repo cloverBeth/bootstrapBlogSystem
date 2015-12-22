@@ -23,6 +23,11 @@ angular.module('ZJSY_WeChat').controller('StoreCartController',function($scope,$
                 $scope.storecart.username = datas[0].receiver;
                 $scope.storecart.phone = datas[0].mobile;
                 $scope.storecart.address = datas[0].addressFullname;
+                $scope.$emit('addressGet',{
+                    username : $scope.storecart.username,
+                    phone : $scope.storecart.phone,
+                    address : $scope.storecart.address
+                });
             })
     });
 
