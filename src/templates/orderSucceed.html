@@ -11,9 +11,13 @@
     <div class="main mt-48">
 
         <div class="succeed clearfix">
-            <p>
+            <p ng-show="orderSucceed.status!='未付款'">
                 <strong>您的订单已提交成功，我们会尽快配送！</strong>
                 如您需要取消订单，请拨打商家服务热线。
+            </p>
+            <p ng-show="orderSucceed.status=='未付款'">
+                <strong>您的订单未成功！</strong>
+                如您有其他问题，请拨打商家服务热线。
             </p>
         </div>
         <div class="danhao">
@@ -30,7 +34,7 @@
         <div style="width: 80%;margin: 10px 10%;">
             <button class="redBtn btn"ng-click="goIndex()"href="javascript:;"
                     ng-style="{'width': '30%',
-                    'margin-left':orderSucceed.status=='未付款'?'0' : '35%'}">返回购物</button>
+                    'margin-left':orderSucceed.status=='未付款'?'20%' : '35%'}">返回购物</button>
 
             <button class="redBtn btn"ng-click="goIndex()"href="javascript:;" ng-show="orderSucceed.status=='未付款'"
                     style="width: 30%;">继续付款</button>

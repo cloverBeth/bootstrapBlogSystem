@@ -652,10 +652,18 @@ label {
   background-color: $zjsyGreen;
 }
 .loading{
+  display: none;
   position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
   background-color: #EFEFEF;
   z-index: 99999;
+  display: flex;
+  align-items: center;
+  .loading-img {
+    margin: auto;
+    width: 150px;
+    height: 110px;
+  }
 }
