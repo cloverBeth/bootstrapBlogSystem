@@ -266,8 +266,9 @@ p{
 }
 
 .store{ background:#fff;}
-.store em{ display:block;float:left;width:20%;padding:5%;}
-.store strong{ display:block;float:left;width:70%;padding-top:5%;font-size:14px;line-height:1.6em;color:#666;}
+.store .store-detail{ display:inline-block;padding-top:5%;vertical-align: top;}
+.store .store-image{ display:inline-block;padding:5%;}
+
 .store p{border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;color:#999;padding:0.6em 0;line-height:2em;text-align:right;padding-right:15px;font-size:15px;}
 .store p font{font-size:16px;color:#666;}
 
