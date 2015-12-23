@@ -45,7 +45,7 @@ angular.module('ZJSY_WeChat')
         });
 
         $rootScope.$on('hideLoading',function(){
-            $scope.showLoading = true;
+            $scope.showLoading = false;
 
         });
 
