@@ -29,10 +29,8 @@
   </ul>
 </div>
 <div class="sound" ng-show="isActive('/store-product')">
-  <!--<span class="attention">{{notice.title}}</span><a href="javascript:;" id="notice" class="blue" ui-turn-on="noticeModal">详情</a>-->
   <span class="attention">{{notice.title}}</span><a href="javascript:;" id="notice" class="blue">详情</a>
 
-  <!--<a href="javascript:()" id="notice" >详情 &gt;</a>-->
 </div>
 <ui-view></ui-view>
 
@@ -116,12 +114,10 @@
   <!--</div>-->
 <!--</div>-->
 
-
-
 <div class="notice">
   <dl>
-    <dt><em class="close"><img src="images/ico_close.png"></em></dt>
-    <dd class="clearfix">
+    <dt><em class="close"id="close"><img src="images/ico_close.png"></em></dt>
+    <dd>
       <h3>{{notice.title}}</h3>
       <p>{{notice.content}}</p>
     </dd>
