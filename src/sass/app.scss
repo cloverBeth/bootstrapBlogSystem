@@ -307,8 +307,8 @@ p{
 .pay{margin:5px 0;background:#fff;font-size:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 
 .pay h3{float:left;padding:12px 0;font-size:15px;line-height:2.4em;color:#444;padding-left:15px;margin-bottom: 0;}
-.pay strong{ display:block;float:right;color:#999;padding:12px 0;font-size:14px;line-height:2.4em;padding-right:15px;}
-
+.pay strong { display:block;float:right;color:#999;padding:12px 0;font-size:14px;line-height:2.4em;padding-right:15px;}
+.pay a{ display:inline-block;float:right;color:#999;padding:12px 0;font-weight:bolder;font-size:14px;line-height:2.4em;padding-right:15px;}
 .pay li {
   height: 3.5rem;
   line-height: 3.5rem;
@@ -344,7 +344,7 @@ p{
 .succeed em{ display:block;float:left;width:20px;padding-right:10px;}
 .succeed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
 .succeed p strong{ display:block;font-size:15px;color:#666;}
-
+.failed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_fail.png) no-repeat 10px 16px;background-size:18px;border-bottom:1px solid #ddd;}
 .danhao{margin-top:15px;padding:12px;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
@@ -380,8 +380,8 @@ dl{
 
 .main .personal{margin-top:10px;}
 .personal ul{margin-top:5px; background:#fff;border-top:1px solid #ddd;}
-.personal ul li{clear:both; overflow:hidden;padding:7px;border-bottom:1px solid #ddd;border-bottom:1px solid #ddd;font-size:16px;color:#999;line-height:2.2em;}
-.personal ul li em img{width:28px;margin-top:-3px;padding-right:8px;}
+.personal ul li{clear:both; overflow:hidden;padding:7px 15px;border-bottom:1px solid #ddd;border-bottom:1px solid #ddd;font-size:16px;color:#999;line-height:2.2em;}
+//.personal ul li em img{width:28px;margin-top:-3px;padding-right:8px;}
 .personal ul li a{ display:block;font-size:16px;color:#999;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center;
                     background-size:10px;background-position:98% 50%;}
 

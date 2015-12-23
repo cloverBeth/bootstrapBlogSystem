@@ -24,6 +24,7 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
                         && !datas[0].paidSn) ? "未付款" : datas[0].orderStatus,
             };
             $scope.title = $scope.orderSucceed.status == "未付款" ? "购物未成功" : "购物成功"
+            if($scope.title==购物未成功){}
 
         })
 
@@ -31,5 +32,8 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
 
     $scope.goIndex=function(){
         $state.go('store.product',{storeId:X_context.storeId});
+    }
+    $scope.goToPay=function(){
+        $state.go('orderDetail',{storeId:X_context.storeId});
     }
 })
