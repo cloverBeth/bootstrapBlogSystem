@@ -1,10 +1,13 @@
 <div class="main-section">
     <header class="header">
         <div class="back">
-            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+            <a ng-click="goIndex()" href="javascript:;"><img src="images/ico_1.png" /></a>
         </div>
         <div class="title">
             {{title}}
+        </div>
+        <div class="del">
+            <a ng-click="goIndex()" href="javascript:;" class="blue">主页</a>
         </div>
     </header>
 

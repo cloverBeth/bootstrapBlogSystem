@@ -92,7 +92,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
 
     $scope.goToCart = function(){
         if($scope.totalPrice == 0)return;
-        $state.transitionTo('store.cart');
+        $state.go('store.cart');
 
     }
 

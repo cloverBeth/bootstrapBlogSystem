@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$location,$state,$stateParams,$http){
+angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$location,$state,$stateParams,$http,$rootScope){
     $scope.order = $scope.$parent.order;
     $scope.cart = $scope.$parent.cart;
     $scope.freight = 0;
@@ -30,6 +30,16 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
                 unitPrice : item.price
             });
         });
+        if(orderList.length == 0
+            || !$scope.order.storeId
+            || !$scope.address
+            || !$scope.payOption
+            || !$scope.phone
+            || !$scope.username){
+            $rootScope.$broadcast('alerts',{type:'danger',message:'请填写订单必要字段。'});
+            return;
+        }
+
         $http.post(X_context.api + 'order/add',{
             "storeId" : $scope.order.storeId,
             "address" : $scope.address,
@@ -40,7 +50,8 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             "orderItems" : orderList
 
         }).success(function(data){
-                $scope.cart.products = [];
+            $scope.cart.products = [];
+            $scope.order.product = [];
                 $state.go('orderSucceed',{orderId:data.data[0]._id});
             });
         }
@@ -75,6 +86,15 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
                 unitPrice : item.price
             });
         });
+        if(orderList.length == 0
+            || !$scope.order.storeId
+            || !$scope.address
+            || !$scope.payOption
+            || !$scope.phone
+            || !$scope.username){
+            $rootScope.$broadcast('alerts',{type:'danger',message:'请填写订单必要字段。'});
+            return;
+        }
         $http.post(X_context.api + 'order/add',{
             "storeId" : $scope.order.storeId,
             "address" : $scope.address,
@@ -85,11 +105,15 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             "orderItems" : orderList
 
         }).success(function(data){
+            $scope.cart.products = [];
+            $scope.order.product = [];
             $state.go('cardLogin',{from:{fromOrder : true,orderId : data.data[0]._id}});
         });
+    }
 
 
-
+    $scope.goIndex=function(){
+        $state.go('store.product',{storeId:X_context.storeId});
     }
 
 
