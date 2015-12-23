@@ -18,16 +18,16 @@
                 <strong>订单号：{{order.number}}</strong>
                 <span>{{order.states}}</span>
             </div>
-            <span ui-sref="orderDetail({orderId:order.number})">
-            <div class="pic clearfix">
-                <ul>
-                    <li ng-repeat="product in order.products">
-                        <em><img src="{{product.image}}" /></em>
-                        <p>×{{product.quantity}}</p>
-                    </li>
-                </ul>
-                <span ui-sref="orderDetail({orderId:order.number})">共 {{order.totalNum}} 件</span>
-            </div>
+            <span ui-sref="orderDetail({orderId:order.id})">
+                <div class="pic clearfix">
+                    <ul>
+                        <li ng-repeat="product in order.products">
+                            <em><img src="{{product.image}}" /></em>
+                            <p>×{{product.quantity}}</p>
+                        </li>
+                    </ul>
+                    <span>共 {{order.totalNum}} 件</span>
+                </div>
             </span>
             <div class="time clearfix">
                 <strong>{{order.orderDate | date:"yyyy-MM-dd HH:mm:ss"}}</strong>

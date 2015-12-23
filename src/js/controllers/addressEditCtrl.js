@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope,$stateParams,$http,$state){
+angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootScope,$scope,$stateParams,$http,$state){
     $scope.title='编辑地址';
 
 
@@ -23,44 +23,39 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($scope
     $scope.phoneReg=/^([0-9]{11})$/;
     $scope.update=function(){
 
-            if(!$stateParams.addrId){
-                $http.post(X_context.api + "addr/add",{
-                    "member" : X_context.memberId,
-                    "receiver" : $scope.user,
-                    "addressFullname" : $scope.detailArea,
-                    "mobile" : $scope.telphone,
-                })
-                    .success(function(data){
-                        //console.log(data.data);
-                        if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
-                             $scope.goBack();
-                        }
-                        else{
-                            alert("请您输入正确的手机号")
-                            return;
+        if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
 
-                        }
-                    })
-            }else{
-                $http.post(X_context.api + "addr/update",{
-                    "addrId" :  $stateParams.addrId,
-                    "receiver" : $scope.user,
-                    "addressFullname" : $scope.detailArea,
-                    "mobile" : $scope.telphone,
-                })
-
-                .success(function(data){
-                    //console.log(data);
-                        if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
-                            $scope.goBack();
-                        }
-                        else{
-                            alert("请您输入正确的手机号")
-                            return;
-                        }
-                })
+        }else{
+            $rootScope.$broadcast('alerts',{type:'danger',message:'请您输入正确的手机号。'});
+            return;
 
         }
+        if(!$stateParams.addrId){
+            $http.post(X_context.api + "addr/add",{
+                "member" : X_context.memberId,
+                "receiver" : $scope.user,
+                "addressFullname" : $scope.detailArea,
+                "mobile" : $scope.telphone,
+            })
+                .success(function(data){
+                    console.log(data.data);
+                    $scope.goBack();
+                })
+        }else{
+            $http.post(X_context.api + "addr/update",{
+                "addrId" :  $stateParams.addrId,
+                "receiver" : $scope.user,
+                "addressFullname" : $scope.detailArea,
+                "mobile" : $scope.telphone,
+            })
+
+            .success(function(data){
+                console.log(data);
+                $scope.goBack();
+
+            })
+
+    }
 
     }
 
