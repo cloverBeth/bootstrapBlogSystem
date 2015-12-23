@@ -5,7 +5,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     $scope._ = _;
 
 
-    $scope.$parent.title = $scope.$parent.storeTitle;
+    $scope.$parent.title ="购物车";
 
     console.log($scope.$parent.$parent.cart,$scope.$parent.$parent.storeId);
 

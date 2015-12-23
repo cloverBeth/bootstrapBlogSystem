@@ -25,7 +25,13 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     });
 
 
+    $("#notice").click(function(){
+        $(".notice").show();
+    })
 
+    $(".close").click(function(){
+        $(".notice").hide();
+    })
 
 
     $scope.isActive = function (route) {
