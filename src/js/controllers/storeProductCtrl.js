@@ -154,6 +154,13 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         }
     }
 
+    $scope.setFocus = function($index){
+        console.log($(".sideNav li:eq("+$index+1+") a"));
+        var index = parseInt($index)+1;
+        $(".sideNav li a").removeClass("hover");
+        $(".sideNav li:eq("+index+") a").addClass("hover");
+    }
+
 
 
     $scope.fly = function($event){
@@ -214,10 +221,10 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             console.log('scroll')
         }
 
-        var headerTop = $(".header").height()+$scope.$parent.navHeight+$(".sound").height()+$(".navTop").height()+30;
+        var headerTop = $(".header").height()+$scope.$parent.navHeight+$(".sound").height()+$(".navTop").height();
 
         if($scope.$parent.navHeight == 150){
-            if(parseInt($(".greens ul:eq(0)").offset().top) < (headerTop-30)){
+            if(parseInt($(".greens ul:eq(0)").offset().top) < (headerTop)){
                 $scope.$parent.navHeight = 0;
                 //$scope.$apply();
                 $scope.$digest();
@@ -226,7 +233,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             }
             scrollPass = true;
         }else if($scope.$parent.navHeight == 0){
-            if(parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop-30)){
+            if(parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop)){
                 $scope.$parent.navHeight = 150;
                 //$scope.$apply();
                 $scope.$digest();
@@ -239,7 +246,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         for(var i=0;i<$(".greens ul").length;i++)
         {
             var top = parseInt($(".greens ul:eq("+i+")").offset().top);
-            if(top < headerTop)
+            if(top < headerTop + 30)
             {
                 $(".sideNav li a").removeClass("hover");
                 $(".sideNav li:eq("+i+") a").addClass("hover")

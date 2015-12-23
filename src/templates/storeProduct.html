@@ -8,7 +8,7 @@
                class="hover" href="javascript:;"><img src="images/ico_3.png" />热卖推荐</a>
         </li>
         <li ng-repeat="cate in cates track by $index">
-            <a scroll-on-click scrollBase="#base" scrollFirst="#hot" scrollHref="#{{cate.sec}}" href="javascript:;">{{cate.name}}</a>
+            <a scroll-on-click scrollBase="#base" scrollFirst="#hot" scrollHref="#{{cate.sec}}" ng-click="setFocus($index)" href="javascript:;">{{cate.name}}</a>
         </li>
     </ul>
 
