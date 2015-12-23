@@ -17,7 +17,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
 
         $scope.storeDetail = data.data[0];
         $scope.storeTitle = data.data[0].storeName;
-        //$scope.title = data.data[0].storeName;
+        $scope.title = data.data[0].storeName;
         $scope.cart.min = data.data[0].freight;
         $scope.cart.freightFee = data.data[0].freightfee;
         $scope.notice.title = data.data[0].annTitle;
@@ -25,7 +25,13 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     });
 
 
+    $("#notice").click(function(){
+        $(".notice").show();
+    })
 
+    $(".close").click(function(){
+        $(".notice").hide();
+    })
 
 
     $scope.isActive = function (route) {
