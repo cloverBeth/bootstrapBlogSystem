@@ -89,7 +89,7 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope,$
     $scope.prodectShown = false;
 
 
-    $scope.mainHeight = $('body').css('height').split('px')[0] -
+    $scope.mainHeight = X_context.bodyHeight -
         $('.navTop').css('height').split('px')[0];
 
 

@@ -110,7 +110,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     //    $('header').css('height').split('px')[0];
 
     $scope.$watch('$parent.navHeight',function(){
-        $scope.mainHeight = $('body').css('height').split('px')[0] -
+        $scope.mainHeight = X_context.bodyHeight -
             $('.navTop').css('height').split('px')[0] -
             $scope.$parent.navHeight-
             $('header').css('height').split('px')[0];

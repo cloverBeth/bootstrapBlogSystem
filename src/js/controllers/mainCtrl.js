@@ -2,6 +2,7 @@
 angular.module('ZJSY_WeChat')
 .controller('MainController', function($scope,$location,$http,$rootScope){
         "use strict";
+        X_context.bodyHeight = $('body').css('height').split('px')[0];
         $scope.memberPromise = null;
         $scope.showLoading = false;
         $scope.cart = {

@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$interval,$http){
+angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$interval,$http,$state){
 
     $scope.login = {
         title: '验证手机'
@@ -61,27 +61,16 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
                             if(!data.data[0])return;
                             X_context.memberId = data.data[0]._id;
                             X_context.memberPhone = data.data[0].mobile;
-                        });
 
+                        });
                 }
-                window.history.back();
+                $state.go('store.product');
+                //window.history.back();
+
             })
         }
-        //else{
-        //    $scope.captchaDisabled=true;
-        //    console.log( $scope.captchaDisabled);
-        //}
+
     }
-
-    //$(function(){
-    //    $scope.befocus=function(){
-    //        $('#usertel').focus();
-    //    }
-    //    $scope.getfocus=function(){
-    //        $('#usercheck').focus();
-    //    }
-    //});
-
 
 
 });
