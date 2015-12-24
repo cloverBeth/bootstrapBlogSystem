@@ -37,8 +37,12 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
 
     $scope.phoneReg=/^([0-9]{11})$/;
 
+    var posted = false;
     $scope.getEnSure=function(){
+
         if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
+            if(posted)return;
+            posted = true;
             $scope.captchaDisabled=false;
             console.log( $scope.captchaDisabled);
             $http.post(X_context.api + "member/weixinLogin",{
@@ -46,6 +50,8 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
                 authCode : $scope.captcha
             })
             .success(function(data){
+                    posted = false;
+                    $scope.captcha = "";
                     console.log('data.data.token',data.data.token)
                 if(data.data.token){
                     X_context.authorization = data.data.token;
@@ -67,7 +73,10 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
                 $state.go('store.product');
                 //window.history.back();
 
-            })
+            }).error(function(){
+                    $scope.captcha = "";
+                    posted = false;
+                })
         }
 
     }
