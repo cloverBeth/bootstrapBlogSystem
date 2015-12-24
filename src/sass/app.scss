@@ -355,8 +355,13 @@ p{
 .danhao font{color:#666;padding-right:8px;}
 //form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position:relative;right:-110px;}
 .iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding:0;line-height:2.5rem; }
-.iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
-.iphone li span {padding:0 12px;color:#666;background:none;}
+//.iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
+.iphone li {
+  padding: 12px 0;border-top:1px solid #ddd;
+  /* font-size: 1.5rem; */
+  /* line-height: 2.5em; */
+}
+.iphone li span {padding:0 12px;color:#666;line-height:2.5em;background:none;}
 .iphone label.control-label{
   margin:0 0 0 13px;padding:2px;font-size:15px;line-height:3em;
 }
@@ -481,7 +486,7 @@ strong.ng-binding{font-weight:lighter;}
 
 
 /*************************按钮***************************/
-.input1{width:55%;color:#666; text-indent:0.6em;border:1px solid #fff;font-size:15px;line-height:2em;font-family:"微软雅黑";border-radius:3px;}
+.input1{width:55%;color:#666; text-indent:0.6em;border:1px solid #fff;font-size:15px;line-height:2.5em;font-family:"微软雅黑";border-radius:3px;}
 .input2{width:25%;color:#666; text-indent:0.6em;border:1px solid #fff;font-size:15px;line-height:2em;font-family:"微软雅黑";border-radius:3px;}
 
 .btnH{color:#fff;font-size:14px;line-height:2em;margin-left:10px;padding:0 12px;background:#666666;border:1px solid #666; font-family:"微软雅黑";
