@@ -174,9 +174,13 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 }
 .main{
   height:100%;
-  //position: relative;
+  position: relative;
   overflow: auto;
+<<<<<<< HEAD
+  padding-bottom: 20px;
+=======
   -webkit-overflow-scrolling: touch;
+>>>>>>> 749bf0658f3d8b96e7e3c771ac71112708cc6d53
 }
 
 .greens{width:100%; position:relative; background:#fff;}
