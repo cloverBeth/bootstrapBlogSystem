@@ -174,8 +174,9 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 }
 .main{
   height:100%;
-  //position: relative;
+  position: relative;
   overflow: auto;
+  padding-bottom: 20px;
 }
 
 .greens{width:100%; position:relative; background:#fff;}
