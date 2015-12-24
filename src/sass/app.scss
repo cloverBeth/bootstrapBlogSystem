@@ -138,8 +138,8 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .navTop li a:hover,.navTop li a.hover{color:#00aaff;border-bottom:3px solid #00aaff;}
 
 .sound{padding-left:30px;height:36px;line-height:36px;border-bottom:1px solid #dddddd;background:#fef8d4 url(../images/ico_2.png) no-repeat 10px center; background-size:16px;color:#666;font-size:12px;}
-.sound a{font-size:12px;float:right;margin:0 10% 0 0;}
-.attention{display:inline-block;max-width:75%;white-space:nowrap; overflow:hidden;
+.sound a{font-size:12px;float:right;margin:0 15% 0 0;}
+.attention{display:inline-block;max-width:72%;white-space:nowrap; overflow:hidden;
   -ms-text-overflow: ellipsis;
   -webkit-text-overflow:ellipsis;
   -o-text-overflow: ellipsis;
@@ -504,7 +504,7 @@ strong.ng-binding{font-weight:lighter;}
 #checknum{
   margin-right:10%;
 }
-.btnQ{text-align:center;padding:15px 10px 15px;}
+.btnQ{text-align:center;padding:15px 10px 15px;margin:0 0 60px 0;}
 .btnQ a{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#999999;
   moz-border-radius:5px;
   -webkit-border-radius:5px;
