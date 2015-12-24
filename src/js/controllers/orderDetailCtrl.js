@@ -3,7 +3,7 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
     console.log($stateParams.orderId);
 
     $scope.title = '我的订单';
-    var orderListApi = X_context.api + "order/list";
+    var orderListApi = X_context.api + "order/listAll";
 
     $scope.orderpills=[];
 

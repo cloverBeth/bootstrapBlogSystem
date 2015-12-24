@@ -296,7 +296,7 @@ p{
 .supply{font-size:15px;line-height:2em;padding:6px 12px;text-align:right;color:#999;}
 .supply a{color:#666;padding:0 3px;}
 
-.parcel{margin-top:5px;background:#fff;font-size:15px;}
+.parcel{margin-top:10px;background:#fff;font-size:15px;}
 .parcel h3{padding:12px 0;font-size:15px;line-height:1.4em;color:#444;padding-left:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 .parcel li{width:100%; clear:both; overflow:hidden;padding:12px 0;border-bottom:1px solid #ddd;}
 .parcel li em{ display:block;float:left;width:26%;height:64px;padding:0 3%;}
@@ -305,14 +305,16 @@ p{
 .parcel li p b{ display:block;color:#ff6600;font-size:12px;line-height:2em;font-weight:normal;color:#999;}
 .parcel li span{ display:block;float:right;color:#ff6600;font-size:14px;padding-right:12px;}
 
-.pay{margin:5px 0;background:#fff;font-size:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
+.pay{
+  margin:10px 0;
+  background:#fff;font-size:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 
 .pay h3{float:left;padding:12px 0;font-size:15px;line-height:2.4em;color:#444;padding-left:15px;margin-bottom: 0;}
 .pay strong { display:block;float:right;color:#999;padding:12px 0;font-size:14px;line-height:2.4em;padding-right:15px;}
 .pay a{ display:inline-block;float:right;color:#999;padding:12px 0;font-weight:bolder;font-size:14px;line-height:2.4em;padding-right:15px;}
 .pay li {
-  height: 3.5rem;
-  line-height: 3.5rem;
+  height: 45px;
+  line-height: 45px;
 
 }
 .pay hr{
@@ -737,4 +739,8 @@ label {
 
 .scroll {
   overflow: auto;
+}
+.btn-group-lg>.btn,.btn-lg{
+  padding-top: 7.5px !important;
+  padding-bottom: 7.5px !important;
 }
