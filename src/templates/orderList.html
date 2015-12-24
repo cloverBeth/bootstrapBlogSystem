@@ -10,32 +10,30 @@
             <a ng-click="goIndex()"href="javascript:;" class="blue">主页</a>
         </div>
     </header>
-<<<<<<< HEAD
     <div class="main">
         <div class="dan"ng-repeat="order in orderlist track by $index">
-=======
-    <div class="scroll">
-        <div class="dan"
-                ng-repeat="order in orderlist track by $index">
->>>>>>> 749bf0658f3d8b96e7e3c771ac71112708cc6d53
-            <div class="hao clearfix orderno">
-                <strong>订单号：{{order.number}}</strong>
-                <span>{{order.states}}</span>
-            </div>
-            <span ui-sref="orderDetail({orderId:order.id})">
-                <div class="pic clearfix">
-                    <ul>
-                        <li ng-repeat="product in order.products">
-                            <em><img src="{{product.image}}" /></em>
-                            <p>×{{product.quantity}}</p>
-                        </li>
-                    </ul>
-                    <span>共 {{order.totalNum}} 件</span>
+            <div class="scroll">
+                <div class="dan"ng-repeat="order in orderlist track by $index">
+                    <div class="hao clearfix orderno">
+                        <strong>订单号：{{order.number}}</strong>
+                        <span>{{order.states}}</span>
+                    </div>
+                    <span ui-sref="orderDetail({orderId:order.id})">
+                        <div class="pic clearfix">
+                            <ul>
+                                <li ng-repeat="product in order.products">
+                                    <em><img src="{{product.image}}" /></em>
+                                    <p>×{{product.quantity}}</p>
+                                </li>
+                            </ul>
+                            <span>共 {{order.totalNum}} 件</span>
+                        </div>
+                    </span>
+                    <div class="time clearfix">
+                        <strong>{{order.orderDate | date:"yyyy-MM-dd HH:mm:ss"}}</strong>
+                        <span class="iscanceled">合计：<font>¥{{order.total}}</font></span>
+                    </div>
                 </div>
-            </span>
-            <div class="time clearfix">
-                <strong>{{order.orderDate | date:"yyyy-MM-dd HH:mm:ss"}}</strong>
-                <span class="iscanceled">合计：<font>¥{{order.total}}</font></span>
             </div>
         </div>
     </div>
