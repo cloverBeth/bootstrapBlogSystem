@@ -86,7 +86,11 @@
          * 开始运动，可自己调用
          */
         self.play = function () {
-            this.move();
+            if(window.requestAnimationFrame){
+                this.move();
+            }else{
+                this.moveLow();
+            }
         };
 
         /**
@@ -114,12 +118,49 @@
             });
             settings.count++;
             // 定时任务
+
             var time = window.requestAnimationFrame($.proxy(this.move, this));
             if (count == steps) {
                 window.cancelAnimationFrame(time);
                 // fire callback
                 settings.onEnd.apply(this);
             }
+
+        };
+
+        self.moveLow = function () {
+
+            var self = this;
+
+            // 定时任务
+            var interval = setInterval(function(){
+                var settings = self.settings,
+                    start = settings.start,
+                    count = settings.count,
+                    steps = settings.steps,
+                    end = settings.end;
+                if(count < steps){
+                    // 计算left top值
+                    var left = start.left + (end.left - start.left) * count / steps,
+                        top = settings.curvature == 0 ? start.top + (end.top - start.top) * count / steps : settings.curvature * Math.pow(left - settings.vertex_left, 2) + settings.vertex_top;
+                    // 运动过程中有改变大小
+                    if (end.width != null && end.height != null) {
+                        var i = steps / 2,
+                            width = end.width - (end.width - start.width) * Math.cos(count < i ? 0 : (count - i) / (steps - i) * Math.PI / 2),
+                            height = end.height - (end.height - start.height) * Math.cos(count < i ? 0 : (count - i) / (steps - i) * Math.PI / 2);
+                        $element.css({width: width + "px", height: height + "px", "font-size": Math.min(width, height) + "px"});
+                    }
+                    $element.css({
+                        left: left + "px",
+                        top: top + "px"
+                    });
+                    settings.count++;
+                }else{
+                    clearInterval(interval);
+                    settings.onEnd.apply(self);
+                }
+            },10);
+
         };
 
         /**
