@@ -1,6 +1,6 @@
 var X_context = {
     guest : "guest",
-    api : "http://192.168.6.49/zjsy/api/v1/",
+    api : "http://192.168.6.43/zjsy/api/v1/",
     memberId : null,
     memberPhone : "",
 
@@ -265,6 +265,20 @@ angular.module('ZJSY_WeChat', [
                     controllerProvider: function($state,$stateParams,checkAuth) {
                         if(!checkAuth.check())return $state.go('login');
                         var ctrlName = "OrderSucceedController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
+        .state('creditAccount',{
+            url:'/credit-account',
+            views:{
+                '':{
+                    templateUrl:'creditAccount.html',
+                    //controller:'CreditAccountController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        //if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "CreditAccountController";
                         return ctrlName;
                     }
                 }

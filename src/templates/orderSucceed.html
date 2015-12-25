@@ -13,7 +13,7 @@
 
     <div class="main mt-48">
 
-        <div class="succeed clearfix" id="orderSuccess">
+        <div class="succeed clearfix" ng-class="{succeed:isBe,failed:isFal}">
             <p ng-show="orderSucceed.status!='未付款'">
                 <strong>您的订单已提交成功，我们会尽快配送！</strong>
                 如您需要取消订单，请拨打商家服务热线。

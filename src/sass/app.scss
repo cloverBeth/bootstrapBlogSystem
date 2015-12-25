@@ -116,6 +116,8 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 /*************************首页***************************/
 
 .header{ position:fixed;left:0;top:0; z-index:9;width:100%;background:#fff;border-bottom:1px solid #dddddd;}
+.creditHeader{ position:fixed;left:0;top:0; z-index:9;width:100%;background: #ff6600;border-bottom:1px solid #dddddd;}
+
 .orderlistheader{position:relative;}
 .swiper-container{
   position:static;left:0;top:46px;width:100%;z-index:9;height: 150px;
@@ -381,6 +383,7 @@ dl{
 }
 /*************************个人中心***************************/
 .head{ background:#00aaff;height:95px;}
+.credit{ background:#FFFFFF;height:58px;}
 .head em{ display:block;float:left;width:80px;}
 .head p a{display:inline-block;float:left;color:#fff;font-size:20px;text-align:center;line-height:2em;padding:30px 0 30px 20px;}
 

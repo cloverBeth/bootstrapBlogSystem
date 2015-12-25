@@ -24,8 +24,15 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
                         && !datas[0].paidSn) ? "未付款" : datas[0].orderStatus,
             };
             $scope.title = $scope.orderSucceed.status == "未付款" ? "购物未成功" : "购物成功";
+            $scope.isBe=false;
+            $scope.isFal=false;
             if($scope.title=="购物未成功"){
-                $("#orderSuccess").css("background-image","url(images/ico_fail.png)");
+                $scope.isBe=false;
+                $scope.isFal=true;
+            }
+            else{
+                $scope.isBe=true;
+                $scope.isFal=false;
             }
         })
 
