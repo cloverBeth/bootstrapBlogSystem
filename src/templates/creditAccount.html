@@ -1,6 +1,6 @@
 <div class="main-section">
 
-    <header class="header creditHeader">
+    <header class="header">
         <div class="back">
             <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
         </div>
@@ -11,43 +11,22 @@
 
     <div class="main mt-48">
         <div class="credit clearfix">
-            <em><img src="images/icon1@2x.png" /></em>
-            <p>
-                <a href="tel:{{account.tel}}">{{account.tel}}</a>
-            </p>
+                <span>积分</span><h2>{{credit.creditall}}</h2>
         </div>
-        <div class="personal">
+        <div class="personal" id="creditdetail">
             <ul>
                 <li>
-                    <a ui-sref="orderList"href="javascript:;"><em><img src="images/ico_12.png" /></em>我的订单</a>
-                </li>
-                <li>
-                    <a ui-sref="addressAccount"href="javascript:;"><em><img src="images/ico_13.png" /></em>收货地址</a>
-                </li>
-                <li>
-                    <a ui-sref="card"href="javascript:;"><em><img src="images/ico_card.png" /></em>{{account.payWay}}</a>
-                </li>
-                <li>
-                    <a href="http://king88.gotoip2.com/shop/huodong.html"><em><img src="images/ico_act.png" /></em>我的活动</a>
-                </li>
-                <li>
-                    <a ui-sref="creditAccount"href="javascript:;"><em><img src="images/ico_credit.png" /></em>我的积分</a>
-                </li>
-                <li>
-                    <a href="http://king88.gotoip2.com/shop/fuwudingdan.html"><em><img src="images/ico_service.png" /></em>我的服务</a>
+                    <a href="javascript:;">积分明细</a>
                 </li>
             </ul>
-            <ul>
-                <li>
-                    <strong><em><img src="images/ico_14.png" /></em>联系我们</strong>
-                    <span>
-                    <a id="nobg"href="tel:{{account.contact}}">{{account.contact}}</a></span>
+            <ul class="mt_0">
+                <li  ng-repeat="items in creditdetail">
+                    <strong>{{items.creditrule}}</strong><br/>
+                    <span class="credittime">{{items.credit_date | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                    <div class="addcredit">{{items.creditval}}</div>
                 </li>
             </ul>
 
-        </div>
-        <div class="btnQ">
-            <a href="javascript:;" ng-click="signOut()">退出登录</a>
         </div>
     </div>
 </div>
