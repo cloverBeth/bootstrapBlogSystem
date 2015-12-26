@@ -242,7 +242,7 @@ angular.module('ZJSY_WeChat', [
 
         })
         .state('getOrder',{
-            url: '/getOrder',
+            url: '/getOrder/{productId}',
             views: {
                 '': {
                     templateUrl: 'getOrder.html',

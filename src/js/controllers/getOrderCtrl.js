@@ -54,6 +54,23 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             $scope.order.product = [];
                 $state.go('orderSucceed',{orderId:data.data[0]._id});
             });
+
+        $http.post(X_context.api+'product/list',{
+            "storeId" : $scope.order.storeId,
+             "productId":$stateParams.productId
+        }).success(function(data){
+            var amount=data.data[0].amount;
+            $scope.amount=data.data[0].amount;
+            console.log($scope.amount);
+            if(parseInt($scope.amount.length)<=0){
+            $rootScope.$broadcast('alerts',{type:'danger',message:'商品被抢光啦～'});
+                return;
+            }
+
+        });
+
+
+
         }
 
 
