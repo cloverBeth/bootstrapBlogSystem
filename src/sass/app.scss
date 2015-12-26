@@ -182,6 +182,10 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+.main404{
+  width:100%;
+  height:300px;border:2px solid red;
+}
 
 .greens{width:100%; position:relative; background:#fff;}
 .greens h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}

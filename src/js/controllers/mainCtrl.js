@@ -40,14 +40,14 @@ angular.module('ZJSY_WeChat')
             $('#zjsy_modal').empty();
         });
 
-        $rootScope.$on('showLoading',function(){
-            $scope.showLoading = true;
-        });
-
-        $rootScope.$on('hideLoading',function(){
-            $scope.showLoading = false;
-
-        });
+        //$rootScope.$on('showLoading',function(){
+        //    $scope.showLoading = true;
+        //});
+        //
+        //$rootScope.$on('hideLoading',function(){
+        //    $scope.showLoading = false;
+        //
+        //});
 
         if(X_context.authorization && X_context.authorization!=X_context.guest){
             $scope.memberPromise = $http.get(X_context.api + 'member/getCurMem')

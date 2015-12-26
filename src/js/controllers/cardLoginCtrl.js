@@ -68,6 +68,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     $scope.pay = function(){
         if(payPosted == true)return;
         payPosted = true;
+        $("#paying").html("支付中...");
         if(!$scope.card.pwd || !$scope.card.num || !$scope.orderId)return;
         $http.post(X_context.api + 'pay/consume',{
             "orderId" : $scope.orderId,

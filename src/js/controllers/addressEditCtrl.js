@@ -20,6 +20,18 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
     };
 
 
+
+    console.log("$stateParams",$stateParams.from && $stateParams.from.fromCart);
+    $scope.goBack = function() {
+        if ($stateParams.from && $stateParams.from.fromCart) {
+            return $state.go('store.cart');
+        } else {
+            window.history.back();
+        }
+
+    }
+
+
     $scope.phoneReg=/^([0-9]{11})$/;
     $scope.update=function(){
 
@@ -27,7 +39,7 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
 
         }else{
             $rootScope.$broadcast('alerts',{type:'danger',message:'请您输入正确的手机号。'});
-            return;
+            return false;
 
         }
         if(!$stateParams.addrId){
@@ -63,15 +75,7 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
 
 
 
-    console.log("$stateParams",$stateParams.from && $stateParams.from.fromCart);
-    $scope.goBack = function() {
-        if ($stateParams.from && $stateParams.from.fromCart) {
-            return $state.go('store.cart');
-        } else {
-            window.history.back();
-        }
 
-    }
 
     $scope.goIndex=function(){
         $state.go('store.product',{storeId:X_context.storeId});

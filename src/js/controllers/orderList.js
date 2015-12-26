@@ -15,7 +15,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
         $scope.loading = true;
         $http.post(orderListApi,{
             page : $scope.currentPage,
-            pageSize : $scope.pageSize
+            pageSize : $scope.pageSize,
         })
             .success(function(data){
                 if(!data.data)return;
