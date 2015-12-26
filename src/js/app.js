@@ -284,62 +284,58 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-            .state('myActivity',{
-                url:'/myActivity',
-                views:{
-                    '':{
-                        templateUrl:'myActivity.html',
-                        //controller:'CreditAccountController'
-                        controllerProvider: function($state,$stateParams,checkAuth) {
-                            if(!checkAuth.check())return $state.go('login');
-                            var ctrlName = "MyActivityController";
-                            return ctrlName;
-                        }
+        .state('Activity',{
+            url:'/activity',
+            views:{
+                '':{
+                    templateUrl:'activity.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "ActivityController";
+                        return ctrlName;
                     }
                 }
-            })
-            .state('activityDetail',{
-                url:'/activityDetail',
-                views:{
-                    '':{
-                        templateUrl:'activityDetail.html',
-                        //controller:'CreditAccountController'
-                        controllerProvider: function($state,$stateParams,checkAuth) {
-                            if(!checkAuth.check())return $state.go('login');
-                            var ctrlName = "ActivityDetailController";
-                            return ctrlName;
-                        }
+            }
+        })
+        .state('activityDetail',{
+            url:'/activity-detail',
+            views:{
+                '':{
+                    templateUrl:'activityDetail.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "ActivityDetailController";
+                        return ctrlName;
                     }
                 }
-            })
-            .state('myService',{
-                url:'/myService',
-                views:{
-                    '':{
-                        templateUrl:'myService.html',
-                        //controller:'CreditAccountController'
-                        controllerProvider: function($state,$stateParams,checkAuth) {
-                            if(!checkAuth.check())return $state.go('login');
-                            var ctrlName = "MyServiceController";
-                            return ctrlName;
-                        }
+            }
+        })
+        .state('myService',{
+            url:'/my-service',
+            views:{
+                '':{
+                    templateUrl:'myService.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "MyServiceController";
+                        return ctrlName;
                     }
                 }
-            })
-            .state('serviceDetail',{
-                url:'/serviceDetail',
-                views:{
-                    '':{
-                        templateUrl:'serviceDetail.html',
-                        //controller:'CreditAccountController'
-                        controllerProvider: function($state,$stateParams,checkAuth) {
-                            if(!checkAuth.check())return $state.go('login');
-                            var ctrlName = "ServiceDetailController";
-                            return ctrlName;
-                        }
+            }
+        })
+        .state('serviceDetail',{
+            url:'/service-detail',
+            views:{
+                '':{
+                    templateUrl:'serviceDetail.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "ServiceDetailController";
+                        return ctrlName;
                     }
                 }
-            })
+            }
+        })
 
 
         $urlRouterProvider.otherwise('/store/1/store-product/');
