@@ -284,7 +284,7 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('Activity',{
+        .state('activity',{
             url:'/activity',
             views:{
                 '':{
