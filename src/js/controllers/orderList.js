@@ -1,6 +1,6 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$http,$state){
-    var orderListApi=X_context.api+"order/listAll";
+    var orderListApi=X_context.api+"order/list";
     //console.log('parent',$scope.$parent);
     $scope.title="我的订单";
     $scope.currentPage = 1;
@@ -14,6 +14,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
         if($scope.loading)return;
         $scope.loading = true;
         $http.post(orderListApi,{
+            memberId: X_context.memberId,
             page : $scope.currentPage,
             pageSize : $scope.pageSize,
         })

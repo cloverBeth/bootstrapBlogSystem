@@ -37,8 +37,12 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
 
         if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
 
-        }else{
-            $rootScope.$broadcast('alerts',{type:'danger',message:'请您输入正确的手机号。'});
+        }else if(!$scope.user){$rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入收货人姓名哦～'});
+            return;}
+        else if(!$scope.detailArea){$rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入收货地址～'});
+            return;}
+        else{
+            $rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入正确的手机号撒～'});
             return;
 
         }
