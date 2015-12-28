@@ -9,7 +9,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
     $scope.orderlist=[
 
     ];
-
+    $scope.isLoading=true;
     $scope.getOrder = function(){
         if($scope.loading)return;
         $scope.loading = true;
@@ -48,7 +48,6 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
 
     $scope.getOrder();
 
-
     $scope.goIndex=function(){
         $state.go('store.product',{storeId:X_context.storeId});
     }
@@ -56,10 +55,8 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
     $(".order_list").on('scroll',function() {
 
         if( $('.order_list').scrollTop() + $('.order_list').height() > $('.order_all').height() - 50){
-
             $scope.currentPage++;
             $scope.getOrder();
-
         }
     });
 })
