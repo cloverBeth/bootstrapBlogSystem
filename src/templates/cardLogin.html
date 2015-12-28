@@ -17,8 +17,11 @@
     <div class="card" ng-show="!showEdit" ng-click="editCard($event)" >
         <span style="margin-right: 20px;">卡号</span>
         <span>{{(card.num) | card:4}}</span>
+        <a href="javascript:;" style="float:right;" ng-click="cancelModal = true" ng-show="!fromOrder&&card.num">
+            {{"|解绑"}}
+        </a>
         <a href="javascript:;"style="float:right;">
-            {{card.num ? "修改" : "绑定"}}
+            {{card.num ? "修改 " : "绑定 "}}
         </a>
     </div>
 
@@ -59,5 +62,28 @@
                 </div>
             </div>
         </div>
+        <div class="modal" ng-if="cancelModal">
+            <div class="modal-backdrop in"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close"
+                                ng-click="$parent.cancelModal=false">&times;</button>
+                        <h5 class="modal-title">解绑</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p >
+                            你确保要解绑一卡通帐号么?
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button ng-click="$parent.cancelModal=false" class="btn btn-default">取消</button>
+                        <button ng-click="cancelBind()" class="btn greenBtn">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 </div>
