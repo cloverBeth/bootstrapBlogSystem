@@ -42,7 +42,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
             if($scope.fromOrder){
                 console.log($stateParams.from.orderId);
                 $scope.payModal = true;
-                $('#pay_input').focus();
+                setTimeout(function(){$('#pay_input').focus();},100);
                 //$state.go('orderSucceed');
                 $scope.showEdit = false;
                 posted = false;
@@ -68,9 +68,9 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
 
     $scope.pay = function(){
         if($scope.payPosted == true)return;
+        if(!$scope.card.pwd || !$scope.card.num || !$scope.orderId)return;
         $scope.payPosted = true;
         $("#paying").html("支付中...");
-        if(!$scope.card.pwd || !$scope.card.num || !$scope.orderId)return;
         $http.post(X_context.api + 'pay/consume',{
             "orderId" : $scope.orderId,
             "memberCard" : $scope.card.num,
