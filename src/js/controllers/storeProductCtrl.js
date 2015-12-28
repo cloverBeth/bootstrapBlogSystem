@@ -165,7 +165,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
     $scope.setFocus = function($index){
         console.log($(".sideNav li:eq("+$index+1+") a"));
-        var self = this;
         $scope.scrolled = true;
         var index = parseInt($index)+1;
         $(".sideNav li a").removeClass("hover");
@@ -224,7 +223,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     });
 
 
-
     $(".greens").on('scroll',function() {
 
         if(!scrollPass){
@@ -245,8 +243,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
             }
             scrollPass = true;
-        }else if($scope.$parent.navHeight == 0){
-            if(parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop)){
+        }else if($scope.$parent.navHeight == 0) {
+            if (parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop)) {
                 $scope.$parent.navHeight = 150;
                 //$scope.$apply();
                 $scope.$digest();
@@ -276,6 +274,13 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             }
         }
 
+        var cateHeight = $('.sideNav li .hover').offset().top;
+
+        if(cateHeight + 45 > X_context.bodyHeight - 42) { //cateHeight:45, footerHeight:42
+            $('.sideNav').scrollTop( $('.sideNav').scrollTop() + 45 );
+        } else if(cateHeight < headerTop) {
+            $('.sideNav').scrollTop( $('.sideNav').scrollTop() - 45 );
+        }
 
     });
 
