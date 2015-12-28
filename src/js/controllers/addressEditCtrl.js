@@ -39,7 +39,7 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
 
         }else{
             $rootScope.$broadcast('alerts',{type:'danger',message:'请您输入正确的手机号。'});
-            return false;
+            return;
 
         }
         if(!$stateParams.addrId){
@@ -54,26 +54,22 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
                     $scope.goBack();
                 })
         }else{
-            $http.post(X_context.api + "addr/update",{
-                "addrId" :  $stateParams.addrId,
-                "receiver" : $scope.user,
-                "addressFullname" : $scope.detailArea,
-                "mobile" : $scope.telphone,
-            })
+                $http.post(X_context.api + "addr/update",{
+                    "addrId" :  $stateParams.addrId,
+                    "receiver" : $scope.user,
+                    "addressFullname" : $scope.detailArea,
+                    "mobile" : $scope.telphone,
+                })
 
-            .success(function(data){
-                console.log(data);
-                $scope.goBack();
+                .success(function(data){
+                    console.log(data);
+                    $scope.goBack();
 
-            })
+                })
+
+         }
 
     }
-
-    }
-
-
-
-
 
 
 
