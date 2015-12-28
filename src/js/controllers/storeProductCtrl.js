@@ -154,11 +154,16 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         }
     }
 
+    $scope.scrolled = false;
+
     $scope.setFocus = function($index){
         console.log($(".sideNav li:eq("+$index+1+") a"));
+        var self = this;
+        $scope.scrolled = true;
         var index = parseInt($index)+1;
         $(".sideNav li a").removeClass("hover");
         $(".sideNav li:eq("+index+") a").addClass("hover");
+        setTimeout("$scope.scrolled = false;", 250);
     }
 
 
@@ -212,6 +217,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     });
 
 
+
     $(".greens").on('scroll',function() {
 
         if(!scrollPass){
@@ -242,17 +248,27 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             scrollPass = true;
         }
 
+        var j = 0;
 
-        for(var i=0;i<$(".greens ul").length;i++)
-        {
-            var top = parseInt($(".greens ul:eq("+i+")").offset().top);
-            if(top < headerTop + 30)
+
+        if(!$scope.scrolled) {
+            for(var i=0;i<$(".greens ul").length;i++)
             {
-                $(".sideNav li a").removeClass("hover");
-                $(".sideNav li:eq("+i+") a").addClass("hover")
-            }
+                var top = parseInt($(".greens ul:eq("+i+")").offset().top);
 
+                if(top < headerTop + 30)
+                {
+                    $(".sideNav li a").removeClass("hover");
+                    j = i;
+
+                } else {
+                    $(".sideNav li:eq("+j+") a").addClass("hover");
+                    break;
+                }
+
+            }
         }
+
 
     });
 
