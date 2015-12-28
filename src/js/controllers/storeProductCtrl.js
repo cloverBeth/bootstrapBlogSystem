@@ -166,7 +166,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         var index = parseInt($index)+1;
         $(".sideNav li a").removeClass("hover");
         $(".sideNav li:eq("+index+") a").addClass("hover");
-        setTimeout("$scope.scrolled = false;", 250);
+        setTimeout(function() {$scope.scrolled = false;}, 250);
     }
 
 
