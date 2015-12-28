@@ -9,14 +9,14 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     $scope.card = {
         title: '一卡通',
         num : "",
-        pwd : ""
+        pwd : null
     };
     $scope.originNo = "";
 
     $scope.payModal = false;
 
     var posted = false;
-    var payPosted = false;
+    $scope.payPosted = false;
 
     $scope.editCard = function($event){
         $event.stopPropagation();
@@ -42,6 +42,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
             if($scope.fromOrder){
                 console.log($stateParams.from.orderId);
                 $scope.payModal = true;
+                $('#pay_input').focus();
                 //$state.go('orderSucceed');
                 $scope.showEdit = false;
                 posted = false;
@@ -66,8 +67,8 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     }
 
     $scope.pay = function(){
-        if(payPosted == true)return;
-        payPosted = true;
+        if($scope.payPosted == true)return;
+        $scope.payPosted = true;
         $("#paying").html("支付中...");
         if(!$scope.card.pwd || !$scope.card.num || !$scope.orderId)return;
         $http.post(X_context.api + 'pay/consume',{
@@ -78,11 +79,11 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
             $scope.payModal = false;
             $scope.$parent.cart.products = [];
             $scope.showEdit = false;
-            payPosted = false;
+            $scope.payPosted = false;
             $state.go('orderSucceed',{orderId:$scope.orderId});
         }).error(function(data){
             $scope.payModal = false;
-            payPosted = false;
+            $scope.payPosted = false;
             $state.go('orderSucceed',{orderId:$scope.orderId});
         });
     }
