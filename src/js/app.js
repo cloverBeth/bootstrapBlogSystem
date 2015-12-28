@@ -52,7 +52,7 @@ angular.module('ZJSY_WeChat', [
 
         $stateProvider
         .state('store', {//将sotreid放在此路由
-            url: '/store/{storeId:1}',
+            url: '/store/{storeId}',
             views: {
                 '': {
                     templateUrl: 'store.html',

@@ -6,7 +6,7 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
 
     var orderListApi = X_context.api + "order/list";
     $http.post(orderListApi,{
-        id : $stateParams.orderId,
+        orderId : $stateParams.orderId,
     })
         .success(function(data){
             console.log(data.data);
@@ -42,6 +42,6 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
         $state.go('store.product',{storeId:X_context.storeId});
     }
     $scope.goToPay=function(){
-        $state.go('orderDetail',{storeId:X_context.storeId});
+        $state.go('orderDetail',{orderId:$stateParams.orderId});
     }
 })

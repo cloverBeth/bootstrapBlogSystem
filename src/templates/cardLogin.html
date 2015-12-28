@@ -50,11 +50,11 @@
                         <p >
                             请输入一卡通密码:
                         </p>
-                        <input type="password" ng-model="card.pwd" class="form-control" style="margin:10px 0;width: 80%;font-size: 20px;"/>
+                        <input type="password" ng-model="card.pwd" class="form-control" id="pay_input" style="margin:10px 0;width: 80%;font-size: 20px;" autocomplete="off"/>
                     </div>
                     <div class="modal-footer">
                         <button ng-click="$parent.payModal=false" class="btn btn-default">取消</button>
-                        <button ng-click="pay()" class="btn  greenBtn"id="paying">支付</button>
+                        <button ng-click="pay()" class="btn "id="paying" ng-class="{greenBtn : !payPosted}">支付</button>
                     </div>
                 </div>
             </div>

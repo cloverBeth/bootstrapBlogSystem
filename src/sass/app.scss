@@ -142,7 +142,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .navTop li a:hover,.navTop li a.hover{color:#00aaff;border-bottom:3px solid #00aaff;}
 
 .sound{padding-left:30px;height:36px;line-height:36px;border-bottom:1px solid #dddddd;background:#fef8d4 url(../images/ico_2.png) no-repeat 10px center; background-size:16px;color:#666;font-size:12px;}
-.sound a{font-size:12px;float:right;margin:0 15% 0 0;}
+.sound a{font-size:12px;float:right;margin:0 6% 0 0;}
 .attention{display:inline-block;max-width:72%;white-space:nowrap; overflow:hidden;
   -ms-text-overflow: ellipsis;
   -webkit-text-overflow:ellipsis;
@@ -204,7 +204,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greensSale li em{ display:inline-block;width:38%;height: 100%;}
 .greensSale li em img{ display:block;width:80px;height:80px;margin: auto;margin-top:10px;}
 .greensSale li p{display:inline-block;line-height:1.4em;padding-bottom:12px;}
-.greensSale li p strong{ display:block;font-size:15px;color:#666;}
+.greensSale li p strong{ display:block;font-size:15px;font-weight:bold;color:#666;}
 .greensSale li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
 
 /*************************加减按钮***************************/
@@ -378,8 +378,12 @@ p{
 .del{ position:absolute;right:15px;top:12px;font-size:15px;line-height:1.4em;}
 
 /*************************地址***************************/
-
-.address li{padding:10px 0;background:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin-top:10px;}
+.address li {
+  padding: 0 0 20px 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+//.address li{padding:10px 0;background:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin-top:10px;}
 .address li p{font-size:15px;line-height:1.6em;color:#666;padding-left:12px;}
 .address li span{ display:block;text-align:right;padding-top:10px;}
 .address li span img{width:18px;margin-top:-3px;margin-right:4px;}
@@ -501,9 +505,9 @@ strong.ng-binding{font-weight:400;}
 
 
 /*************************按钮***************************/
-.input1{width:55%;color:#666; text-indent:0.6em;margin-top:-3px;border:1px solid #fff;font-size:15px;line-height:2.5em;font-family:"微软雅黑";border-radius:3px;}
+//.input1{width:55%;color:#666; text-indent:0.6em;margin-top:-3px;border:1px solid #fff;font-size:15px;line-height:2.5em;font-family:"微软雅黑";border-radius:3px;}
 .input2{width:25%;color:#666; text-indent:0.6em;border:1px solid #fff;font-size:15px;line-height:2em;font-family:"微软雅黑";border-radius:3px;}
-
+.input1 {width: 55%;border: 1px solid #fff;font-family: "微软雅黑";font-size:15px;border-radius: 3px;}
 .btnH{color:#fff;font-size:14px;line-height:2em;margin-left:10px;padding:0 12px;background:#666666;border:1px solid #666; font-family:"微软雅黑";
   moz-border-radius:5px;
   -webkit-border-radius:5px;

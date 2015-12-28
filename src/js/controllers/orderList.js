@@ -1,6 +1,6 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$http,$state){
-    var orderListApi=X_context.api+"order/listAll";
+    var orderListApi=X_context.api+"order/list";
     //console.log('parent',$scope.$parent);
     $scope.title="我的订单";
     $scope.currentPage = 1;
@@ -9,11 +9,12 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
     $scope.orderlist=[
 
     ];
-
+    $scope.isLoading=true;
     $scope.getOrder = function(){
         if($scope.loading)return;
         $scope.loading = true;
         $http.post(orderListApi,{
+            memberId: X_context.memberId,
             page : $scope.currentPage,
             pageSize : $scope.pageSize,
         })
@@ -47,7 +48,6 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
 
     $scope.getOrder();
 
-
     $scope.goIndex=function(){
         $state.go('store.product',{storeId:X_context.storeId});
     }
@@ -55,10 +55,8 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
     $(".order_list").on('scroll',function() {
 
         if( $('.order_list').scrollTop() + $('.order_list').height() > $('.order_all').height() - 50){
-
             $scope.currentPage++;
             $scope.getOrder();
-
         }
     });
 })

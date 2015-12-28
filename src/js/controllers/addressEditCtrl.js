@@ -37,9 +37,13 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
 
         if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
 
-        }else{
-            $rootScope.$broadcast('alerts',{type:'danger',message:'请您输入正确的手机号。'});
-            return false;
+        }else if(!$scope.user){$rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入收货人姓名哦～'});
+            return;}
+        else if(!$scope.detailArea){$rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入收货地址～'});
+            return;}
+        else{
+            $rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入正确的手机号撒～'});
+            return;
 
         }
         if(!$stateParams.addrId){
@@ -54,26 +58,22 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
                     $scope.goBack();
                 })
         }else{
-            $http.post(X_context.api + "addr/update",{
-                "addrId" :  $stateParams.addrId,
-                "receiver" : $scope.user,
-                "addressFullname" : $scope.detailArea,
-                "mobile" : $scope.telphone,
-            })
+                $http.post(X_context.api + "addr/update",{
+                    "addrId" :  $stateParams.addrId,
+                    "receiver" : $scope.user,
+                    "addressFullname" : $scope.detailArea,
+                    "mobile" : $scope.telphone,
+                })
 
-            .success(function(data){
-                console.log(data);
-                $scope.goBack();
+                .success(function(data){
+                    console.log(data);
+                    $scope.goBack();
 
-            })
+                })
+
+         }
 
     }
-
-    }
-
-
-
-
 
 
 

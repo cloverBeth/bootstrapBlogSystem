@@ -30,7 +30,7 @@ angular.module('ZJSY_WeChat').controller('AddressAccountController',function($sc
 
     $scope.goToCart = function(){
         if($stateParams.from && $stateParams.from.fromCart){
-            $state.go('store.cart');
+            $state.go('store.cart',{storeId:X_context.storeId});
         }
     }
 

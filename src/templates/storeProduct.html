@@ -32,8 +32,9 @@
                 <div class="num">
                     <a href="javascript:;"
                        ng-click="addProduct(hot.id);fly($event)"
-                       ng-hide="_.find(cart.products,{id:hot.id}) &&
-                       _.find(cart.products,{id:hot.id}).buyNum == _.find(cart.products,{id:hot.id}).num"
+
+                       ng-hide="(_.find(proList,{id:hot.id}).num <= 0) ||
+                       _.find(cart.products,{id:hot.id}).buyNum >= _.find(cart.products,{id:hot.id}).num"
                        class="add">
                         <img src="images/ico_a.png" />
                     </a>
@@ -68,8 +69,9 @@
                 </p>
                 <div class="num">
                     <a href="javascript:;" class="add" ng-click="fly($event);addProduct(pro.id);"
-                       ng-hide="_.find(cart.products,{id:pro.id}) &&
-                       _.find(cart.products,{id:pro.id}).buyNum == _.find(cart.products,{id:pro.id}).num">
+                       ng-hide="(_.find(proList,{id:pro.id}).num <= 0) || _.find(cart.products,{id:pro.id}) &&
+                       _.find(cart.products,{id:pro.id}).buyNum >= _.find(cart.products,{id:pro.id}).num">                        {{_.find(cart.products,{id:hot.id}).num}}
+
                         <img src="images/ico_a.png" /></a>
                     <div ng-show="_.find(cart.products,{id:pro.id})">
                         <span>
