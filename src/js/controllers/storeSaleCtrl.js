@@ -26,6 +26,9 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope,$
                     price : pro.marketPrice
                 });
             })
+            $scope.hots = _.filter($scope.hots,function(n){
+                return n.num && (n.num > 0);
+            })
         })
     });
 

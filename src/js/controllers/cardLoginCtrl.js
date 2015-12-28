@@ -23,6 +23,8 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         $scope.showEdit = true;
     }
 
+    $scope.cancelModal = false;
+
 
 
 
@@ -64,6 +66,16 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
             $scope.showEdit = false;
             posted = false;
         }
+    }
+
+    $scope.cancelBind = function(){
+        if($scope.fromOrder)return;
+        $http.post(X_context.api + "member/updateCard",{
+            memberId : X_context.memberId,
+            cardNo : " "
+        }).success(function(data){
+            $state.go($state.current, $stateParams, {reload: true, inherit: false});
+        })
     }
 
     $scope.pay = function(){
