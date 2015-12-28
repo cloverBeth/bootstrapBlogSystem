@@ -338,7 +338,7 @@ angular.module('ZJSY_WeChat', [
         })
 
 
-        $urlRouterProvider.otherwise('/store/1/store-product/');
+        //$urlRouterProvider.otherwise('/store/1/store-product/');
 
 
     });
