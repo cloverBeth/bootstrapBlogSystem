@@ -6,7 +6,7 @@
 			<ul class="clearfix" id="hot">
 				<li ng-repeat="hot in hots track by $index">
 					<em class="project-detail-img">
-						<img  ng-click="showProduct(hot.id)"bn-lazy-src="{{hot.img}}" />
+						<img  ng-click="showProduct(hot.id)"bn-lazy-src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>
 					</em>
 					<p>
 						<strong>{{hot.name}}</strong>
@@ -45,7 +45,7 @@
 	<dl>
 		<dt><em ng-click="prodectShown=false"><img src="images/ico_5.png" /></em></dt>
 		<dd>
-			<em id="saleBig"><img src="{{productDetail.img}}" /></em>
+			<em id="saleBig"><img src="{{productDetail.img}}" onerror="this.src='images/default_image.png'"/></em>
 			<h3>{{productDetail.name}}</h3>
 
 			<div class="money clearfix">

@@ -1,7 +1,11 @@
 
 "use strict";
 angular.module('ZJSY_WeChat').controller('StoreProductController', function($scope,$timeout,$http,$q,$stateParams,$rootScope){
-    $rootScope.$broadcast('showLoading');
+
+    if(X_context.loaded){
+        $rootScope.$broadcast('showLoading');
+        X_context.loaded = true;
+    }
     $scope._ = _;
 
 
