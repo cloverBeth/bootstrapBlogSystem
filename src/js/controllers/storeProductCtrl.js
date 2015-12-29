@@ -11,8 +11,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
     $scope.$parent.title ="购物车";
 
-    console.log($scope.$parent.$parent.cart,$scope.$parent.$parent.storeId);
-
     $scope.cart = $scope.$parent.$parent.cart;
 
     $scope.cateList = [];
