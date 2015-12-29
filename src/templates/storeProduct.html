@@ -20,7 +20,8 @@
                     <div class="product-image-div">
                         <a ng-click="showProduct(hot.id)" href="javascript:;" class="showPH">
 
-                            <img class="product-image" bn-lazy-src="{{hot.img}}" alt="加载中.."/>
+                            <img class="product-image" bn-lazy-src="{{hot.img}}" alt="加载中.."
+                                 onerror="this.src='images/default_image.png'"/>
 
                         </a>
                     </div>
@@ -60,7 +61,8 @@
                 <em>
                     <div class="product-image-div">
                         <a href="javascript:;" class="showPH" ng-click="showProduct(pro.id)">
-                        <img class="product-image" bn-lazy-src="{{pro.img}}" alt="加载中.." /></a>
+                        <img class="product-image" bn-lazy-src="{{pro.img}}" alt="加载中.."
+                             onerror="this.src='images/default_image.png'"/></a>
                     </div>
                 </em>
                 <p>
@@ -99,7 +101,7 @@
     <dl>
         <dt><em ng-click="productShown=false"><img src="images/ico_5.png" /></em></dt>
         <dd class="mb-11">
-            <em class="project-detail-img"><img src="{{productDetail.img}}" /></em>
+            <em class="project-detail-img"><img src="{{productDetail.img}}" onerror="this.src='images/default_image.png'"/></em>
             <h3>{{productDetail.name}}</h3>
 
             <div class="money clearfix">
