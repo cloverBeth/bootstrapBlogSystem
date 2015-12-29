@@ -69,7 +69,7 @@
                     <strong>{{pro.name}}</strong>
                     <b class="org">￥{{pro.price}}</b>
                 </p>
-                <div class="num">
+                <div class="numProduct">
                     <a href="javascript:;" class="add" ng-click="fly($event);addProduct(pro.id);"
                        ng-hide="(_.find(proList,{id:pro.id}).num <= 0) || _.find(cart.products,{id:pro.id}) &&
                        _.find(cart.products,{id:pro.id}).buyNum >= _.find(cart.products,{id:pro.id}).num">                        {{_.find(cart.products,{id:hot.id}).num}}
