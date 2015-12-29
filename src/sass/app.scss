@@ -149,7 +149,16 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;}
 
-.sideNav{width:25%; background:#f0f0f0; overflow:auto;}
+.sideNav{
+  width:25%;
+  background:#f0f0f0;
+}
+.sideNav{
+  height: 100%;
+  overflow-y : scroll;
+  position: relative;
+}
+
 .sideNav li{border-bottom:1px solid #e6e6e6;}
 .sideNav li a{ display:block;color:#666;font-size:13px;line-height:3.4em;text-align:center;}
 .sideNav li a.hover{font-size:15px;background:#fff url(../images/ico_4.png) repeat-y left center; background-size: auto 4px;color:#00aaff;}
@@ -161,7 +170,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .hidden{width:75%;overflow:auto}
 .productList{
   width:75%;
-  overflow:auto;
+  overflow-y:auto;
   position: relative;
   //height: 100%;
 }
@@ -171,11 +180,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   position: relative;
   //height: 100%;
 }
-.sideNav{
-  //height: 100%;
-  overflow:auto;
-  position: relative;
-}
+
 .main{
   height:100%;
   position: relative;
@@ -191,7 +196,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greens h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}
 .greens li{ position:relative;width:50%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
 .greens li em{ display:block;width:100%;}
-.greens li p{line-height:1.4em;padding-left:15px;padding-bottom:12px;}
+.greens li p{line-height:1.4em;padding-left:15px;}
 .greens li p strong{ display:block;font-size:15px;color:#666;}
 .greens li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
 
@@ -208,9 +213,23 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greensSale li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
 
 /*************************加减按钮***************************/
-.num{ position:absolute;right:15px;bottom:10px;width:55%;text-align:right;}
-.num img {width: 20px;float: right;}
-.num span{float:right;width:25%;text-align:center;font-size:12px;line-height:20px;color:#666;}
+.numProduct{
+  float: right;
+  //position:absolute;
+  //right:15px;
+  //bottom:10px;
+  margin: 5px;
+  width:80%;text-align:right;}
+.numProduct img {width: 25px;float: right;}
+.numProduct span{float:right;width:25%;text-align:center;font-size:15px;line-height:25px;color:#666;}
+
+.num{
+  position:absolute;
+  right:15px;
+  bottom:10px;
+  width:55%;text-align:right;}
+.num img {width: 25px;float: right;}
+.num span{float:right;width:25%;text-align:center;font-size:15px;line-height:25px;color:#666;}
 
 .sub{}
 

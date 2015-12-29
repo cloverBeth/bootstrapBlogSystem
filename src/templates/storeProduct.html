@@ -12,7 +12,7 @@
         </li>
     </ul>
 </div>
-<div class="productList fr" ng-style="{height:mainHeight-79}">
+<div class="productList fl" ng-style="{height:mainHeight-79}">
     <div class="greens lazy-sec relR scrollable-content-div" id="base">
         <ul class="clearfix" id="hot">
             <li class="product-item" ng-repeat="hot in hots track by $index">
@@ -30,7 +30,7 @@
                     <strong>{{hot.name}}</strong>
                     <b class="org">￥{{hot.price}}</b>
                 </p>
-                <div class="num">
+                <div class="numProduct">
                     <a href="javascript:;"
                        ng-click="addProduct(hot.id);fly($event)"
 
