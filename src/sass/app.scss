@@ -59,7 +59,6 @@ a {
   text-decoration: none;
 }
 h1,h2,h3,h4,strong{font-weight:normal;}
-
 /* position */
 .rel {
   position: relative;
@@ -199,10 +198,10 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greensSale li{
   padding-bottom: 20px;
   background: white;
-  height:100px;
+  height:120px;
   position:relative;width:100%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
-.greensSale li em{ display:inline-block;width:38%;height: 100%;}
-.greensSale li em img{ display:block;width:80px;height:80px;margin: auto;margin-top:10px;}
+.greensSale li em{ display:inline-block;width:40%;height: 100%;}
+.greensSale li em img{ display:block;width:115px;height:100px;margin: auto;margin-top:10px;}
 .greensSale li p{display:inline-block;line-height:1.4em;padding-bottom:12px;}
 .greensSale li p strong{ display:block;font-size:15px;font-weight:bold;color:#666;}
 .greensSale li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
@@ -403,7 +402,7 @@ dl{
 .personal ul{margin-top:5px; background:#fff;border-top:1px solid #ddd;}
 .personal ul li{clear:both; overflow:hidden;padding:7px 15px;border-bottom:1px solid #ddd;border-bottom:1px solid #ddd;font-size:16px;color:#999;line-height:2.2em;}
 //.personal ul li em img{width:28px;margin-top:-3px;padding-right:8px;}
-.personal ul li a{ display:block;font-size:16px;color:#999;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center;
+.personal ul li a{ display:block;font-size:16px;color:#483F3F;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center;
                     background-size:10px;background-position:98% 50%;}
 .personal ul li img{width: 28px;margin:-3px 10px 0 0;}
 .personal ul li strong{ display:block;float:left;font-size:16px;color:#999;line-height:2.2em;}
@@ -470,26 +469,27 @@ em#close{opacity:1;}
 .product-detail{position:fixed;left:0;top:0;width:100%;height:100%; z-index:9999999999;background:url(../images/bg_1.png) repeat;}
 .product-detail dl{ position:absolute;left:0;bottom:0;width:100%; z-index:9;background:#fff;}
 .product-detail dl dt{padding:0 3%;color:#999999;text-align:right;background:#fff;border-top:2px solid #00aaff;}
-.product-detail dl dt em{ display:inline-block;width:33px;}
+.product-detail dl dt em{ display:inline-block;width:33px;margin:0 auto;}
 .product-detail dl dt em img{margin-right:2vw;margin-top:-23px;}
 .product-detail dd{height:450px; overflow:auto;}
 .product-detail dd em{ display:block;}
 .product-detail dd h3{font-size:16px;color:#666;line-height:1.6em;padding:0px 0 10px;padding-left:10px;}
+#saleBig,#saleBig img{width:250px;height:218px;margin:0 auto;}
 h3.ng-binding{margin:10px 0 0 0;}
 strong.ng-binding{font-weight:400;}
 
 .project-detail-img{
-  width: 240px;
-  height: 200px;
+  width: 250px;
+  height: 218px;
   margin: auto;
 }
 .project-detail-img img{
-  width: 240px;
-  height: 200px;
+  width: 250px;
+  height: 218px;
 }
 .project-detail-img, .project-detail-img img {
-  width: 170px;
-  height: 170px;
+  width: 250px;
+  height: 218px;
 }
 
 
@@ -549,6 +549,7 @@ strong.ng-binding{font-weight:400;}
   background:#eee;
   height : 100%;
   min-height:100%;
+  //overflow:auto;
 }
 
 .hidd{ overflow:hidden;}
@@ -635,6 +636,7 @@ strong.ng-binding{font-weight:400;}
 .mt-48{
   margin-top:48px;
 }
+.mb-60{margin-bottom:60px;}
 
 .alert-danger {
   background-color: white !important;
@@ -651,14 +653,15 @@ strong.ng-binding{font-weight:400;}
   border: hidden !important;
 }
 .product-image {
-  width: 98px;
-  height: 98px;
+  width: 115px;
+  height: 100px;
 }
 .product-image-div {
-  width: 98px;
-  height: 98px;
+  width: 115px;
+  height: 100px;
   margin: 10px auto;
 }
+
 
 /****************************************************/
 div.main div.head em img{
@@ -766,6 +769,8 @@ label {
 .scroll {
   overflow: auto;
 }
+
+.main-section .main .order_all{margin-bottom:60px;}
 .btn-group-lg>.btn,.btn-lg{
   padding-top: 7.5px !important;
   padding-bottom: 7.5px !important;

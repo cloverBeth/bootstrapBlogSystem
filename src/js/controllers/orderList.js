@@ -9,7 +9,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($scope,$
     $scope.orderlist=[
 
     ];
-    $scope.isLoading=true;
+    //$scope.isLoading=true;
     $scope.getOrder = function(){
         if($scope.loading)return;
         $scope.loading = true;
