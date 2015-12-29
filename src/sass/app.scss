@@ -59,7 +59,6 @@ a {
   text-decoration: none;
 }
 h1,h2,h3,h4,strong{font-weight:normal;}
-
 /* position */
 .rel {
   position: relative;
@@ -403,7 +402,7 @@ dl{
 .personal ul{margin-top:5px; background:#fff;border-top:1px solid #ddd;}
 .personal ul li{clear:both; overflow:hidden;padding:7px 15px;border-bottom:1px solid #ddd;border-bottom:1px solid #ddd;font-size:16px;color:#999;line-height:2.2em;}
 //.personal ul li em img{width:28px;margin-top:-3px;padding-right:8px;}
-.personal ul li a{ display:block;font-size:16px;color:#999;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center;
+.personal ul li a{ display:block;font-size:16px;color:#483F3F;line-height:2.2em; background:url(../images/ico_7.png) no-repeat right center;
                     background-size:10px;background-position:98% 50%;}
 .personal ul li img{width: 28px;margin:-3px 10px 0 0;}
 .personal ul li strong{ display:block;float:left;font-size:16px;color:#999;line-height:2.2em;}
@@ -550,6 +549,7 @@ strong.ng-binding{font-weight:400;}
   background:#eee;
   height : 100%;
   min-height:100%;
+  //overflow:auto;
 }
 
 .hidd{ overflow:hidden;}
@@ -636,6 +636,7 @@ strong.ng-binding{font-weight:400;}
 .mt-48{
   margin-top:48px;
 }
+.mb-60{margin-bottom:60px;}
 
 .alert-danger {
   background-color: white !important;
@@ -768,6 +769,8 @@ label {
 .scroll {
   overflow: auto;
 }
+
+.main-section .main .order_all{margin-bottom:60px;}
 .btn-group-lg>.btn,.btn-lg{
   padding-top: 7.5px !important;
   padding-bottom: 7.5px !important;
