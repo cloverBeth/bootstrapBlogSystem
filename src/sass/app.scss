@@ -360,13 +360,13 @@ p{
 .danhao{margin-top:15px;padding:12px;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
-//form.main .div.iphone button.autocodeBtn{height:30px;background:#666666;position:relative;right:-110px;}
+div.iphone button.autocodeBtn{margin-left:-3%;}
 .iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding:0;line-height:2.5rem; }
 //.iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
 .iphone li {padding: 12px 0;border-top:1px solid #ddd;font-size: 1.5rem;line-height: 2em;}
 .iphone li span {padding:0 12px;color:#666;line-height:2.5em;background:none;}
 .iphone label.control-label{
-  margin:0 0 0 13px;padding:2px;font-size:15px;line-height:3em;
+  height:30px;margin:0 0 0 12px;font-size:15px;line-height:2.5em;padding:2px;
 }
 .iphone button.btn {
   padding: 5px 6px;
@@ -505,9 +505,8 @@ strong.ng-binding{font-weight:400;}
 
 
 /*************************按钮***************************/
-//.input1{width:55%;color:#666; text-indent:0.6em;margin-top:-3px;border:1px solid #fff;font-size:15px;line-height:2.5em;font-family:"微软雅黑";border-radius:3px;}
-.input2{width:25%;color:#666; text-indent:0.6em;border:1px solid #fff;font-size:15px;line-height:2em;font-family:"微软雅黑";border-radius:3px;}
-.input1 {width: 55%;border: 1px solid #fff;font-family: "微软雅黑";font-size:15px;border-radius: 3px;}
+.input2{width:32%;color:#666; text-indent:0.6em;border:1px solid #fff;font-size:15px;line-height:1.5em;font-family:"微软雅黑";border-radius:3px;}
+.input1{width: 55%;border: 1px solid #fff;text-indent:0.6em;font-family: "微软雅黑";font-size:15px;line-height:1.5em;border-radius: 3px;}
 .btnH{color:#fff;font-size:14px;line-height:2em;margin-left:10px;padding:0 12px;background:#666666;border:1px solid #666; font-family:"微软雅黑";
   moz-border-radius:5px;
   -webkit-border-radius:5px;
@@ -531,7 +530,7 @@ strong.ng-binding{font-weight:400;}
   -webkit-border-radius:5px;
   border-radius:5px;}
 #checknum{
-  margin-right:10%;
+  margin-right:8%;
 }
 .btnQ{text-align:center;padding:15px 10px 15px;margin:0 0 60px 0;}
 .btnQ a{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#999999;
@@ -645,7 +644,7 @@ strong.ng-binding{font-weight:400;}
   height: 5rem;
   line-height: 5rem;
   background-color: white;
-  margin: 10px 0;
+  margin: 14px 0;
   padding: 0 10px;
   font-size: 1.5rem;
 }
@@ -775,3 +774,6 @@ label {
   padding-top: 7.5px !important;
   padding-bottom: 7.5px !important;
 }
+
+.bangcard{position: relative;top:14px;border-top: 1px solid #ddd;padding: 0;line-height: 5rem;height: 60px;}
+.cardsure{width: 40%;margin: auto;margin-top:16px;}
