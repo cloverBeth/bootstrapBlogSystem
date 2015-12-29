@@ -231,7 +231,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             return;
         }else{
             scrollPass = false;
-            console.log('scroll')
         }
 
         var headerTop = $(".header").height()+$scope.$parent.navHeight+$(".sound").height()+$(".navTop").height();
