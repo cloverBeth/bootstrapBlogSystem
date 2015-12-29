@@ -2,7 +2,7 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('StoreProductController', function($scope,$timeout,$http,$q,$stateParams,$rootScope){
 
-    if(X_context.loaded){
+    if(!X_context.loaded){
         $rootScope.$broadcast('showLoading');
         X_context.loaded = true;
     }
@@ -10,8 +10,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
 
     $scope.$parent.title ="购物车";
-
-    console.log($scope.$parent.$parent.cart,$scope.$parent.$parent.storeId);
 
     $scope.cart = $scope.$parent.$parent.cart;
 
@@ -233,7 +231,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             return;
         }else{
             scrollPass = false;
-            console.log('scroll')
         }
 
         var headerTop = $(".header").height()+$scope.$parent.navHeight+$(".sound").height()+$(".navTop").height();
