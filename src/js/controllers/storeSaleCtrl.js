@@ -13,7 +13,8 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope,$
     $scope.$parent.storePromise.then(function(){
         return $http.post(X_context.api + 'product/list',{
             storeId : $scope.$parent.storeId,
-            isFav : "true"
+            isFav : "true",
+            isMarketable : true
         }).success(function(data){
             _.forEach(data.data,function(pro,index){
                 $scope.hots.push({
@@ -23,7 +24,7 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope,$
                     img : pro.image,
                     detail : pro.specification,
                     cateId : pro.category,
-                    price : pro.marketPrice
+                    price : pro.marketPrice,
                 });
             })
             $scope.hots = _.filter($scope.hots,function(n){

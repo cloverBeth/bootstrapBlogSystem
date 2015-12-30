@@ -41,7 +41,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     var productPromise =
     $scope.$parent.storePromise.then(function(){
         return $http.post(X_context.api + 'product/list',{
-            storeId : $scope.$parent.storeId
+            storeId : $scope.$parent.storeId,
+            isMarketable : true
         }).success(function(data){
             _.forEach(data.data,function(pro,index){
                 $scope.proList.push({
@@ -51,7 +52,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                     img : pro.image ? pro.image : "images/ph_1.jpg",
                     detail : pro.specification,
                     cateId : pro.category,
-                    price : pro.marketPrice
+                    price : pro.marketPrice,
+
                 });
             })
 
@@ -65,7 +67,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     $scope.$parent.storePromise.then(function(){
         return $http.post(X_context.api + 'product/list',{
             storeId : $scope.$parent.storeId,
-            isHot : true
+            isHot : true,
+            isMarketable : true
         }).success(function(data){
             _.forEach(data.data,function(pro,index){
                 $scope.hotList.push({
@@ -75,7 +78,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                     img : pro.image ? pro.image : "images/ph_1.jpg",
                     detail : pro.specification,
                     cateId : pro.category,
-                    price : pro.marketPrice
+                    price : pro.marketPrice,
+
                 });
             })
             $scope.hotList = _.filter($scope.hotList,function(n){
@@ -256,7 +260,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             scrollPass = true;
         }
 
-        var j = 0;
 
 
         if(!$scope.scrolled) {
@@ -267,13 +270,9 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                 if(top < headerTop + 30)
                 {
                     $(".sideNav li a").removeClass("hover");
-                    j = i;
+                    $(".sideNav li:eq("+i+") a").addClass("hover");
 
-                } else {
-                    $(".sideNav li:eq("+j+") a").addClass("hover");
-                    break;
                 }
-
             }
         }
 
