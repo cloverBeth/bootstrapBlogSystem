@@ -141,9 +141,16 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             if(exist.buyNum < exist.num)
                 exist.buyNum ++;
         }else{
-            $scope.cart.products.push(
-                _.clone(_.find($scope.proList,{id:id}))
-            );
+            if(_.find($scope.proList,{id:id})){
+                $scope.cart.products.push(
+                    _.clone(_.find($scope.proList,{id:id}))
+                );
+            }else if(_.find($scope.hotList,{id:id})){
+                $scope.cart.products.push(
+                    _.clone(_.find($scope.hotList,{id:id}))
+                );
+            }
+
             _.find($scope.cart.products,{id:id}).buyNum = 1;
         }
 

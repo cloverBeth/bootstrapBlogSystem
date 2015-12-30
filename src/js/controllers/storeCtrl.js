@@ -11,6 +11,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     $scope.cart = $scope.$parent.cart;
     $scope.notice = {};
 
+
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId
     }).success(function(data){
