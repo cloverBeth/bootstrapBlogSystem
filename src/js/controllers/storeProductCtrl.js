@@ -16,6 +16,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     $scope.cateList = [];
     $scope.proList = [];
 
+
     var catePromise =
     $scope.$parent.storePromise.then(function(){
         return  $http.post(X_context.api + 'category/list',{
@@ -167,7 +168,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     $scope.scrolled = false;
 
     $scope.setFocus = function($index){
-        console.log($(".sideNav li:eq("+$index+1+") a"));
         $scope.scrolled = true;
         var index = parseInt($index)+1;
         $(".sideNav li a").removeClass("hover");
@@ -245,7 +245,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
             }
             scrollPass = true;
-        }else if($scope.$parent.navHeight == 0) {
+        }
+        else if($scope.$parent.navHeight == 0) {
             if (parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop)) {
                 $scope.$parent.navHeight = 150;
                 //$scope.$apply();

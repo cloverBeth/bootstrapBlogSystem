@@ -266,10 +266,10 @@ gulp.task('js', function() {
       gulp.src(['src/templates/**/*.html']).pipe(templateCache({ module: config.appName }))
     )
     .pipe(sourcemaps.init())
-    .pipe(concat('app.js'))
+    .pipe(concat('app' + '.' + config.round + '.js'))
     .pipe(ngAnnotate())
     //.pipe(uglify())
-    .pipe(rename({suffix: '.' + config.round + '.min'}))
+    .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
