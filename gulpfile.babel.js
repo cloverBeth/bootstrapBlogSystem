@@ -196,14 +196,15 @@ gulp.task('html', function() {
   }
   gulp.src(['src/html/**/*.html'])
   .pipe(replace('<!-- inject:js -->', inject.join('\n    ')))
+  .pipe(replace('<!-- app.js -->', '<script src="js/app.'+ config.round + '.min.js"></script>'))
   .pipe(gulp.dest(config.dest));
 });
-
-gulp.task('injectJs', function() {
-    gulp.src(['src/html/**/*.html'])
-        .pipe(replace('<!-- app.js -->', '<script src="js/app.'+ config.round + '.min.js"></script>'))
-        .pipe(gulp.dest(config.dest));
-});
+//
+//gulp.task('injectJs', function() {
+//    gulp.src(['src/html/**/*.html'])
+//        .pipe(replace('<!-- app.js -->', '<script src="js/app.'+ config.round + '.min.js"></script>'))
+//        .pipe(gulp.dest(config.dest));
+//});
 
 
 /*======================================================================
@@ -295,7 +296,7 @@ gulp.task('watch', function () {
   if (typeof config.server === 'object') {
     gulp.watch([config.dest + '/**/*'],['livereload']);
   }
-  gulp.watch(['./src/html/**/*'], ['html','injectJs']);
+  gulp.watch(['./src/html/**/*'], ['html']);
   gulp.watch(['./src/sass/**/*'], ['sass']);
   gulp.watch(['./bower_components/**/*.less'], ['less']);
   gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
@@ -323,7 +324,7 @@ gulp.task('weinre', function() {
 ======================================*/
 
 gulp.task('build', function(done) {
-  var tasks = ['html', 'injectJs','fonts', 'images', 'sass', 'libcss','less','libjs','js'];
+  var tasks = ['html', 'fonts', 'images', 'sass', 'libcss','less','libjs','js'];
   seq('clean', tasks, done);
 });
 

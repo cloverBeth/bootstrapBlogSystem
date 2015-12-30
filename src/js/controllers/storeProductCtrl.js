@@ -9,7 +9,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     $scope._ = _;
 
 
-    $scope.$parent.title ="购物车";
+    $scope.$parent.title = $scope.$parent.storeTitle;
 
     $scope.cart = $scope.$parent.$parent.cart;
 

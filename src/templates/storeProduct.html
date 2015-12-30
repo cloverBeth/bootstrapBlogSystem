@@ -28,34 +28,45 @@
                 </em>
                 <p>
                     <strong>{{hot.name}}</strong>
-                    <b class="org">￥{{hot.price}}</b>
+                    <b class="org" >
+                        <b ng-hide="_.find(cart.products,{id:hot.id})">
+                            ￥{{hot.price}}
+                        </b>
+                    </b>
                 </p>
                 <div class="numProduct">
-                    <a href="javascript:;"
-                       ng-click="addProduct(hot.id);fly($event)"
-
-                       ng-hide="(_.find(proList,{id:hot.id}).num <= 0) ||
-                       _.find(cart.products,{id:hot.id}).buyNum >= _.find(cart.products,{id:hot.id}).num"
-                       class="add">
-                        <div class="img-cover">
-                            <img src="images/ico_a.png" />
+                    <div style="display: inline-block;width: 90px;padding-left: 5px;float: left;text-align: center">
+                        <div ng-show="_.find(cart.products,{id:hot.id})">
+                            <span>
+                                {{
+                                   _.find(cart.products,{id:hot.id})
+                                ? _.find(cart.products,{id:hot.id}).buyNum
+                                : 0
+                                }}
+                            </span>
+                                <a href="javascript:;" ng-click="removeProduct(hot.id)" class="sub">
+                                    <div class="img-cover">
+                                        <img src="images/ico_j.png" />
+                                    </div>
+                                </a>
                         </div>
+                    </div>
 
-                    </a>
-                    <div ng-show="_.find(cart.products,{id:hot.id})">
-                        <span>
-                            {{
-                               _.find(cart.products,{id:hot.id})
-                            ? _.find(cart.products,{id:hot.id}).buyNum
-                            : 0
-                            }}
-                        </span>
-                        <a href="javascript:;" ng-click="removeProduct(hot.id)" class="sub">
+
+                    <div style="display: inline-block;">
+                        <a href="javascript:;"
+                           ng-click="addProduct(hot.id);fly($event)"
+
+                           ng-hide="(_.find(proList,{id:hot.id}).num <= 0) ||
+                       _.find(cart.products,{id:hot.id}).buyNum >= _.find(cart.products,{id:hot.id}).num"
+                           class="add">
                             <div class="img-cover">
-                                <img src="images/ico_j.png" /></a>
+                                <img src="images/ico_a.png" />
                             </div>
 
+                        </a>
                     </div>
+
                 </div>
             </li>
 
