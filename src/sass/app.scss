@@ -197,7 +197,11 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greens li{ position:relative;width:50%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
 .greens li em{ display:block;width:100%;}
 .greens li p{line-height:1.4em;padding-left:15px;}
-.greens li p strong{ display:block;font-size:15px;color:#666;}
+.greens li p strong{ display:block;font-size:15px;color:#666;
+  width: 110px;
+  white-space: nowrap;
+  overflow: auto;
+  text-overflow: ellipsis;}
 .greens li .org{ display:block;font-size:15px;font-weight:normal;padding-top:12px;height: 30px;}
 
 .greensSale h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}
