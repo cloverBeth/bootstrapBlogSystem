@@ -251,7 +251,6 @@ gulp.task('libcss', function () {
 // - Orders ng deps automatically
 // - Precompile templates to ng templateCache
 
-
 gulp.task('js', function() {
     streamqueue({ objectMode: true },
       gulp.src('./src/js/**/*.js').pipe(babel()).pipe(ngFilesort()),
