@@ -21,8 +21,11 @@
 				style="padding: 0;">{{storeDetail.addr}}</p></li>
 			<li class="row"><span class="col-xs-4">营业时间：</span><p class="col-xs-8"
 				style="padding: 0;"	>{{storeDetail.openTime}}</p></li>
-			<li class="row"><span class="col-xs-4">商家电话：</span><p  class="col-xs-8"
-				style="padding: 0;">{{storeDetail.tel}}</p></li>
+			<li class="row"><span class="col-xs-4">商家电话：</span>
+				<p  class="col-xs-8"style="padding: 0;">
+					<a href="tel:{{storeDetail.tel}}"style="color:#8C8989;">{{storeDetail.tel}}</a>
+				</p>
+			</li>
 			<li class="row"><span class="col-xs-4">配送范围：</span><p  class="col-xs-8"
 				style="padding: 0;">{{storeDetail.range}}</p></li>
 
