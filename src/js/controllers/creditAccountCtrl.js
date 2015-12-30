@@ -16,33 +16,28 @@ angular.module("ZJSY_WeChat").controller("CreditAccountController",function($sco
 //    }
 //]
 
-    $scope.$parent.memberPromise.then(function(data){
-        console.log('data',data.data);
+    $http.get(X_context.api + 'member/getCurMem')
+        .success(function(data){
+            console.log('data',data.data);
 
-        $scope.credit.creditall= data.data.data[0].point;
-        
-        var creditAddApi=X_context.api+"order/list";
-        $http.post(creditAddApi,{
-            id:X_context.memberId
-        })
-            .success(function(data){
-                for(var i in data.data) {
-                    if(data.data[i].userPoint){
-                        $scope.creditdetail.push({
-                            creditrule: "购买商品",
-                            creditval:"+"+data.data[i].userPoint,
-                            credit_date: data.data[i].createDate,
-                        });
-                    }
+            $scope.credit.creditall= data.data[0].point;
 
-                }
+            var creditAddApi=X_context.api+"order/list";
+            $http.post(creditAddApi,{
+                id:X_context.memberId
             })
+                .success(function(data){
+                    for(var i in data.data) {
+                        if(data.data[i].userPoint){
+                            $scope.creditdetail.push({
+                                creditrule: "购买商品",
+                                creditval:"+"+data.data[i].userPoint,
+                                credit_date: data.data[i].createDate,
+                            });
+                        }
 
-     })
-
-
-
-
-
+                    }
+                })
+        });
 
 });
