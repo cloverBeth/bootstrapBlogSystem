@@ -198,7 +198,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greens li em{ display:block;width:100%;}
 .greens li p{line-height:1.4em;padding-left:15px;}
 .greens li p strong{ display:block;font-size:15px;color:#666;}
-.greens li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
+.greens li .org{ display:block;font-size:15px;font-weight:normal;padding-top:12px;height: 30px;}
 
 .greensSale h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}
 .greensSale li{
@@ -214,21 +214,22 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 
 /*************************加减按钮***************************/
 .numProduct{
-  float: right;
+  float: left;
   //position:absolute;
   //right:15px;
   //bottom:10px;
-  margin: 5px;
-  margin-right:10px;
-  width:80%;text-align:right;}
+  margin:-22px 10px 5px 0px ;
+  //width:138px;
+  text-align:right;}
 .numProduct .img-cover{
   width: 25px;
   height: 25px;
   padding: 3.5px;
-  float: right;
+  float: left;
 }
 .numProduct img {width: 18px;height:18px;}
-.numProduct span{float:right;width:25%;text-align:center;font-size:15px;line-height:25px;color:#666;}
+.numProduct span{
+  width:25%;text-align:center;font-size:15px;line-height:25px;color:#666;}
 
 .num{
   position:absolute;
@@ -239,7 +240,8 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   width: 25px;
   height: 25px;
   padding: 3.5px;
-  float: right;
+  margin-left: 5px;
+  //float: right;
 }
 .num img {width: 18px;float: right;}
 .num span{float:right;width:25%;text-align:center;font-size:15px;line-height:25px;color:#666;}
