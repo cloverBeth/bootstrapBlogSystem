@@ -47,15 +47,15 @@
             </dt>
             <dd>
                 <ul class="shou">
-                    <li><span>商品总价</span><p>¥{{orderone.total}}</p></li>
-                    <li><span>运费</span><p>¥{{orderone.carriage}}</p></li>
+                    <li><span>总价</span><p>¥{{orderone.total}}</p></li>
+                    <li><span>含运费</span><p>¥{{orderone.carriage}}</p></li>
                     <!--<li><span>积分抵用</span><p>-¥{{orderone.credits}}</p></li>-->
                     <li><span>实付金额</span><p class="org">¥{{orderone.realpay}}</p></li>
                 </ul>
             </dd>
         </dl>
 
-        <button ng-show="orderone.status=='未付款'" class="btn" style="background: #dd0000;width:60%;margin:15px 0 100px 20%;" ng-click="payAgain()">
+        <button ng-show="orderone.status=='未付款'" class="btn quickpay" ng-click="payAgain()">
             立即支付
         </button>
     </div>
