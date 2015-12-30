@@ -22,6 +22,7 @@ angular.module("ZJSY_WeChat").controller("CreditAccountController",function($sco
 
             $scope.credit.creditall= data.data[0].point;
 
+
             var creditAddApi=X_context.api+"order/list";
             $http.post(creditAddApi,{
                 id:X_context.memberId
