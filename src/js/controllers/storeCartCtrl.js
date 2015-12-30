@@ -28,7 +28,7 @@ console.log('storeCart');
             })
     });
 
-    $scope.mainHeight = $('body').css('height').split('px')[0] -
+    $scope.mainHeight = X_context.bodyHeight -
         $('header').css('height').split('px')[0];
 
 
