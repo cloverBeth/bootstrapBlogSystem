@@ -21,7 +21,7 @@
                 </div>
                 <span ui-sref="orderDetail({orderId:order.id})">
                     <div class="pic clearfix">
-                        <ul>
+                        <ul class="listlimit">
                             <li ng-repeat="product in order.products">
                                 <em><img src="{{product.image}}" /></em>
                                 <p>×{{product.quantity}}</p>
