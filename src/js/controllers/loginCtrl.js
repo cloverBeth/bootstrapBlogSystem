@@ -16,22 +16,23 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
             return;
         }
         $scope.captchaDisabled=true;
+        var timer=60;
+        var interval =
+            $interval(function(){
+                $scope.captchaBtn='请您稍后:'+timer;
+                timer--;
+                if(timer==0){
+                    $interval.cancel(interval);
+                    $scope.captchaDisabled=false;
+                    $scope.captchaBtn=btnStr;
+                }
+            },1000);
         $http.post(X_context.api + "member/fetchAuthCode",{
             "phoneNum" : $scope.telphone
         })
             .success(function(data){
-                console.log(data);
                 $scope.ensureBtn=true;
-                var timer=60;
-                var interval=$interval(function(){
-                    $scope.captchaBtn='请您稍后:'+timer;
-                    timer--;
-                    if(timer==0){
-                        $interval.cancel(interval);
-                        $scope.captchaDisabled=false;
-                        $scope.captchaBtn=btnStr;
-                    }
-                },1000);
+
             });
     }
 

@@ -253,7 +253,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .sub{}
 
 /*************************购物车***************************/
-.shop{ position:absolute;left:0;bottom:0;z-index:99;width:100%;background:#404144; z-index:99;}
+.shop{ position:absolute;left:0;bottom:0;width:100%;background:#404144;height:42px;}
 .shop p{padding:0.6em;font-size:15px;line-height:1.6em;color:#cccccc;}
 .shop p img{width:26px;margin-right:10px;margin-top:-3px;margin-left:5px;}
 .shop p font{ display:block;float:right;color:#999;}
@@ -304,7 +304,10 @@ p{
 
 .footer{
   position:fixed;
-  left:0;bottom:0;width:100%; z-index:999;}
+  background-color: red;
+  left:0;bottom:0;width:100%; z-index:999;
+  height: 42px;
+}
 
 
 .flyer {
@@ -401,7 +404,12 @@ p{
 .danhao{margin-top:15px;padding:12px;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
-div.iphone button.autocodeBtn{margin-left:-3%;}
+div.iphone button.autocodeBtn{
+  height: 32px;
+  margin-top: 9px;
+  margin-right:10px;
+  float: right;
+}
 .iphone{position:relative;background:#fff;border-top:1px solid #ddd;padding:0;line-height:2.5rem; }
 //.iphone li{padding:12px 0;font-size:1.5rem;line-height:2.5em;border-top:1px solid #ddd;}
 .iphone li {padding: 12px 0;border-top:1px solid #ddd;font-size: 1.5rem;line-height: 2em;}
@@ -571,7 +579,7 @@ strong.ng-binding{font-weight:400;}
   -webkit-border-radius:5px;
   border-radius:5px;}
 #checknum{
-  margin-right:8%;
+  //margin-right:8%;
 }
 .btnQ{text-align:center;padding:15px 10px 15px;margin:0 0 60px 0;}
 .btnQ a{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#999999;

@@ -125,10 +125,11 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     //    $('header').css('height').split('px')[0];
 
     $scope.$watch('$parent.navHeight',function(){
+        console.log($('.footer').css('height').split('px')[0]);
         $scope.mainHeight = X_context.bodyHeight -
-            $('.navTop').css('height').split('px')[0] -
+            47-//$('.navTop').css('height').split('px')[0] -
             $scope.$parent.navHeight-
-            $('header').css('height').split('px')[0];
+            43;//$('header').css('height').split('px')[0];
     })
     //$scope.proList = [];
     //_.forEach($scope.cates,function(cate,index){
@@ -283,13 +284,13 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             }
         }
 
-        var cateHeight = $('.sideNav li .hover').offset().top;
-
-        if(cateHeight + 45 > X_context.bodyHeight - 42) { //cateHeight:45, footerHeight:42
-            $('.sideNav').scrollTop( $('.sideNav').scrollTop() + 45 );
-        } else if(cateHeight < headerTop) {
-            $('.sideNav').scrollTop( $('.sideNav').scrollTop() - 45 );
-        }
+        //var cateHeight = $('.sideNav li .hover').offset().top;
+        //
+        //if(cateHeight + 45 > X_context.bodyHeight - 42) { //cateHeight:45, footerHeight:42
+        //    $('.sideNav').scrollTop( $('.sideNav').scrollTop() + 45 );
+        //} else if(cateHeight < headerTop) {
+        //    $('.sideNav').scrollTop( $('.sideNav').scrollTop() - 45 );
+        //}
 
     });
 
