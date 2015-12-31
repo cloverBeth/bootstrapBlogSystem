@@ -7,64 +7,47 @@
            活动中心
         </div>
     </header>
-    <div class="main404 main">
-        <a ui-sref="activityDetail"href="javascript:;"><img src="images/huodong2.jpg" alt="" width="100%"></a>
+    <!--<div class="main404 main">-->
+        <!--<a ui-sref="activityDetail"href="javascript:;"><img src="images/huodong2.jpg" alt="" width="100%"></a>-->
+    <!--</div>-->
+
+    <div class="main">
+        <div class="swiper-container activity-swiper swiper-container-horizontal"
+             style="top:0;margin-top:46px;height: auto;">
+
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img
+                        ng-click="goDetail(activities[3].link)"
+                        src="images/activity-banner1.jpg" width="100%" /></div>
+                <div class="swiper-slide">
+                    <img src="images/activity-banner2.jpg"
+                         ng-click="goDetail(activities[1].link)"
+                         width="100%" /></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+        <div class="activityList lazy-sec relR " id="base">
+            <ul class="clearfix" >
+                <li ng-repeat="hot in activities track by $index">
+                    <em class="project-detail-img">
+                        <img  ng-click="showProduct(hot.id)" src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>
+                    </em>
+                    <div class="content">
+                        <strong>{{hot.name}}</strong>
+                        <b >{{hot.content}}</b>
+                    </div>
+                    <div class="arrow" ng-click="goDetail(hot.link)">
+                        <img src="images/ico_7.png" alt=""/>
+                    </div>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
     </div>
 
-    <!--<div class="main">-->
-        <!--<div class="swiper-container activity-swiper swiper-container-horizontal"-->
-             <!--style="top:0;margin-top:46px;height: auto;">-->
-
-            <!--<div class="swiper-wrapper">-->
-                <!--<div class="swiper-slide"><img src="images/banner-1.jpg" width="100%" /></div>-->
-                <!--<div class="swiper-slide"><img src="images/banner-1.jpg" width="100%" /></div>-->
-            <!--</div>-->
-            <!--<div class="swiper-pagination"></div>-->
-        <!--</div>-->
-
-
-        <!--<div class="activityList lazy-sec relR " id="base">-->
-            <!--<ul class="clearfix" >-->
-                <!--<li ng-repeat="hot in hots track by $index">-->
-                    <!--<em class="project-detail-img">-->
-                        <!--<img  ng-click="showProduct(hot.id)"bn-lazy-src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>-->
-                    <!--</em>-->
-                    <!--<p>-->
-                        <!--<strong>{{hot.name}}</strong>-->
-                        <!--<b class="org">￥{{hot.price}}</b>-->
-                    <!--</p>-->
-                    <!--<div class="num">-->
-                        <!--<a href="javascript:;"-->
-                           <!--ng-click="addProduct(hot.id);fly($event)"-->
-                           <!--ng-hide="_.find(cart.products,{id:hot.id}) &&-->
-					   		<!--_.find(cart.products,{id:hot.id}).buyNum == _.find(cart.products,{id:hot.id}).num"-->
-                           <!--class="add">-->
-                            <!--<div class="img-cover">-->
-                                <!--<img src="images/ico_a.png" />-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div ng-show="_.find(cart.products,{id:hot.id})">-->
-						<!--<span>-->
-							<!--{{-->
-							   <!--_.find(cart.products,{id:hot.id})-->
-							<!--? _.find(cart.products,{id:hot.id}).buyNum-->
-							<!--: 0-->
-							<!--}}-->
-						<!--</span>-->
-                            <!--<a href="javascript:;" ng-click="removeProduct(hot.id)" class="sub">-->
-                                <!--<div class="img-cover">-->
-                                    <!--<img src="images/ico_j.png" />-->
-                                <!--</div>-->
-                            <!--</a>-->
-
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</li>-->
-
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-
-<!--</div>-->
+</div>
 </div>
