@@ -227,10 +227,23 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   //width:138px;
   text-align:right;}
 .numProduct .img-cover{
-  width: 25px;
-  height: 25px;
-  padding: 3.5px;
+  width: 35px;
+  height: 35px;
   float: left;
+  margin-top:-5px ;
+}
+.numProduct .img-cover-left{
+
+  padding-top: 8.5px;
+  padding-right: 17px ;
+  float: left;
+  margin-top:-5px ;
+}
+.numProduct .img-cover-right{
+  padding-top: 8.5px;
+  padding-left: 17px ;
+  float: left;
+  margin-top:-5px ;
 }
 .numProduct img {width: 18px;height:18px;}
 .numProduct span{
@@ -832,3 +845,19 @@ label {
 .isloading{text-align: center;padding: 10px 0;}
 .uintpart{margin-top:10px;}
 .listlimit{width:160px;height:80px;overflow:hidden;}
+.activity-swiper{
+  height:auto;
+}
+
+
+.activityList h3{ position:relative;margin-top:8px;font-size:4.2vw;line-height:2.4em; text-indent:0.6em; background:#f8f8f8 url(../images/bg_4.png) repeat-y;}
+.activityList li{
+  padding-bottom: 20px;
+  background: white;
+  height:120px;
+  position:relative;width:100%;float:left;border-right:1px solid #eee;border-bottom:1px solid #eee;}
+.activityList li em{ display:inline-block;width:40%;height: 100%;}
+.activityList li em img{ display:block;width:100px;height:100px;margin: auto;margin-top:10px;}
+.activityList li p{display:inline-block;line-height:1.4em;padding-bottom:12px;}
+.activityList li p strong{ display:block;font-size:15px;font-weight:bold;color:#666;}
+.activityList li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
