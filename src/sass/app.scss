@@ -189,7 +189,6 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   -webkit-overflow-scrolling: touch;
 }
 .main404{
-  margin-top:2px;
   width:100%;
 }
 
@@ -447,7 +446,8 @@ dl{
                     background-size:10px;background-position:98% 50%;}
 .personal ul li img{width: 28px;margin:-3px 10px 0 0;}
 .personal ul li strong{ display:block;float:left;font-size:16px;color:#999;line-height:2.2em;}
-.personal ul li span a#nobg{ display:block;margin-right:20px;float:right;font-size:16px;color:#999;line-height:2.2em;background:none;}
+.personal ul li .nobg{display:inline-block;margin:10px 0 10px 0;background:none;}
+.personal ul li span a#nobg{ display:block;margin:10px 20px 10px 0;float:right;font-size:16px;color:#999;line-height:2.2em;background:none;}
 #creditdetail ul li a{display:block;font-size:16px;color:#999;line-height:2.2em;background:none;}
 #creditdetail ul.mt_0{margin-top:0px;}
 #creditdetail ul.mt_0 span.credittime{display:inline-block;height:16px;font-size:14px;font-weight:400;}
@@ -824,3 +824,5 @@ label {
 .isloading{text-align: center;padding: 10px 0;}
 .uintpart{margin-top:10px;}
 .listlimit{width:160px;height:80px;overflow:hidden;}
+.personal .downapp{margin-top:15px;}
+.personal .downapp li a{margin:10px 0 10px 0;}
