@@ -1,6 +1,6 @@
 var X_context = {
     guest : "guest",
-    api : "http://demo1.yzlpie.com/zjsy/api/v1/",
+    api : "http://192.168.6.43/zjsy/api/v1/",
     memberId : null,
     memberPhone : ""
 
