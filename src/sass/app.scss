@@ -521,7 +521,8 @@ dl{
 .notice dl dt{padding:0 3%;color:#999999;text-align:right;background:#fff;border-top:2px solid #00aaff;}
 .notice dl dt em{ display:inline-block;width:33px;}
 .notice dl dt em img{margin-right:2vw;margin-top:-23px;}
-.notice dd{padding-bottom:15px;}
+.notice dd{padding-bottom:15px;
+  min-height:200px;}
 .notice dd h3{font-size:16px;line-height:1.6em;text-align:center;padding:10px 0 5px;color:#666;}
 .notice dd p{font-size:14px;line-height:1.8em;text-align:left;padding:10px 12px;color:#777; text-indent:2em;}
 em#close{opacity:1;}
@@ -891,5 +892,24 @@ label {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #969696}
+.activity-end {
+  height: 85px;
+  float: right;
+  width: 50px;
+  line-height: 85px;
+  img{
+    margin: 25px auto;
+    height: 30px;
+    width: 30px;
+  }
+}
+.modal-dialog {
+  margin-top: 150px !important;
+}
+
+
 .personal .downapp{margin-top:15px;}
 .personal .downapp li a{margin:10px 0 10px 0;}
+.redText {
+  color: red;
+}
