@@ -32,7 +32,7 @@
             <ul class="clearfix" >
                 <li ng-repeat="hot in activities track by $index">
                     <em class="project-detail-img">
-                        <img  ng-click="showProduct(hot.id)" src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>
+                        <img src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>
                     </em>
                     <div class="content">
                         <strong>{{hot.name}}</strong>
