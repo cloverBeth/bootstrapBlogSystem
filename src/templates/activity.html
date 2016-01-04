@@ -32,13 +32,18 @@
             <ul class="clearfix" >
                 <li ng-repeat="hot in activities track by $index">
                     <em class="project-detail-img">
-                        <img  ng-click="showProduct(hot.id)" src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>
+                        <img src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>
                     </em>
                     <div class="content">
                         <strong>{{hot.name}}</strong>
                         <b >{{hot.content}}</b>
                     </div>
-                    <div class="arrow" ng-click="goDetail(hot.link)">
+
+                    <div class="activity-end"  ng-hide="hot.show" ui-turn-on="activityEnd" >
+                        <img src="images/activity_end.png" alt=""/>
+                    </div>
+
+                    <div class="arrow" ng-click="goDetail(hot.link)" ng-show="hot.show">
                         <img src="images/ico_7.png" alt=""/>
                     </div>
 
@@ -47,7 +52,28 @@
             </ul>
         </div>
     </div>
+
+    <div ui-content-for="modals">
+        <div class="modal" ui-if="activityEnd" ui-state='activityEnd'>
+            <div class="modal-backdrop in"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close"
+                                ui-turn-off="activityEnd">&times;</button>
+                        <h4 class="modal-title">活动结束啦</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            抱歉,此活动已经结束啦.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button ui-turn-off="activityEnd" class="btn redBtn">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-</div>
-</div>
+    </div>
