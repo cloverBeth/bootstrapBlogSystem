@@ -23,6 +23,7 @@ angular.module('ZJSY_WeChat').factory('ajaxInterceptor', function ($q,$rootScope
       return response;
     },
     responseError: function(response) {
+      console.log(response)
       $rootScope.$broadcast('alerts',{type:'danger',message:response.data.message || "系统错误。"});
       return response;
     }
