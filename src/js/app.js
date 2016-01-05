@@ -182,23 +182,7 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('cardGetLeft',{
-            url:'/card-left',
-            params: {left: null},
-            views:{
-                '':{
-                    templateUrl:'cardLeft.html',
-                    controllerProvider:function($state,$stateParams,checkAuth){
-                        if(!checkAuth.check()){
-                            return $state.go('login');
-                        }
-                        var ctrlName="CardLeftController";
-                        return ctrlName;
 
-                    }
-                }
-            }
-        })
         .state('transactionDetail',{
             url:'/transaction-detail',
             views:{
