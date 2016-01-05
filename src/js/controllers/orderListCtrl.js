@@ -6,6 +6,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
     $scope.currentPage = 1;
     $scope.pageSize = 5;
     $scope.loading = false;
+    $scope.isOrder=false;
     $scope.orderlist=[
 
     ];
@@ -18,12 +19,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
             pageSize: $scope.pageSize,
         })
             .success(function (data) {
-                if (data.data.length==0){
-                    $scope.isOrder=true;
-                    return;
-                }else{
-                    $scope.isOrder=false;
-                }
+                if (data.data.length==0 || !data.data){return;}
                 for (var i in data.data) {
                     var order = {
                         number: data.data[i].orderSn,
@@ -43,17 +39,19 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
                             id: item.id
                         });
                     })
-                    $scope.orderlist.push(order);
+                    $scope.isOrder=false;
                     $scope.loading = false;
+                    $scope.orderlist.push(order);
                 }
-            })
-     }
-    $scope.getOrder();
 
+            })
+
+     }
+
+    $scope.getOrder();
     $scope.goIndex=function(){
         $state.go('store.product',{storeId:X_context.storeId});
     }
-
     $(".order_list").on('scroll',function() {
 
         if( $('.order_list').scrollTop() + $('.order_list').height() > $('.order_all').height() - 50){

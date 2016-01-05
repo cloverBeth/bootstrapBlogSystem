@@ -13,6 +13,7 @@
     </header>
 
     <div class="main mt-48">
+        <div class="ordertips"ng-show="isOrder"><em>亲，您的交易明细还没有哦，快去用一卡通支付试试吧～</em></div>
         <div class="dan" ng-repeat="items in transaction">
             <div class="hao clearfix">
                 <strong>交易流水号:{{items.number}}</strong><br>
