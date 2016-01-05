@@ -38,6 +38,10 @@ angular.module('ZJSY_WeChat')
                         scope.alerts = _.drop(scope.alerts);
                     },2000);
                 })
+
+                scope.$on('hideAlerts',function(event){
+                    scope.alerts = [];
+                })
             }
         };
     });

@@ -713,6 +713,13 @@ strong.ng-binding{font-weight:400;}
   padding: 0 10px;
   font-size: 1.5rem;
 }
+.card-left{
+   height: 65px;
+   line-height: 50px;
+   background-color: white;
+   padding: 15px 0 10px 20px;
+   color:#666;;
+ }
 .ng-dirty input.ng-invalid, input.ng-invalid{
   border: hidden !important;
 }
@@ -913,6 +920,14 @@ label {
 
 .personal .downapp{margin-top:15px;}
 .personal .downapp li a{margin:10px 0 10px 0;}
+.redText {
+  color: red;
+}
+.card-left-footer{
+  height: 20px;
+  background-color:#eee ;
+  border-bottom: 1px solid #ddd;
+}
 .ordertips{margin:0 auto;/*background:#0af;width:95%;height:100%;border-radius:100%;*/
            text-align:center;line-height:20px;margin-top:50px;font-weight:500;}
 

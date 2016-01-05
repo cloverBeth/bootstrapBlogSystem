@@ -1,15 +1,22 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$interval,$http,$stateParams,$state){
+angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$interval,$http,$stateParams,$state,$rootScope){
 
     $scope.fromOrder = $stateParams.from && $stateParams.from.fromOrder;
     $scope.orderId = $stateParams.from && $stateParams.from.orderId;
 
+    $scope.fromGetLeft = $stateParams.from && $stateParams.from.getLeft;
+
+    $scope.getModal = false;
+    $scope.getErrorModal = false;
 
     $scope.showEdit = false;
+    $scope.showLeftSec = false;
+
     $scope.card = {
         title: '一卡通',
         num : "",
-        pwd : null
+        pwd : null,
+        getPwd : null
     };
     $scope.originNo = "";
 
@@ -17,6 +24,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
 
     var posted = false;
     $scope.payPosted = false;
+    $scope.getPosted = false;
 
     $scope.editCard = function($event){
         $event.stopPropagation();
@@ -93,11 +101,37 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
             $scope.showEdit = false;
             $scope.payPosted = false;
             $state.go('orderSucceed',{orderId:$scope.orderId});
-        }).error(function(data){
-            $scope.payModal = false;
-            $scope.payPosted = false;
-            $state.go('orderSucceed',{orderId:$scope.orderId});
         });
+    }
+
+    $scope.getLeft = function(){
+        if($scope.getPosted == true)return;
+        if(!$scope.card.getPwd || !$scope.card.num)return;
+        $scope.getPosted = true;
+        $("#card_geting").html("查询中...");
+        $http.post(X_context.api + 'pay/consume',{
+            "memberCard" : $scope.card.num,
+            "passwd" : $scope.card.pwd
+        }).success(function(data){
+            console.log(data)
+            $scope.getModal = false;
+            $scope.showEdit = false;
+            $scope.getPosted = false;
+            $scope.card.getPwd = null;
+            if(true){
+                $rootScope.$broadcast('hideAlerts');
+                $scope.showLeftSec = true;
+                $scope.left = 50;
+            }else if(data.code != 200){
+                $rootScope.$broadcast('hideAlerts');
+                $scope.getErrorModal = true;
+
+            }
+        });
+    };
+
+    $scope.goBack = function(){
+        location.href="javascript:window.history.back();";
     }
 
     $http.get(X_context.api + 'member/getCurMem').success(function(data){

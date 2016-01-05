@@ -182,6 +182,7 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+
         .state('transactionDetail',{
             url:'/transaction-detail',
             views:{
