@@ -12,9 +12,8 @@
 <div class="swiper-container" ng-show="isActive('/store-product')"
   ng-style="{height:navHeight}">
 
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="images/banner-1.jpg" width="100%" /></div>
-    <div class="swiper-slide"><img src="images/banner-1.jpg" width="100%" /></div>
+  <div class="swiper-wrapper"ng-show="hasImage">
+    <div class="swiper-slide"ng-repeat="imgs in storeImages"><img src="{{imgs.businessImage}}" width="100%" /></div>
   </div>
   <div class="swiper-pagination"></div>
 </div>

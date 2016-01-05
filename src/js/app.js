@@ -338,11 +338,11 @@ angular.module('ZJSY_WeChat', [
             }
         })
 
-        .state('business.list', {
+        .state('businessList', {
             url:'/business-list',
             views: {
                 '': {
-                    templateUrl: 'businessList.html',
+                    templateUrl:'businessList.html',
                     controllerProvider: function($state,$stateParams,checkAuth) {
                         if(!checkAuth.check())return $state.go('login');
                         var ctrlName = "BusinessListController";
