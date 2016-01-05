@@ -10,9 +10,11 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     X_context.storeId = $scope.storeId;
     $scope.cart = $scope.$parent.cart;
     $scope.notice = {};
-    $scope.storeImages={
-        businessImage:"images/banner.jpg",
-    };
+    $scope.storeImage=[
+        {
+            banner:"images/banner.jpg",
+        }
+    ];
 
 
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
