@@ -60,15 +60,16 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+
         .state('store.product', {
-            url: '/store-product/{productId}',
-            views: {
-                '': {
-                    templateUrl: 'storeProduct.html',
-                    controller: 'StoreProductController'
-                }
+        url: '/store-product/{productId}',
+        views: {
+            '': {
+                templateUrl: 'storeProduct.html',
+                controller: 'StoreProductController'
             }
-        })
+        }
+    })
         .state('store.sale', {
             url: '/store-sale',
             views: {
@@ -354,7 +355,19 @@ angular.module('ZJSY_WeChat', [
             }
         })
 
-
+        .state('business.list', {
+            url:'/business-list',
+            views: {
+                '': {
+                    templateUrl: 'businessList.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "BusinessListController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
         $urlRouterProvider.otherwise('/store/1/store-product/');
 
 

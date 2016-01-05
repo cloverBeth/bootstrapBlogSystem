@@ -1,6 +1,7 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('TransactionDetailController',function($scope,$state,$http){
     $scope.title='交易明细';
+    $scope.isOrder=false;
     $scope.transaction=[
 
     ];
@@ -18,6 +19,7 @@ angular.module('ZJSY_WeChat').controller('TransactionDetailController',function(
                     });
                 }
             }
+            if(data.data.length==0){$scope.isOrder=true;}
 })
 
     $scope.goIndex=function(){
