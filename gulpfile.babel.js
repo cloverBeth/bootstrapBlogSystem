@@ -41,6 +41,8 @@ var config = {
       //'./bower_components/angular-route/angular-route.js',
       './bower_components/angular-ui-router/release/angular-ui-router.js',
       './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js',
+        './bower_components/ng-file-upload/ng-file-upload.min.js',
+        './bower_components/ng-file-upload/ng-file-upload-shim.min.js',
       //'./bower_components/angular-bootstrap/ui-bootstrap.js',
       //'./bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
     ],

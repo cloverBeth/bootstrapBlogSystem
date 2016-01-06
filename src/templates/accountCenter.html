@@ -14,7 +14,11 @@
 
     <div class="main mt-48">
         <div class="head clearfix">
-            <em><img src="images/head.png" /></em>
+            <!--<em><img src="images/head.png" /></em>-->
+            <em>
+                <img class="img-circle"ng-model="files"alt="头像上传"src="images/head.png"ngf-select ngf-multiple="true" onerror="this.src='images/head.png'"
+                     ngf-change="upload($files)"ngf-src="files[0]"ngf-accept="'image/*'">
+            </em>
             <p>
                 <a href="tel:{{account.tel}}">{{account.tel}}</a>
             </p>

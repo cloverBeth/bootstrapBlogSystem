@@ -1,6 +1,6 @@
 var X_context = {
     guest : "guest",
-    api : "http://192.168.6.43/zjsy/api/v1/",
+    api : "http://192.168.6.49/zjsy/api/v1/",
     memberId : null,
     memberPhone : ""
 
@@ -11,7 +11,8 @@ angular.module('ZJSY_WeChat', [
     //'ngRoute',
     'ui.router',
     //'ui.bootstrap',
-    'mobile-angular-ui'
+    'mobile-angular-ui',
+    'ngFileUpload'
 ])
 
     //.config(function($routeProvider) {
