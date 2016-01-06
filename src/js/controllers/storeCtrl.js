@@ -15,7 +15,9 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
             banner:"images/banner.jpg",
         }
     ];
-
+    //$scope.storeImage={
+    //    banner:[]//refer to orderListCtrl.js
+    //}
 
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId

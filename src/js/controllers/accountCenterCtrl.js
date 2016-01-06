@@ -14,7 +14,7 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
     $http.get(X_context.api + 'member/getCurMem')
         .success(function(data){
             if(!data.data[0])return;
-            if(data.data[0].name){
+            if(data.data[0].name.toString()){
                 $("#editNick").attr("href","javascript:void(0);");
                 $scope.account.tel = data.data[0].name;
             }
@@ -59,6 +59,7 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
                 "MemberId" : X_context.memberId,
                 "portrait" : data.data[0]
             }).success(function(){
+                console.log(data.data[0]);
                 $state.reload();
             })
         }).error(function (data, status, headers, config) {
