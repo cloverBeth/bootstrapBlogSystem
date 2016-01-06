@@ -16,11 +16,16 @@
         <div class="head clearfix">
             <!--<em><img src="images/head.png" /></em>-->
             <em>
-                <img class="img-circle"ng-model="files"alt="头像上传"src="images/head.png"ngf-select ngf-multiple="true" onerror="this.src='images/head.png'"
+                <img class="img-circle" src="{{account.portrait}}"  alt="" ngf-select ngf-multiple="true" onerror="this.src='images/head.png'"
                      ngf-change="upload($files)"ngf-src="files[0]"ngf-accept="'image/*'">
             </em>
             <p>
-                <a href="tel:{{account.tel}}">{{account.tel}}</a>
+                <!--<a id="editNick"href="tel:{{account.tel}}">{{account.tel}}</a>-->
+                <a id="editNick"href="javascript:;">{{account.tel}}</a>
+                <input id="changeNick"ng-model="nick"type="text"placeholder="请输入您的昵称"/>
+            <span>
+                <a id="nick-name"ng-click="test()"><img src="images/ico_10.png"style="width:20px;"/></a>
+            </span>
             </p>
         </div>
         <div class="personal">

@@ -48,14 +48,14 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         }
     }
 
+    $scope.$$postDigest(function(){
 
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 1
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 1
 
+        });
     });
-
-
 
     $scope.showCart = false;
     $scope.toggleCart = function(){
