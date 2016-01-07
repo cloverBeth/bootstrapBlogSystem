@@ -109,7 +109,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         if(!$scope.card.getPwd || !$scope.card.num)return;
         $scope.getPosted = true;
         $("#card_geting").html("查询中...");
-        $http.post(X_context.api + 'pay/consume',{
+        $http.post(X_context.api + 'pay/balance',{
             "memberCard" : $scope.card.num,
             "passwd" : $scope.card.pwd
         }).success(function(data){
@@ -118,11 +118,11 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
             $scope.showEdit = false;
             $scope.getPosted = false;
             $scope.card.getPwd = null;
-            if(true){
+            if(data.data && data.data.payAmount != undefined){
                 $rootScope.$broadcast('hideAlerts');
                 $scope.showLeftSec = true;
-                $scope.left = 50;
-            }else if(data.code != 200){
+                $scope.left = data.data.payAmount;
+            }else{
                 $rootScope.$broadcast('hideAlerts');
                 $scope.getErrorModal = true;
 
