@@ -13,8 +13,10 @@
   ng-style="{height:navHeight}">
 
   <div class="swiper-wrapper">
-    <div class="swiper-slide"ng-repeat="imgs in storeImage">
-      <img src="{{imgs.banner}}"width="100%" />
+    <div class="swiper-slide"ng-repeat="image in storeImage track by $index">
+      <a ui-sref="image.state">
+        <img src="image.img"width="100%" />
+      </a>
     </div>
     <!--<div class="swiper-slide"><img src="images/banner-1.jpg" width="100%" /></div>-->
     <!--<div class="swiper-slide"><img src="images/banner-1.jpg" width="100%" /></div>-->

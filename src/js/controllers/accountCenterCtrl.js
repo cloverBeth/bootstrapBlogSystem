@@ -15,22 +15,22 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
         .success(function(data){
             if(!data.data[0])return;
             if(data.data[0].name.toString()){
-                $("#editNick").attr("href","javascript:void(0);");
+                //$("#editNick").attr("href","javascript:void(0);");
                 $scope.account.tel = data.data[0].name;
             }
             else{
                 $scope.account.tel = data.data[0].mobile;
             }
             $scope.account.portrait = data.data[0].portrait;
-            $scope.nick = data.data[0].name;
+            $scope.account.nick = data.data[0].name;
 
-            $scope.test=function(){
+            $scope.getNick=function(){
                 $("#editNick").css("display","none");
                 $("#changeNick").css("display","inline-block").focus();//获得焦点
                 $("#changeNick").bind("blur",function(){
                     $http.post(X_context.api + 'member/update',{
                         "MemberId" : X_context.memberId,
-                        "name" : $scope.nick,
+                        "name" : $scope.account.nick,
                     })
                         .success(function(data){
                             console.log(data.data);

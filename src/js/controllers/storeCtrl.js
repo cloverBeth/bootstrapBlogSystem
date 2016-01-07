@@ -10,17 +10,18 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     X_context.storeId = $scope.storeId;
     $scope.cart = $scope.$parent.cart;
     $scope.notice = {};
-    $scope.storeImage=[
-        {
-            banner:"images/banner.jpg",
-        }
-    ];
-    //$scope.storeImage={
-    //    banner:[]//refer to orderListCtrl.js
-    //}
+    //$scope.storeImage=[
+    //    {
+    //        banner:"images/banner.jpg",
+    //    }
+    //];
+    $scope.storeImage={
+        id : [],
+
+    }
 
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
-        storeId : $scope.storeId
+        storeId : $scope.storeId,
     }).success(function(data){
 
         $scope.storeDetail = data.data[0];
@@ -33,6 +34,24 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     });
 
 
+
+    $scope.storePromise = $http.post(X_context.api + 'banner/list',{
+        storeId : $scope.storeId,
+        id : $scope.storeImage.id
+    }).success(function(data){
+        if (data.data.length==0 || !data.data){return;}
+            console.log(data.data);
+        for(var i in data.data){
+            $scope.storeImage.id=data.data[i].id;
+            $scope.storeImage.img=data.data[i].image;
+            $scope.storeImage.state=data.data[i].url;
+        }
+        console.log(data.data[i].image);
+        if(!data.data[i].image){$(".navTop").hide();}
+
+    });
+
+
     $("#notice").click(function(){
         $(".notice").show();
     })
@@ -40,7 +59,6 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     $(".close").click(function(){
         $(".notice").hide();
     })
-
 
     $scope.isActive = function (route) {
         if(_.indexOf($location.path().split('/'),route.split('/')[1])>0){
