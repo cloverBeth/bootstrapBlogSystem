@@ -49,7 +49,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                     id : pro.id,
                     name : pro.name,
                     num : pro.amount,
-                    img : pro.image ? pro.image : "images/ph_1.jpg",
+                    img : pro.image ? X_context.devHost+pro.image : "images/ph_1.jpg",
                     detail : pro.specification,
                     cateId : pro.category,
                     price : pro.marketPrice,
@@ -75,7 +75,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                     id : pro.id,
                     name : pro.name,
                     num : pro.amount,
-                    img : pro.image ? pro.image : "images/ph_1.jpg",
+                    img : pro.image ? X_context.devHost+pro.image : "images/ph_1.jpg",
                     detail : pro.specification,
                     cateId : pro.category,
                     price : pro.marketPrice,
@@ -298,5 +298,10 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         //}
 
     });
+
+    $scope.hideProduct = function(){
+        $scope.productShown=false;
+        $stateParams.productId = null;
+    }
 
 });

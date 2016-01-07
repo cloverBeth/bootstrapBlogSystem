@@ -14,7 +14,7 @@
 
   <div class="swiper-wrapper">
     <div class="swiper-slide"ng-repeat="image in bannerImage track by $index">
-      <a href="{{image.url}}">
+      <a href="javascript:;" ng-click="goToUrl(image.url);reloadState()">
         <img src="{{image.image}}" width="100%" />
       </a>
     </div>
