@@ -13,7 +13,10 @@
 <div class="main-section main">
     <div class="main mt-48">
         <div style="width:100%;margin:0 0 15px 0;"ng-repeat="business in businesslist track by $index">
-            <a href="javascript:;"><img src="{{business.image}}"width="320"height="150" alt="store1"/></a>
+            <div style="margin: auto;">
+                <a href="javascript:;" ui-sref="store.product({storeId:business.id})"><img src="{{business.image}}" style="" alt="store1"/></a>
+
+            </div>
             <div class="paperAds">{{business.advas}}</div>
         </div>
         <!--<div style="width:100%;margin:15px 0 0 0;">-->

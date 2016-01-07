@@ -10,8 +10,9 @@ angular.module('ZJSY_WeChat').controller('BusinessListController', function($roo
             console.log(data.data);
         _.forEach(data.data, function (item, index) {
             $scope.businesslist.push({
-                image: item.listImage,
-                advas: item.propaganda
+                image: X_context.devHost + item.listImage,
+                advas: item.propaganda,
+                id : item.id
 
             });
             console.log(item.listImage);
