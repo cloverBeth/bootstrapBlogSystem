@@ -4,26 +4,28 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     $scope.storeTitle = "";
     $scope.title = "";
     $scope.navHeight = 150;
+    $scope.noBanner = false;
 
     console.log('storeId',$stateParams.storeId);
     $scope.storeId = $stateParams.storeId || X_context.storeId || 1;
     X_context.storeId = $scope.storeId;
-    $scope.cart = $scope.$parent.cart;
-    $scope.notice = {};
-    //$scope.storeImage=[
-    //    {
-    //        banner:"images/banner.jpg",
-    //    }
-    //];
-    $scope.storeImage={
-        id : [],
-
+    if($scope.$parent.cart[X_context.storeId]){
+        $scope.cart = $scope.$parent.cart[X_context.storeId];
+    }else{
+        $scope.cart = $scope.$parent.cart[X_context.storeId] = {
+            products : [],
+            min : 0,
+            freightFee : 0
+        };
     }
+
+    $scope.notice = {};
+
+    $scope.bannerImage = [];
 
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId,
     }).success(function(data){
-
         $scope.storeDetail = data.data[0];
         $scope.storeTitle = data.data[0].storeName;
         $scope.title = data.data[0].storeName;
@@ -35,21 +37,30 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
 
 
     //轮播图
-    $scope.storePromise = $http.post(X_context.api + 'banner/list',{
-        storeId : $scope.storeId,
-        id : $scope.storeImage.id
+    $scope.bannerPromise = $http.post(X_context.api + 'banner/list',{
+        storeId : $scope.storeId
     }).success(function(data){
-        if (data.data.length==0 || !data.data){return;}
-            console.log(data.data);
-        for(var i in data.data){
-            $scope.storeImage.id=data.data[i].id;
-            $scope.storeImage.img=data.data[i].image;
-            $scope.storeImage.state=data.data[i].url;
-
+        //data.data = [];
+        if (data.data.length==0 || !data.data){
+            $scope.navHeight = 0;
+            $scope.noBanner = true;
+            return;
         }
-        console.log("第1张:"+data.data[0].image+"第2张:"+data.data[1].image+"第3张:"+data.data[2].image);
-        //if(!data.data[i].image){$(".navTop").hide();}
+        _.forEach(data.data,function(banner,index){
+            if(!banner.url || !banner.image)return;
+            $scope.bannerImage.push({
+                url : banner.url.startsWith('http') ? banner.url : `${location.host}#${banner.url}`,
+                image : X_context.devHost + banner.image
+            });
+        })
+        $scope.$$postDigest(function(){
 
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                slidesPerView: 1
+
+            });
+        });
     });
 
 
@@ -69,14 +80,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         }
     }
 
-    $scope.$$postDigest(function(){
 
-        var swiper = new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
-            slidesPerView: 1
-
-        });
-    });
 
     $scope.showCart = false;
     $scope.toggleCart = function(){

@@ -5,22 +5,23 @@ angular.module('ZJSY_WeChat')
         X_context.bodyHeight = $('body').css('height').split('px')[0];
         $scope.memberPromise = null;
         $scope.showLoading = false;
-        $scope.cart = {
-            products : [
-                //{
-                //    id: 0,
-                //    name: "雀巢麦片",
-                //    num: 156,
-                //    img: "images/ph_1.jpg",
-                //    detail: "营养高，味道好",
-                //    cateId: 1,
-                //    price: 30,
-                //    buyNum: 1
-                //}
-            ],
-            min : 0,
-            freightFee : 0
-        };
+        $scope.cart = {};
+        //{
+        //    products : [
+        //        //{
+        //        //    id: 0,
+        //        //    name: "雀巢麦片",
+        //        //    num: 156,
+        //        //    img: "images/ph_1.jpg",
+        //        //    detail: "营养高，味道好",
+        //        //    cateId: 1,
+        //        //    price: 30,
+        //        //    buyNum: 1
+        //        //}
+        //    ],
+        //    min : 0,
+        //    freightFee : 0
+        //};
         $scope.order = {
             //storeId : 1,
             product : [

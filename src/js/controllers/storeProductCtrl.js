@@ -11,7 +11,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
     $scope.$parent.title = $scope.$parent.storeTitle;
 
-    $scope.cart = $scope.$parent.$parent.cart;
+    $scope.cart = $scope.$parent.cart;
 
     $scope.cateList = [];
     $scope.proList = [];
@@ -123,14 +123,17 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     //    $('.navTop').css('height').split('px')[0] -
     //    $scope.$parent.navHeight-
     //    $('header').css('height').split('px')[0];
-
-    $scope.$watch('$parent.navHeight',function(){
-        console.log($('.footer').css('height').split('px')[0]);
-        $scope.mainHeight = X_context.bodyHeight -
-            47-//$('.navTop').css('height').split('px')[0] -
-            $scope.$parent.navHeight-
-            43;//$('header').css('height').split('px')[0];
+    $scope.$parent.bannerPromise.then(function(){
+        $scope.$watch('$parent.navHeight',function(){
+            console.log($('.footer').css('height').split('px')[0]);
+            $scope.mainHeight = X_context.bodyHeight -
+                47-//$('.navTop').css('height').split('px')[0] -
+                $scope.$parent.navHeight-
+                43;//$('header').css('height').split('px')[0];
+        })
     })
+
+
     //$scope.proList = [];
     //_.forEach($scope.cates,function(cate,index){
     //    $scope.proList = $scope.proList.concat(cate.products);
@@ -258,13 +261,15 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             }
             scrollPass = true;
         }
-        else if($scope.$parent.navHeight == 0) {
+        else if($scope.$parent.navHeight == 0 && !$scope.$parent.noBanner) {
             if (parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop)) {
                 $scope.$parent.navHeight = 150;
                 //$scope.$apply();
                 $scope.$digest();
                 $scope.$parent.$digest();
             }
+            scrollPass = true;
+        }else{
             scrollPass = true;
         }
 
