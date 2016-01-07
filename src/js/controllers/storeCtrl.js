@@ -34,7 +34,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     });
 
 
-
+    //轮播图
     $scope.storePromise = $http.post(X_context.api + 'banner/list',{
         storeId : $scope.storeId,
         id : $scope.storeImage.id
@@ -45,9 +45,10 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
             $scope.storeImage.id=data.data[i].id;
             $scope.storeImage.img=data.data[i].image;
             $scope.storeImage.state=data.data[i].url;
+
         }
-        console.log(data.data[i].image);
-        if(!data.data[i].image){$(".navTop").hide();}
+        console.log("第1张:"+data.data[0].image+"第2张:"+data.data[1].image+"第3张:"+data.data[2].image);
+        //if(!data.data[i].image){$(".navTop").hide();}
 
     });
 
