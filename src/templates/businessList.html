@@ -12,28 +12,17 @@
 
 <div class="main-section main">
     <div class="main mt-48">
-        <div>
-            <a href="javascript:;"><img src="images/store1.jpg" alt="store1"/></a>
+        <div style="width:100%;margin:0 0 15px 0;"ng-repeat="business in businesslist track by $index">
+            <a href="javascript:;"><img src="{{business.image}}"width="320"height="150" alt="store1"/></a>
+            <div class="paperAds">{{business.advas}}</div>
         </div>
-
-        <div style="padding:0 0 0 15px;width:100%;margin-top:-20px;font-weight:bolder;height:20px;color:#FFFFFF;font-size:14px;background:#000000;opacity:0.4;">
-            12月19日前，充100送10元，惊喜多多，优惠多多～
-        </div>
-
-        <div>
-            <a href="javascript:;"><img class="mt-15"src="images/store2.jpg" alt="store2"/></a>
-        </div>
-
-        <div style="padding:0 0 0 15px;width:100%;margin-top:-20px;font-weight:bolder;height:20px;color:#FFFFFF;font-size:14px;background:#000000;opacity:0.4;">
-            购物满2件即享8.8折，满2件即享8.5折！
-        </div>
-
-        <div>
-            <a href="javascript:;"><img class="mt-15"src="images/store3.jpg" alt="store3"/></a>
-        </div>
-        <div style="padding:0 0 0 15px;width:100%;margin-top:-20px;font-weight:bolder;height:20px;color:#FFFFFF;font-size:14px;background:#000000;opacity:0.4;">
-            喜士多超开张优惠多多～
-        </div>
-
+        <!--<div style="width:100%;margin:15px 0 0 0;">-->
+            <!--<a href="javascript:;"><img src="images/store1.jpg"width="100%"height="100%" alt="store1"/></a>-->
+            <!--<div class="paperAds">12月19日前，充100送10元，惊喜多多，优惠多多～</div>-->
+        <!--</div>-->
+        <!--<div style="width:100%;margin:15px 0 0 0;">-->
+            <!--<a href="javascript:;"><img src="images/store1.jpg"width="100%"height="100%" alt="store1"/></a>-->
+            <!--<div class="paperAds">12月19日前，充100送10元，惊喜多多，优惠多多～</div>-->
+        <!--</div>-->
     </div>
 </div>
