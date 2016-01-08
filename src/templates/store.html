@@ -13,9 +13,9 @@
   ng-style="{height:navHeight}">
 
   <div class="swiper-wrapper">
-    <div class="swiper-slide"ng-repeat="image in storeImage track by $index">
-      <a ui-sref="image.state">
-        <img src="image.img"width="100%" />
+    <div class="swiper-slide"ng-repeat="image in bannerImage track by $index">
+      <a href="javascript:;" ng-click="goToUrl(image.url);reloadState()">
+        <img src="{{image.image}}" width="100%" />
       </a>
     </div>
     <!--<div class="swiper-slide"><img src="images/banner-1.jpg" width="100%" /></div>-->

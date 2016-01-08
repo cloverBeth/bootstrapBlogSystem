@@ -3,8 +3,8 @@ var X_context = {
     api : "http://192.168.6.49/zjsy/api/v1/",
     memberId : null,
     memberPhone : ""
-
 };
+X_context.devHost = (location.host == "localhost") ? "http://192.168.6.49" : "";
 X_context.authorization = readCookie('authorization') || X_context.authorization;
 
 angular.module('ZJSY_WeChat', [

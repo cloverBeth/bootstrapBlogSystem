@@ -5,9 +5,8 @@ angular.module('ZJSY_WeChat').controller('StoreSaleController',function($scope,$
 
     $scope.$parent.title = $scope.$parent.storeTitle;
 
-    console.log($scope.$parent.$parent.cart,$scope.$parent.$parent.storeId);
 
-    $scope.cart = $scope.$parent.$parent.cart;
+    $scope.cart = $scope.$parent.cart;
 
     $scope.hots = [];
     $scope.$parent.storePromise.then(function(){

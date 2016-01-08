@@ -2,7 +2,7 @@
 angular.module('ZJSY_WeChat').controller('StoreCartController',function($scope,$http,$stateParams,$state){
 
 console.log('storeCart');
-    $scope.cart = $scope.$parent.$parent.cart;
+    $scope.cart = $scope.$parent.cart;
     $scope.storecart={
 
     }

@@ -21,7 +21,7 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
             else{
                 $scope.account.tel = data.data[0].mobile;
             }
-            $scope.account.portrait = data.data[0].portrait;
+            $scope.account.portrait = X_context.devHost+data.data[0].portrait;
             $scope.account.nick = data.data[0].name;
 
             $scope.getNick=function(){

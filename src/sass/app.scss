@@ -940,6 +940,7 @@ label {
 }
 
 .paperAds{padding:0 0 0 15px;width:100%;margin-top:-20px;font-weight:bolder;
+<<<<<<< HEAD
     height:20px;color:#FFFFFF;font-size:14px;background:#000000;opacity:0.4;}
 
 .garden-service{
@@ -1023,4 +1024,14 @@ label {
     ul li input[type="text"]{
       border:none;
     }
+=======
+  height:20px;color:#FFFFFF;font-size:14px;
+  position: absolute;
+  background: rgba(0,0,0,0); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.5) , rgba(0,0,0,0)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, rgba(0,0,0,0.5), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, rgba(0,0,0,0.5), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, rgba(0,0,0,0.5) , rgba(0,0,0,0)); /* Standard syntax */;
+  //opacity:0.4;
+>>>>>>> d70ba1df6d50554c7bb63b0ec400f49b44666328
 }
