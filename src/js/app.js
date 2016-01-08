@@ -339,6 +339,19 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('serviceOrder',{
+            url:'/service-order',
+            views:{
+                '':{
+                    templateUrl:'serviceOrder.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "ServiceOrderController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
 
         .state('businessList', {
             url:'/business-list',
