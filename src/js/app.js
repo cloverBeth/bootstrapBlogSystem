@@ -353,6 +353,23 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+            .state('gardenArt',{
+                url:'/garden-art',
+                views:{
+                    '':{
+                        templateUrl:'gardenArt.html',
+                        controllerProvider:function($state,$stateParams,checkAuth){
+                            if(!checkAuth.check())return $state.go('login');
+                            var ctrlName="GardenArtController";
+                            return ctrlName;
+                        }
+                    }
+                }
+            })
+
+
+
+
         $urlRouterProvider.otherwise('/store/1/store-product/');
 
 

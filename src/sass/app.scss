@@ -934,10 +934,93 @@ label {
 .redText {color: red;}
 .img-circle{margin-left: 10px;width:60px;height:60px;}
 #nick-name{text-decoration:none;padding:0;margin:0 0 0 20px;font-size:14px;display:inline-block;
-  float: left;line-height:3rem;color: #fff;padding: 30px 20px 30px 10px;font-weight:bold;}
+    float: left;line-height:3rem;color: #fff;padding: 30px 20px 30px 10px;font-weight:bold;}
 #changeNick{display:none;float: left;color: #fff;font-size: 20px;line-height: 2em;width:150px;
-  border:none;background:transparent;color: #fff;margin: 30px 0 30px 20px;
+    border:none;background:transparent;color: #fff;margin: 30px 0 30px 20px;
 }
 
 .paperAds{padding:0 0 0 15px;width:100%;margin-top:-20px;font-weight:bolder;
-  height:20px;color:#FFFFFF;font-size:14px;background:#000000;opacity:0.4;}
+    height:20px;color:#FFFFFF;font-size:14px;background:#000000;opacity:0.4;}
+
+.garden-service{
+      height:60px;width:100%;background:#ffffff;text-align:left;font-size:16px;
+      color:#928A8A;margin:200px 0 0 0;
+    label {
+       display: inline;
+    }
+
+    .regular-checkbox {
+        display: none;
+    }
+
+    .regular-checkbox + label {
+        background-color: #fafafa;
+        border: 1px solid #cacece;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+        padding: 9px;
+        border-radius: 3px;
+        display: inline-block;
+        position: relative;
+        top:8px;
+    }
+
+    .regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .regular-checkbox:checked + label {
+        background-color: #e9ecee;
+        border: 1px solid #adb8c0;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+        color: #99a1a7;
+    }
+
+    .regular-checkbox:checked + label:after {
+        content: '\2714';
+        font-size: 14px;
+        position: absolute;
+        top: 0px;
+        left: 3px;
+        color: green;
+    }
+    span{
+        padding:0 0 0 15px;
+        line-height:60px;
+    }
+    div.outer{
+      display:inline-block;
+      margin:0 0 0 15px;
+    }
+    div.choosed{
+      display:inline-block;
+      margin:0 15px 0 0;
+
+    }
+    div.choosed>span{
+      padding:0 0 0 8px;
+      line-height:60px;
+    }
+
+}
+
+.companyInfo{
+      margin:20px 0 0 0;
+      font-size: 15px;
+    ul{
+      width:100%;
+      height:auto;
+      background:#ffffff;
+
+    }
+    ul li{
+    width:100%;
+    padding:20px 0;
+    border-bottom:1px solid #f0f0f0;
+   }
+    ul li label{
+      text-align:right;
+    }
+    ul li input[type="text"]{
+      border:none;
+    }
+}
