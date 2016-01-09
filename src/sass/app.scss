@@ -1052,7 +1052,7 @@ label {
 .service-order{
   .serviceList{
     margin:215px 0 0 0;
-    ul li{
+    ul li.outerList{
       //width:100%;
       min-height:100px;
       height:auto;
@@ -1083,20 +1083,25 @@ label {
       float:right;
     }
     .proState{
-      margin:5px 10px 0 0;
+      margin:-10px 10px 0 0;
       clear:right;
       float:right;
       p{display:inline-block;width:45px;font-size:15px;color:#FF0000;}
-      span{margin:10px 0 0 10px;display:inline-block;width:25px;
-          height:25px;border:1px solid;background:grey url(../images/logo.png)no-repeat;}
-    }
-    .submenu{display:none;width:100%;padding:0;margin:20px 0 0 0;overflow-x:hidden;background:#FAFAFA;clear:both;
-      li{
-        border-top:1px solid #f0f0f0;
-        label{margin:40px 0 0 0;font-size:16px;padding:0 25px 0 0;text-align:right;}
-        input{margin:40px 0 0 0;font-size:16px;border:none;}
-        textarea{margin:40px 0 0 0;min-height:80px;height:auto;font-size:16px;border:none;}
+      span{margin:10px 0 0 10px;display:inline-block;width:25px;height:25px;
+           background:url(../images/up.png)no-repeat;position: relative;top: 12px;}
+      .togcss{background:url(../images/down.png)no-repeat;}
 
+    }
+    ul li ul.submenu{
+        display:none;width:100%;background:#CCCCCC;padding:0 0 20px 0;position:relative;top:15px;
+        overflow-x:hidden;clear:both;
+      li{
+        min-height:60px;
+        height:auto;
+        border-top:1px solid rgba(0,0,0,.05);
+        label{margin:20px 0 0 0;font-size:16px;padding:0 25px 0 0;text-align:right;}
+        input{margin:20px 0 0 0;background:#CCCCCC;font-size:16px;border:none;}
+        textarea{margin:15px 0 10px 0;background:#CCCCCC;min-height:90px;height:auto;font-size:16px;border:none;}
       }
     }
   }
