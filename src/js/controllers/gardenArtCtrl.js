@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootScope,$scope){
+angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootScope,$scope,$state){
     $scope.title="园艺服务";
     $scope.garden={};
 
@@ -26,6 +26,10 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
               $scope.cancelModal=true;
 
         }
+
+    }
+    $scope.goGardenOrder=function(){
+        $state.transitionTo('serviceSucceed');
     }
 
 

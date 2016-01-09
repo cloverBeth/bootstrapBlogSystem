@@ -1,0 +1,42 @@
+<div class="main-section service-succeed">
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            {{title}}
+        </div>
+        <div class="del">
+            <a ng-click="goIndex()" href="javascript:;" class="blue">主页</a>
+        </div>
+    </header>
+
+    <div class="main mt-15">
+
+        <div class="succeed clearfix" ng-class="{succeed:isBe,failed:isFal}">
+            <p ng-show="orderSucceed.status!='未付款'">
+                <strong>您的订单已提交成功，我们会尽快联系您！</strong>
+                如您需要取消订单，请拨打服务热线。
+            </p>
+            <p ng-show="orderSucceed.status=='未付款'">
+                <strong>您的订单未成功！</strong>
+                如您有其他问题，请拨打商家服务热线。
+            </p>
+        </div>
+        <div class="danhao">
+            <p><font>订单编号</font>{{orderSucceed.orderNumber}}</p>
+            <p><font>服务类型</font>{{orderSucceed.type}}</p>
+            <p class="consume"><font>本次消费</font><span>¥300{{orderSucceed.expense}}</span></p>
+        </div>
+        <div class="pay clearfix">
+            <h3>支付方式</h3><strong>{{orderSucceed.payway}}</strong>
+        </div>
+        <div class="pay clearfix">
+            <h3>商家电话</h3><a href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
+        </div>
+        <div style="width: 80%;margin: 10px 10%;">
+            <button class="redBtn btn"ng-click="goOnline()">返回线上物业</button>
+        </div>
+    </div>
+    <div class="kong"></div>
+</div>
