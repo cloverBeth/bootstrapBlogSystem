@@ -352,6 +352,19 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('onlineService',{
+            url:'/online-service',
+            views:{
+                '':{
+                    templateUrl:'onlineService.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "OnlineServiceController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
         .state('serviceOrder',{
             url:'/service-order',
             views:{
