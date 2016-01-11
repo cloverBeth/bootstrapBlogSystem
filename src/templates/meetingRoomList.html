@@ -1,0 +1,27 @@
+<div class="meeting-room-list">
+    <header class="header">
+        <div class="title">
+            会议室预订
+        </div>
+
+    </header>
+
+    <div class="room-list pd-48">
+        <div class="meeting-room" ng-repeat="room in roomList track by $index" ng-click="$parent.gotoDetail(room.id)">
+            <div class="room-image">
+                <img src="{{room.img}}" alt=""/>
+                <div class="float-info">
+                    <p>
+                        {{room.info1}}
+                    </p>
+                    <p>
+                        {{room.info2}}
+                    </p>
+                </div>
+            </div>
+            <div class="room-title">
+                {{room.name}}
+            </div>
+        </div>
+    </div>
+</div>

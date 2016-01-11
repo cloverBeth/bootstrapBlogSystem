@@ -1,5 +1,7 @@
 @charset "utf-8";
 $zjsyGreen : #00C500;
+$fontGrey : #E1E1E1;
+$fontDarkGrey : #908686;
 
 *{margin:0;padding:0;}
 ol li,ul li{ list-style-type:none; vertical-align:middle;}
@@ -700,6 +702,9 @@ strong.ng-binding{font-weight:400;}
 .mt-48{
   margin-top:48px;
 }
+.pd-48{
+  padding-top:48px;
+}
 .mb-60{margin-bottom:60px;}
 .mb-40{margin-bottom:40px;}
 .alert-danger {
@@ -1212,3 +1217,148 @@ label {
 }
 
 
+.meeting-room-list{
+  height: 100%;
+  .room-list{
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .room-image{
+    position: relative;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .float-info{
+    position: absolute;
+    width: 130px;
+    height: 70px;
+    background: white;
+    opacity: .5;
+    padding: 5px 10px;
+    font-size: 16px;
+    line-height: 30px;
+    right: 0;
+    top: 30px;
+    font-weight: bold;
+  }
+  .room-title{
+    width: 100%;
+    line-height: 30px;
+    height : 30px;
+    font-size : 18px;
+    text-align: center;
+    color: $fontGrey;
+    background-color: #e57831;
+  }
+}
+.meeting-room-order {
+  form{
+    background: white;
+    border-bottom:1px solid #dddddd;
+  }
+  height: 100%;
+  .form-group{
+    margin: 0 !important;
+  }
+  .form-control {
+    padding: 0 5px!important;
+  }
+  .radio-sec{
+    display:inline-block;
+    margin-left: 5px;
+  }
+  .radio-sec>span{
+    padding:0 0 0 8px;
+    line-height:40px;
+  }
+  .room-label {
+    line-height: 40px;
+    padding-left: 40px;
+    color: $fontDarkGrey;
+    font-size: 14px;
+    padding-right: 0;
+  }
+  label {
+    display: inline;
+  }
+  input {
+    line-height: 34px !important;
+  }
+
+  .regular-checkbox {
+    display: none;
+  }
+
+  .regular-checkbox + label {
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    top:8px;
+  }
+
+  .regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .regular-checkbox:checked + label {
+    background-color: #e9ecee;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+  }
+
+  .regular-checkbox:checked + label:after {
+    content: '\2714';
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: green;
+  }
+  .uib-datepicker-popup.dropdown-menu {
+    left : -20px !important;
+  }
+
+  .meeting-schedule{
+    margin-top: 15px;
+    background: white;
+    width: 100%;
+    color: $fontDarkGrey;
+    table{
+      width : 100%;
+      tr {
+        border-bottom:1px solid #dddddd;
+        border-top:1px solid #dddddd;
+        height: 30px;
+        line-height: 30px;
+        td{
+          padding: 5px 20px;
+        }
+      }
+      .schedule-status{
+        cursor: pointer;
+        &.occupy{
+          background: #F3F3F3;
+        }
+        &.order{
+          background: #C4FFC0;
+        }
+      }
+    }
+    .total-price {
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+  }
+}

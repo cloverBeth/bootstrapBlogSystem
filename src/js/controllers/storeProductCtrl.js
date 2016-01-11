@@ -301,7 +301,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
 
     $scope.hideProduct = function(){
         $scope.productShown=false;
-        $stateParams.productId = null;
+        //$stateParams.productId = null;
     }
 
 });

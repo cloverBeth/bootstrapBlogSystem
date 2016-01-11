@@ -12,7 +12,8 @@ angular.module('ZJSY_WeChat', [
     'ui.router',
     //'ui.bootstrap',
     'mobile-angular-ui',
-    'ngFileUpload'
+    'ngFileUpload',
+    'ui.bootstrap'
 ])
 
     //.config(function($routeProvider) {
@@ -394,18 +395,35 @@ angular.module('ZJSY_WeChat', [
         })
         .state('gardenArt',{
             url:'/garden-art',
-            views:{
-                '':{
-                    templateUrl:'gardenArt.html',
-                    controllerProvider:function($state,$stateParams,checkAuth){
-                        if(!checkAuth.check())return $state.go('login');
-                        var ctrlName="GardenArtController";
+            views: {
+                '': {
+                    templateUrl: 'gardenArt.html',
+                    controllerProvider: function ($state, $stateParams, checkAuth) {
+                        if (!checkAuth.check())return $state.go('login');
+                        var ctrlName = "GardenArtController";
                         return ctrlName;
                     }
                 }
-            }
-        })
-
+                }
+            })
+            .state('meetingRoomList',{
+                url:'/meeting-room-list',
+                views:{
+                    '':{
+                        templateUrl:'meetingRoomList.html',
+                        controller:'MeetingRoomListController'
+                    }
+                }
+            })
+            .state('meetingRoomOrder',{
+                url:'/meeting-room-order/{roomId}',
+                views:{
+                    '':{
+                        templateUrl:'meetingRoomOrder.html',
+                        controller:'MeetingRoomOrderController'
+                    }
+                }
+            })
         .state('waterSend',{
             url:'/water-send',
             views:{

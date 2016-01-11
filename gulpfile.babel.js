@@ -43,6 +43,9 @@ var config = {
       './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js',
         './bower_components/ng-file-upload/ng-file-upload.min.js',
         './bower_components/ng-file-upload/ng-file-upload-shim.min.js',
+        './bower_components/ui-bootstrap-datepicker-build/ui-bootstrap-custom-1.0.0.js',
+        './bower_components/ui-bootstrap-datepicker-build/ui-bootstrap-custom-tpls-1.0.0.js',
+        './bower_components/ui-bootstrap-datepicker-build/angular-locale_zh-cn.js',
       //'./bower_components/angular-bootstrap/ui-bootstrap.js',
       //'./bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
     ],

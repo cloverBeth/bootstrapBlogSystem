@@ -1,0 +1,71 @@
+<div class="meeting-room-order">
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            会议室预订
+        </div>
+    </header>
+
+    <div class="main pd-48">
+        <form class="form-horizontal">
+            <div class="form-group" style="border-bottom:1px solid #dddddd">
+                <label class="col-xs-3 control-label room-label">会议室</label>
+                <div class="col-xs-9">
+                    <div class="radio-sec" ng-repeat="room in roomList track by $index">
+                        <input type="radio" checked="checked"
+                               ng-model="$parent.roomId" value="{{room.id}}"
+                               id="{{'checkbox-'+$index}}" class="regular-checkbox">
+                        <label for="{{'checkbox-'+$index}}"></label><span>{{room.name}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label room-label">日期</label>
+                <div class="col-xs-8">
+                    <div class="radio-sec">
+                        <p class="input-group">
+                            <input type="date" class="form-control"
+                                   uib-datepicker-popup ng-model="dt"
+                                   is-open="datePicker.opened"
+                                   datepicker-options="dateOptions"
+                                   ng-required="true" close-text="关闭" current-text="今天" clear-text="清除"/>
+                            <span class="input-group-btn">
+                                <button type="button"
+                                        class="btn btn-default" ng-click="openDate()">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="meeting-schedule">
+            <table>
+                <tr ng-repeat="time in timeList track by $index">
+                    <td width="30%" class="schedule-time">
+                        {{time.name}}
+                    </td>
+                    <td width="70%" class="schedule-status"
+                        ng-class="{occupy:time.occupy,order:time.order}"
+                            ng-click="orderTime($index)">
+
+                    </td>
+                </tr>
+            </table>
+            <p class="total-price">
+                总金额 : ￥{{totalPrice}}
+            </p>
+        </div>
+
+        <div style="width: 80%;margin: 20px auto">
+            <button class="btn redBtn" style="width: 100%;">
+                确认提交
+            </button>
+        </div>
+
+    </div>
+</div>
