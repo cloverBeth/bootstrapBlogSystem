@@ -1195,14 +1195,20 @@ label {
   }
 }
 .meeting-room-order {
-  background: white;
+  form{
+    background: white;
+    border-bottom:1px solid #dddddd;
+  }
   height: 100%;
+  .form-group{
+    margin: 0 !important;
+  }
   .form-control {
     padding: 0 5px!important;
   }
   .radio-sec{
     display:inline-block;
-
+    margin-left: 5px;
   }
   .radio-sec>span{
     padding:0 0 0 8px;
@@ -1258,5 +1264,40 @@ label {
   }
   .uib-datepicker-popup.dropdown-menu {
     left : -20px !important;
+  }
+
+  .meeting-schedule{
+    margin-top: 15px;
+    background: white;
+    width: 100%;
+    color: $fontDarkGrey;
+    table{
+      width : 100%;
+      tr {
+        border-bottom:1px solid #dddddd;
+        border-top:1px solid #dddddd;
+        height: 30px;
+        line-height: 30px;
+        td{
+          padding: 5px 20px;
+        }
+      }
+      .schedule-status{
+        cursor: pointer;
+        &.occupy{
+          background: #F3F3F3;
+        }
+        &.order{
+          background: #C4FFC0;
+        }
+      }
+    }
+    .total-price {
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
   }
 }
