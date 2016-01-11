@@ -405,6 +405,33 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             })
+            .state('meetingRoomList',{
+                url:'/meeting-room-list',
+                views:{
+                    '':{
+                        templateUrl:'meetingRoomList.html',
+                        controllerProvider:'MeetingRoomListController'
+                    }
+                }
+            })
+            .state('meetingRoomOrder',{
+                url:'/meeting-room-order',
+                views:{
+                    '':{
+                        templateUrl:'meetingRoomOrder.html',
+                        controllerProvider:'MeetingRoomOrderController'
+                    }
+                }
+            })
+            .state('orderSucceed',{
+                url:'/order-succeed',
+                views:{
+                    '':{
+                        templateUrl:'orderSucceed.html',
+                        controllerProvider:'OrderSucceedController'
+                    }
+                }
+            });
 
 
 
