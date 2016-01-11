@@ -1,7 +1,7 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$location,$state,$stateParams,$http,$rootScope){
     $scope.order = $scope.$parent.order;
-    $scope.cart = $scope.$parent.cart;
+    $scope.cart = $scope.$parent.cart[X_context.storeId];
     $scope.freight = 0;
 
     //$scope.username = "陈冠希";
@@ -17,7 +17,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             $scope.totalPrice += item.price * item.buyNum;
     })
 
-    $scope.freight = $scope.totalPrice < $scope.$parent.cart.min ? $scope.$parent.cart.freightFee : 0;
+    $scope.freight = $scope.totalPrice < $scope.cart.min ? $scope.cart.freightFee : 0;
 
     $scope.postOrder = function(){
         if(posted == true)return;
