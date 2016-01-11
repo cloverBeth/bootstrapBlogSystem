@@ -934,18 +934,220 @@ label {
 .redText {color: red;}
 .img-circle{margin-left: 10px;width:60px;height:60px;}
 #nick-name{text-decoration:none;padding:0;margin:0 0 0 20px;font-size:14px;display:inline-block;
-  float: left;line-height:3rem;color: #fff;padding: 30px 20px 30px 10px;font-weight:bold;}
+    float: left;line-height:3rem;color: #fff;padding: 30px 20px 30px 10px;font-weight:bold;}
 #changeNick{display:none;float: left;color: #fff;font-size: 20px;line-height: 2em;width:150px;
-  border:none;background:transparent;color: #fff;margin: 30px 0 30px 20px;
+    border:none;background:transparent;color: #fff;margin: 30px 0 30px 20px;
 }
 
 .paperAds{padding:0 0 0 15px;width:100%;margin-top:-20px;font-weight:bolder;
-  height:20px;color:#FFFFFF;font-size:14px;
-  position: absolute;
-  background: rgba(0,0,0,0); /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, rgba(0,0,0,0.5) , rgba(0,0,0,0)); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, rgba(0,0,0,0.5), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, rgba(0,0,0,0.5), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, rgba(0,0,0,0.5) , rgba(0,0,0,0)); /* Standard syntax */;
-  //opacity:0.4;
+    height:20px;color:#FFFFFF;font-size:14px;background:#000000;opacity:0.4;}
+
+
+
+.garden-art{
+    padding:0;
+    margin:0;
+    overflow-x:hidden;
+      .garden-service{
+            min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
+            color:#928A8A;margin:215px 0 0 0;
+          label {
+             display: inline;
+          }
+
+          .regular-checkbox {
+              display: none;
+          }
+
+          .regular-checkbox + label {
+              background-color: #fafafa;
+              border: 1px solid #cacece;
+              box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+              padding: 9px;
+              border-radius: 3px;
+              display: inline-block;
+              position: relative;
+              top:8px;
+          }
+
+          .regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+              box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+          }
+
+          .regular-checkbox:checked + label {
+              background-color: #e9ecee;
+              border: 1px solid #adb8c0;
+              box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+              color: #99a1a7;
+          }
+
+          .regular-checkbox:checked + label:after {
+              content: '\2714';
+              font-size: 14px;
+              position: absolute;
+              top: 0px;
+              left: 3px;
+              color: green;
+          }
+          span{
+              padding:0 0 0 15px;
+              line-height:60px;
+          }
+          div.outer{
+            display:inline-block;
+            margin:0 0 0 15px;
+          }
+          div.choosed{
+            display:inline-block;
+            margin:-20px 15px 0 0;
+
+          }
+          div.choosed>span{
+            padding:0 0 0 8px;
+            line-height:60px;
+          }
+
+      }
+
+      .companyInfo{
+            margin:20px 0 0 0;
+            font-size: 15px;
+          ul{
+            width:100%;
+            height:auto;
+            background:#ffffff;
+
+          }
+          ul li{
+          width:100%;
+          padding:20px 0;
+          border-bottom:1px solid #f0f0f0;
+         }
+          ul li label{
+            padding:0 15px 0 10px;
+            text-align:right;
+          }
+
+          ul li input[type="text"]{
+             border:none;
+             padding:0 25px 0 0;
+
+           }
+          ul li textarea{
+            border:none;
+            padding:0 25px 0 0;
+            height:auto;
+            min-height:80px;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+          }
+
+      }
+      .gardenbtn{width:80%;margin:0 auto;margin-top:15px;margin-bottom:15px;}
+
 }
+
+
+
+.service-order{
+  .serviceList{
+    margin:215px 0 0 0;
+    ul li.outerList{
+      //width:100%;
+      min-height:100px;
+      height:auto;
+      background:#FFFFFF;
+      border-bottom:1px solid #f0f0f0;
+    }
+    ul li div{float:left;display:inline-block;}
+    ul li div.picTitle img{
+      width:50px;
+      height:50px;
+      margin:25px 0 0 10px;
+    }
+    .proTitle{
+     margin:30px 0 0 5px;
+
+      h4{
+        font-size:16px;
+        margin-bottom:5px;
+
+      }
+      p{
+        font-size:13px;
+        color:#908686;
+      }
+    }
+    .proTime{
+      margin:25px 10px 0 0;
+      float:right;
+    }
+    .proState{
+      margin:-10px 10px 0 0;
+      clear:right;
+      float:right;
+      p{display:inline-block;width:45px;font-size:15px;color:#FF0000;}
+      span{margin:10px 0 0 10px;display:inline-block;width:25px;height:25px;
+           background:url(../images/up.png)no-repeat;position: relative;top: 12px;}
+      .togcss{background:url(../images/down.png)no-repeat;}
+
+    }
+    ul li ul.submenu{
+        display:none;width:100%;background:#CCCCCC;padding:0 0 20px 0;position:relative;top:15px;
+        overflow-x:hidden;clear:both;
+      li{
+        min-height:60px;
+        height:auto;
+        border-top:1px solid rgba(0,0,0,.05);
+        label{margin:20px 0 0 0;font-size:16px;padding:0 25px 0 0;text-align:right;}
+        input{margin:20px 0 0 0;background:#CCCCCC;font-size:16px;border:none;}
+        textarea{margin:15px 0 10px 0;background:#CCCCCC;min-height:90px;height:auto;font-size:16px;border:none;}
+      }
+    }
+  }
+}
+
+
+
+.service-succeed{
+  .redBtn{
+    display:block;
+    margin:0 auto;
+    padding:12px;
+    width:90%;
+    margin-top:15px;
+    font-size:16px;
+    font-weight:600;
+
+  }
+  .succeed{
+    padding: 45px 12px 15px 36px;
+    margin:0 auto;
+    margin-top:30px;
+    background: url(../images/ico_8.png)top 10px center no-repeat #fff;
+    background-size: 30px;
+    border-bottom: 1px solid #ddd;
+    p{font-size:16px;}
+    p strong{font-size:18px;}
+      }
+  p.consume span{color:orangered;font-size:20px;}
+
+
+}
+
+.online-service{
+  width:100%;
+  background:white;
+  .header img{
+    width:100%;
+    height:130px;
+  }
+  .navOnline{
+    min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
+    color:#928A8A;margin:180px 0 0 0;
+    .row{padding:0;margin:0 auto;}
+    .navbar{padding:5px;margin:0  0 10px 0;}
+  }
+}
+
+

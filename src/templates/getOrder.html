@@ -1,74 +1,115 @@
 <div class="main main-section">
-    <header class="header">
-        <div class="back">
-            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
-        </div>
-        <div class="title">
-            结算付款
-        </div>
-        <div class="del">
-            <a ng-click="goIndex()" href="javascript:;" class="blue">主页</a>
-        </div>
-    </header>
-    <div class="navTop" ></div>
-    <div class=" ">
 
-        <div class="addressNoArrow address clearfix">
-            <em><img src="images/ico_6.png" /></em>
-            <p>
-                {{username}}    {{phone}}<br />
-                {{address}}
-            </p>
-        </div>
-        <div class="parcel">
-            <h3>包裹详情</h3>
-            <ul>
-                <li ng-repeat="item in order.product track by $index">
-                    <em><a href="#"><img src="{{item.img}}" /></a></em>
-                    <p>
-                        <strong>{{item.name}}</strong>
-                        <b>x {{item.buyNum}}</b>
-                    </p>
-                    <span>￥{{(item.price * item.buyNum).toFixed(1)}}</span>
-                </li>
-                <li>
-                <span style="float: right;">
+      <header class="header">
+
+             <div class="back">
+
+                <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+
+            </div>
+
+            <div class="title">
+
+                结算付款
+
+            </div>
+
+            <div class="del">
+
+                <a ng-click="goIndex()" href="javascript:;" class="blue">主页</a>
+
+           </div>
+
+        </header>
+
+        <div class="navTop" ></div>
+
+        <div class=" ">
+            <div class="addressNoArrow address clearfix">
+                <em><img src="images/ico_6.png" /></em>
+                <p>
+                    {{username}}    {{phone}}<br />
+
+                    {{address}}
+                </p>
+
+            </div>
+
+            <div class="parcel">
+
+                <h3>包裹详情</h3>
+
+                <ul>
+
+                    <li ng-repeat="item in order.product track by $index">
+
+                        <em><a href="#"><img src="{{item.img}}" /></a></em>
+                        <p>
+
+                            <strong>{{item.name}}</strong>
+
+                            <b>x {{item.buyNum}}</b>
+
+                        </p>
+
+                        <span>￥{{(item.price * item.buyNum).toFixed(1)}}</span>
+
+                    </li>
+
+                    <li>
+
+                    <span style="float: right;">
+
                     总价 :￥{{(totalPrice + freight).toFixed(1)}}
+
                     (含配送费￥{{freight}})
+
                 </span>
 
-                </li>
-            </ul>
+                    </li>
 
-        </div>
-        <div class="pay clearfix">
-            <!--<h3>支付方式</h3><strong>货到付款</strong>-->
-            <ul class="pay-list block">
-                <li class="pay-item tap-action pay-item-wapweixin icon-ok" ng-click="payOption='card'">
-                    <i class="pay-icon pay-icon-wechat"></i>
-                    一卡通支付
-                    <i class="pay-icon pay-icon-selected"
-                       ng-show="payOption=='card'"></i>
-                </li>
-                <hr>
-                <li class="pay-item tap-action  pay-item-delivery" ng-click="payOption='delivery'">
-                    <i class="pay-icon pay-icon-delivery"></i>
-                    货到付款
-                    <i class="pay-icon pay-icon-selected"
-                       ng-show="payOption=='delivery'"></i>
-                </li>
-            </ul>
-        </div>
-        <div style="width: 80%;margin: 15px auto;">
-            <button ng-show="payOption=='delivery'" class="btn btn-lg" style="background: #dd0000;width: 100%;" ng-click="postOrder()">
-                提交订单
-            </button>
+                </ul>
 
-            <button ng-show="payOption=='card'" class="btn btn-lg" style="background: #dd0000;width: 100%;" ng-click="postOrderAndPay()">
-                立即支付
-            </button>
+            </div>
+
+            <div class="pay clearfix">
+
+               <!--<h3>支付方式</h3><strong>货到付款</strong>-->
+
+                <ul class="pay-list block">
+
+                    <li class="pay-item tap-action pay-item-wapweixin icon-ok" ng-click="payOption='card'">
+                        <i class="pay-icon pay-icon-wechat"></i>
+
+                        一卡通支付
+
+                        <i class="pay-icon pay-icon-selected"ng-show="payOption=='card'"></i>
+                    </li>
+                    <hr>
+                    <li class="pay-item tap-action  pay-item-delivery" ng-click="payOption='delivery'">
+
+                       <i class="pay-icon pay-icon-delivery"></i>
+                         货到付款
+                        <i class="pay-icon pay-icon-selected"ng-show="payOption=='delivery'"></i>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+           <div style="width: 80%;margin: 15px auto;">
+
+                <button ng-show="payOption=='delivery'" class="btn btn-lg" style="background: #dd0000;width: 100%;" ng-click="postOrder()">
+                    提交订单
+               </button>
+
+                <button ng-show="payOption=='card'" class="btn btn-lg" style="background: #dd0000;width: 100%;" ng-click="postOrderAndPay()">
+                   立即支付
+                </button>
+
+            </div>
+
         </div>
 
     </div>
-
-</div>

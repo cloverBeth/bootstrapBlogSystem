@@ -273,6 +273,19 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('serviceSucceed',{
+            url:'/service-succeed/{orderId}',
+            views:{
+                '':{
+                    templateUrl:'serviceSucceed.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "ServiceSucceedController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
         .state('creditAccount',{
             url:'/credit-account/{orderId}',
             views:{
@@ -339,6 +352,32 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('onlineService',{
+            url:'/online-service',
+            views:{
+                '':{
+                    templateUrl:'onlineService.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "OnlineServiceController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
+        .state('serviceOrder',{
+            url:'/service-order',
+            views:{
+                '':{
+                    templateUrl:'serviceOrder.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "ServiceOrderController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
 
         .state('businessList', {
             url:'/business-list',
@@ -353,6 +392,23 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+            .state('gardenArt',{
+                url:'/garden-art',
+                views:{
+                    '':{
+                        templateUrl:'gardenArt.html',
+                        controllerProvider:function($state,$stateParams,checkAuth){
+                            if(!checkAuth.check())return $state.go('login');
+                            var ctrlName="GardenArtController";
+                            return ctrlName;
+                        }
+                    }
+                }
+            })
+
+
+
+
         $urlRouterProvider.otherwise('/store/1/store-product/');
 
 
