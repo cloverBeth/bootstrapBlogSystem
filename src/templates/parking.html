@@ -14,39 +14,17 @@
     <div class="form-horizontal"name="gardenForm">
         <div class="garden-service">
             <span>服务类型</span>
-            <!--<div class="choosed">-->
-            <!--<input type="checkbox"id="rent-garden">-->
-            <!--</div>-->
-            <!--<label for="rent-garden">园艺租赁</label>-->
-            <!--<div class="choosed">-->
-            <!--<input type="checkbox"id="buy-garden"/>-->
-            <!--</div>-->
-            <!--<label for="buy-garden">园艺购买</label>-->
             <div class="outer">
                 <div class="choosed ">
-                    <input type="radio" checked="checked" name="garden"id="checkbox-1-1" class="regular-checkbox">
+                    <input type="radio"name="garden"id="checkbox-1-1"
+                           class="regular-checkbox"value="garden_rent"ng-model="parking.rent">
                     <label for="checkbox-1-1"></label><span>车位租赁</span>
                 </div>
                 <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-2-0" class="regular-checkbox">
+                    <input type="radio" name="garden"id="checkbox-2-0" class="regular-checkbox"
+                           value="garden_buy"ng-model="parking.rent">
                     <label for="checkbox-2-0"></label><span>车位购买</span>
                 </div>
-                <!--<div class="choosed ">-->
-                    <!--<input type="radio" name="garden"id="checkbox-3-0" class="regular-checkbox">-->
-                    <!--<label for="checkbox-3-0"></label><span>园艺购买</span>-->
-                <!--</div>-->
-                <!--<div class="choosed ">-->
-                    <!--<input type="radio" name="garden"id="checkbox-4-0" class="regular-checkbox">-->
-                    <!--<label for="checkbox-4-0"></label><span>园艺购买</span>-->
-                <!--</div>-->
-                <!--<div class="choosed ">-->
-                    <!--<input type="radio" name="garden"id="checkbox-5-0" class="regular-checkbox">-->
-                    <!--<label for="checkbox-5-0"></label><span>园艺购买</span>-->
-                <!--</div>-->
-                <!--<div class="choosed ">-->
-                    <!--<input type="radio" name="garden"id="checkbox-6-0" class="regular-checkbox">-->
-                    <!--<label for="checkbox-6-0"></label><span>园艺购买</span>-->
-                <!--</div>-->
             </div>
         </div>
         <div class="companyInfo">
@@ -54,22 +32,22 @@
                 <li class="row">
                     <label class="col-xs-4"for="compyName">公司名称</label>
                     <input class="col-xs-8"placeholder="请填写公司名称" type="text"id="compyName"
-                           ng-model="garden.compyName"/>
+                           ng-model="parking.compyName"/>
                 </li>
                 <li class="row">
                     <label class="col-xs-4"for="compyGuy">联 系 人</label>
                     <input class="col-xs-8"placeholder="请填写联系人姓名"type="text"id="compyGuy"
-                           ng-model="garden.compyGuy"/>
+                           ng-model="parking.compyGuy"/>
                 </li>
                 <li class="row">
                     <label class="col-xs-4"for="guyTel">联系电话</label>
                     <input class="col-xs-8"placeholder="请填写联系人手机号码"type="text"id="guyTel"
-                           ng-model="garden.guyTel"/>
+                           ng-model="parking.guyTel"/>
                 </li>
                 <li class="row">
                     <label class="col-xs-4"for="extraInfo">备注信息</label>
-                    <textarea class="col-xs-8"placeholder="请填写备注信息"id="extraInfo"
-                              ng-model="garden.extraInfo"></textarea>
+                    <textarea class="col-xs-8 textarea"placeholder="请填写备注信息"id="extraInfo"
+                              ng-model="parking.extraInfo"></textarea>
                 </li>
             </ul>
         </div>

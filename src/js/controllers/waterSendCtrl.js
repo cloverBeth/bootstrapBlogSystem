@@ -1,7 +1,13 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootScope,$scope,$state){
     $scope.title="送水服务";
-    $scope.garden={};
+    $scope.garden={
+        rent:"garden_order",
+        compyName:"西游记",
+        compyGuy:"南天门",
+        guyTel:"18750976734",
+        extraInfo:"大师兄，师傅被妖怪抓走了！！！"
+    };
 
     $scope.phoneReg=/^([0-9]{11})$/;
     $scope.gardenOrder=function() {

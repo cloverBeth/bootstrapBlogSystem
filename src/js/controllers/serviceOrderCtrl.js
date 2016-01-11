@@ -1,17 +1,27 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($scope){
     $scope.title="服务订单";
+
+    $scope.orderList=[{
+        iconImg:'images/icon_watering.jpg',
+        number:'20190982704',
+        pro:'送水服务',
+        doDate:'2016/01/14',
+        state:'未处理',
+        type:"园艺购买",
+        showSub : false
+    }];
     $scope.service={
-        compName:"云周率",
-        type:" 园艺购买",
+        type:"园艺租赁",
         linkMan:"曹操",
+        compName:"云周率",
         linkTel:"15804689644",
-        extraMsg:"寡人穿越至今，竟然看不到一片绿色！！！"
-        };
-    $(".proState span").click(function(){
-       $(this).parent().next().slideToggle();
-        $(this).toggleClass("togcss");
-    })
+        extraMsg:"巴拉巴拉小魔仙lalallaabalabalabalabalabalabablabalabalabalabalabalabal" +
+        "abalabalabalabalalabalabalabala...."
+    }
+
+    console.log($scope.service);
+
 
 
 })
