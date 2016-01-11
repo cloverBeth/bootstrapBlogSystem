@@ -1,31 +1,27 @@
-<header class="header">
-    <div class="back">
-        <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
-    </div>
-    <div class="title">
-        {{title}}
-    </div>
-    <div class="vip" ui-sref="accountCenter">
-        <a ><img src="images/vip.png" /></a>
-    </div>
-</header>
-
-<div class="main-section main">
-    <div class="main mt-48">
-        <div style="width:100%;margin:0 0 15px 0;"ng-repeat="business in businesslist track by $index">
-            <a href="javascript:;">
-                <img src="{{business.image}}"width="320px"height="150px"
-                     onerror="this.src='images/default_image.png'"alt="store1"/>
-            </a>
-            <div class="paperAds">{{business.advas}}</div>
+<div class="meeting-room-list">
+    <header class="header">
+        <div class="title">
+            会议室预订
         </div>
-        <!--<div style="width:100%;margin:15px 0 0 0;">-->
-            <!--<a href="javascript:;"><img src="images/store1.jpg"width="100%"height="100%" alt="store1"/></a>-->
-            <!--<div class="paperAds">12月19日前，充100送10元，惊喜多多，优惠多多～</div>-->
-        <!--</div>-->
-        <!--<div style="width:100%;margin:15px 0 0 0;">-->
-            <!--<a href="javascript:;"><img src="images/store1.jpg"width="100%"height="100%" alt="store1"/></a>-->
-            <!--<div class="paperAds">12月19日前，充100送10元，惊喜多多，优惠多多～</div>-->
-        <!--</div>-->
+
+    </header>
+
+    <div class="room-list pd-48">
+        <div class="meeting-room" ng-repeat="room in roomList track by $index" ng-click="$parent.gotoDetail(room.id)">
+            <div class="room-image">
+                <img src="{{room.img}}" alt=""/>
+                <div class="float-info">
+                    <p>
+                        {{room.info1}}
+                    </p>
+                    <p>
+                        {{room.info2}}
+                    </p>
+                </div>
+            </div>
+            <div class="room-title">
+                {{room.name}}
+            </div>
+        </div>
     </div>
 </div>

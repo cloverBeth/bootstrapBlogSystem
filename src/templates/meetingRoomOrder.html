@@ -1,0 +1,47 @@
+<div class="meeting-room-order">
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            会议室预订
+        </div>
+    </header>
+
+    <div class="main pd-48">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-xs-3 control-label room-label">会议室</label>
+                <div class="col-xs-9">
+                    <div class="radio-sec">
+                        <input type="radio" checked="checked" name="garden"
+                               id="checkbox-1-1" class="regular-checkbox">
+                        <label for="checkbox-1-1"></label><span>园艺租赁</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label room-label">日期</label>
+                <div class="col-xs-8">
+                    <div class="radio-sec">
+                        <p class="input-group">
+                            <input type="date" class="form-control"
+                                   uib-datepicker-popup ng-model="dt"
+                                   is-open="datePicker.opened"
+                                   datepicker-options="dateOptions"
+                                   ng-required="true" close-text="关闭" current-text="今天" clear-text="清除"/>
+                            <span class="input-group-btn">
+                                <button type="button"
+                                        class="btn btn-default" ng-click="openDate()">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

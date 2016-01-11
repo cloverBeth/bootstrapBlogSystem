@@ -12,7 +12,8 @@ angular.module('ZJSY_WeChat', [
     'ui.router',
     //'ui.bootstrap',
     'mobile-angular-ui',
-    'ngFileUpload'
+    'ngFileUpload',
+    'ui.bootstrap'
 ])
 
     //.config(function($routeProvider) {
@@ -410,28 +411,20 @@ angular.module('ZJSY_WeChat', [
                 views:{
                     '':{
                         templateUrl:'meetingRoomList.html',
-                        controllerProvider:'MeetingRoomListController'
+                        controller:'MeetingRoomListController'
                     }
                 }
             })
             .state('meetingRoomOrder',{
-                url:'/meeting-room-order',
+                url:'/meeting-room-order/{roomId}',
                 views:{
                     '':{
                         templateUrl:'meetingRoomOrder.html',
-                        controllerProvider:'MeetingRoomOrderController'
+                        controller:'MeetingRoomOrderController'
                     }
                 }
             })
-            .state('orderSucceed',{
-                url:'/order-succeed',
-                views:{
-                    '':{
-                        templateUrl:'orderSucceed.html',
-                        controllerProvider:'OrderSucceedController'
-                    }
-                }
-            });
+
 
 
 
