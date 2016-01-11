@@ -1,0 +1,102 @@
+<div class="main-section main garden-art">
+
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            {{title}}
+        </div>
+        <div>
+            <img src="images/icon_watering.jpg" width="100%"height="150px"alt=""/>
+        </div>
+    </header>
+    <div class="form-horizontal"name="gardenForm">
+        <div class="garden-service">
+            <span>服务类型</span>
+            <!--<div class="choosed">-->
+            <!--<input type="checkbox"id="rent-garden">-->
+            <!--</div>-->
+            <!--<label for="rent-garden">园艺租赁</label>-->
+            <!--<div class="choosed">-->
+            <!--<input type="checkbox"id="buy-garden"/>-->
+            <!--</div>-->
+            <!--<label for="buy-garden">园艺购买</label>-->
+            <div class="outer">
+                <div class="choosed ">
+                    <input type="radio" checked="checked" name="garden"id="checkbox-1-1" class="regular-checkbox">
+                    <label for="checkbox-1-1"></label><span>送水购买</span>
+                </div>
+                <div class="choosed ">
+                    <input type="radio" name="garden"id="checkbox-2-0" class="regular-checkbox">
+                    <label for="checkbox-2-0"></label><span>水桶购买</span>
+                </div>
+                <!--<div class="choosed ">-->
+                    <!--<input type="radio" name="garden"id="checkbox-3-0" class="regular-checkbox">-->
+                    <!--<label for="checkbox-3-0"></label><span>园艺购买</span>-->
+                <!--</div>-->
+                <!--<div class="choosed ">-->
+                    <!--<input type="radio" name="garden"id="checkbox-4-0" class="regular-checkbox">-->
+                    <!--<label for="checkbox-4-0"></label><span>园艺购买</span>-->
+                <!--</div>-->
+                <!--<div class="choosed ">-->
+                    <!--<input type="radio" name="garden"id="checkbox-5-0" class="regular-checkbox">-->
+                    <!--<label for="checkbox-5-0"></label><span>园艺购买</span>-->
+                <!--</div>-->
+                <!--<div class="choosed ">-->
+                    <!--<input type="radio" name="garden"id="checkbox-6-0" class="regular-checkbox">-->
+                    <!--<label for="checkbox-6-0"></label><span>园艺购买</span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="companyInfo">
+            <ul>
+                <li class="row">
+                    <label class="col-xs-4"for="compyName">公司名称</label>
+                    <input class="col-xs-8"placeholder="请填写公司名称" type="text"id="compyName"
+                           ng-model="garden.compyName"/>
+                </li>
+                <li class="row">
+                    <label class="col-xs-4"for="compyGuy">联 系 人</label>
+                    <input class="col-xs-8"placeholder="请填写联系人姓名"type="text"id="compyGuy"
+                           ng-model="garden.compyGuy"/>
+                </li>
+                <li class="row">
+                    <label class="col-xs-4"for="guyTel">联系电话</label>
+                    <input class="col-xs-8"placeholder="请填写联系人手机号码"type="text"id="guyTel"
+                           ng-model="garden.guyTel"/>
+                </li>
+                <li class="row">
+                    <label class="col-xs-4"for="extraInfo">备注信息</label>
+                    <textarea class="col-xs-8"placeholder="请填写备注信息"id="extraInfo"
+                              ng-model="garden.extraInfo"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="form-group row">
+            <button type="submit"class="btn btn-block gardenbtn redBtn"ng-click="gardenOrder();"style="line-height:2rem">确定提交</button>
+        </div>
+    </div>
+    <div ui-content-for="modals">
+
+        <div class="modal" ng-if="cancelModal">
+            <div class="modal-backdrop in"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header"style="margin-bottom:20px;">
+                        <button class="close"
+                                ng-click="$parent.cancelModal=false"style="margin-top:-15px;">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p >
+                            您的订单已提交，我们会尽快联系您～
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button ng-click="goGardenOrder()" class="btn redBtn">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

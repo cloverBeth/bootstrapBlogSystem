@@ -393,17 +393,17 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-            .state('gardenArt',{
-                url:'/garden-art',
-                views:{
-                    '':{
-                        templateUrl:'gardenArt.html',
-                        controllerProvider:function($state,$stateParams,checkAuth){
-                            if(!checkAuth.check())return $state.go('login');
-                            var ctrlName="GardenArtController";
-                            return ctrlName;
-                        }
+        .state('gardenArt',{
+            url:'/garden-art',
+            views: {
+                '': {
+                    templateUrl: 'gardenArt.html',
+                    controllerProvider: function ($state, $stateParams, checkAuth) {
+                        if (!checkAuth.check())return $state.go('login');
+                        var ctrlName = "GardenArtController";
+                        return ctrlName;
                     }
+                }
                 }
             })
             .state('meetingRoomList',{
@@ -424,9 +424,46 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             })
+        .state('waterSend',{
+            url:'/water-send',
+            views:{
+                '':{
+                    templateUrl:'waterSend.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName="WaterSendController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
 
-
-
+        .state('maintain',{
+            url:'/maintain',
+            views:{
+                '':{
+                    templateUrl:'maintain.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName="MaintainController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
+        .state('parking',{
+            url:'/parking',
+            views:{
+                '':{
+                    templateUrl:'parking.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName="ParkingController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
 
 
         $urlRouterProvider.otherwise('/store/1/store-product/');
