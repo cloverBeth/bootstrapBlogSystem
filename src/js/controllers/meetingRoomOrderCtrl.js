@@ -127,7 +127,11 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
         }else{
             $scope.totalPrice = 0;
         }
-    },true)
+    },true);
+
+    $scope.$watch('roomId',function(timeList){
+        _.forEach()
+    })
 })
 
 
