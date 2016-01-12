@@ -953,21 +953,17 @@ label {
     padding:0;
     margin:0;
     overflow-x:hidden;
+      .middle-squar{margin-top:47px;}
       .garden-service{
             min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
-            color:#928A8A;margin:215px 0 0 0;
-          label {
+            color:#928A8A;margin:20px 0 0 0;
+            label {
             display: inline;
           }
 
           .regular-checkbox {
               display: none;
           }
-          //span.typetitle{
-          //  display:inline-block;
-          //  line-height:60px;
-          //  padding: 0 15px 0 6%;
-          //  font-size:18px;}
           .regular-checkbox + label {
               background-color: #fafafa;
               border: 1px solid #cacece;
@@ -1000,14 +996,17 @@ label {
           }
           span{
               //padding:0 0 0 5%;
-              display:inline-block;
-              padding: 0 0 0 6%;
+              //display:inline-block;
+              //padding: 0 0 0 6%;
               line-height:60px;
               font-size:18px;
+            padding:0 0 0 20px;
+            //width:122px;
           }
           div.outer{
-            display:inline-block;
-            margin:-20px 0 15px 15px;
+            //display:inline-block;
+            //margin:20px 0 25px 15px;
+            padding:0 0 20px 0;
 
           }
           div.choosed{
@@ -1017,7 +1016,7 @@ label {
 
           }
           div.choosed>span{
-            padding:0 0 0 8px;
+            padding:0 0 0 5px;
             line-height:60px;
           }
 
@@ -1035,12 +1034,13 @@ label {
         .row{padding:5px;margin:0;}
           ul li{
           width:100%;
-          line-height:6rem;
+          text-align:left;
+          line-height:4rem;
           border-bottom:1px solid #f0f0f0;
          }
           ul li label{
-            padding:0 15px 0 10px;
-            text-align:right;
+            //padding:0 15px 0 10px;
+            text-align:left;
             color:#7B7272;
             font-size:18px;
             font-weight:600;
@@ -1052,32 +1052,12 @@ label {
              //padding:0 25px 0 0;
 
            }
-        .textarea{margin:25px 0 10px 0;line-height:2rem;min-height:100px;
+        .textarea{margin:10px 0 10px 0;line-height:2rem;/*min-height:100px;*/
              height:auto;font-size:16px;border:none;}
-        .modal-header {
-          padding: 15px;
-          border:none;
-          min-height: 30px;
-        }
-        .modal-body {
-          position: relative;
-          height: 82px;
-          width: 65%;
-          margin: 0 auto;
-          margin-top: 30px;
-          font-size: 20px;
-          padding: 15px;
-        }
-        .modal-footer {
-          padding: 15px;
-          text-align: right;
-          border-top: none;
-          .redBtn{width:70%;margin:0 auto;}
-        }
-
 
       }
-      .gardenbtn{width:80%;margin:0 auto;margin-top:15px;margin-bottom:15px;}
+      .gardenbtn{width:85%;margin:0 auto;height:50px;font-size:18px;color:#FFFFFF;font-weight:600;margin-top:10px;
+             margin-bottom:15px;}
 
 }
 
@@ -1085,7 +1065,8 @@ label {
 
 .service-order{
   .serviceList{
-    margin:215px 0 0 0;
+    margin:47px 0 0 0;
+    ul{margin-top:20px;}
     ul li.outerList{
       //width:100%;
       min-height:100px;
@@ -1130,12 +1111,14 @@ label {
         width:100%;background:#FAFAFA;padding:0 0 20px 0;position:relative;top:25px;
         overflow-x:hidden;clear:both;
       li{
-        min-height:60px;
+        min-height:50px;
+        line-height:4rem;
         height:auto;
         border-top:1px solid rgba(0,0,0,.05);
-        label{line-height:5.5rem;color:#8A8484;font-size:18px;padding:0 10px 0 15px;text-align:right;}
-        p{margin:20px 0 0 0;line-height:5.5rem;background:#FAFAFA;font-size:18px;word-wrap: break-word;}
-        .textarea{padding:16px 0 10px 10px;line-height:2.5rem;background:#FAFAFA;min-height:90px;height:auto;font-size:16px;border:none;}
+        label{color:#8A8484;font-size:18px;padding:0 10px 0 15px;text-align:right;}
+        p{margin:20px 0 0 0;background:#FAFAFA;font-size:18px;word-wrap: break-word;}
+        .textarea{padding:10px 0 10px 10px;line-height:2.5rem;background:#FAFAFA;height:auto;
+          font-size:18px;border:none;}
       }
     }
   }
@@ -1210,7 +1193,7 @@ label {
   }
   .navOnline{
     min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
-    color:#928A8A;margin:180px 0 0 0;
+    color:#928A8A;margin:47px 0 0 0;
       .row{padding:0;margin:0 auto;}
       .navbar{padding:5px;margin:0  0 10px 0;}
   }
