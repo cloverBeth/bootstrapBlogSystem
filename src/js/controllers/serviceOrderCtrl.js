@@ -6,7 +6,15 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
         iconImg:'images/icon_watering.jpg',
         number:'20190982704',
         pro:'送水服务',
-        doDate:'2016/01/14',
+        doDate:'208910',
+        state:'未处理',
+        type:"园艺购买",
+        showSub : false
+    },{
+        iconImg:'images/icon_meeting.jpg',
+        number:'20190982704',
+        pro:'会议服务',
+        doDate:'208910',
         state:'未处理',
         type:"园艺购买",
         showSub : false
@@ -20,7 +28,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
         "abalabalabalabalalabalabalabala...."
     }
 
-    console.log($scope.service);
+    //console.log($scope.service);
 
 
 

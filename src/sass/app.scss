@@ -1067,15 +1067,14 @@ label {
 }
 
 
-
 .service-order{
   .serviceList{
     margin:47px 0 0 0;
     ul{margin-top:20px;}
     ul li.outerList{
-      //width:100%;
       min-height:100px;
       height:auto;
+      padding: 0 0 50px 0;
       background:#FFFFFF;
       border-bottom:1px solid #f0f0f0;
     }

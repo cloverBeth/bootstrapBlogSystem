@@ -53,29 +53,29 @@
             </ul>
         </div>
         <div class="form-group row">
-            <button type="submit"class="btn btn-block gardenbtn redBtn"ng-click="gardenOrder();"style="line-height:2rem">确定提交</button>
+            <button type="submit"class="btn btn-block gardenbtn redBtn"ng-click="goGardenOrder()"style="line-height:2rem">确定提交</button>
         </div>
     </div>
-    <div ui-content-for="modals">
+    <!--<div ui-content-for="modals">-->
 
-        <div class="modal" ng-if="cancelModal">
-            <div class="modal-backdrop in"></div>
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header"style="margin-bottom:20px;">
-                        <button class="close"
-                                ng-click="$parent.cancelModal=false"style="margin-top:-15px;">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <p >
-                            您的订单已提交，我们会尽快联系您～
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button ng-click="goGardenOrder()" class="btn redBtn">确定</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!--<div class="modal" ng-if="cancelModal">-->
+            <!--<div class="modal-backdrop in"></div>-->
+            <!--<div class="modal-dialog">-->
+                <!--<div class="modal-content">-->
+                    <!--<div class="modal-header"style="margin-bottom:20px;">-->
+                        <!--<button class="close"-->
+                                <!--ng-click="$parent.cancelModal=false"style="margin-top:-15px;">&times;</button>-->
+                    <!--</div>-->
+                    <!--<div class="modal-body">-->
+                        <!--<p >-->
+                            <!--您的订单已提交，我们会尽快联系您～-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="modal-footer">-->
+                        <!--<button ng-click="goGardenOrder()" class="btn redBtn">确定</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>

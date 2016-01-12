@@ -10,8 +10,8 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
     };
 
     $scope.phoneReg=/^([0-9]{11})$/;
-    $scope.gardenOrder=function() {
 
+    $scope.goGardenOrder=function(){
         if (!$scope.parking.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             $scope.cancelModal=false;
@@ -29,13 +29,9 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
 
         }
         else{
-            $scope.cancelModal=true;
+            $state.transitionTo('serviceSucceed');
 
         }
-
-    }
-    $scope.goGardenOrder=function(){
-        $state.transitionTo('serviceSucceed');
     }
 
 
