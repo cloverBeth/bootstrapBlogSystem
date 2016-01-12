@@ -957,13 +957,17 @@ label {
             min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
             color:#928A8A;margin:215px 0 0 0;
           label {
-             display: inline;
+            display: inline;
           }
 
           .regular-checkbox {
               display: none;
           }
-
+          //span.typetitle{
+          //  display:inline-block;
+          //  line-height:60px;
+          //  padding: 0 15px 0 6%;
+          //  font-size:18px;}
           .regular-checkbox + label {
               background-color: #fafafa;
               border: 1px solid #cacece;
@@ -995,16 +999,21 @@ label {
               color: green;
           }
           span{
-              padding:0 0 0 15px;
+              //padding:0 0 0 5%;
+              display:inline-block;
+              padding: 0 0 0 6%;
               line-height:60px;
+              font-size:18px;
           }
           div.outer{
             display:inline-block;
-            margin:0 0 0 15px;
+            margin:-20px 0 15px 15px;
+
           }
           div.choosed{
             display:inline-block;
-            margin:-20px 15px 0 0;
+            margin: 0 10px 0 -6px;
+            height:40px;
 
           }
           div.choosed>span{
@@ -1023,29 +1032,49 @@ label {
             background:#ffffff;
 
           }
+        .row{padding:5px;margin:0;}
           ul li{
           width:100%;
-          padding:20px 0;
+          line-height:6rem;
           border-bottom:1px solid #f0f0f0;
          }
           ul li label{
             padding:0 15px 0 10px;
             text-align:right;
+            color:#7B7272;
+            font-size:18px;
+            font-weight:600;
           }
 
           ul li input[type="text"]{
              border:none;
-             padding:0 25px 0 0;
+            font-size:18px;
+             //padding:0 25px 0 0;
 
            }
-          ul li textarea{
-            border:none;
-            padding:0 25px 0 0;
-            height:auto;
-            min-height:80px;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-          }
+        .textarea{margin:25px 0 10px 0;line-height:2rem;min-height:100px;
+             height:auto;font-size:16px;border:none;}
+        .modal-header {
+          padding: 15px;
+          border:none;
+          min-height: 30px;
+        }
+        .modal-body {
+          position: relative;
+          height: 82px;
+          width: 65%;
+          margin: 0 auto;
+          margin-top: 30px;
+          font-size: 20px;
+          padding: 15px;
+        }
+        .modal-footer {
+          padding: 15px;
+          text-align: right;
+          border-top: none;
+          .redBtn{width:70%;margin:0 auto;}
+        }
+
 
       }
       .gardenbtn{width:80%;margin:0 auto;margin-top:15px;margin-bottom:15px;}
@@ -1092,21 +1121,21 @@ label {
       clear:right;
       float:right;
       p{display:inline-block;width:45px;font-size:15px;color:#FF0000;}
-      span{margin:10px 0 0 10px;display:inline-block;width:25px;height:25px;
-           background:url(../images/up.png)no-repeat;position: relative;top: 12px;}
+      span{margin:10px 0 0 10px;display:inline-block;width:25px;height:25px;position:relative;
+           top: 12px;background:url(../images/up.png)no-repeat;background-size:18px;}
       .togcss{background:url(../images/down.png)no-repeat;}
 
     }
     ul li ul.submenu{
-        display:none;width:100%;background:#CCCCCC;padding:0 0 20px 0;position:relative;top:15px;
+        width:100%;background:#FAFAFA;padding:0 0 20px 0;position:relative;top:25px;
         overflow-x:hidden;clear:both;
       li{
         min-height:60px;
         height:auto;
         border-top:1px solid rgba(0,0,0,.05);
-        label{margin:20px 0 0 0;font-size:16px;padding:0 25px 0 0;text-align:right;}
-        input{margin:20px 0 0 0;background:#CCCCCC;font-size:16px;border:none;}
-        textarea{margin:15px 0 10px 0;background:#CCCCCC;min-height:90px;height:auto;font-size:16px;border:none;}
+        label{line-height:5.5rem;color:#8A8484;font-size:18px;padding:0 10px 0 15px;text-align:right;}
+        p{margin:20px 0 0 0;line-height:5.5rem;background:#FAFAFA;font-size:18px;word-wrap: break-word;}
+        .textarea{padding:16px 0 10px 10px;line-height:2.5rem;background:#FAFAFA;min-height:90px;height:auto;font-size:16px;border:none;}
       }
     }
   }
@@ -1125,6 +1154,10 @@ label {
     font-weight:600;
 
   }
+  .danhao p font {
+    color: #666;
+    padding-right:18px;
+  }
   .succeed{
     padding: 45px 12px 15px 36px;
     margin:0 auto;
@@ -1136,13 +1169,41 @@ label {
     p strong{font-size:18px;}
       }
   p.consume span{color:orangered;font-size:20px;}
-
+  .pay strong{
+    float:left;
+    padding:13px 0 0 18px;
+    font-size:15px;}
+  .pay h3 {
+    float: left;
+    padding: 12px 0 12px 31px;
+    line-height: 2.4em;
+    color: #444;
+    margin-bottom: 0;
+  }
+  .danhao p {
+    font-size: 16px;
+    padding-left: 20px;
+    line-height: 1.8em;
+    color: #999;
+  }
+  .pay a{
+    float: left;
+    padding: 12px 15px 12px 18px;
+    //margin:0 0 0 20px;
+    font-size: 15px;
+    line-height: 2.4em;
+  }
 
 }
 
 .online-service{
   width:100%;
   background:white;
+  .header{
+    .back img{
+    width: 10px;
+    height:17px;}
+  }
   .header img{
     width:100%;
     height:130px;
@@ -1150,8 +1211,8 @@ label {
   .navOnline{
     min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
     color:#928A8A;margin:180px 0 0 0;
-    .row{padding:0;margin:0 auto;}
-    .navbar{padding:5px;margin:0  0 10px 0;}
+      .row{padding:0;margin:0 auto;}
+      .navbar{padding:5px;margin:0  0 10px 0;}
   }
 }
 

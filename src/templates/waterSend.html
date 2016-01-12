@@ -24,12 +24,14 @@
             <!--<label for="buy-garden">园艺购买</label>-->
             <div class="outer">
                 <div class="choosed ">
-                    <input type="radio" checked="checked" name="garden"id="checkbox-1-1" class="regular-checkbox">
+                    <input type="radio" checked="checked" name="garden"id="checkbox-1-1"
+                           class="regular-checkbox"value="garden_rent"ng-model="garden.rent">
                     <label for="checkbox-1-1"></label><span>送水购买</span>
                 </div>
                 <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-2-0" class="regular-checkbox">
-                    <label for="checkbox-2-0"></label><span>水桶购买</span>
+                    <input type="radio" name="garden"id="checkbox-2-0" class="regular-checkbox"
+                           value="garden_order"ng-model="garden.rent">
+                    <label for="checkbox-2-0"></label><span>水桶预定</span>
                 </div>
                 <!--<div class="choosed ">-->
                     <!--<input type="radio" name="garden"id="checkbox-3-0" class="regular-checkbox">-->
@@ -68,7 +70,7 @@
                 </li>
                 <li class="row">
                     <label class="col-xs-4"for="extraInfo">备注信息</label>
-                    <textarea class="col-xs-8"placeholder="请填写备注信息"id="extraInfo"
+                    <textarea class="col-xs-8 textarea"placeholder="请填写备注信息"id="extraInfo"
                               ng-model="garden.extraInfo"></textarea>
                 </li>
             </ul>

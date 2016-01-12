@@ -13,39 +13,27 @@
     </header>
     <div class="form-horizontal"name="gardenForm">
         <div class="garden-service">
-            <span>服务类型</span>
-            <!--<div class="choosed">-->
-                <!--<input type="checkbox"id="rent-garden">-->
-            <!--</div>-->
-            <!--<label for="rent-garden">园艺租赁</label>-->
-            <!--<div class="choosed">-->
-                <!--<input type="checkbox"id="buy-garden"/>-->
-            <!--</div>-->
-            <!--<label for="buy-garden">园艺购买</label>-->
+            <span class="typetitle">服务类型</span>
             <div class="outer">
                 <div class="choosed ">
-                    <input type="radio" checked="checked" name="garden"id="checkbox-1-1" class="regular-checkbox">
+                    <input type="radio" name="garden"id="checkbox-1-1" class="regular-checkbox"
+                           value="garden_rent"ng-model="garden.rent">
                     <label for="checkbox-1-1"></label><span>园艺租赁</span>
                 </div>
                 <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-2-0" class="regular-checkbox">
+                    <input type="radio" name="garden"id="checkbox-2-0" class="regular-checkbox"
+                           value="garden_buy"ng-model="garden.rent">
                     <label for="checkbox-2-0"></label><span>园艺购买</span>
                 </div>
                 <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-3-0" class="regular-checkbox">
-                    <label for="checkbox-3-0"></label><span>园艺购买</span>
+                    <input type="radio" name="garden"id="checkbox-3-0" class="regular-checkbox"
+                           value="garden_cut"ng-model="garden.rent">
+                    <label for="checkbox-3-0"></label><span>园艺剪修</span>
                 </div>
                 <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-4-0" class="regular-checkbox">
-                    <label for="checkbox-4-0"></label><span>园艺购买</span>
-                </div>
-                <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-5-0" class="regular-checkbox">
-                    <label for="checkbox-5-0"></label><span>园艺购买</span>
-                </div>
-                <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-6-0" class="regular-checkbox">
-                    <label for="checkbox-6-0"></label><span>园艺购买</span>
+                    <input type="radio" name="garden"id="checkbox-4-0" class="regular-checkbox"
+                           value="garden_dec"ng-model="garden.rent">
+                    <label for="checkbox-4-0"></label><span>园艺装饰</span>
                 </div>
             </div>
         </div>
@@ -68,13 +56,14 @@
                 </li>
                 <li class="row">
                     <label class="col-xs-4"for="extraInfo">备注信息</label>
-                    <textarea class="col-xs-8"placeholder="请填写备注信息"id="extraInfo"
+                    <textarea class="col-xs-8 textarea"placeholder="请填写备注信息"id="extraInfo"
                             ng-model="garden.extraInfo"></textarea>
                 </li>
             </ul>
         </div>
         <div class="form-group row">
-            <button type="submit"class="btn btn-block gardenbtn redBtn"ng-click="gardenOrder();"style="line-height:2rem">确定提交</button>
+            <button type="submit"class="btn btn-block gardenbtn redBtn"ng-click="gardenOrder();"
+                    style="line-height:2rem">确定提交</button>
         </div>
     </div>
     <div ui-content-for="modals">
