@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function($rootScope,$http,$scope,$stateParams){
+angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function($rootScope,$http,$scope,$state,$stateParams){
 
     $scope.dt = new Date();
 
@@ -49,9 +49,10 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
             id : 3
         }
     ];
-    $scope.roomId = $stateParams.roomId;
+    $scope.roomId = $stateParams.roomId ||  $scope.roomList[0].id;
 
-    $scope.timeList = [
+
+    var originList = [
         {
             name : '上午8点',
             occupy : true,
@@ -118,15 +119,41 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
     $scope.orderTime = function(index){
         if($scope.timeList[index].occupy)return;
         $scope.timeList[index].order = !$scope.timeList[index].order;
+    };
+
+    $scope.goEnsure = function(){
+        if(!$scope.dt || _.filter($scope.timeList,{order:true}).length == 0){
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请选择会议日期和时间."});
+            return;
+        }
+        $state.go('meetingRoomEnsure',{
+            meetingOrder : {
+                date : $scope.dt,
+                time : _.filter($scope.timeList,{order:true}),
+                price : $scope.totalPrice,
+                room : _.find($scope.roomList,{id:parseInt($scope.roomId)})
+            }
+        }
+        )
     }
 
     $scope.$watch('timeList',function(timeList){
-        console.log(JSON.stringify($scope.roomList),_.find($scope.roomList,{id:$scope.roomId}))
         if(_.filter(timeList,{order:true}).length && _.find($scope.roomList,{id:parseInt($scope.roomId)})){
             $scope.totalPrice = _.filter(timeList,{order:true}).length * _.find($scope.roomList,{id:parseInt($scope.roomId)}).price
         }else{
             $scope.totalPrice = 0;
         }
+    },true);
+
+    $scope.$watch('roomId',function(timeList){
+        _.forEach($scope.timeList,function(item,i){
+            item.order = false;
+        })
+    });
+
+    $scope.$watch('dt',function(){
+        console.log($scope.dt)
+        $scope.timeList = _.cloneDeep(originList);
     },true)
 })
 

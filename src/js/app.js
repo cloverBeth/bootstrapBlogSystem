@@ -418,25 +418,44 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
                 }
-            })
-            .state('meetingRoomList',{
-                url:'/meeting-room-list',
-                views:{
-                    '':{
-                        templateUrl:'meetingRoomList.html',
-                        controller:'MeetingRoomListController'
-                    }
+        })
+        .state('meetingRoomList',{
+            url:'/meeting-room-list',
+            views:{
+                '':{
+                    templateUrl:'meetingRoomList.html',
+                    controller:'MeetingRoomListController'
                 }
-            })
-            .state('meetingRoomOrder',{
-                url:'/meeting-room-order/{roomId}',
-                views:{
-                    '':{
-                        templateUrl:'meetingRoomOrder.html',
-                        controller:'MeetingRoomOrderController'
-                    }
+            }
+        })
+        .state('meetingRoomOrder',{
+            url:'/meeting-room-order/{roomId}',
+            views:{
+                '':{
+                    templateUrl:'meetingRoomOrder.html',
+                    controller:'MeetingRoomOrderController'
                 }
-            })
+            }
+        })
+        .state('meetingRoomSucceed',{
+            url:'/meeting-room-succeed',
+            views:{
+                '':{
+                    templateUrl:'meetingRoomSucceed.html',
+                    controller:'MeetingRoomSucceedController'
+                }
+            }
+        })
+        .state('meetingRoomEnsure',{
+            params: {meetingOrder: {}},
+            url:'/meeting-room-ensure',
+            views:{
+                '':{
+                    templateUrl:'meetingRoomEnsure.html',
+                    controller:'MeetingRoomEnsureController'
+                }
+            }
+        })
         .state('waterSend',{
             url:'/water-send',
             views:{

@@ -1,0 +1,87 @@
+<div class="meeting-room-ensure">
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            会议室预订
+        </div>
+    </header>
+
+    <div class="main pd-48">
+        <form class="form-horizontal">
+            <div class="form-group" style="border-bottom:1px solid #dddddd">
+                <label class="col-xs-3 control-label room-label">会议室</label>
+                <div class="col-xs-9">
+                    <p class="room-span">
+                        {{room.name}} {{date | date:yyyy-MM-dd}}
+                    </p>
+                    <p class="room-span">
+                        {{_.pluck(time,'name').join(',')}}
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label room-label">金额</label>
+                <div class="col-xs-9">
+                    ￥{{price}}
+                </div>
+            </div>
+
+        </form>
+
+        <form class="form-horizontal pay-detail" style="margin-top: 20px;">
+            <div class="form-group" style="border-bottom:1px solid #dddddd">
+                <label class="col-xs-3 control-label room-label">联系人</label>
+                <div class="col-xs-9">
+                    <input type="text" class="input2" ng-model="user"/>
+                </div>
+            </div>
+            <div class="form-group" style="border-bottom:1px solid #dddddd">
+                <label class="col-xs-3 control-label room-label">联系方式</label>
+                <div class="col-xs-9">
+                    <input type="tel" class="input2" ng-model="phone"/>
+                </div>
+            </div>
+            <div class="form-group" style="border-bottom:1px solid #dddddd">
+                <label class="col-xs-3 control-label room-label">支付方式</label>
+                <div class="col-xs-9">
+                    <div class="radio-sec">
+                        <input type="radio" checked="checked"
+                               ng-model="payMethod" value="card"
+                               id="checkbox-card" class="regular-checkbox">
+                        <label for="checkbox-card"></label><span>一卡通</span>
+                        <input type="radio" checked="checked"
+                               ng-model="payMethod" value="cash"
+                               id="checkbox-cash" class="regular-checkbox">
+                        <label for="checkbox-cash" style="margin-left: 20px;"></label><span>线下支付</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group" style="border-bottom:1px solid #dddddd">
+                <label class="col-xs-3 control-label room-label">公司名称</label>
+                <div class="col-xs-9">
+                    <input type="text" class="input2" ng-model="company"/>
+                </div>
+            </div>
+            <div class="form-group" style="border-bottom:1px solid #dddddd">
+                <label class="col-xs-3 control-label room-label">备注信息</label>
+                <div class="col-xs-9">
+                    <input type="text" class="input2" ng-model="memo"/>
+                </div>
+            </div>
+
+        </form>
+
+        <div style="width: 80%;margin: 20px auto">
+            <button class="btn redBtn" style="width: 100%;" ng-show="payMethod == 'cash'" ng-click="goEnsure()">
+                确认提交
+            </button>
+            <button class="btn redBtn" style="width: 100%;" ng-show="payMethod == 'card'" ng-click="goEnsureAndPay()">
+                确认支付
+            </button>
+        </div>
+
+    </div>
+</div>
