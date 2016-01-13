@@ -43,9 +43,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
                     $scope.loading = false;
                     $scope.orderlist.push(order);
                 }
-
             })
-
      }
 
     $scope.getOrder();
@@ -54,7 +52,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
     }
     $(".order_list").on('scroll',function() {
 
-        if( $('.order_list').scrollTop() + $('.order_list').height() > $('.order_all').height() - 50){
+        if( $('.order_list').scrollTop() + $('.order_list').height() > $('.all-activity').height() - 50){
             $scope.currentPage++;
             $scope.getOrder();
         }

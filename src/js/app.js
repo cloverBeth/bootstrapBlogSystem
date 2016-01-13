@@ -301,6 +301,23 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('allActivity',{
+            url:'/all-activity',
+            views:{
+                '':{
+                    templateUrl:'allActivity.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(checkAuth.check()){
+                            $stateParams.isAuth = true;
+                        }else{
+                            $stateParams.isAuth = false;
+                        }
+                        var ctrlName = "AllActivityController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
         .state('activity',{
             url:'/activity',
             views:{
