@@ -16,7 +16,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
 
     $scope.goGardenOrder=function() {
 
-        if(!$scope.parking.water){
+        if(!$scope.parking.rent){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的送水服务～'});
             return;
         }
@@ -47,7 +47,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                 })
                     .success(function (data) {
                         console.log(data.data);
-                        $state.go('serviceSucceed',{from:{fromOrder : true,orderId : data.data[0]._id}});
+                        $state.go('serviceSucceed',{from:{orderId : data.data[0]._id}});
 
                     });
 

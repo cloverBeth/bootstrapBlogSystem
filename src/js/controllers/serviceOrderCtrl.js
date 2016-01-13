@@ -50,32 +50,20 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                         type:data.data[i].services[0] ? data.data[i].services[0].title:"",
                         id:data.data[i].services[0] ? data.data[i].services[0]._id:"",
                         showSub : false,
-                        linkMan:data.data[i].services[0] ? data.data[i].services[0].contactor : "",
+                        linkMan:data.data[i].contactor,
                         linkTel:data.data[i].services[0] ? data.data[i].services[0].mobile : "",
-                        compName:data.data[i].services[0] ? data.data[i].services[0].company : "",
-                        extraMsg:data.data[i].services[0] ? data.data[i].services[0].note : "",
+                        compName:data.data[i].company,
+                        extraMsg:data.data[i].note,
                     };
 
 
                     $scope.orderList.push(order);
-                    //if($scope.order.showSub==false){
-                    //    $scope.order.isBe=true;
-                    //    $scope.order.isFal=false;
-                    //}
-                    //else{
-                    //    $scope.order.isBe=false;
-                    //    $scope.order.isFal=true;
-                    //
-                    //}
-
-
 
                 }
 
 
-
-
-
             })
+
     })
+
 })

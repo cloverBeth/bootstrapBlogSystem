@@ -1,6 +1,5 @@
 "use strict";
 angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($scope,$state,$http,$stateParams){
-    console.log($stateParams.orderId);
     $scope.title="下单成功";
     $scope.orderSucceed={
         //type:"园艺购买",
@@ -18,10 +17,15 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
             _id: $stateParams.orderId,
         })
             .success(function (data){
-                $scope.orderSucceed.status=data.data[0].orderstatus;
-                $scope.orderSucceed.orderNumber=data.data[0].ordersn;
 
-                console.log(data.data);
+                if(!data.data[0]){return;}
+
+                $scope.orderSucceed.type=data.data[0].services[0].title;
+                $scope.orderSucceed.orderNumber=data.data[0].ordersn;
+                $scope.orderSucceed.status=data.data[0].orderstatus;
+
+                //console.log(data.data);
+                //console.log(data.data[0].id);
 
 
             });

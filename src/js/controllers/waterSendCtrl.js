@@ -10,6 +10,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
     //};
     $scope.garden={
         _id:null,
+        serviceId:null,
         water:"garden_order"
     }
     $scope.phoneReg=/^([0-9]{11})$/;
@@ -45,14 +46,17 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                         "mobile":$scope.garden.guyTel,
                         "note":$scope.garden.extraInfo,
                         "title":$scope.garden.water,
-                        "_id" : $scope.garden._id,
+                        "id" : $scope.garden._id,
+                        "serviceId":$scope.garden.serviceId,
                     })
                         .success(function (data){
 
-                            console.log(data.data);
-                            $state.go('serviceSucceed',{from:{fromOrder : true,orderId : data.data[0]._id}});
+                            //console.log(data.data);
+                            $state.go('serviceSucceed',{from:{orderId : data.data[0].id}});
+                            //console.log(data.data[0].id);
 
                         });
+
                 });
 
 

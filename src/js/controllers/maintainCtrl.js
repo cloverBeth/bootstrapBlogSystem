@@ -50,7 +50,7 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
                 })
                     .success(function (data){
                         console.log(data.data);
-                        $state.go('serviceSucceed',{from:{fromOrder : true,orderId : data.data[0]._id}});
+                        $state.go('serviceSucceed',{from:{orderId : data.data[0]._id}});
 
                     });
 
