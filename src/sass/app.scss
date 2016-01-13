@@ -1108,7 +1108,9 @@ label {
       p{display:inline-block;width:45px;font-size:15px;color:#FF0000;}
       span{margin:10px 0 0 10px;display:inline-block;width:25px;height:25px;position:relative;
            top: 12px;background:url(../images/up.png)no-repeat;background-size:18px;}
-      .togcss{background:url(../images/down.png)no-repeat;}
+
+      .isTrue{background:url(../images/up.png)no-repeat;}
+      .isFalse{background:url(../images/down.png)no-repeat;}
 
     }
     ul li ul.submenu{

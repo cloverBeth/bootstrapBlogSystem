@@ -10,11 +10,20 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
     //    "给 i 火锅高跟344444555555你是否会给哥噶；给 i 火锅高跟！！！344444555555你是否会给哥噶；给 i 火锅高跟"
     //};
 
+
+    $scope.maintain={
+        rent:"garden_fix",
+        _id:null
+    }
     $scope.phoneReg=/^([0-9]{11})$/;
 
     $scope.goGardenOrder=function(){
 
-        if (!$scope.maintain.compyName) {
+        if(!$scope.maintain.rent){
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的维修服务～'});
+            return;
+        }
+        else if (!$scope.maintain.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
         }
@@ -34,11 +43,14 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
                     "company":$scope.maintain.compyName,
                     "contactor":$scope.maintain.compyGuy,
                     "mobile":$scope.maintain.guyTel,
-                    "note":$scope.maintain.extraInfo
+                    "title":$scope.maintain.rent,
+                    "note":$scope.maintain.extraInfo,
+                    "_id" : $scope.maintain._id,
+
                 })
                     .success(function (data){
                         console.log(data.data);
-                        $state.go('serviceSucceed');
+                        $state.go('serviceSucceed',{from:{fromOrder : true,orderId : data.data[0]._id}});
 
                     });
 
