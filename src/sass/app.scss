@@ -410,11 +410,15 @@ p{
   background-image:url(../images/ico_8.png)
 }
 
-.succeed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_8.png) no-repeat 10px 16px;background-size:18px;border-bottom:1px solid #ddd;}
+.succeed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_8.png) no-repeat 10px 16px;
+  background-size:18px;border-bottom:1px solid #ddd;}
 .succeed em{ display:block;float:left;width:20px;padding-right:10px;}
 .succeed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
 .succeed p strong{ display:block;font-size:15px;color:#666;}
-.failed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_fail.png) no-repeat 10px 16px;background-size:18px;border-bottom:1px solid #ddd;}
+
+.failed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_fail.png) no-repeat 10px 16px;
+  background-size:18px;border-bottom:1px solid #ddd;}
+
 .danhao{margin-top:15px;padding:12px;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
@@ -491,7 +495,7 @@ dl{
 .pic{width:100%;}
 .pic ul{float:left;}
 .pic li{float:left;width:40px;padding:5px 10px;margin-right:10px;text-align:center;}
-.pic li p{font-size:15px;line-height:1.4em;padding:20px 0;color:#999;display:inline-block;text-align:center;width:40px;height:30px;}
+.pic li p{font-size:15px;line-height:1.4em;padding:15px 0 20px 0;color:#999;display:inline-block;text-align:center;width:40px;height:30px;}
 .pic span{ display:block;float:right;padding:40px 30px;font-size:12px;color:#999;margin:0 15px 0 0;background:url(../images/ico_7.png) no-repeat right center; background-size:9px;}
 .pic ul li em {display:inline-block;text-align:center;width:40px;height:40px;}
 .pic ul li em img{margin:0 auto;width:40px;height:40px;margin-top:20%;}
@@ -953,114 +957,114 @@ label {
     padding:0;
     margin:0;
     overflow-x:hidden;
-      .middle-squar{margin-top:47px;}
-      .garden-service{
-            min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
-            color:#928A8A;margin:20px 0 0 0;
-            label {
-            display: inline;
-          }
+    .middle-squar{margin-top:47px;}
+    .garden-service{
+          min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
+          color:#928A8A;margin:20px 0 0 0;
+          label {
+          display: inline;
+        }
 
-          .regular-checkbox {
-              display: none;
-          }
-          .regular-checkbox + label {
-              background-color: #fafafa;
-              border: 1px solid #cacece;
-              box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-              padding: 9px;
-              border-radius: 3px;
-              display: inline-block;
-              position: relative;
-              top:8px;
-          }
+        .regular-checkbox {
+            display: none;
+        }
+        .regular-checkbox + label {
+            background-color: #fafafa;
+            border: 1px solid #cacece;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+            padding: 9px;
+            border-radius: 3px;
+            display: inline-block;
+            position: relative;
+            top:8px;
+        }
 
-          .regular-checkbox + label:active, .regular-checkbox:checked + label:active {
-              box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
-          }
+        .regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+        }
 
-          .regular-checkbox:checked + label {
-              background-color: #e9ecee;
-              border: 1px solid #adb8c0;
-              box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
-              color: #99a1a7;
-          }
+        .regular-checkbox:checked + label {
+            background-color: #e9ecee;
+            border: 1px solid #adb8c0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+            color: #99a1a7;
+        }
 
-          .regular-checkbox:checked + label:after {
-              content: '\2714';
-              font-size: 14px;
-              position: absolute;
-              top: 0px;
-              left: 3px;
-              color: green;
-          }
-          span{
-              //padding:0 0 0 5%;
-              //display:inline-block;
-              //padding: 0 0 0 6%;
-              line-height:60px;
-              font-size:18px;
-            padding:0 0 0 20px;
-            //width:122px;
-          }
-          div.outer{
+        .regular-checkbox:checked + label:after {
+            content: '\2714';
+            font-size: 14px;
+            position: absolute;
+            top: 0px;
+            left: 3px;
+            color: green;
+        }
+        span{
+            //padding:0 0 0 5%;
             //display:inline-block;
-            //margin:20px 0 25px 15px;
-            padding:0 0 20px 0;
-
-          }
-          div.choosed{
-            display:inline-block;
-            margin: 0 10px 0 -6px;
-            height:40px;
-
-          }
-          div.choosed>span{
-            padding:0 0 0 5px;
+            //padding: 0 0 0 6%;
             line-height:60px;
-          }
+            font-size:18px;
+          padding:0 0 0 20px;
+          //width:122px;
+        }
+        div.outer{
+          //display:inline-block;
+          //margin:20px 0 25px 15px;
+          padding:0 0 20px 0;
 
-      }
+        }
+        div.choosed{
+          display:inline-block;
+          margin: 0 10px 0 -6px;
+          height:40px;
 
-      .companyInfo{
-            margin:20px 0 0 0;
-            font-size: 15px;
-          ul{
-            width:100%;
-            height:auto;
-            background:#ffffff;
+        }
+        div.choosed>span{
+          padding:0 0 0 5px;
+          color:#444141;
+          line-height:60px;
+        }
 
-          }
-        .row{padding:5px;margin:0;}
-          ul li{
+    }
+
+    .companyInfo{
+          margin:20px 0 0 0;
+          font-size: 15px;
+        ul{
           width:100%;
+          height:auto;
+          background:#ffffff;
+
+        }
+      .row{padding:5px;margin:0;}
+        ul li{
+        width:100%;
+        text-align:left;
+        line-height:4rem;
+        border-bottom:1px solid #f0f0f0;
+       }
+        ul li label{
+          //padding:0 15px 0 10px;
           text-align:left;
-          line-height:4rem;
-          border-bottom:1px solid #f0f0f0;
+          color:#7B7272;
+          font-size:18px;
+          font-weight:600;
+        }
+
+        ul li input[type="text"]{
+           border:none;
+          font-size:18px;
+           //padding:0 25px 0 0;
+
          }
-          ul li label{
-            //padding:0 15px 0 10px;
-            text-align:left;
-            color:#7B7272;
-            font-size:18px;
-            font-weight:600;
-          }
+      .textarea{margin:10px 0 10px 0;line-height:2rem;/*min-height:100px;*/
+           height:auto;font-size:16px;border:none;}
 
-          ul li input[type="text"]{
-             border:none;
-            font-size:18px;
-             //padding:0 25px 0 0;
-
-           }
-        .textarea{margin:10px 0 10px 0;line-height:2rem;/*min-height:100px;*/
-             height:auto;font-size:16px;border:none;}
-
-      }
-      .gardenbtn{width:85%;margin:0 auto;height:50px;font-size:18px;color:#FFFFFF;font-weight:600;margin-top:10px;
-             margin-bottom:15px;}
+    }
+    .gardenbtn{width:85%;margin:0 auto;height:50px;font-size:18px;color:#FFFFFF;font-weight:600;margin-top:10px;
+           margin-bottom:15px;}
 
 }
-
 
 
 .service-order{
@@ -1068,9 +1072,9 @@ label {
     margin:47px 0 0 0;
     ul{margin-top:20px;}
     ul li.outerList{
-      //width:100%;
       min-height:100px;
       height:auto;
+      padding: 0 0 50px 0;
       background:#FFFFFF;
       border-bottom:1px solid #f0f0f0;
     }
@@ -1112,9 +1116,9 @@ label {
         overflow-x:hidden;clear:both;
       li{
         min-height:50px;
-        line-height:4rem;
+        line-height:5rem;
         height:auto;
-        border-top:1px solid rgba(0,0,0,.05);
+        border-top: 1px solid rgba(35, 25, 25, 0.05);
         label{color:#8A8484;font-size:18px;padding:0 10px 0 15px;text-align:right;}
         p{margin:20px 0 0 0;background:#FAFAFA;font-size:18px;word-wrap: break-word;}
         .textarea{padding:10px 0 10px 10px;line-height:2.5rem;background:#FAFAFA;height:auto;
@@ -1127,76 +1131,110 @@ label {
 
 
 .service-succeed{
-  .redBtn{
-    display:block;
-    margin:0 auto;
-    padding:12px;
-    width:90%;
-    margin-top:15px;
-    font-size:16px;
-    font-weight:600;
+    .redBtn{
+      display:block;
+      margin:0 auto;
+      padding:12px;
+      width:90%;
+      margin-top:15px;
+      font-size:16px;
+      font-weight:600;
 
-  }
-  .danhao p font {
-    color: #666;
-    padding-right:18px;
-  }
-  .succeed{
-    padding: 45px 12px 15px 36px;
-    margin:0 auto;
-    margin-top:30px;
-    background: url(../images/ico_8.png)top 10px center no-repeat #fff;
-    background-size: 30px;
-    border-bottom: 1px solid #ddd;
-    p{font-size:16px;}
-    p strong{font-size:18px;}
-      }
-  p.consume span{color:orangered;font-size:20px;}
-  .pay strong{
-    float:left;
-    padding:13px 0 0 18px;
-    font-size:15px;}
-  .pay h3 {
-    float: left;
-    padding: 12px 0 12px 31px;
-    line-height: 2.4em;
-    color: #444;
-    margin-bottom: 0;
-  }
-  .danhao p {
-    font-size: 16px;
-    padding-left: 20px;
-    line-height: 1.8em;
-    color: #999;
-  }
-  .pay a{
-    float: left;
-    padding: 12px 15px 12px 18px;
-    //margin:0 0 0 20px;
-    font-size: 15px;
-    line-height: 2.4em;
-  }
+    }
+    .danhao p font {
+      color: #666;
+      padding-right:18px;
+    }
+    .succeed{
+      padding: 45px 12px 15px 36px;
+      margin:0 auto;
+      margin-top:30px;
+      background: url(../images/ico_8.png)top 10px center no-repeat #fff;
+      background-size: 30px;
+      border-bottom: 1px solid #ddd;
+      p{font-size:16px;}
+      p strong{font-size:18px;}
+        }
+    p.consume span{color:orangered;font-size:20px;}
+    .pay strong{
+      float:left;
+      padding:13px 0 0 18px;
+      font-size:15px;}
+    .pay h3 {
+      float: left;
+      padding: 12px 0 12px 31px;
+      line-height: 2.4em;
+      color: #444;
+      margin-bottom: 0;
+    }
+    .danhao p {
+      font-size: 16px;
+      padding-left: 20px;
+      line-height: 1.8em;
+      color: #999;
+    }
+    .pay a{
+      float: left;
+      padding: 12px 15px 12px 18px;
+      //margin:0 0 0 20px;
+      font-size: 15px;
+      line-height: 2.4em;
+    }
 
 }
 
+
+
+.service-failed{
+    .failed{
+      padding: 45px 12px 15px 36px;
+      margin:0 auto;
+      margin-top:30px;
+      background: url(../images/ico_fail.png)top 10px center no-repeat #fff;
+      background-size: 30px;
+      border-bottom: 1px solid #ddd;
+      p{font-size:16px;}
+      p strong{font-size:18px;}
+      div.result{margin:0 auto;font-size:16px;color:#615858;}
+    }
+    .redBtn{
+      display:block;
+      margin:0 auto;
+      padding:12px;
+      width:95%;
+      margin-top:15px;
+      font-size:16px;
+      font-weight:600;
+
+    }
+    .pay h3 {
+      float: left;
+      padding: 12px 0 12px 31px;
+      line-height: 2.4em;
+      color: #444;
+      margin-bottom: 0;
+    }
+}
+
+
 .online-service{
-  width:100%;
-  background:white;
-  .header{
-    .back img{
-    width: 10px;
-    height:17px;}
-  }
-  .header img{
     width:100%;
-    height:130px;
-  }
-  .navOnline{
-    min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
-    color:#928A8A;margin:47px 0 0 0;
-      .row{padding:0;margin:0 auto;}
-      .navbar{padding:5px;margin:0  0 10px 0;}
-  }
+    background:white;
+    .header{
+      .back img{
+      width: 10px;
+      height:17px;}
+    }
+    .header img{
+      width:100%;
+      height:130px;
+    }
+    .navOnline{
+      min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
+      color:#928A8A;margin:47px 0 0 0;
+        .row{padding:0;margin:0 auto;}
+        .navbar{padding:5px;margin:0  0 10px 0;}
+    }
 }
 
 

@@ -14,15 +14,15 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
     $http.get(X_context.api + 'member/getCurMem')
         .success(function(data){
             if(!data.data[0])return;
-            if(data.data[0].name.toString()){
+            if(data.data[0].nickName.toString()){
                 //$("#editNick").attr("href","javascript:void(0);");
-                $scope.account.tel = data.data[0].name;
+                $scope.account.tel = data.data[0].nickName;
             }
             else{
                 $scope.account.tel = data.data[0].mobile;
             }
             $scope.account.portrait = X_context.devHost+data.data[0].portrait;
-            $scope.account.nick = data.data[0].name;
+            $scope.account.nick = data.data[0].nickName;
 
             $scope.getNick=function(){
                 $("#editNick").css("display","none");
@@ -30,7 +30,7 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
                 $("#changeNick").bind("blur",function(){
                     $http.post(X_context.api + 'member/update',{
                         "MemberId" : X_context.memberId,
-                        "name" : $scope.account.nick,
+                        "nickName" : $scope.account.nick,
                     })
                         .success(function(data){
                             console.log(data.data);

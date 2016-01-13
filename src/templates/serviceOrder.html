@@ -22,7 +22,7 @@
                     <p>订单号：{{order.number}}</p>
                 </div>
                 <div class="proTime">
-                    <span>{{order.doDate | date:"yyyy/MM/dd HH:mm:ss"}}</span>
+                    <span>{{order.doDate | date:"yyyy/MM/dd"}}</span>
                 </div>
                 <div class="proState">
                     <p>{{order.state}}</p><span ng-click="order.showSub = !order.showSub"> </span>
@@ -31,21 +31,21 @@
                 <ul class="submenu" ng-show="order.showSub">
                     <li class="row">
                         <label class="col-xs-4"for="serType0">服务类型</label>
-                        <p class="col-xs-8"id="serType0">{{service.type}}</p>
+                        <p class="col-xs-8"id="serType0">{{order.type}}</p>
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="compyName0">公司名称</label>
-                        <p class="col-xs-8"id="compyName0">{{service.compName}}</p>
+                        <p class="col-xs-8"id="compyName0">{{order.compName}}</p>
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="compyGuy0">联 系 人</label>
                         <p class="col-xs-8"id="compyGuy0">
-                            {{service.linkMan+service.linkTel}}
+                            {{order.linkMan+order.linkTel}}
                         </p>
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="extraInfo0">备注信息</label>
-                        <p class="col-xs-7 textarea"id="extraInfo0">{{service.extraMsg}}</p>
+                        <p class="col-xs-7 textarea"id="extraInfo0">{{order.extraMsg}}</p>
                     </li>
                 </ul>
             </li>

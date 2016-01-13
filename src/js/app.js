@@ -287,6 +287,19 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('serviceFailed',{
+            url:'/service-failed/{orderId}',
+            views:{
+                '':{
+                    templateUrl:'serviceFailed.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "ServiceFailedController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
         .state('creditAccount',{
             url:'/credit-account/{orderId}',
             views:{
