@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootScope,$scope,$state){
+angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootScope,$scope,$stateParams,$http,$state){
     $scope.title="园艺服务";
     //$scope.garden={
     //    rent:"garden_cut",
@@ -9,14 +9,20 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
     //    extraInfo:"宁我负天下人，勿天下人负我！！！"
     //};
 
-
+    $scope.garden={
+        _id:null,
+        rent:"garden_cut"
+    }
 
     $scope.phoneReg=/^([0-9]{11})$/;
 
 
     $scope.goGardenOrder=function(){
-
-        if (!$scope.garden.compyName) {
+        if(!$scope.garden.rent){
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+            return;
+        }
+        else if (!$scope.garden.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
         }
@@ -31,16 +37,20 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
         }
         else{
             $scope.$parent.memberPromise.then(function(){
+
                 $http.post(X_context.api+"servicesOrder/add", {
                     "memberid": X_context.memberId,
                     "company":$scope.garden.compyName,
                     "contactor":$scope.garden.compyGuy,
                     "mobile":$scope.garden.guyTel,
-                    "note":$scope.garden.extraInfo
+                    "note":$scope.garden.extraInfo,
+                    "title":$scope.garden.rent,
+                    "_id" : $scope.garden._id
+
                 })
                     .success(function (data){
                         console.log(data.data);
-                        $state.go('serviceSucceed');
+                        $state.go('serviceSucceed',{from:{fromOrder : true,orderId : data.data[0]._id}});
 
                     });
 

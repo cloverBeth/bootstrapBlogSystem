@@ -32,29 +32,50 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
 
     $scope.orderList=[];
     $scope.$parent.memberPromise.then(function(){
+
         $http.post(X_context.api+"servicesOrder/list", {
             "memberid": X_context.memberId
         })
             .success(function (data){
                 if(!data.data)return;
+
                 for(var i in data.data){
 
                     var order = {
                         number: data.data[i].ordersn,
-                        pro:data.data[i].title,
+                        pro:data.data[i].services[0] ? data.data[i].services[0].parentTitle : "",
                         doDate:data.data[i].createddate,
                         iconImg:data.data[i].services[0] ? data.data[i].services[0].image : "",
                         state:data.data[i].orderstatus,
-                        //extraMsg:data.data[i].note,
-                        id: data.data[i].id,
+                        type:data.data[i].services[0] ? data.data[i].services[0].title:"",
+                        id:data.data[i].services[0] ? data.data[i].services[0]._id:"",
                         showSub : false,
                         linkMan:data.data[i].services[0] ? data.data[i].services[0].contactor : "",
                         linkTel:data.data[i].services[0] ? data.data[i].services[0].mobile : "",
                         compName:data.data[i].services[0] ? data.data[i].services[0].company : "",
                         extraMsg:data.data[i].services[0] ? data.data[i].services[0].note : "",
                     };
+
+
                     $scope.orderList.push(order);
+                    //if($scope.order.showSub==false){
+                    //    $scope.order.isBe=true;
+                    //    $scope.order.isFal=false;
+                    //}
+                    //else{
+                    //    $scope.order.isBe=false;
+                    //    $scope.order.isFal=true;
+                    //
+                    //}
+
+
+
                 }
+
+
+
+
+
             })
     })
 })

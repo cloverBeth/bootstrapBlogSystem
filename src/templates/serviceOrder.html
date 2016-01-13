@@ -25,7 +25,9 @@
                     <span>{{order.doDate | date:"yyyy/MM/dd"}}</span>
                 </div>
                 <div class="proState">
-                    <p>{{order.state}}</p><span ng-click="order.showSub = !order.showSub"> </span>
+                    <p>{{order.state}}</p>
+                    <span class="toggleBg" ng-class="{isTrue:!order.showSub,isFalse:order.showSub}"
+                          ng-click="order.showSub = !order.showSub"> </span>
 
                 </div>
                 <ul class="submenu" ng-show="order.showSub">
