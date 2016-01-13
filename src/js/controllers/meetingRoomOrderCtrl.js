@@ -2,6 +2,8 @@
 
 angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function($rootScope,$http,$scope,$state,$stateParams){
 
+    $scope.dateModal = false;
+
     $scope.dt = new Date();
 
     $scope.datePicker = {
@@ -151,10 +153,32 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
         })
     });
 
-    $scope.$watch('dt',function(){
-        console.log($scope.dt)
-        $scope.timeList = _.cloneDeep(originList);
+    $scope.timeList = _.cloneDeep(originList);
+
+    $scope.newDate = null;
+    $scope.enSured = false;
+    $scope.oldDate = null;
+
+    $scope.$watch('dt',function(cur,old){
+        if(cur != old && $scope.oldDate != cur){
+            $scope.dateModal = true;
+            $scope.oldDate = old;
+        }
     },true)
+
+    $scope.ensureDate = function(){
+        $scope.timeList = _.cloneDeep(originList);
+        $scope.dateModal = false;
+    }
+
+    $scope.cancelDate = function(){
+        if($scope.oldDate){
+            $scope.dt = $scope.oldDate;
+        }
+        $scope.dateModal = false;
+    }
+
+
 })
 
 

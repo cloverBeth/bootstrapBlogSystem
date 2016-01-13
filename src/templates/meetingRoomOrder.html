@@ -27,7 +27,7 @@
                     <div class="radio-sec">
                         <p class="input-group">
                             <input type="date" class="form-control"
-                                   uib-datepicker-popup ng-model="dt"
+                                   uib-datepicker-popup ng-model="dt" 
                                    is-open="datePicker.opened"
                                    datepicker-options="dateOptions"
                                    ng-required="true" close-text="关闭" current-text="今天" clear-text="清除"/>
@@ -68,4 +68,29 @@
         </div>
 
     </div>
+
+    <div ui-content-for="modals">
+        <div class="modal" ng-if="dateModal">
+            <div class="modal-backdrop in"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close"
+                                ng-click="cancelDate()">&times;</button>
+                        <h5 class="modal-title">确认修改日期</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p >
+                            当日订单会在切换日期后重置,您确定?
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button ng-click="cancelDate()" class="btn btn-default">返回</button>
+                        <button ng-click="ensureDate()" class="btn btn-success">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
