@@ -1,4 +1,4 @@
-<div class="main-section main">
+<div class="main-section main pd-48 activity-detail">
     <header class="header">
         <div class="back">
             <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
@@ -8,7 +8,85 @@
         </div>
     </header>
 
-    <div class="main404 main">
-        <a ui-sref="activity"href="javascript:;"><img src="images/huodong3.jpg" alt="" width="100%"></a>
+    <div class="activity-content">
+        <h3>
+            Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架
+        </h3>
+        <h4 class="activity-date">2015-12-18</h4>
+
+        <div class="activity-info-item">
+            <div class="info-icon">
+                <img src="images/time.png" alt=""/>
+            </div>
+            <span>
+                活动时间: 01/12 00:00-01/12 23:00
+            </span>
+        </div>
+        <div class="activity-info-item">
+            <div class="info-icon">
+                <img src="images/weizhi.png" alt=""/>
+            </div>
+            <span>
+                活动地点: 苏州工业园区国际科技园a302
+            </span>
+        </div>
+        <div class="activity-info-item">
+            <div class="info-icon">
+                <img src="images/tel.png" alt=""/>
+            </div>
+            <span>
+                联系电话: 18888888888
+            </span>
+        </div>
+        <div ng-bind-html="embedHtml" class="embed-html">
+        </div>
     </div>
+
+    <div class="activity-footer">
+        <div class="footer-title">
+            <div class="footer-icon">
+                <img src="images/qian.png"  alt=""/>
+            </div>
+            <span>
+                免费活动
+            </span>
+        </div>
+        <div class="submit-sec" ng-click="showForm = true">
+            <div class="submit-icon">
+                <img src="images/ren.png" alt=""/>
+            </div>
+            <span>
+                我要报名
+            </span>
+        </div>
+    </div>
+
+    <div class="activity-form" ng-show="showForm">
+        <i class="fa fa-times close-icon" ng-click="showForm = false"></i>
+        <p class="form-label">
+            姓名
+        </p>
+        <input class="form-control" type="text"/>
+        <p class="form-label">
+            手机
+        </p>
+        <input class="form-control" type="text"/>
+        <p class="form-label">
+            备注
+        </p>
+        <input class="form-control" type="text"/>
+        <p class="form-info">
+            报名费 ￥300元
+
+        </p>
+        <p class="form-info">
+            支付方式: 一卡通
+        </p>
+        <div style="width: 90%;margin: 25px auto 0 auto;">
+            <button class="btn redBtn" style="width: 100%;font-size: 16px;">
+                报名
+            </button>
+        </div>
+    </div>
+    <div class="modal-backdrop in" ng-show="showForm"></div>
 </div>

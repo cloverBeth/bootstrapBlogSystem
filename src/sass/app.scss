@@ -1412,3 +1412,107 @@ label {
     width: 100%;
   }
 }
+.activity-detail {
+  img{
+    max-width: 100%;
+  }
+  .activity-content{
+    margin-top: 10px;
+    padding: 5px 10px 60px 10px;
+    margin-bottom: 60px;
+    background: white;
+    height: 100%;
+    .embed-html{
+      margin-top: 20px;
+    }
+    .activity-date {
+      color: $fontDarkGrey;
+    }
+
+    .activity-info-item{
+      .info-icon{
+        height: 20px;
+        width: 18px;
+        //vertical-align: middle;
+        display: inline-block;
+        margin-right: 10px;
+      }
+      padding-left: 10px;
+      width: 100%;
+      height: 35px;
+      line-height: 35px;
+      background: #F3F3F3;
+      margin-top: 2px;
+    }
+
+  }
+  .activity-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    height: 60px;
+    border-top: 1px solid $fontGrey;
+    >div{
+      display: inline-block;
+      height: 100%;
+      line-height: 60px;
+    }
+    .footer-title{
+      padding-left: 20px;
+      width: 65%;
+      float: left;
+      font-size: 16px;
+      .footer-icon{
+        height: 16px;
+        width: 16px;
+        display: inline-block;
+      }
+    }
+    .submit-sec{
+      line-height: 40px;
+      width: 35%;
+      text-align: center;
+      float: left;
+      background: red;
+      color: white;
+      font-size: 16px;
+      .submit-icon{
+        margin: auto;
+        line-height: 30px;
+        width: 20px;
+        height: 20px;
+
+      }
+    }
+  }
+  .activity-form{
+    .close-icon{
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      font-size: 20px;
+    }
+    border-top: 1px solid $fontGrey;
+    padding: 5px 10px;
+    background: white;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    height: 400px;
+    width: 100%;
+    .form-control{
+      border-radius: 0;
+    }
+    .form-label{
+      margin-top: 10px !important;
+      margin-bottom: 5px !important;
+      font-size: 16px;
+    }
+    .form-info{
+      margin: 10px !important;
+      font-size: 16px;
+    }
+
+  }
+}
