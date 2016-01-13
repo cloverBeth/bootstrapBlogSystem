@@ -345,12 +345,17 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('activityDetail',{
-            url:'/activity-detail',
+            url:'/activity-detail/{activityId}',
             views:{
                 '':{
                     templateUrl:'activityDetail.html',
                     controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(!checkAuth.check())return $state.go('login');
+
+                        if(checkAuth.check()){
+                            $stateParams.isAuth = true;
+                        }else{
+                            $stateParams.isAuth = false;
+                        }
                         var ctrlName = "ActivityDetailController";
                         return ctrlName;
                     }
