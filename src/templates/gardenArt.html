@@ -16,25 +16,10 @@
         <div class="garden-service row">
             <span class="col-xs-4">服务类型</span>
             <div class="outer">
-                <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-1-1" class="regular-checkbox"
-                           value="garden_rent"ng-model="garden.rent">
-                    <label for="checkbox-1-1"></label><span>园艺租赁</span>
-                </div>
-                <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-2-0" class="regular-checkbox"
-                           value="garden_buy"ng-model="garden.rent">
-                    <label for="checkbox-2-0"></label><span>园艺购买</span>
-                </div>
-                <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-3-0" class="regular-checkbox"
-                           value="garden_cut"ng-model="garden.rent">
-                    <label for="checkbox-3-0"></label><span>园艺剪修</span>
-                </div>
-                <div class="choosed ">
-                    <input type="radio" name="garden"id="checkbox-4-0" class="regular-checkbox"
-                           value="garden_dec"ng-model="garden.rent">
-                    <label for="checkbox-4-0"></label><span>园艺装饰</span>
+                <div class="choosed "ng-repeat="radio in typeList track by $index">
+                    <input type="radio" name="garden"id="{{'radio-'+radio.id}}" class="regular-checkbox"
+                           ng-value="radio.id"ng-model="childType">
+                    <label for="{{'radio-'+radio.id}}"></label><span>{{radio.typeTitle}}</span>
                 </div>
             </div>
         </div>

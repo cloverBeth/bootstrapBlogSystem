@@ -1,28 +1,27 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootScope,$scope,$stateParams,$http,$state){
     $scope.title="园艺服务";
-    //$scope.garden={
-    //    rent:"garden_cut",
-    //    compyName:"动次打次",
-    //    compyGuy:"曹操",
-    //    guyTel:"18990976734",
-    //    extraInfo:"宁我负天下人，勿天下人负我！！！"
-    //};
-
-    $scope.garden={
-        _id:null,
-        rent:"garden_cut"
-    }
 
     $scope.phoneReg=/^([0-9]{11})$/;
+    $scope.typeList=[];
+    $scope.childType=null;
+    $http.post(X_context.api+'services/listServices',{
+        "servicesId":4
+    })
+        .success(function(data){
+            for(var i in data.data){
+                var radio={
+                    "id":data.data[i]._id,
+                    "typeTitle":data.data[i].title
+                }
+                $scope.typeList.push(radio);
+                $scope.childType=data.data[0]._id;
 
+            }
+        })
 
     $scope.goGardenOrder=function(){
-        if(!$scope.garden.rent){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
-            return;
-        }
-        else if (!$scope.garden.compyName) {
+        if (!$scope.garden.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
         }
@@ -44,13 +43,13 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
                     "contactor":$scope.garden.compyGuy,
                     "mobile":$scope.garden.guyTel,
                     "note":$scope.garden.extraInfo,
-                    "title":$scope.garden.rent,
-                    "_id" : $scope.garden._id
+                    //"title":$scope.childType,
+                    "serviceId" : $scope.childType
 
                 })
                     .success(function (data){
                         console.log(data.data);
-                        $state.go('serviceSucceed',{from:{orderId : data.data[0]._id}});
+                        $state.go('serviceSucceed',{serviceOrderId : data.data[0]._id});
 
                     });
 

@@ -9,14 +9,31 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
     //    extraInfo:"宁我负天下人，勿天下人负我！！！"
     //};
     $scope.parking= {
-        rent: "garden_buy",
+        //rent: "garden_buy",
         _id:null
     }
+    $scope.typeList=[];
+    $scope.childType=null;
     $scope.phoneReg=/^([0-9]{11})$/;
+
+    $http.post(X_context.api+"services/listServices",{
+        "servicesId":3
+
+    })
+        .success(function(data){
+            for(var i in data.data){
+                var radio={
+                    "id":data.data[i]._id,
+                    "typeTitle":data.data[i].title
+                }
+                $scope.childType=data.data[0]._id;
+                $scope.typeList.push(radio);
+            }
+        })
 
     $scope.goGardenOrder=function() {
 
-        if(!$scope.parking.rent){
+        if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的送水服务～'});
             return;
         }
@@ -41,13 +58,14 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                     "company": $scope.parking.compyName,
                     "contactor": $scope.parking.compyGuy,
                     "mobile": $scope.parking.guyTel,
-                    "title":$scope.parking.rent,
-                    "_id" : $scope.parking._id,
+                    //"title":$scope.parking.rent,
+                    //"_id" : $scope.parking._id,
+                    "serviceId" : $scope.childType,
                     "note": $scope.parking.extraInfo
                 })
                     .success(function (data) {
                         console.log(data.data);
-                        $state.go('serviceSucceed',{from:{orderId : data.data[0]._id}});
+                        $state.go('serviceSucceed',{serviceOrderId : data.data[0]._id});
 
                     });
 
