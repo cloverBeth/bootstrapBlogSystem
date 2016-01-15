@@ -22,7 +22,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                             id : data.data[i].services ? data.data[i].services._id:"",
                        showSub : false,
                        linkMan : data.data[i].contactor,
-                       linkTel : data.data[i].services ? data.data[i].services.mobile : "",
+                       linkTel : data.data[i].services ? data.data[i].mobile : "",
                       compName : data.data[i].company,
                       extraMsg : data.data[i].note,
                     };

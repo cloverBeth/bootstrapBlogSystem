@@ -74,6 +74,10 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
                             $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
                         }
 
+                    }).error(function (data, status, headers, config) {
+                        console.log('error status: ' + status);
+                        $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+
                     });
 
               });
