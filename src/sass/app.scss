@@ -1068,6 +1068,7 @@ label {
 
 
 .service-order{
+
   .serviceList{
     margin:47px 0 0 0;
     ul{margin-top:20px;}
@@ -1078,14 +1079,15 @@ label {
       background:#FFFFFF;
       border-bottom:1px solid #f0f0f0;
     }
-    ul li div{float:left;display:inline-block;}
+    //ul li div{float:left;display:inline-block;}
     ul li div.picTitle img{
       width:50px;
       height:50px;
-      margin:25px 0 0 10px;
+      margin:25px 0 0 0;
     }
     .proTitle{
-     margin:30px 0 0 5px;
+     //margin:30px 0 0 5px;
+      top:25px;
 
       h4{
         font-size:16px;
@@ -1098,16 +1100,16 @@ label {
       }
     }
     .proTime{
-      margin:25px 10px 0 0;
+      //margin:25px 10px 0 0;
       float:right;
     }
     .proState{
-      margin:-10px 10px 0 0;
-      clear:right;
-      float:right;
-      p{display:inline-block;width:45px;font-size:15px;color:#FF0000;}
-      span{margin:10px 0 0 10px;display:inline-block;width:25px;height:25px;position:relative;
-           top: 12px;background:url(../images/up.png)no-repeat;background-size:18px;}
+      right:40px;
+      top:20px;
+      div.subBtn{width:60px;height:30px;margin:25px -20px 0 12px;}
+      span.serviceStatus{display:block;float:left;width:55px;margin:0 0 0 -10px;font-size:15px;color:#FF0000;}
+      span{margin:0 10px 0 0;display:block;width:20px;height:20px;}
+      .toggleBg{margin:-15px 0 0 40px;float:left;display:inline-block;}
 
       .isTrue{background:url(../images/up.png)no-repeat;}
       .isFalse{background:url(../images/down.png)no-repeat;}
