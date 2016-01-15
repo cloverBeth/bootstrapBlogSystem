@@ -57,23 +57,26 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
             $scope.$parent.memberPromise.then(function(){
                 $http.post(X_context.api+"servicesOrder/add", {
                     "memberid": X_context.memberId,
-                    "company":$scope.maintain.compyName,
-                    "contactor":$scope.maintain.compyGuy,
-                    "mobile":$scope.maintain.guyTel,
-                    //"title":$scope.maintain.rent,
-                    "note":$scope.maintain.extraInfo,
-                    "serviceId" : $scope.childType,
+                     "company":$scope.maintain.compyName,
+                   "contactor":$scope.maintain.compyGuy,
+                      "mobile":$scope.maintain.guyTel,
+                        "note":$scope.maintain.extraInfo,
+                  "serviceId" : $scope.childType,
 
-                    //"_id" : $scope.maintain._id,
 
                 })
                     .success(function (data){
-                        console.log(data.data);
-                        $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                        if(data.code==200){
+                            $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                            //console.log(data.data);
+                        }
+                        else{
+                            $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                        }
 
                     });
 
-            });
+              });
 
         }
 

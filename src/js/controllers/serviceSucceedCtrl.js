@@ -11,21 +11,14 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
         $http.post(X_context.api+"servicesOrder/list", {
             "memberid": X_context.memberId,
             "_id": $stateParams.serviceOrderId,
-        })
-            .success(function (data){
+        }).success(function (data){
 
                 if(!data.data[0]){return;}
-
                 $scope.orderSucceed.type=data.data[0].services.parentTitle;
                 $scope.orderSucceed.orderNumber=data.data[0].ordersn;
-                //$scope.orderSucceed.payway=data.data[0].paytype;
                 $scope.orderSucceed.status=data.data[0].orderstatus;
-                //$scope.orderSucceed.expense=data.data[0].;
-
 
             });
-
-
 
     $scope.goToOnline=function(){
         $state.go('onlineService');
