@@ -58,9 +58,16 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                         })
                             .success(function(data){
                                 console.log('123');
-
-                                $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
-                                //console.log(data.data);
+                                if(data.code==200){
+                                    $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                                    //console.log(data.data);
+                                }
+                                else{
+                                    $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                                }
+                            }).error(function (data, status, headers, config) {
+                                console.log('error status: ' + status);
+                                $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
 
                             });
 
