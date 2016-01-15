@@ -13,10 +13,10 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
             "_id": $stateParams.serviceOrderId,
         }).success(function (data){
 
-                if(!data.data[0]){return;}
-                $scope.orderSucceed.type=data.data[0].services.parentTitle;
-                $scope.orderSucceed.orderNumber=data.data[0].ordersn;
-                $scope.orderSucceed.status=data.data[0].orderstatus;
+                if(!data.data.result[0]){return;}
+                $scope.orderSucceed.type=data.data.result[0].services.parentTitle;
+                $scope.orderSucceed.orderNumber=data.data.result[0].ordersn;
+                $scope.orderSucceed.status=data.data.result[0].orderstatus;
 
             });
 

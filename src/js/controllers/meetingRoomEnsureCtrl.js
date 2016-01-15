@@ -25,7 +25,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
         });
 
     $scope.goEnsure = function(){
-        $state.go('meetingRoomSucceed');
+        $state.go('meetingRoomSucceed',{meetingOrderId:data.data.data[0]._id});
     }
 
 

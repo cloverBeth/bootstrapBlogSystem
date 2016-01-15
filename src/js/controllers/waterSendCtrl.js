@@ -61,6 +61,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                                 if(data.code==200){
                                     $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                                     //console.log(data.data);
+                                    $scope.orderSure=true;//如何避免重复订单？？？？？
                                 }
                                 else{
                                     $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});

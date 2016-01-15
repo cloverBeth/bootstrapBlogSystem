@@ -470,7 +470,7 @@ angular.module('ZJSY_WeChat', [
         })
         .state('meetingRoomEnsure',{
             params: {meetingOrder: {}},
-            url:'/meeting-room-ensure',
+            url:'/meeting-room-ensure/{meetingOrderId}',
             views:{
                 '':{
                     templateUrl:'meetingRoomEnsure.html',

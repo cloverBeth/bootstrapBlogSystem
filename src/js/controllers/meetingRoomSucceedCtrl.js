@@ -11,8 +11,8 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
     }
 
 
-    $scope.goToOnline=function(){
-        $state.go('onlineService');
+    $scope.goToMeetingOrder=function(){
+        $state.go('meetingRoomList');
     }
 
 })
