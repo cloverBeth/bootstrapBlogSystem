@@ -275,7 +275,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('serviceSucceed',{
-            url:'/service-succeed/{orderId}',
+            url:'/service-succeed/{serviceOrderId}',
             views:{
                 '':{
                     templateUrl:'serviceSucceed.html',

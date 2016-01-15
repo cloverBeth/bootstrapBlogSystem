@@ -38,20 +38,19 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
         })
             .success(function (data){
                 if(!data.data)return;
-
                 for(var i in data.data){
 
                     var order = {
                         number: data.data[i].ordersn,
-                        pro:data.data[i].services[0] ? data.data[i].services[0].parentTitle : "",
+                        pro:data.data[i].services ? data.data[i].services.parentTitle : "",
                         doDate:data.data[i].createddate,
-                        iconImg:data.data[i].services[0] ? data.data[i].services[0].image : "",
+                        iconImg:data.data[i].services ? data.data[i].services.image : "",
                         state:data.data[i].orderstatus,
-                        type:data.data[i].services[0] ? data.data[i].services[0].title:"",
-                        id:data.data[i].services[0] ? data.data[i].services[0]._id:"",
+                        type:data.data[i].services ? data.data[i].services.title:"",
+                        id:data.data[i].services ? data.data[i].services._id:"",
                         showSub : false,
                         linkMan:data.data[i].contactor,
-                        linkTel:data.data[i].services[0] ? data.data[i].services[0].mobile : "",
+                        linkTel:data.data[i].services ? data.data[i].services.mobile : "",
                         compName:data.data[i].company,
                         extraMsg:data.data[i].note,
                     };

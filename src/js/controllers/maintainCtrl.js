@@ -12,14 +12,31 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
 
 
     $scope.maintain={
-        rent:"garden_fix",
+        //rent:"garden_fix",
         _id:null
     }
+    $scope.typeList=[];
+    $scope.childType = null;
     $scope.phoneReg=/^([0-9]{11})$/;
+
+    $http.post(X_context.api+"services/listServices", {
+        "servicesId":2
+    })
+        .success(function (data){
+            for(var i in data.data){
+                var radio={
+                    "id":data.data[i]._id,
+                    "typeTitle":data.data[i].title,
+                };
+                $scope.childType=data.data[0]._id;
+                $scope.typeList.push(radio);
+            }
+            console.log( $scope.typeList)
+        });
 
     $scope.goGardenOrder=function(){
 
-        if(!$scope.maintain.rent){
+        if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的维修服务～'});
             return;
         }
@@ -43,14 +60,16 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
                     "company":$scope.maintain.compyName,
                     "contactor":$scope.maintain.compyGuy,
                     "mobile":$scope.maintain.guyTel,
-                    "title":$scope.maintain.rent,
+                    //"title":$scope.maintain.rent,
                     "note":$scope.maintain.extraInfo,
-                    "_id" : $scope.maintain._id,
+                    "serviceId" : $scope.childType,
+
+                    //"_id" : $scope.maintain._id,
 
                 })
                     .success(function (data){
                         console.log(data.data);
-                        $state.go('serviceSucceed',{from:{orderId : data.data[0]._id}});
+                        $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
 
                     });
 
