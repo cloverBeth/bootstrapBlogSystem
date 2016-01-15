@@ -1,7 +1,7 @@
 <div class="meeting-room-order">
     <header class="header">
         <div class="back">
-            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+            <a href="javascript:;" ui-sref="meetingRoomList"><img src="images/ico_1.png" /></a>
         </div>
         <div class="title">
             会议室预订
@@ -52,7 +52,6 @@
                     <td width="70%" class="schedule-status"
                         ng-class="{occupy:time.occupy,order:time.order}"
                             ng-click="orderTime($index)">
-
                     </td>
                 </tr>
             </table>
@@ -66,7 +65,6 @@
                 确认提交
             </button>
         </div>
-
     </div>
 
     <div ui-content-for="modals">
@@ -80,7 +78,7 @@
                         <h5 class="modal-title">确认修改日期</h5>
                     </div>
                     <div class="modal-body">
-                        <p >
+                        <p>
                             当日订单会在切换日期后重置,您确定?
                         </p>
                     </div>
@@ -92,5 +90,4 @@
             </div>
         </div>
     </div>
-
 </div>

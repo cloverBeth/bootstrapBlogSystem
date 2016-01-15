@@ -38,9 +38,12 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
                             image: item.productImage,
                             id: item.id
                         });
+
                     })
                     $scope.isOrder=false;
                     $scope.loading = false;
+                    $scope.orderlist.push(order);
+                    $scope.orderlist.push(order);
                     $scope.orderlist.push(order);
                 }
             })
@@ -52,7 +55,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
     }
     $(".order_list").on('scroll',function() {
 
-        if( $('.order_list').scrollTop() + $('.order_list').height() > $('.all-activity').height() - 50){
+        if( $('.order_list').scrollTop() + $('.order_list').height() > $('.order_all').height() - 50){
             $scope.currentPage++;
             $scope.getOrder();
         }

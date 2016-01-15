@@ -10,16 +10,16 @@
 
     <div class="activity-content">
         <h3>
-            Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架
+            {{title}}
         </h3>
-        <h4 class="activity-date">2015-12-18</h4>
+        <h4 class="activity-date">{{date}}</h4>
 
         <div class="activity-info-item">
             <div class="info-icon">
                 <img src="images/time.png" alt=""/>
             </div>
             <span>
-                活动时间: 01/12 00:00-01/12 23:00
+                活动时间: {{period}}
             </span>
         </div>
         <div class="activity-info-item">
@@ -27,7 +27,7 @@
                 <img src="images/weizhi.png" alt=""/>
             </div>
             <span>
-                活动地点: 苏州工业园区国际科技园a302
+                活动地点: {{location}}
             </span>
         </div>
         <div class="activity-info-item">
@@ -35,7 +35,7 @@
                 <img src="images/tel.png" alt=""/>
             </div>
             <span>
-                联系电话: 18888888888
+                联系电话: {{mobile}}
             </span>
         </div>
         <div ng-bind-html="embedHtml" class="embed-html">
@@ -51,7 +51,28 @@
                 免费活动
             </span>
         </div>
-        <div class="submit-sec" ng-click="showForm = true">
+
+        <div class="submit-sec grey-sec"  ng-show="expried">
+            <div class="submit-icon">
+                <img src="images/ren.png" alt=""/>
+            </div>
+            <span>
+                活动已过期
+            </span>
+        </div>
+
+        <div class="submit-sec grey-sec"  ng-show="!expried && submitted">
+            <div class="submit-icon">
+                <img src="images/ren.png" alt=""/>
+            </div>
+            <span>
+                您已报名
+            </span>
+        </div>
+
+        <div class="submit-sec red-sec"
+             ng-show="!expried && !submitted"
+             ng-click="goSubmit()">
             <div class="submit-icon">
                 <img src="images/ren.png" alt=""/>
             </div>
@@ -59,6 +80,7 @@
                 我要报名
             </span>
         </div>
+
     </div>
 
     <div class="activity-form" ng-show="showForm">
@@ -66,7 +88,7 @@
         <p class="form-label">
             姓名
         </p>
-        <input class="form-control" type="text"/>
+        <input class="form-control" type="tel"/>
         <p class="form-label">
             手机
         </p>
