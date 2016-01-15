@@ -460,7 +460,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('meetingRoomSucceed',{
-            url:'/meeting-room-succeed',
+            url:'/meeting-room-succeed/{orderId}',
             views:{
                 '':{
                     templateUrl:'meetingRoomSucceed.html',

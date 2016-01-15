@@ -1479,7 +1479,12 @@ label {
       width: 35%;
       text-align: center;
       float: left;
-      background: red;
+      &.red-sec{
+        background: red;
+      }
+      &.grey-sec{
+        background: #ccc;
+      }
       color: white;
       font-size: 16px;
       .submit-icon{

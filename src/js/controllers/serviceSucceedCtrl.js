@@ -21,11 +21,7 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
                 //$scope.orderSucceed.payway=data.data[0].paytype;
                 $scope.orderSucceed.status=data.data[0].orderstatus;
                 //$scope.orderSucceed.expense=data.data[0].;
-
-
             });
-
-
 
     $scope.goToOnline=function(){
         $state.go('onlineService');
