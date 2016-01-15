@@ -20,15 +20,11 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
     $scope.memo = "";
 
     $scope.$parent.memberPromise.then(function(data){
-            $scope.user = data.data.data[0].nickName;
-            $scope.phone = data.data.data[0].mobile;
-        });
+        $scope.user = data.data.data[0].nickName;
+        $scope.phone = data.data.data[0].mobile;
+    });
 
     $scope.goEnsure = function(){
-<<<<<<< HEAD
-        $state.go('meetingRoomSucceed',{meetingOrderId:data.data.data[0]._id});
-    }
-=======
         if(!$scope.user || !$scope.phone || !$scope.company){
             $rootScope.$broadcast('alerts',{type:'danger',message:"请完整填写."});
             return;
@@ -37,15 +33,12 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
             {
                 roomid : $scope.room.id,
                 meetingdate : `${$scope.date.getFullYear()}-${$scope.date.getMonth()+1}-${$scope.date.getDate()}`,
-                meetingtime : _.pluck($scope.time,'name').join(','),
-                memberid : X_context.memberId
-            }).success(function(data){
-                $state.go('meetingRoomSucceed',{orderId:data.data[0].orderId});
->>>>>>> c903489bce01f9e65423b5d670cf5a58240d7d12
+        meetingtime : _.pluck($scope.time,'name').join(','),
+            memberid : X_context.memberId
+    }).success(function(data){
+        $state.go('meetingRoomSucceed',{orderId:data.data[0].orderId});
 
-            })
-    }
+    })
+}
 
 })
-
-
