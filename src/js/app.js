@@ -72,12 +72,12 @@ angular.module('ZJSY_WeChat', [
             }
         }
     })
-        .state('store.sale', {
-            url: '/store-sale',
+        .state('store.coupon', {
+            url: '/store-coupon',
             views: {
                 '': {
-                    templateUrl: 'storeSale.html',
-                    controller: 'StoreSaleController'
+                    templateUrl: 'storeCoupon.html',
+                    controller: 'StoreCouponController'
                 }
             }
         })

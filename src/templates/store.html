@@ -24,11 +24,12 @@
   <div class="swiper-pagination"></div>
 </div>
 <div class="navTop" >
-  <ul class="clearfix" ng-show="isActive('/store-product') || isActive('/store-sale') || isActive('/store-detail')">
+  <ul class="clearfix" ng-show="isActive('/store-product') || isActive('/store-sale') ||
+    isActive('/store-coupon') || isActive('/store-detail')">
     <li><a href="javascript:;" ng-click="goIndex()"
            ng-class="{hover:isActive('/store-product')}">商品</a></li>
-    <li><a href="javascript:;" ui-sref="store.sale"
-           ng-class="{hover:isActive('/store-sale')}">优惠</a></li>
+    <li><a href="javascript:;" ui-sref="store.coupon"
+           ng-class="{hover:isActive('/store-coupon')}">优惠</a></li>
     <li><a href="javascript:;" ui-sref="store.detail"
            ng-class="{hover:isActive('/store-detail')}">商家</a></li>
   </ul>
