@@ -5,7 +5,7 @@ var X_context = {
     memberPhone : ""
 };
 X_context.devHost = (location.host == "localhost") ? "http://192.168.6.49" : "";
-X_context.authorization = readCookie('authorization') || X_context.authorization;
+X_context.authorization = readCookie('authorization') || X_context.guest;
 
 angular.module('ZJSY_WeChat', [
     //'ngRoute',
