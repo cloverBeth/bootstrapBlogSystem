@@ -54,8 +54,12 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
         }
         $scope.showForm = true;
     };
+    $scope.posted = false;
 
     $scope.submitActivity = function(){
+        if($scope.posted)return;
+        $scope.posted = true;
+
         if(!$scope.user || !$scope.userPhone){
             $rootScope.$broadcast('alerts',{type:'danger',message:"请完整填写。"});
             return;
@@ -68,7 +72,11 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
                 "paytype" : $scope.payType || 0,
                 "note" : $scope.memo
             }).success(function(data){
-
+                if($scope.payType == 1){
+                    $state.go('cardLogin',{from:{fromActivity : true,orderId : data.data[0].enrollId}});
+                }else{
+                    $state.go('activityEnrollSucceed',{orderId : data.data[0].enrollId})
+                }
             });
     }
 })

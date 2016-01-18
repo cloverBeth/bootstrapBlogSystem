@@ -331,19 +331,20 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('activity',{
-            url:'/activity',
+        .state('myActivity',{
+            url:'/my-activity',
             views:{
                 '':{
-                    templateUrl:'activity.html',
+                    templateUrl:'myActivity.html',
                     controllerProvider: function($state,$stateParams,checkAuth) {
                         if(!checkAuth.check())return $state.go('login');
-                        var ctrlName = "ActivityController";
+                        var ctrlName = "MyActivityController";
                         return ctrlName;
                     }
                 }
             }
         })
+
         .state('activityDetail',{
             url:'/activity-detail/{activityId}',
             views:{
@@ -359,6 +360,15 @@ angular.module('ZJSY_WeChat', [
                         var ctrlName = "ActivityDetailController";
                         return ctrlName;
                     }
+                }
+            }
+        })
+        .state('activityEnrollSucceed',{
+            url:'/activity-enroll-succeed/{orderId}',
+            views:{
+                '':{
+                    templateUrl:'activityEnrollSucceed.html',
+                    controller:'ActivityEnrollSucceedController'
                 }
             }
         })

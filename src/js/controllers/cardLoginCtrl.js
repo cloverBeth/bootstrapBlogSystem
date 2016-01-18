@@ -2,6 +2,7 @@
 angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$interval,$http,$stateParams,$state,$rootScope){
 
     $scope.fromOrder = $stateParams.from && $stateParams.from.fromOrder;
+    $scope.fromActivity = $stateParams.from && $stateParams.from.fromActivity;
     $scope.orderId = $stateParams.from && $stateParams.from.orderId;
 
     $scope.fromGetLeft = $stateParams.from && $stateParams.from.getLeft;
@@ -49,7 +50,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         posted = true;
 
         if(!$scope.showEdit ){
-            if($scope.fromOrder){
+            if($scope.fromOrder || $scope.fromActivity){
                 console.log($stateParams.from.orderId);
                 $scope.payModal = true;
                 setTimeout(function(){$('#pay_input').focus();},100);
@@ -77,7 +78,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     }
 
     $scope.cancelBind = function(){
-        if($scope.fromOrder)return;
+        if($scope.fromOrder || $scope.fromActivity)return;
         $http.post(X_context.api + "member/updateCard",{
             memberId : X_context.memberId,
             cardNo : " "
@@ -91,17 +92,30 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         if(!$scope.card.pwd || !$scope.card.num || !$scope.orderId)return;
         $scope.payPosted = true;
         $("#paying").html("支付中...");
-        $http.post(X_context.api + 'pay/consume',{
-            "orderId" : $scope.orderId,
-            "memberCard" : $scope.card.num,
-            "passwd" : $scope.card.pwd
-        }).success(function(data){
-            $scope.payModal = false;
-            $scope.$parent.cart.products = [];
-            $scope.showEdit = false;
-            $scope.payPosted = false;
-            $state.go('orderSucceed',{orderId:$scope.orderId});
-        });
+        if($scope.fromOrder){
+            $http.post(X_context.api + 'pay/consume',{
+                "orderId" : $scope.orderId,
+                "memberCard" : $scope.card.num,
+                "passwd" : $scope.card.pwd
+            }).success(function(data){
+                $scope.payModal = false;
+                $scope.$parent.cart.products = [];
+                $scope.showEdit = false;
+                $scope.payPosted = false;
+                $state.go('orderSucceed',{orderId:$scope.orderId});
+            });
+        }else{
+            $http.post(X_context.api + 'pay/activityConsume',{
+                "orderId" : $scope.orderId,
+                "memberCard" : $scope.card.num,
+                "passwd" : $scope.card.pwd
+            }).success(function(data){
+                $scope.payModal = false;
+                $scope.showEdit = false;
+                $scope.payPosted = false;
+                $state.go('activityEnrollSucceed',{orderId:$scope.orderId});
+            });
+        }
     }
 
     $scope.getLeft = function(){
