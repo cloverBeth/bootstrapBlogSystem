@@ -1,6 +1,6 @@
-<div class="main">
+<div class="main" data-ng-init="init()" infinite-scroll="addItems()" can-load="canLoad" threshold="{{maxItems}}">
     <div class="coupon-area">
-        <div class="coupons" ng-repeat="coupon in couponList track by $index"
+        <div class="coupons" ng-repeat="coupon in couponList track by $index" ng-click="takeCoupon($index)"
              ng-style="{'background-image':'url(images/coupon_'+ checkBlue(coupon.status, true) +'.png)'}">
             <div class="left-coupon">
                 <div class="left-coupon-exclude-left-blank">
