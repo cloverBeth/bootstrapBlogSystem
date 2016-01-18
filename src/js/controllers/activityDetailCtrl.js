@@ -15,7 +15,7 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
     $scope.userPhone = null;
     $scope.memo = "";
     $scope.price = "";
-    $scope.payMethod = "";
+    $scope.payType = "";
 
 
     $scope.showForm = false;
@@ -39,6 +39,8 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
             $scope.location = data.location;
             $scope.mobile = data.mobile;
             $scope.embedHtml = $sce.trustAsHtml(data.content);
+            $scope.payType = data.payType;
+            $scope.price = $scope.payType==1 ? data.price : data.point;
         });
 
     $scope.goSubmit = function(){

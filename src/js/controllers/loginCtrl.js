@@ -71,8 +71,8 @@ angular.module('ZJSY_WeChat').controller('LoginController',function($scope,$inte
 
                         });
                 }
-                $state.go('store.product');
-                //window.history.back();
+                //$state.go('store.product');
+                window.history.back();
 
             }).error(function(){
                     $scope.captcha = "";

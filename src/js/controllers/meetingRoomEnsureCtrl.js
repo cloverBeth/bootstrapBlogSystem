@@ -33,8 +33,8 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
             {
                 roomid : $scope.room.id,
                 meetingdate : `${$scope.date.getFullYear()}-${$scope.date.getMonth()+1}-${$scope.date.getDate()}`,
-        meetingtime : _.pluck($scope.time,'name').join(','),
-            memberid : X_context.memberId
+                meetingtime : _.pluck($scope.time,'name').join(','),
+                memberid : X_context.memberId
     }).success(function(data){
         $state.go('meetingRoomSucceed',{orderId:data.data[0].orderId});
 

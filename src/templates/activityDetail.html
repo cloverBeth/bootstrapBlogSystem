@@ -47,8 +47,14 @@
             <div class="footer-icon">
                 <img src="images/qian.png"  alt=""/>
             </div>
-            <span>
+            <span ng-show="payType!=1 && payType!=3">
                 免费活动
+            </span>
+            <span ng-show="payType==1">
+                活动费用:￥{{price}}元
+            </span>
+            <span ng-show="payType==3">
+                活动费用:{{price}}积分
             </span>
         </div>
 
@@ -88,22 +94,32 @@
         <p class="form-label">
             姓名
         </p>
-        <input class="form-control" type="tel"/>
+        <input class="form-control" type="text" ng-model="user"/>
         <p class="form-label">
             手机
         </p>
-        <input class="form-control" type="text"/>
+        <input class="form-control" type="tel" ng-model="userPhone"/>
         <p class="form-label">
             备注
         </p>
-        <input class="form-control" type="text"/>
-        <p class="form-info">
-            报名费 ￥300元
+        <input class="form-control" type="text" ng-model="memo"/>
+
+        <p class="form-info" ng-show="payType==1">
+            报名费 ￥{{price}}元
 
         </p>
-        <p class="form-info">
+        <p class="form-info" ng-show="payType==3">
+            报名费 {{price}}积分
+
+        </p>
+
+        <p class="form-info" ng-show="payType==1">
             支付方式: 一卡通
         </p>
+        <p class="form-info" ng-show="payType==3">
+            支付方式: 积分
+        </p>
+
         <div style="width: 90%;margin: 25px auto 0 auto;">
             <button class="btn redBtn" style="width: 100%;font-size: 16px;">
                 报名
