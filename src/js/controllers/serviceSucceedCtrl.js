@@ -12,9 +12,9 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
 
         $http.post(X_context.api+"servicesOrder/list", {
             "memberid": X_context.memberId,
+                 "_id": $stateParams.serviceOrderId,
                   page: $scope.currentPage,
               pageSize: $scope.pageSize,
-                 "_id": $stateParams.serviceOrderId,
         }).success(function (data){
 
                 if(!data.data){return;}
