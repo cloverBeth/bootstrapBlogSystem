@@ -36,8 +36,8 @@ angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope
             storeId : $scope.$parent.storeId,
             page : $scope.currentPage,
             size : $scope.pageSize
-        }).success(function (data) {
-            var res = data.data;
+        }).success(function (resp) {
+            var res = resp.data;
             $scope.couponList = $scope.couponList.concat(res.coupon);
             $scope.maxItems = res.page.total;
             $scope.pageNum = ($scope.maxItems && $scope.couponList.length >= 1)
@@ -59,6 +59,14 @@ angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope
         var status = $scope.couponList[index].status;
         if(status == '登录查看') {
             $state.go('login');
+        } else if(status == '点击领取') {
+            $http.post(X_context.api + 'coupon/take',{
+                couponId : $scope.couponList[index]._id
+            }).success(function (resp) {
+                if(resp.status == 'OK') {
+                    $scope.couponList[index].status = '已领取';
+                }
+            });
         }
     }
 
