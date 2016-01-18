@@ -10,7 +10,7 @@
     </header>
 
 
-    <div class="serviceList">
+    <div class="serviceList main">
         <div>
             <img src="images/garden_banner.jpg" width="100%"alt=""/>
         </div>
@@ -27,18 +27,17 @@
                     </div>
                     <div class="subBtn">
                         <span class="serviceStatus">{{order.state}}</span>
-                        <span class="toggleBg" ng-class="{isTrue:!order.showSub,isFalse:order.showSub}"
+                        <span class="toggleBg" ng-show="order.showMeet"ng-class="{isTrue:!order.showSub,isFalse:order.showSub}"
                               ng-click="order.showSub = !order.showSub"> </span>
+                        <span class="toggleBg" ng-hide="order.showMeet"ng-class="{isTrue:!order.showRoom,isFalse:order.showRoom}"
+                              ng-click="order.showRoom = !order.showRoom"> </span>
+
                     </div>
                 </div>
                 <ul class="submenu" ng-show="order.showSub">
                     <li class="row">
                         <label class="col-xs-4"for="serType0">服务类型</label><!--显示的是会议室名称-->
                         <p class="col-xs-8"id="serType0">{{order.type}}</p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="serType6">会议室时间</label>
-                        <p class="col-xs-8"id="serType6">{{order.TimeLine}}</p>
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="compyName0">公司名称</label>
@@ -55,7 +54,35 @@
                         <p class="col-xs-7 textarea"id="extraInfo0">{{order.extraMsg}}</p>
                     </li>
                 </ul>
-                <button ng-show="orderone.status=='未付款'" class="btn quickpay" ng-click="payAgain()">
+                <ul class="submenu" ng-show="order.showRoom">
+                    <li class="row">
+                        <label class="col-xs-4"for="serType7">服务类型</label><!--显示的是会议室名称-->
+                        <p class="col-xs-8"id="serType7">{{order.roomName}}</p>
+                    </li>
+                    <li class="row">
+                        <label class="col-xs-4"for="timeline">会议室时间</label>
+                        <p class="col-xs-8"id="timeline">{{order.timeLine}}</p>
+                    </li>
+                    <li class="row">
+                        <label class="col-xs-4"for="expense">总 消 费</label>
+                        <p class="col-xs-8"id="expense">{{order.expense}}</p>
+                    </li>
+                    <li class="row">
+                        <label class="col-xs-4"for="compyName9">公司名称</label>
+                        <p class="col-xs-8"id="compyName9">{{order.compName}}</p>
+                    </li>
+                    <li class="row">
+                        <label class="col-xs-4"for="compyGuy01">联 系 人</label>
+                        <p class="col-xs-8"id="compyGuy01">
+                            {{order.linkMan+order.linkTel}}
+                        </p>
+                    </li>
+                    <li class="row">
+                        <label class="col-xs-4"for="extraInfo02">备注信息</label>
+                        <p class="col-xs-7 textarea"id="extraInfo02">{{order.extraMsg}}</p>
+                    </li>
+                </ul>
+                <button ng-show="order.status=='未付款'" class="btn quickpay" ng-click="payAgain()">
                     立即支付
                 </button>
             </li>
