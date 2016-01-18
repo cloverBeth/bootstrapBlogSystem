@@ -16,19 +16,20 @@
         </div>
         <ul>
             <li class="outerList"ng-repeat="order in orderList track by $index">
-                <div class="picTitle"><img src="{{order.iconImg}}"alt=""/></div>
-                <div class="proTitle">
+                <div class="picTitle col-xs-2"><img src="{{order.iconImg}}"alt=""/></div>
+                <div class="proTitle col-xs-7">
                     <h4>{{order.pro}}</h4>
                     <p>订单号：{{order.number}}</p>
                 </div>
-                <div class="proTime">
-                    <span>{{order.doDate | date:"yyyy/MM/dd"}}</span>
-                </div>
-                <div class="proState">
-                    <p>{{order.state}}</p>
-                    <span class="toggleBg" ng-class="{isTrue:!order.showSub,isFalse:order.showSub}"
-                          ng-click="order.showSub = !order.showSub"> </span>
-
+                <div class="proState col-xs-3">
+                    <div class="proTime">
+                        <span>{{order.doDate | date:"yyyy/MM/dd"}}</span>
+                    </div>
+                    <div class="subBtn">
+                        <span class="serviceStatus">{{order.state}}</span>
+                        <span class="toggleBg" ng-class="{isTrue:!order.showSub,isFalse:order.showSub}"
+                              ng-click="order.showSub = !order.showSub"> </span>
+                    </div>
                 </div>
                 <ul class="submenu" ng-show="order.showSub">
                     <li class="row">

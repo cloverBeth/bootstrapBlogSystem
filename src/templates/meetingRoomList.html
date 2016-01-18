@@ -9,7 +9,7 @@
     <div class="room-list pd-48">
         <div class="meeting-room" ng-repeat="room in roomList track by $index" ng-click="$parent.gotoDetail(room.id)">
             <div class="room-image">
-                <img src="{{room.img}}" alt=""/>
+                <img src="{{room.img}}" alt="" onerror="this.src='images/meeting-room-1.png'"/>
                 <div class="float-info">
                     <p>
                         {{room.info1}}

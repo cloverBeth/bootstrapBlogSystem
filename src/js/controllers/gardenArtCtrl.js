@@ -9,19 +9,23 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
         "servicesId":4
     })
         .success(function(data){
+            $scope.childType=data.data[0]._id;
             for(var i in data.data){
                 var radio={
-                    "id":data.data[i]._id,
-                    "typeTitle":data.data[i].title
+                      "id":data.data[i]._id,
+               "typeTitle":data.data[i].title
                 }
                 $scope.typeList.push(radio);
-                $scope.childType=data.data[0]._id;
 
             }
         })
 
     $scope.goGardenOrder=function(){
-        if (!$scope.garden.compyName) {
+        if(!$scope.childType){
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的园艺服务～'});
+            return;
+        }
+        else if (!$scope.garden.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
         }
@@ -39,19 +43,23 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
 
                 $http.post(X_context.api+"servicesOrder/add", {
                     "memberid": X_context.memberId,
-                    "company":$scope.garden.compyName,
-                    "contactor":$scope.garden.compyGuy,
-                    "mobile":$scope.garden.guyTel,
-                    "note":$scope.garden.extraInfo,
-                    //"title":$scope.childType,
-                    "serviceId" : $scope.childType
+                     "company":$scope.garden.compyName,
+                   "contactor":$scope.garden.compyGuy,
+                      "mobile":$scope.garden.guyTel,
+                        "note":$scope.garden.extraInfo,
+                  "serviceId" : $scope.childType
 
                 })
                     .success(function (data){
-                        console.log(data.data);
-                        $state.go('serviceSucceed',{serviceOrderId : data.data[0]._id});
+                        if(data.code==200){
+                            $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                            //console.log(data.data);
+                        }
+                        else{
+                            $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                        }
 
-                    });
+                    })
 
             });
 

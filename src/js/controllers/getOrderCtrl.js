@@ -41,18 +41,19 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
         }
 
         $http.post(X_context.api + 'order/add',{
-            "storeId" : $scope.order.storeId,
-            "address" : $scope.address,
+                "storeId" : $scope.order.storeId,
+                "address" : $scope.address,
             "orderStatus" : "未处理",
-            "payMethod" : $scope.payOption=="delivery"?"现金":"一卡通",
-            "phone" : $scope.phone,
-            "receiver" : $scope.username,
-            "orderItems" : orderList
+              "payMethod" : $scope.payOption=="delivery"?"现金":"一卡通",
+                  "phone" : $scope.phone,
+               "receiver" : $scope.username,
+             "orderItems" : orderList
 
         }).success(function(data){
             $scope.cart.products = [];
             $scope.order.product = [];
-                $state.go('orderSucceed',{orderId:data.data[0]._id});
+            $state.go('orderSucceed',{orderId:data.data[0]._id});
+
             });
 
         $http.post(X_context.api+'product/list',{
@@ -63,7 +64,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             $scope.amount=data.data[0].amount;
             console.log($scope.amount);
             if(parseInt($scope.amount.length)<=0){
-            $rootScope.$broadcast('alerts',{type:'danger',message:'商品被抢光啦～'});
+                $rootScope.$broadcast('alerts',{type:'danger',message:'商品被抢光啦～'});
                 return;
             }
 

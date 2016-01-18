@@ -10,16 +10,16 @@
 
     <div class="activity-content">
         <h3>
-            Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架
+            {{title}}
         </h3>
-        <h4 class="activity-date">2015-12-18</h4>
+        <h4 class="activity-date">{{date}}</h4>
 
         <div class="activity-info-item">
             <div class="info-icon">
                 <img src="images/time.png" alt=""/>
             </div>
             <span>
-                活动时间: 01/12 00:00-01/12 23:00
+                活动时间: {{period}}
             </span>
         </div>
         <div class="activity-info-item">
@@ -27,7 +27,7 @@
                 <img src="images/weizhi.png" alt=""/>
             </div>
             <span>
-                活动地点: 苏州工业园区国际科技园a302
+                活动地点: {{location}}
             </span>
         </div>
         <div class="activity-info-item">
@@ -35,7 +35,7 @@
                 <img src="images/tel.png" alt=""/>
             </div>
             <span>
-                联系电话: 18888888888
+                联系电话: {{mobile}}
             </span>
         </div>
         <div ng-bind-html="embedHtml" class="embed-html">
@@ -47,11 +47,38 @@
             <div class="footer-icon">
                 <img src="images/qian.png"  alt=""/>
             </div>
-            <span>
+            <span ng-show="payType!=1 && payType!=3">
                 免费活动
             </span>
+            <span ng-show="payType==1">
+                活动费用:￥{{price}}元
+            </span>
+            <span ng-show="payType==3">
+                活动费用:{{price}}积分
+            </span>
         </div>
-        <div class="submit-sec" ng-click="showForm = true">
+
+        <div class="submit-sec grey-sec"  ng-show="expried">
+            <div class="submit-icon">
+                <img src="images/ren.png" alt=""/>
+            </div>
+            <span>
+                活动已过期
+            </span>
+        </div>
+
+        <div class="submit-sec grey-sec"  ng-show="!expried && submitted">
+            <div class="submit-icon">
+                <img src="images/ren.png" alt=""/>
+            </div>
+            <span>
+                您已报名
+            </span>
+        </div>
+
+        <div class="submit-sec red-sec"
+             ng-show="!expried && !submitted"
+             ng-click="goSubmit()">
             <div class="submit-icon">
                 <img src="images/ren.png" alt=""/>
             </div>
@@ -59,6 +86,7 @@
                 我要报名
             </span>
         </div>
+
     </div>
 
     <div class="activity-form" ng-show="showForm">
@@ -66,24 +94,34 @@
         <p class="form-label">
             姓名
         </p>
-        <input class="form-control" type="text"/>
+        <input class="form-control" type="text" ng-model="user"/>
         <p class="form-label">
             手机
         </p>
-        <input class="form-control" type="text"/>
+        <input class="form-control" type="tel" ng-model="userPhone"/>
         <p class="form-label">
             备注
         </p>
-        <input class="form-control" type="text"/>
-        <p class="form-info">
-            报名费 ￥300元
+        <input class="form-control" type="text" ng-model="memo"/>
+
+        <p class="form-info" ng-show="payType==1">
+            报名费 ￥{{price}}元
 
         </p>
-        <p class="form-info">
+        <p class="form-info" ng-show="payType==3">
+            报名费 {{price}}积分
+
+        </p>
+
+        <p class="form-info" ng-show="payType==1">
             支付方式: 一卡通
         </p>
+        <p class="form-info" ng-show="payType==3">
+            支付方式: 积分
+        </p>
+
         <div style="width: 90%;margin: 25px auto 0 auto;">
-            <button class="btn redBtn" style="width: 100%;font-size: 16px;">
+            <button class="btn redBtn" style="width: 100%;font-size: 16px;" ng-click="submitActivity()">
                 报名
             </button>
         </div>

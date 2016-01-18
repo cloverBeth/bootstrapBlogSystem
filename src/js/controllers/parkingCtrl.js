@@ -55,23 +55,26 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
             $scope.$parent.memberPromise.then(function () {
                 $http.post(X_context.api + "servicesOrder/add", {
                     "memberid": X_context.memberId,
-                    "company": $scope.parking.compyName,
-                    "contactor": $scope.parking.compyGuy,
-                    "mobile": $scope.parking.guyTel,
-                    //"title":$scope.parking.rent,
-                    //"_id" : $scope.parking._id,
-                    "serviceId" : $scope.childType,
-                    "note": $scope.parking.extraInfo
+                     "company": $scope.parking.compyName,
+                   "contactor": $scope.parking.compyGuy,
+                      "mobile": $scope.parking.guyTel,
+                  "serviceId" : $scope.childType,
+                        "note": $scope.parking.extraInfo
                 })
                     .success(function (data) {
-                        console.log(data.data);
-                        $state.go('serviceSucceed',{serviceOrderId : data.data[0]._id});
+                        if(data.code==200){
+                            $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                            //console.log(data.data);
+                        }
+                        else{
+                            $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                        }
 
-                    });
+                    })
 
-            });
+              });
 
-        }
+         }
 
     }
 

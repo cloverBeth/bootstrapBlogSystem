@@ -288,7 +288,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('serviceFailed',{
-            url:'/service-failed/{orderId}',
+            url:'/service-failed/{serviceOrderId}',
             views:{
                 '':{
                     templateUrl:'serviceFailed.html',
@@ -460,7 +460,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('meetingRoomSucceed',{
-            url:'/meeting-room-succeed',
+            url:'/meeting-room-succeed/{orderId}',
             views:{
                 '':{
                     templateUrl:'meetingRoomSucceed.html',
@@ -470,7 +470,7 @@ angular.module('ZJSY_WeChat', [
         })
         .state('meetingRoomEnsure',{
             params: {meetingOrder: {}},
-            url:'/meeting-room-ensure',
+            url:'/meeting-room-ensure/{meetingOrderId}',
             views:{
                 '':{
                     templateUrl:'meetingRoomEnsure.html',
