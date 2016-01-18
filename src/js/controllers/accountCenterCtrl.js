@@ -72,6 +72,10 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
         console.log('here,logout');
         X_context.authorization = X_context.guest;
         eraseCookie('authorization');
+        $http.defaults.headers.post['Authorization'] = X_context.guest;
+        $http.defaults.headers.put['Authorization'] = X_context.guest;
+        $http.defaults.headers.get['Authorization'] = X_context.guest;
+        $http.defaults.headers.delete['Authorization'] = X_context.guest;
         $state.go('store.product',{storeId:X_context.storeId});
     }
     $scope.goIndex=function(){
