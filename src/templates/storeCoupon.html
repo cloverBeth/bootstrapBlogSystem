@@ -1,6 +1,6 @@
-<div class="main">
+<div class="main" data-ng-init="init()" infinite-scroll="addItems()" can-load="canLoad" threshold="{{maxItems}}">
     <div class="coupon-area">
-        <div class="coupons" ng-repeat="coupon in couponList track by $index"
+        <div class="coupons" ng-repeat="coupon in couponList track by $index" ng-click="takeCoupon($index)"
              ng-style="{'background-image':'url(images/coupon_'+ checkBlue(coupon.status, true) +'.png)'}">
             <div class="left-coupon">
                 <div class="left-coupon-exclude-left-blank">
@@ -13,15 +13,15 @@
             </div>
             <div class="right-coupon" ng-style="{'color':checkBlue(coupon.status, false)}">
                 <div class="right-text">
-                    ---- {{coupon.storeName}} - {{coupon.type}} ----
+                    <span style="font-size: 15px;">--- {{coupon.storeName}} - {{coupon.type}} ---</span>
                     <br/>
-                    {{coupon.startDate}} 至 {{coupon.endDate}}
+                    {{coupon.startDate}}至{{coupon.endDate}}
                 </div>
                 <div>
                     <center><hr color="{{checkBlue(coupon.status, false)}}"/></center>
                 </div>
                 <div class="right-text">
-                    {{coupon.name}}
+                    <b>{{coupon.name}}</b>
                     <br/>
                     {{coupon.description}}
                 </div>

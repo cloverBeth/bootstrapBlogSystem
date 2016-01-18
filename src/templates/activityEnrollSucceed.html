@@ -1,0 +1,48 @@
+<div class="main-section service-succeed">
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+            {{title}}
+        </div>
+    </header>
+
+    <div class="main mt-15">
+
+        <div class="clearfix" ng-class="{succeed:success,failed:!success}">
+            <p ng-show="success">
+                <strong>您已成功报名，我们会尽快联系您！</strong>
+                如您有其他问题，请拨打商家服务热线。
+            </p>
+            <p ng-show="!success">
+                <strong>您的报名未成功！</strong>
+                如您有其他问题，请拨打商家服务热线。
+            </p>
+        </div>
+        <div class="danhao">
+            <p><font>订单编号</font>{{orderSucceed.orderNumber}}</p>
+            <p><font>服务类型</font>活动报名</p>
+            <p class="consume"
+               ng-show="cost"><font>本次消费</font><span>¥{{orderSucceed.expense || 0}}</span></p>
+        </div>
+        <div class="pay clearfix" ng-show="cost">
+            <h3>支付方式</h3><strong>{{orderSucceed.payway}}</strong>
+        </div>
+        <div class="pay clearfix">
+            <h3>联系电话</h3><a href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
+        </div>
+        <div style="width: 80%;margin: 10px 10%;">
+
+            <button class="redBtn btn" ng-click="goToList()"
+                    ng-style="{'width': '30%',
+                    'margin-left':!success ? '20%' : '35%'}">返回活动</button>
+
+            <button class="redBtn btn" ng-click="goToPay()"
+                    ng-show="!success && orderSucceed.payway == '一卡通'"
+                    style="width: 30%;">继续付款</button>
+        </div>
+
+    </div>
+    <div class="kong"></div>
+</div>

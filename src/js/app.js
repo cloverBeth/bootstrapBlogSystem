@@ -5,7 +5,7 @@ var X_context = {
     memberPhone : ""
 };
 X_context.devHost = (location.host == "localhost") ? "http://192.168.6.49" : "";
-X_context.authorization = readCookie('authorization') || X_context.authorization;
+X_context.authorization = readCookie('authorization') || X_context.guest;
 
 angular.module('ZJSY_WeChat', [
     //'ngRoute',
@@ -331,19 +331,20 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('activity',{
-            url:'/activity',
+        .state('myActivity',{
+            url:'/my-activity',
             views:{
                 '':{
-                    templateUrl:'activity.html',
+                    templateUrl:'myActivity.html',
                     controllerProvider: function($state,$stateParams,checkAuth) {
                         if(!checkAuth.check())return $state.go('login');
-                        var ctrlName = "ActivityController";
+                        var ctrlName = "MyActivityController";
                         return ctrlName;
                     }
                 }
             }
         })
+
         .state('activityDetail',{
             url:'/activity-detail/{activityId}',
             views:{
@@ -359,6 +360,15 @@ angular.module('ZJSY_WeChat', [
                         var ctrlName = "ActivityDetailController";
                         return ctrlName;
                     }
+                }
+            }
+        })
+        .state('activityEnrollSucceed',{
+            url:'/activity-enroll-succeed/{orderId}',
+            views:{
+                '':{
+                    templateUrl:'activityEnrollSucceed.html',
+                    controller:'ActivityEnrollSucceedController'
                 }
             }
         })
