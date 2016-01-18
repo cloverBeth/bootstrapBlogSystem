@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($scope,$state,$http,$stateParams,$sce){
+angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($scope,$state,$http,$stateParams,$sce,$rootScope){
     $scope.activityId = $stateParams.activityId;
 
     $scope.title = "";
@@ -15,7 +15,7 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
     $scope.userPhone = null;
     $scope.memo = "";
     $scope.price = "";
-    $scope.payMethod = "";
+    $scope.payType = "";
 
 
     $scope.showForm = false;
@@ -39,13 +39,36 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
             $scope.location = data.location;
             $scope.mobile = data.mobile;
             $scope.embedHtml = $sce.trustAsHtml(data.content);
+            $scope.payType = data.paytype;
+            $scope.price = $scope.payType==1 ? data.price : data.point;
         });
 
+    $scope.$parent.memberPromise.then(function(data){
+        $scope.user = data.data.data[0].nickName;
+        $scope.userPhone = data.data.data[0].mobile;
+    });
+
     $scope.goSubmit = function(){
-        console.log($scope.isAuth)
         if(!$scope.isAuth){
             $state.go('login');
         }
         $scope.showForm = true;
+    };
+
+    $scope.submitActivity = function(){
+        if(!$scope.user || !$scope.userPhone){
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请完整填写。"});
+            return;
+        }
+        $http.post(X_context.api + 'activity/enroll',
+            {
+                "activityid" : $scope.activityId,
+                "username" : $scope.user,
+                "mobile" : $scope.userPhone,
+                "paytype" : $scope.payType || 0,
+                "note" : $scope.memo
+            }).success(function(data){
+
+            });
     }
 })
