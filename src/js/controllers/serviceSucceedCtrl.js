@@ -1,8 +1,10 @@
 "use strict";
 angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($scope,$state,$http,$stateParams){
     $scope.title="下单成功";
+    $scope.currentPage = 1;
+    $scope.pageSize = 5;
     $scope.orderSucceed={
-        telphone:"66666666666"
+        //telphone:"66666666666"
     }
 
 
@@ -10,13 +12,16 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
 
         $http.post(X_context.api+"servicesOrder/list", {
             "memberid": X_context.memberId,
-            "_id": $stateParams.serviceOrderId,
+                  page: $scope.currentPage,
+              pageSize: $scope.pageSize,
+                 "_id": $stateParams.serviceOrderId,
         }).success(function (data){
 
-                if(!data.data.result[0]){return;}
+                if(!data.data){return;}
                 $scope.orderSucceed.type=data.data.result[0].services.parentTitle;
                 $scope.orderSucceed.orderNumber=data.data.result[0].ordersn;
                 $scope.orderSucceed.status=data.data.result[0].orderstatus;
+                $scope.orderSucceed.telphone=data.data.result[0].services.mobile;
                 //
                 //if(!data.data[0]){return;}
                 //$scope.orderSucceed.type=data.data[0].services.parentTitle;

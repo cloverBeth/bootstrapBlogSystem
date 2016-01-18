@@ -18,7 +18,7 @@
             <div class="outer">
                 <div class="choosed "ng-repeat="radio in typeList track by $index">
                     <input type="radio" name="garden"id="{{'radio-'+radio.id}}" class="regular-checkbox"
-                           ng-value="radio.id"ng-model="childType">
+                           ng-value="radio.id"ng-model="$parent.childType">
                     <label for="{{'radio-'+radio.id}}"></label><span>{{radio.typeTitle}}</span>
                 </div>
             </div>
