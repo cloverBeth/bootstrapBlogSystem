@@ -1416,10 +1416,10 @@ label {
 }
 .activity-detail {
   height: 100%;
-  img{
+  img {
     max-width: 100%;
   }
-  .activity-content{
+  .activity-content {
     margin-top: 10px;
     padding: 5px 10px 90px 10px;
     background: white;
@@ -1427,15 +1427,15 @@ label {
     position: relative;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    .embed-html{
+    .embed-html {
       margin-top: 20px;
     }
     .activity-date {
       color: $fontDarkGrey;
     }
 
-    .activity-info-item{
-      .info-icon{
+    .activity-info-item {
+      .info-icon {
         height: 20px;
         width: 18px;
         //vertical-align: middle;
@@ -1451,30 +1451,30 @@ label {
     }
 
   }
-  .activity-footer{
+  .activity-footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     background: white;
     height: 60px;
     border-top: 1px solid $fontGrey;
-    >div{
+    > div {
       display: inline-block;
       height: 100%;
       line-height: 60px;
     }
-    .footer-title{
+    .footer-title {
       padding-left: 20px;
       width: 65%;
       float: left;
       font-size: 16px;
-      .footer-icon{
+      .footer-icon {
         height: 16px;
         width: 16px;
         display: inline-block;
       }
     }
-    .submit-sec{
+    .submit-sec {
       line-height: 40px;
       width: 35%;
       text-align: center;
@@ -1482,7 +1482,7 @@ label {
       background: red;
       color: white;
       font-size: 16px;
-      .submit-icon{
+      .submit-icon {
         margin: auto;
         line-height: 30px;
         width: 20px;
@@ -1491,8 +1491,8 @@ label {
       }
     }
   }
-  .activity-form{
-    .close-icon{
+  .activity-form {
+    .close-icon {
       position: absolute;
       right: 5px;
       top: 5px;
@@ -1506,18 +1506,84 @@ label {
     z-index: 9999;
     height: 400px;
     width: 100%;
-    .form-control{
+    .form-control {
       border-radius: 0;
     }
-    .form-label{
+    .form-label {
       margin-top: 10px !important;
       margin-bottom: 5px !important;
       font-size: 16px;
     }
-    .form-info{
+    .form-info {
       margin: 10px !important;
       font-size: 16px;
     }
 
   }
+
+
+
 }
+
+/************************ coupon of store *********************************/
+.coupon-area {
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 100px;
+
+  .coupons {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 120px;
+    margin: 0 15px 20px 15px;
+
+    .left-coupon {
+      display: inline-block;
+      width: 26%;
+      height: 120px;
+
+      .left-coupon-exclude-left-blank {
+        float: right;
+        width: 76%;
+        height: 100%;
+
+        .left-text {
+          text-align: center;
+          margin-top: 40px;
+          width: 93%;
+
+          .coupon-price {
+            color: white;
+          }
+
+          .coupon-status {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    .right-coupon {
+      float: right;
+      width: 74%;
+      height: 100%;
+      text-align: center;
+
+      .right-text {
+        height: 50%;
+        padding-top: 10px;
+      }
+
+      hr {
+        width: 85%;
+        text-align: center;
+        margin: 0px;
+      }
+    }
+
+
+  }
+}
+
+
+

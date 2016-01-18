@@ -1,0 +1,31 @@
+<div class="main">
+    <div class="coupon-area">
+        <div class="coupons" ng-repeat="coupon in couponList track by $index"
+             ng-style="{'background-image':'url(images/coupon_'+ checkBlue(coupon.status, true) +'.png)'}">
+            <div class="left-coupon">
+                <div class="left-coupon-exclude-left-blank">
+                    <div class="left-text">
+                        <span class="coupon-price"><b>￥{{coupon.price}}</b></span>
+                        <br/>
+                        <span class="coupon-status" ng-style="{'color':checkBlue(coupon.status, false)}">{{coupon.status}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right-coupon" ng-style="{'color':checkBlue(coupon.status, false)}">
+                <div class="right-text">
+                    ---- {{coupon.storeName}} - {{coupon.type}} ----
+                    <br/>
+                    {{coupon.startDate}} 至 {{coupon.endDate}}
+                </div>
+                <div>
+                    <center><hr color="{{checkBlue(coupon.status, false)}}"/></center>
+                </div>
+                <div class="right-text">
+                    {{coupon.name}}
+                    <br/>
+                    {{coupon.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
