@@ -45,10 +45,14 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
             $scope.price = $scope.payType==1 ? data.price : data.point;
         });
 
-    $scope.$parent.memberPromise.then(function(data){
-        $scope.user = data.data.data[0].nickName;
-        $scope.userPhone = data.data.data[0].mobile;
-    });
+    if($scope.isAuth){
+        $http.get(X_context.api + 'member/getCurMem')
+            .success(function(data){
+                $scope.user = data.data[0].nickName;
+                $scope.userPhone = data.data[0].mobile;
+            });
+    }
+
 
     $scope.goSubmit = function(){
         if(!$scope.isAuth){

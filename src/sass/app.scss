@@ -550,6 +550,24 @@ em#close{opacity:1;}
 h3.ng-binding{margin:10px 0 0 0;}
 strong.ng-binding{font-weight:400;}
 
+.product-detail{
+  .mark-sec{
+    position:absolute;
+    right : 5px;
+    top : 220px;
+    img{
+      width: 30px;
+      height: 30px;
+    }
+    span{
+      margin-top: 5px;
+      display: block;
+      font-size: 16px;
+      color: #666;
+    }
+  }
+}
+
 .project-detail-img{
   width: 250px;
   height: 218px;
