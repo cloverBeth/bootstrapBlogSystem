@@ -59,7 +59,7 @@
                 </ul>
                 <ul class="submenu" ng-show="order.showRoom">
                     <li class="row">
-                        <label class="col-xs-4"for="serType7">服务类型</label><!--显示的是会议室名称-->
+                        <label class="col-xs-4"for="serType7">会议室名称</label><!--显示的是会议室名称-->
                         <p class="col-xs-8"id="serType7">{{order.roomName}}</p>
                     </li>
                     <li class="row">
@@ -85,7 +85,7 @@
                         <p class="col-xs-7 textarea"id="extraInfo02">{{order.extraMsg}}</p>
                     </li>
 
-                    <button ng-show="order.status=='未付款'&& order.showMeet" class="btn quickpay" ng-click="payAgain()">
+                    <button ng-show="order.status=='未付款'" class="btn quickpay" ng-click="payAgain()">
                         立即支付
                     </button>
 

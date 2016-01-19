@@ -14,13 +14,27 @@
         </div>
         <div class="garden-service row">
             <span class="col-xs-4">服务类型</span>
-            <div class="outer">
-                <div class="choosed "ng-repeat="radio in typeList track by $index">
-                    <input type="radio" name="garden" id="{{'radio-'+radio.id}}"
-                           class="regular-checkbox" ng-value="radio.id" ng-model="$parent.childType">
-                    <label for="{{'radio-'+radio.id}}"></label><span>{{radio.typeTitle}}</span>
+            <!--<div class="outer col-xs-8">-->
+                <!--<div class="choosed "ng-repeat="radio in typeList track by $index">-->
+                    <!--<input type="radio" name="garden" id="{{'radio-'+radio.id}}"-->
+                           <!--class="regular-checkbox" ng-value="radio.id" ng-model="$parent.childType">-->
+                    <!--<label for="{{'radio-'+radio.id}}"></label><span>{{radio.typeTitle}}</span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <div class="outer col-xs-8">
+                <div class="choosed ">
+                    <input type="radio" name="garden" id="r1"class="regular-checkbox"
+                           ng-model="$parent.childType">
+                    <label for="r1"></label><span>商务构思</span>
+                </div>
+                <div class="choosed ">
+                    <input type="radio" name="garden" id="r2"class="regular-checkbox"
+                           ng-model="$parent.childType">
+                    <label for="r2"></label><span>商务实施</span>
                 </div>
             </div>
+
         </div>
         <div class="companyInfo">
             <ul>
