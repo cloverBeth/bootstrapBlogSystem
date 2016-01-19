@@ -22,6 +22,7 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
                 "page" : $scope.page,
                 "pageSize" : 6
             }).success(function(data){
+                if(!data.data[0])return;
                 $scope.total = data.data[0].countTotal;
                 _.forEach(data.data,function(order,i){
                     $scope.activities.push({
