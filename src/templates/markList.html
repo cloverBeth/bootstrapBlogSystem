@@ -1,0 +1,31 @@
+<div class="mark-list">
+	<div class="main bge">
+		<div class="greensSale lazy-sec relR scrollable-content-div" id="base">
+			<ul class="clearfix" id="hot">
+				<li ng-repeat="hot in hots track by $index">
+					<em class="project-detail-img">
+						<img  ng-click="showProduct(hot.id)"bn-lazy-src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>
+					</em>
+					<p>
+						<strong>{{hot.name}}</strong>
+						<b class="org">￥{{hot.price}}</b>
+					</p>
+					<div class="num">
+						<div class="mark-sec" ng-show="!productDetail.mark" ng-click="mark(productDetail.id)">
+							<img src="images/ic_uncollected.png" alt=""/>
+							<span>
+								收藏
+							</span>
+						</div>
+						<!--<div class="mark-sec" ng-show="productDetail.mark" ng-click="unmark(productDetail.id)">-->
+							<!--<img src="images/ic_collected.png" alt=""/>-->
+							<!--<span>-->
+								<!--取消-->
+							<!--</span>-->
+						<!--</div>-->
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
