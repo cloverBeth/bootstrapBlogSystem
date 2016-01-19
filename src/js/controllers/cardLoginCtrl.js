@@ -3,6 +3,8 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
 
     $scope.fromOrder = $stateParams.from && $stateParams.from.fromOrder;
     $scope.fromActivity = $stateParams.from && $stateParams.from.fromActivity;
+    $scope.fromMeeting = $stateParams.from && $stateParams.from.fromMeeting;
+
     $scope.orderId = $stateParams.from && $stateParams.from.orderId;
 
     $scope.fromGetLeft = $stateParams.from && $stateParams.from.getLeft;
@@ -50,7 +52,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
         posted = true;
 
         if(!$scope.showEdit ){
-            if($scope.fromOrder || $scope.fromActivity){
+            if($scope.fromOrder || $scope.fromActivity || $scope.fromMeeting){
                 console.log($stateParams.from.orderId);
                 $scope.payModal = true;
                 setTimeout(function(){$('#pay_input').focus();},100);
@@ -78,7 +80,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     }
 
     $scope.cancelBind = function(){
-        if($scope.fromOrder || $scope.fromActivity)return;
+        if($scope.fromOrder || $scope.fromActivity || $scope.fromMeeting)return;
         $http.post(X_context.api + "member/updateCard",{
             memberId : X_context.memberId,
             cardNo : " "
@@ -104,7 +106,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
                 $scope.payPosted = false;
                 $state.go('orderSucceed',{orderId:$scope.orderId});
             });
-        }else{
+        }else if($scope.fromActivity){
             $http.post(X_context.api + 'pay/activityConsume',{
                 "orderId" : $scope.orderId,
                 "memberCard" : $scope.card.num,
@@ -114,6 +116,17 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
                 $scope.showEdit = false;
                 $scope.payPosted = false;
                 $state.go('activityEnrollSucceed',{orderId:$scope.orderId});
+            });
+        }else if($scope.fromMeeting){
+            $http.post(X_context.api + 'pay/meetingConsume',{
+                "orderId" : $scope.orderId,
+                "memberCard" : $scope.card.num,
+                "passwd" : $scope.card.pwd
+            }).success(function(data){
+                $scope.payModal = false;
+                $scope.showEdit = false;
+                $scope.payPosted = false;
+                $state.go('meetingRoomSucceed',{orderId:$scope.orderId});
             });
         }
     }
