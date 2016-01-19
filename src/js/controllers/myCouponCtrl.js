@@ -2,10 +2,6 @@
 angular.module('ZJSY_WeChat').controller('MyCouponController',function($scope,$http){
     "use strict";
 
-    //temp
-    var X_context = {};
-    X_context.api = 'http://localhost:8080/zjsy/api/v1/';
-
     $scope.title = '我的优惠券';
 
     $scope.canLoad = true;

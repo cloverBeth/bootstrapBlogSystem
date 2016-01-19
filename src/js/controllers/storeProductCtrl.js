@@ -49,13 +49,13 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                     id : pro.id,
                     name : pro.name,
                     num : pro.amount,
-                    img : pro.image ? X_context.devHost+pro.image : "images/ph_1.jpg",
+                    img : pro.image ? pro.image : "images/ph_1.jpg",
                     detail : pro.specification,
                     cateId : pro.category,
                     price : pro.marketPrice,
 
                 });
-            })
+            });
 
             $scope.proList = _.filter($scope.proList,function(n){
                 return n.num && (n.num > 0);
@@ -75,7 +75,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                     id : pro.id,
                     name : pro.name,
                     num : pro.amount,
-                    img : pro.image ? X_context.devHost+pro.image : "images/ph_1.jpg",
+                    img : pro.image ? pro.image : "images/ph_1.jpg",
                     detail : pro.specification,
                     cateId : pro.category,
                     price : pro.marketPrice,
@@ -178,6 +178,11 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         if($scope.productDetail){
             $scope.productShown = true;
         }
+        $http.post(X_context.api + 'mark/listMark',{
+            productId : id
+        }).success(function(data){
+            $scope.productDetail.mark = (data.data == "true");
+        });
     }
 
     $scope.scrolled = false;
@@ -302,6 +307,38 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     $scope.hideProduct = function(){
         $scope.productShown=false;
         //$stateParams.productId = null;
+    }
+
+    var markFlag = true;
+
+    $scope.mark = function(id){
+        if(!markFlag)return;
+        markFlag = false;
+        console.log($scope.hotList,id)
+        if(_.find($scope.hotList,{id:id})){
+            _.find($scope.hotList,{id:id}).mark = true;
+        }
+        _.find($scope.proList,{id:id}).mark = true;
+
+        $http.post(X_context.api + 'mark/add',{
+            productId : id
+        }).success(function(){
+            markFlag = true;
+        });
+    }
+
+    $scope.unmark = function(id){
+        if(!markFlag)return;
+        markFlag = false;
+        if(_.find($scope.hotList,{id:id})){
+            _.find($scope.hotList,{id:id}).mark = false;
+        }
+        _.find($scope.proList,{id:parseInt(id)}).mark = false;
+        $http.post(X_context.api + 'mark/delete',{
+            productId : id
+        }).success(function(){
+            markFlag = true;
+        });
     }
 
 });

@@ -594,7 +594,33 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
         })
-
+        .state('mark', {//将sotreid放在此路由
+            url: '/mark',
+            views: {
+                '': {
+                    templateUrl: 'mark.html',
+                    controller: 'MarkController'
+                }
+            }
+        })
+        .state('mark.valid', {
+            url: '/mark-valid',
+            views: {
+                '': {
+                    templateUrl: 'markValid.html',
+                    controller: 'MarkValidController'
+                }
+            }
+        })
+        .state('mark.invalid', {
+            url: '/mark-invalid',
+            views: {
+                '': {
+                    templateUrl: 'markInvalid.html',
+                    controller: 'MarkInvalidController'
+                }
+            }
+        });
 
         $urlRouterProvider.otherwise('/store/1/store-product/');
 
