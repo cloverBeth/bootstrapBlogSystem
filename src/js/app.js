@@ -581,19 +581,6 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             })
-        .state('businessPlan',{
-            url:'/business-plan',
-            views:{
-                '':{
-                    templateUrl:'businessPlan.html',
-                    controllerProvider:function($state,$stateParams,checkAuth){
-                        if(!checkAuth.check())return $state.go('login');
-                        var ctrlName="BusinessPlanController";
-                        return ctrlName;
-                    }
-                }
-            }
-        })
         .state('myCoupon',{
             url:'/myCoupon',
             views:{
@@ -616,8 +603,8 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('markValid', {
-            url: '/mark/mark-valid',
+        .state('mark.valid', {
+            url: '/mark-valid',
             views: {
                 '': {
                     templateUrl: 'markValid.html',
@@ -625,8 +612,8 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-        .state('markInvalid', {
-            url: '/mark/mark-invalid',
+        .state('mark.invalid', {
+            url: '/mark-invalid',
             views: {
                 '': {
                     templateUrl: 'markInvalid.html',

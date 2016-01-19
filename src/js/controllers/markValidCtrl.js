@@ -3,34 +3,7 @@ angular.module('ZJSY_WeChat').controller('MarkValidController',function($scope,$
     "use strict";
     $scope._ = _;
 
-    $scope.$parent.title = $scope.$parent.storeTitle;
 
-
-    $scope.cart = $scope.$parent.cart;
-
-    $scope.hots = [];
-    $scope.$parent.storePromise.then(function(){
-        return $http.post(X_context.api + 'product/list',{
-            storeId : $scope.$parent.storeId,
-            isFav : "true",
-            isMarketable : true
-        }).success(function(data){
-            _.forEach(data.data,function(pro,index){
-                $scope.hots.push({
-                    id : pro.id,
-                    name : pro.name,
-                    num : pro.amount,
-                    img : pro.image,
-                    detail : pro.specification,
-                    cateId : pro.category,
-                    price : pro.marketPrice,
-                });
-            })
-            $scope.hots = _.filter($scope.hots,function(n){
-                return n.num && (n.num > 0);
-            })
-        })
-    });
 
     //$scope.hots = [
     //    {
@@ -88,85 +61,6 @@ angular.module('ZJSY_WeChat').controller('MarkValidController',function($scope,$
     //    }
     //]
 
-    $scope.productDetail = {};
-    $scope.prodectShown = false;
 
-
-    $scope.mainHeight = X_context.bodyHeight -
-        $('.navTop').css('height').split('px')[0];
-
-
-    $scope.addProduct = function(id){
-        console.log(id);
-        var exist = _.find($scope.cart.products,{id:id});
-        if(exist){
-            if(exist.buyNum < exist.num)
-                exist.buyNum ++;
-        }else{
-            $scope.cart.products.push(
-                _.clone(_.find($scope.hots,{id:id}))
-            );
-            _.find($scope.cart.products,{id:id}).buyNum = 1;
-        }
-
-    };
-
-    $scope.removeProduct = function(id){
-        if(!_.find($scope.cart.products,{id:id}))return;
-        if(_.find($scope.cart.products,{id:id}).buyNum > 1){
-            _.find($scope.cart.products,{id:id}).buyNum --;
-        }else{
-            $scope.cart.products = _.reject($scope.cart.products,{id:id});
-        }
-        if($scope.cart.products.length == 0){
-            $scope.showCart = false;
-        }
-    };
-
-    $scope.showProduct = function(id){
-        //get data from api instead
-        console.log(id);
-        $scope.productDetail = _.find($scope.hots,{id:id});
-        if($scope.productDetail){
-            $scope.prodectShown = true;
-        }
-    };
-
-    $scope.fly = function($event){
-        flyItem($event);
-    }
-
-    function flyItem(event){
-        if($('.cart-img-zero').offset().top == 0){
-            var offset = $('.cart-img').offset();
-        }else{
-            var offset = $('.cart-img-zero').offset();
-        }
-
-        var flyer = $('<img class="flyer" src="images/bg_5.png"/>');
-        flyer.fly({
-            start: {
-                left: event.pageX,
-                top: event.pageY
-            },
-            end: {
-                left: offset.left,
-                top: offset.top+10,
-                width:0,
-                height:0
-            },
-            peed: 10, //越大越快，默认1.2
-            vertex_Rtop:100,
-            onEnd: function(){
-                $('.flyer').remove();
-                $(".shop em").addClass("a-shake");
-
-                setTimeout(function() {
-                    $(".shop em").removeClass("a-shake");
-                },300)
-
-            }
-        });
-    }
 
 });
