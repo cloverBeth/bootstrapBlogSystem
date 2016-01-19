@@ -1,6 +1,7 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($scope,$state,$http,$stateParams,$sce,$rootScope){
     $scope.activityId = $stateParams.activityId;
+    $scope.showSubmit = $stateParams.showSubmit;
 
     $scope.title = "";
     $scope.date = "";
@@ -19,8 +20,9 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
 
 
     $scope.showForm = false;
+    var api = $stateParams.showSubmit ? 'activity/getActivityDetail' : 'info/getInfoDetail'
 
-    $http.post(X_context.api + 'activity/getActivityDetail',
+    $http.post(X_context.api + api,
         {
             activityId : $scope.activityId
         }).success(function(data){

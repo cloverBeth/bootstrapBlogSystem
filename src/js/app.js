@@ -347,6 +347,7 @@ angular.module('ZJSY_WeChat', [
 
         .state('activityDetail',{
             url:'/activity-detail/{activityId}',
+            params: {showSubmit: true},
             views:{
                 '':{
                     templateUrl:'activityDetail.html',
@@ -470,7 +471,11 @@ angular.module('ZJSY_WeChat', [
             views:{
                 '':{
                     templateUrl:'meetingRoomList.html',
-                    controller:'MeetingRoomListController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "MeetingRoomListController";
+                        return ctrlName;
+                    }
                 }
             }
         })
@@ -543,6 +548,65 @@ angular.module('ZJSY_WeChat', [
             }
         })
 
+        .state('companyShow',{
+            url:'/company-show',
+            views:{
+                '':{
+                    templateUrl:'companyShow.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(checkAuth.check()){
+                            $stateParams.isAuth = true;
+                        }else{
+                            $stateParams.isAuth = false;
+                        }
+                        var ctrlName = "CompanyShowController";
+                        return ctrlName;
+                    }
+                }
+            }
+        }).state('parkInfo', {
+                url: '/park-info',
+                views: {
+                    '': {
+                        templateUrl: 'parkInfo.html',
+                        controllerProvider: function ($state, $stateParams, checkAuth) {
+                            if (checkAuth.check()) {
+                                $stateParams.isAuth = true;
+                            } else {
+                                $stateParams.isAuth = false;
+                            }
+                            var ctrlName = "ParkInfoController";
+                            return ctrlName;
+                        }
+                    }
+                }
+            })
+        .state('businessPlan',{
+            url:'/business-plan',
+            views:{
+                '':{
+                    templateUrl:'businessPlan.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName="BusinessPlanController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
+        .state('myCoupon',{
+            url:'/myCoupon',
+            views:{
+                '':{
+                        templateUrl:'myCoupon.html',
+                        controllerProvider: function($state,$stateParams,checkAuth) {
+                            if(!checkAuth.check())return $state.go('login');
+                            var ctrlName = "MyCouponController";
+                            return ctrlName;
+                        }
+                    }
+                }
+        })
 
 
         $urlRouterProvider.otherwise('/store/1/store-product/');

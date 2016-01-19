@@ -1,0 +1,41 @@
+<div class="main-section main all-activity">
+    <header class="header">
+        <div class="back">
+            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        </div>
+        <div class="title">
+           企业秀
+        </div>
+    </header>
+
+    <div class="main actitity-sec">
+        <div class="swiper-container activity-swiper swiper-container-horizontal"
+             style="top:0;margin-top:46px;height: auto;">
+
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="banner in bannerList track by $index"><img
+                        ng-click="goDetail(banner.id)"
+                        src="{{banner.bannerImg}}" width="100%" /></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+        <div class="activityList lazy-sec relR " id="base">
+            <ul class="clearfix" >
+                <li ng-repeat="hot in activities track by $index" ng-click="goDetail(hot.id)">
+                    <em class="project-detail-img">
+                        <img src="{{hot.img}}" onerror="this.src='images/default_image.png'"/>
+                    </em>
+                    <div class="content">
+                        <strong>{{hot.name}}</strong>
+                        <b >{{hot.content}}</b>
+                    </div>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+</div>
