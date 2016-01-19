@@ -1,32 +1,42 @@
 "use strict";
 angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function($scope,$state,$http,$stateParams){
-    $scope.title="下单成功";
-    $scope.orderSucceed={
-        //type:"会议室预订",
-        //status:"支付成功",
-        //orderNumber:"201976875613623",
-        //expense:"300",
-        //payway:"线下支付",
-        //telphone:"1796733266"
-    }
+    $scope.title = "下单成功";
+    $scope.orderId = $stateParams.orderId;
+    $scope.success = true;
 
+    $scope.$parent.memberPromise.then(function(){
+        $http.post(X_context.api+"meeting/listMemberOrder", {
+            "memberid" : X_context.memberId,
+            "orderid" : $scope.orderId
+        }).success(function (data){
+            if(!data.data){return;}
 
-    $http.post(X_context.api+"meeting/listMemberOrder", {
-        "memberid" : X_context.memberId,
-         "orderid" : $stateParams.orderId
-    }).success(function (data){
+            $scope.orderNumber = data.data[0].ordersn;
+            $scope.expense = data.data[0].payamount;
+            $scope.payway = data.data[0].paytype;
 
-        if(!data.data){return;}
-        $scope.orderSucceed.type=data.data[0].roomid;
-        $scope.orderSucceed.orderNumber=data.data[0].ordersn;
-        $scope.orderSucceed.status=data.data[0].paystatus;
-        $scope.orderSucceed.payway=data.data[0].paytype;
-        $scope.orderSucceed.expense=data.data[0].payamount;
-        $scope.orderSucceed.telphone=data.data[0].mobile;
+            if($scope.payway == "true" && data.data[0].paystatus == "false"){
+                $scope.success = false;
+                $scope.title = "下单失败";
+            }
+        });
     });
 
-    $scope.goToMeetingOrder=function(){
+    $http.post(X_context.api + "meeting/listRooms",
+        {
+            "page" : "1",
+            "pageSize" : "1"
+        }).success(function(data){
+            $scope.telphone = data.data[0].mobile;
+        });
+
+
+    $scope.goToList=function(){
         $state.go('meetingRoomList');
+    }
+
+    $scope.goToPay=function(){
+        $state.go('cardLogin',{from:{fromMeeting : true,orderId : $scope.orderId}});
     }
 
 })

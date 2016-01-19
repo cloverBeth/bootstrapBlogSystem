@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope,$state,$http,$stateParams){
+angular.module('ZJSY_WeChat').controller('ParkInfoController',function($scope,$state,$http,$stateParams){
 
     console.log($stateParams.isAuth);
 
@@ -13,11 +13,11 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
     $scope.bannerList = [];
 
     $scope.goDetail = function(id){
-        $state.go('activityDetail',{activityId : id})
+        $state.go('activityDetail',{activityId : id,showSubmit:false})
     }
 
     $scope.getOrder = function(){
-        $http.post(X_context.api + 'activity/listAll',
+        $http.post(X_context.api + 'info/listCompanyShow',
             {
                 "page" : $scope.page,
                 "pageSize" : 6
@@ -31,9 +31,7 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
                         content : order.subtitle,
                         showBanner : order.showBanner == 1,
                         bannerImg : X_context.devHost + order.banner,
-                        id : order.activityId,
-                        submitted : $scope.isAuth && order.memberId == X_context.memberId,
-                        expired : order.enddate < Date.now()
+                        id : order.activityId
                     })
                 });
                 $scope.bannerList = _.filter($scope.activities,{showBanner : true});
@@ -47,13 +45,6 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
     }
     $scope.getOrder();
 
-    $scope.goMy = function(){
-        if(!$scope.isAuth){
-            $state.go('login');
-        }else{
-            $state.go('myActivity');
-        }
-    }
 
     $(".main").on('scroll',function() {
 
