@@ -1039,7 +1039,9 @@ label {
           background:#ffffff;
 
         }
-      .row{padding:5px;margin:0;}
+      .row{padding:5px;margin:0;
+        label{margin-bottom:0;}
+      }
         ul li{
         width:100%;
         text-align:left;
@@ -1099,7 +1101,7 @@ label {
       }
       p{
         font-size:13px;
-        color:#908686;
+        color: #B0B0B0;
       }
     }
 
@@ -1121,7 +1123,7 @@ label {
               width:30px;
               height:20px;
               float:right;
-              span{display:block;width:80px;}
+              span{display:block;width:80px;color:#AAAAAA;}
 
           }
       }
@@ -1133,9 +1135,9 @@ label {
         line-height:5rem;
         height:auto;
         border-top: 1px solid rgba(35, 25, 25, 0.05);
-        label{color:#8A8484;font-size:18px;padding:0 10px 0 15px;text-align:right;}
-        p{margin:20px 0 0 0;background:#FAFAFA;font-size:18px;word-wrap: break-word;}
-        .textarea{padding:10px 0 10px 10px;line-height:2.5rem;background:#FAFAFA;height:auto;
+        label{color:#B8B8B8;font-size:18px;padding:0 10px 0 15px;text-align:right;}
+        p{margin:20px 0 0 0;background:#FAFAFA;color:#999999;font-size:18px;word-wrap: break-word;}
+        .textarea{padding:15px 0 10px 10px;line-height:2.5rem;background:#FAFAFA;height:auto;
           font-size:18px;border:none;}
       }
     }

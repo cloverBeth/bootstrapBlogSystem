@@ -6,6 +6,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
     $scope.childType = null;
     $scope.phoneReg=/^([0-9]{11})$/;
 
+
         $http.post(X_context.api + "services/listServices", {
             "servicesId": 1
         })
@@ -23,6 +24,12 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 //console.log( $scope.childType);
 
             });
+        $scope.$parent.memberPromise.then(function(data){
+            $scope.garden={
+                compyGuy : data.data.data[0].nickName,
+                guyTel : data.data.data[0].mobile
+            }
+        });
 
         $scope.goGardenOrder=function(){
 
@@ -45,8 +52,6 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
 
                     }
             else{
-                $scope.$parent.memberPromise.then(function(){
-
 
                     $http.post(X_context.api+"servicesOrder/add", {
                         "memberid" : X_context.memberId,
@@ -68,13 +73,11 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                             }
                         })
 
-                });
 
             }
 
 
         }
-
 
 
 })

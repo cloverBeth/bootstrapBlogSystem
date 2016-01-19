@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($scope,$http,$state){
+angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($scope,$http,$state,$stateParams){
     $scope.title="服务订单";
 
     $scope.currentPage = 1;
@@ -30,7 +30,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            showSub : false,
                           showMeet : true,
                            linkMan : data.data.result[i].contactor,
-                           linkTel : data.data.result[i].services ? data.data.result[i].mobile : "",
+                           linkTel : data.data.result[i].mobile,
                           compName : data.data.result[i].company,
                           extraMsg : data.data.result[i].note,
                         };
@@ -38,7 +38,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                         var order = {
                             number : data.data.result[i].ordersn,
                                pro : data.data.result[i].serviceType,
-                          roomName : data.data.result[i].roomid,
+                          roomName : data.data.result[i].roomName,
                               type : data.data.result[i].serviceType,
                            expense : data.data.result[i].payamount,
                             doDate : data.data.result[i].createddate,
@@ -51,21 +51,26 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                           compName : data.data.result[i].company,
                           timeLine :data.data.result[i].meetingtime,
                           extraMsg : data.data.result[i].remark,
+                           linkMan : data.data.result[i].contact,
+                           linkTel : data.data.result[i].mobile,
+                         payMethod : data.data.result[i].paytype,
 
 
                         }
 
-                        $scope.payAgain = function(){
-                            console.log(data.data.result[i]._id);
-                            $state.go('cardLogin',{from:{fromOrder : true,orderId : data.data.result[i]._id}});
-                        }
+
                     }
 
                     $scope.orderList.push(order);
 
                 }
 
+                $scope.payAgain = function(){
+                    $stateParams.serviceOrderId=data.data.result[i]._id;
 
+                    $state.go('cardLogin',{from:{fromOrder : true,orderId : $stateParams.serviceOrderId}});
+                    //一卡通订单立即支付如何区分是哪儿的
+                }
 
             })
 

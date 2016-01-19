@@ -30,6 +30,12 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                 $scope.typeList.push(radio);
             }
         })
+    $scope.$parent.memberPromise.then(function(data){
+        $scope.parking={
+            compyGuy : data.data.data[0].nickName,
+            guyTel : data.data.data[0].mobile
+        }
+    });
 
     $scope.goGardenOrder=function() {
 

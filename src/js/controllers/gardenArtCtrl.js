@@ -20,6 +20,13 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
             }
         })
 
+    $scope.$parent.memberPromise.then(function(data){
+        $scope.garden={
+            compyGuy : data.data.data[0].nickName,
+            guyTel : data.data.data[0].mobile
+        }
+    });
+
     $scope.goGardenOrder=function(){
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的园艺服务～'});

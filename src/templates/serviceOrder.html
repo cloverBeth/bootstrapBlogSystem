@@ -62,10 +62,10 @@
                         <label class="col-xs-4"for="serType7">会议室名称</label><!--显示的是会议室名称-->
                         <p class="col-xs-8"id="serType7">{{order.roomName}}</p>
                     </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="timeline">会议室时间</label>
-                        <p class="col-xs-8"id="timeline">{{order.timeLine}}</p>
-                    </li>
+                    <!--<li class="row">-->
+                        <!--<label class="col-xs-4"for="timeline">会议室时间</label>-->
+                        <!--<p class="col-xs-8"id="timeline">{{order.timeLine}}</p>-->
+                    <!--</li>是不是要显示？？？？？？？-->
                     <li class="row">
                         <label class="col-xs-4"for="expense">总 消 费</label>
                         <p class="col-xs-8"id="expense">{{order.expense}}</p>
@@ -85,7 +85,7 @@
                         <p class="col-xs-7 textarea"id="extraInfo02">{{order.extraMsg}}</p>
                     </li>
 
-                    <button ng-show="order.status=='未付款'" class="btn quickpay" ng-click="payAgain()">
+                    <button ng-show="order.payMethod == 'true' && order.paystatus=='false'"class="btn quickpay" ng-click="payAgain()">
                         立即支付
                     </button>
 

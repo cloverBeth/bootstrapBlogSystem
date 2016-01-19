@@ -413,7 +413,7 @@ angular.module('ZJSY_WeChat', [
             }
         })
         .state('serviceOrder',{
-            url:'/service-order',
+            url:'/service-order/{serviceOrderId}',
             views:{
                 '':{
                     templateUrl:'serviceOrder.html',
@@ -581,19 +581,6 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             })
-        .state('businessPlan',{
-            url:'/business-plan',
-            views:{
-                '':{
-                    templateUrl:'businessPlan.html',
-                    controllerProvider:function($state,$stateParams,checkAuth){
-                        if(!checkAuth.check())return $state.go('login');
-                        var ctrlName="BusinessPlanController";
-                        return ctrlName;
-                    }
-                }
-            }
-        })
         .state('myCoupon',{
             url:'/myCoupon',
             views:{

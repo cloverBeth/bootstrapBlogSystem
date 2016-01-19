@@ -34,6 +34,13 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
             console.log( $scope.typeList)
         });
 
+    $scope.$parent.memberPromise.then(function(data){
+        $scope.maintain={
+            compyGuy : data.data.data[0].nickName,
+            guyTel : data.data.data[0].mobile
+        }
+    });
+
     $scope.goGardenOrder=function(){
 
         if(!$scope.childType){
