@@ -549,18 +549,31 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             }
-        }).state('parkInfo',{
-            url:'/park-info',
+        }).state('parkInfo', {
+                url: '/park-info',
+                views: {
+                    '': {
+                        templateUrl: 'parkInfo.html',
+                        controllerProvider: function ($state, $stateParams, checkAuth) {
+                            if (checkAuth.check()) {
+                                $stateParams.isAuth = true;
+                            } else {
+                                $stateParams.isAuth = false;
+                            }
+                            var ctrlName = "ParkInfoController";
+                            return ctrlName;
+                        }
+                    }
+                }
+            })
+        .state('businessPlan',{
+            url:'/business-plan',
             views:{
                 '':{
-                    templateUrl:'parkInfo.html',
-                    controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(checkAuth.check()){
-                            $stateParams.isAuth = true;
-                        }else{
-                            $stateParams.isAuth = false;
-                        }
-                        var ctrlName = "ParkInfoController";
+                    templateUrl:'businessPlan.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName="BusinessPlanController";
                         return ctrlName;
                     }
                 }

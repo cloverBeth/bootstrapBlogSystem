@@ -22,8 +22,11 @@
                     <p>订单号：{{order.number}}</p>
                 </div>
                 <div class="proState col-xs-3">
-                    <div class="proTime">
-                        <span>{{order.doDate | date:"yyyy/MM/dd"}}</span><!--会议室显示的是订单时间-->
+                    <div class="proTime"ng-show="order.showMeet">
+                        <span>{{order.doDate | date:"yyyy/MM/dd"}}</span>
+                    </div>
+                    <div class="proTime"ng-hide="order.showMeet">
+                        <span>{{order.doDate | date:"yyyy/MM/dd HH:mm"}}</span><!--会议室显示的是订单时间-->
                     </div>
                     <div class="subBtn">
                         <span class="serviceStatus">{{order.state}}</span>
@@ -81,10 +84,12 @@
                         <label class="col-xs-4"for="extraInfo02">备注信息</label>
                         <p class="col-xs-7 textarea"id="extraInfo02">{{order.extraMsg}}</p>
                     </li>
+
+                    <button ng-show="order.status=='未付款'&& order.showMeet" class="btn quickpay" ng-click="payAgain()">
+                        立即支付
+                    </button>
+
                 </ul>
-                <button ng-show="order.status=='未付款'" class="btn quickpay" ng-click="payAgain()">
-                    立即支付
-                </button>
             </li>
 
         </ul>
