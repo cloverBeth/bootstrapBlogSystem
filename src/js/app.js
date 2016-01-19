@@ -347,6 +347,7 @@ angular.module('ZJSY_WeChat', [
 
         .state('activityDetail',{
             url:'/activity-detail/{activityId}',
+            params: {showSubmit: true},
             views:{
                 '':{
                     templateUrl:'activityDetail.html',
@@ -456,7 +457,11 @@ angular.module('ZJSY_WeChat', [
             views:{
                 '':{
                     templateUrl:'meetingRoomList.html',
-                    controller:'MeetingRoomListController'
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "MeetingRoomListController";
+                        return ctrlName;
+                    }
                 }
             }
         })
@@ -523,6 +528,39 @@ angular.module('ZJSY_WeChat', [
                     controllerProvider:function($state,$stateParams,checkAuth){
                         if(!checkAuth.check())return $state.go('login');
                         var ctrlName="ParkingController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
+        .state('companyShow',{
+            url:'/company-show',
+            views:{
+                '':{
+                    templateUrl:'companyShow.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(checkAuth.check()){
+                            $stateParams.isAuth = true;
+                        }else{
+                            $stateParams.isAuth = false;
+                        }
+                        var ctrlName = "CompanyShowController";
+                        return ctrlName;
+                    }
+                }
+            }
+        }).state('parkInfo',{
+            url:'/park-info',
+            views:{
+                '':{
+                    templateUrl:'parkInfo.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(checkAuth.check()){
+                            $stateParams.isAuth = true;
+                        }else{
+                            $stateParams.isAuth = false;
+                        }
+                        var ctrlName = "ParkInfoController";
                         return ctrlName;
                     }
                 }
