@@ -439,6 +439,20 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('businessPlan', {
+            url:'/business-plan',
+            views:{
+                '':{
+                    templateUrl:'businessPlan.html',
+                    controllerProvider: function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "BusinessPlanController";
+                        return ctrlName;
+
+                    }
+                }
+            }
+        })
         .state('gardenArt',{
             url:'/garden-art',
             views: {
@@ -533,6 +547,7 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+
         .state('companyShow',{
             url:'/company-show',
             views:{
@@ -578,6 +593,19 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             }
+        })
+        .state('myCoupon',{
+            url:'/myCoupon',
+            views:{
+                '':{
+                        templateUrl:'myCoupon.html',
+                        controllerProvider: function($state,$stateParams,checkAuth) {
+                            if(!checkAuth.check())return $state.go('login');
+                            var ctrlName = "MyCouponController";
+                            return ctrlName;
+                        }
+                    }
+                }
         })
 
 

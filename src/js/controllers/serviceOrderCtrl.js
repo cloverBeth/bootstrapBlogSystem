@@ -46,6 +46,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            //linkTel : data.data.result[i].mobile,
                           showRoom : false,
                           showMeet : false,
+                         paystatus : data.data.result[i].paystatus,
                                 id : data.data.result[i]._id,
                           compName : data.data.result[i].company,
                           timeLine :data.data.result[i].meetingtime,

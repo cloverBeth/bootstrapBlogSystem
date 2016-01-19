@@ -1,6 +1,8 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope,$http, $state){
+angular.module('ZJSY_WeChat').controller('MyCouponController',function($scope,$http){
     "use strict";
+
+    $scope.title = '我的优惠券';
 
     $scope.canLoad = true;
     $scope.maxItems = 100;
@@ -10,8 +12,7 @@ angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope
 
     $scope.couponList = [];
 
-    $scope.blueStatus = ["登录查看", "点击领取", "已领取"];
-    $scope.clickStatus = ["登录查看", "点击领取"];
+    $scope.blueStatus = ["未使用"];
 
 
     $scope.init = function() {
@@ -28,7 +29,7 @@ angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope
     };
 
     $scope.listCoupon = function() {
-        $http.post(X_context.api + 'coupon/listByStore',{
+        $http.post(X_context.api + 'coupon/mine',{
             storeId : $scope.$parent.storeId,
             page : $scope.currentPage,
             size : $scope.pageSize
@@ -51,19 +52,5 @@ angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope
 
     };
 
-    $scope.takeCoupon = function(index) {
-        var status = $scope.couponList[index].status;
-        if(status == '登录查看') {
-            $state.go('login');
-        } else if(status == '点击领取') {
-            $http.post(X_context.api + 'coupon/take',{
-                couponId : $scope.couponList[index]._id
-            }).success(function (resp) {
-                if(resp.status == 'OK') {
-                    $scope.couponList[index].status = '已领取';
-                }
-            });
-        }
-    }
 
 });

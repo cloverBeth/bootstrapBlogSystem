@@ -11,7 +11,7 @@
     <div class="main mt-15">
 
         <div class="clearfix" ng-class="{succeed:success,failed:!success}">
-            <p ng-show="success">
+            <p ng-show="success && !cashPay">
                 <strong>您的订单已提交成功，我们会尽快联系您！</strong>
                 如您需要取消订单，请拨打服务热线。
             </p>
@@ -19,6 +19,11 @@
                 <strong>您的订单未成功！</strong>
                 如您有其他问题，请拨打商家服务热线。
             </p>
+            <p ng-show="success && cashPay">
+                <strong>您的预约订单已提交成功，</strong>
+                请您在当天完成付款！否则定单将被取消哦～
+            </p>
+
         </div>
         <div class="danhao">
             <p><font>订单编号</font>{{orderNumber}}</p>

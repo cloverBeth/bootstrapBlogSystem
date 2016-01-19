@@ -1,8 +1,10 @@
 "use strict";
 angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function($scope,$state,$http,$stateParams){
-    $scope.title = "下单成功";
+
     $scope.orderId = $stateParams.orderId;
     $scope.success = true;
+    $scope.cashPay="";
+
 
     $scope.$parent.memberPromise.then(function(){
         $http.post(X_context.api+"meeting/listMemberOrder", {
@@ -10,10 +12,22 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
             "orderid" : $scope.orderId
         }).success(function (data){
             if(!data.data){return;}
+            $scope.cashPay=data.data[0].paytype;
+            if($scope.cashPay=="false"){
+                $scope.title = "预约成功";
+                $scope.cashPay=true;
 
+
+            }
+            else{
+                $scope.title = "下单成功";
+                $scope.cashPay=false;
+
+            }
             $scope.orderNumber = data.data[0].ordersn;
             $scope.expense = data.data[0].payamount;
             $scope.payway = data.data[0].paytype;
+
 
             if($scope.payway == "true" && data.data[0].paystatus == "false"){
                 $scope.success = false;
