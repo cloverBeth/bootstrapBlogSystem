@@ -2,10 +2,6 @@
 angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope,$http, $state){
     "use strict";
 
-    //temp
-    var X_context = {};
-    X_context.api = 'http://localhost:8080/zjsy/api/v1/';
-
     $scope.canLoad = true;
     $scope.maxItems = 100;
     $scope.currentPage = 1;
