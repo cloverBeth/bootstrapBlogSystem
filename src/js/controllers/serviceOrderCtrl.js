@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($scope,$http){
+angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($scope,$http,$state){
     $scope.title="服务订单";
 
     $scope.currentPage = 1;
@@ -46,11 +46,17 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            //linkTel : data.data.result[i].mobile,
                           showRoom : false,
                           showMeet : false,
+                                id : data.data.result[i]._id,
                           compName : data.data.result[i].company,
                           timeLine :data.data.result[i].meetingtime,
                           extraMsg : data.data.result[i].remark,
 
 
+                        }
+
+                        $scope.payAgain = function(){
+                            console.log(data.data.result[i]._id);
+                            $state.go('cardLogin',{from:{fromOrder : true,orderId : data.data.result[i]._id}});
                         }
                     }
 
@@ -62,6 +68,10 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
 
             })
 
+
       })
+
+
+
 
 })
