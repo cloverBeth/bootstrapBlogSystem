@@ -14,7 +14,10 @@
         <div>
             <img src="images/garden_banner.jpg" width="100%"alt=""/>
         </div>
+        <div class="ordertips"ng-show="orderList.length==0"><em>您的服务订单还没有哦，快去线上物业瞧瞧吧～</em></div>
+
         <ul>
+
             <li class="outerList"ng-repeat="order in orderList track by $index">
                 <div class="picTitle col-xs-2"><img src="{{order.iconImg}}"alt=""/></div>
                 <div class="proTitle col-xs-7">
@@ -86,7 +89,7 @@
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="extraInfo02">备注信息</label>
-                        <p class="col-xs-7 textarea"id="extraInfo02">{{order.extraMsg}}</p>
+                        <p class="col-xs-8 text-area"id="extraInfo02">{{order.extraMsg}}</p>
                     </li>
 
                     <button ng-show="order.payMethod == 'true' && order.paystatus=='false'"class="btn quickpay payAgainBtn" ng-click="payAgain(order._id)">

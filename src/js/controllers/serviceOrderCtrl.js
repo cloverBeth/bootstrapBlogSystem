@@ -3,7 +3,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
     $scope.title="服务订单";
 
     $scope.currentPage = 1;
-    $scope.pageSize = 100;
+    $scope.pageSize = 1;
     $scope.orderList=[];
     $scope.displayZero=function(n) {//六位数字，当分钟或秒钟或时钟小于10时，加0，否则空格补救
         if (n < 10) {
@@ -37,7 +37,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                                pro : results.services ? results.services.parentTitle : "",
                             doDate : results.createddate,
                            iconImg : results.services ? results.services.image : "",
-                             state : results.orderstatus,
+                             state : results.orderstatus==0?"未处理":results.orderstatus==1?"已处理":"已取消",
                               type : results.services ? results.services.title:"",
                                 id : results.services ? results.services._id:"",
                            showSub : false,
@@ -65,11 +65,11 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                                      new Date(results.createddate).getDate()+'\n'+
                                      new Date(results.createddate).getHours()+':'+
                                     ($scope.displayZero(new Date(results.createddate).getMinutes())),
-                             state : results.orderstatus,
+                             state : results.orderstatus==0?"未处理":results.orderstatus==1?"已处理":"已取消",
                            //linkTel : data.data.result[i].mobile,
                           showRoom : false,
                           showMeet : false,
-                         paystatus : results.paystatus,
+                         //paystatus : results.paystatus=="0"?"未处理":"已处理",
                                 id : results._id,
                           compName : results.company,
                           timeLine : results.meetingtime,

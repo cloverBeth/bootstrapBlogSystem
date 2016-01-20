@@ -47,7 +47,10 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
 
 
     $scope.getEnSure=function(){
-        if(!$scope.card.num){alert('请您先绑定卡号～');return};
+        if(!$scope.card.num){
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请先绑定您的一卡通'});
+            return;
+        }
         if(posted == true)return;
         posted = true;
 

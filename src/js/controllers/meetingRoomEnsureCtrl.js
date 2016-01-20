@@ -24,7 +24,6 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
         $scope.phone = data.data.data[0].mobile;
     });
 
-
     $scope.goEnsure = function(){
         if(!$scope.user || !$scope.phone || !$scope.company){
             $rootScope.$broadcast('alerts',{type:'danger',message:"请完整填写."});
