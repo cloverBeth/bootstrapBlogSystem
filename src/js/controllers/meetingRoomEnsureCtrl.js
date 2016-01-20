@@ -24,6 +24,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
         $scope.phone = data.data.data[0].mobile;
     });
 
+
     $scope.goEnsure = function(){
         if(!$scope.user || !$scope.phone || !$scope.company){
             $rootScope.$broadcast('alerts',{type:'danger',message:"请完整填写."});
@@ -33,7 +34,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
             {
                 roomid : $scope.room.id,
                 meetingdate : `${$scope.date.getFullYear()}-${$scope.date.getMonth()+1}-${$scope.date.getDate()}`,
-        meetingtime : _.pluck($scope.time,'name').join(','),
+        meetingtime : _.pluck($scope.time,'id').join(','),
             memberid : X_context.memberId,
             contact : $scope.user,
             remark : $scope.memo,

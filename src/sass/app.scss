@@ -1158,6 +1158,7 @@ label {
         .textarea{padding:15px 0 10px 10px;line-height:2.5rem;background:#FAFAFA;height:auto;
           font-size:18px;border:none;}
       }
+      .payAgainBtn{width:22%;margin-left:40%;}
     }
   }
 }
@@ -1239,7 +1240,7 @@ label {
       border-bottom: 1px solid #ddd;
       p{font-size:16px;}
       p strong{font-size:18px;}
-      div.result{margin:0 auto;font-size:16px;color:#615858;}
+      div.result{margin:0 auto;clear:both;font-size:16px;color:#615858;}
     }
     .redBtn{
       display:block;
