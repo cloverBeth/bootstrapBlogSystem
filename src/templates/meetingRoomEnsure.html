@@ -32,15 +32,15 @@
 
         <form class="form-horizontal pay-detail" style="margin-top: 20px;">
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label">联系人</label>
+                <label class="col-xs-3 control-label room-label"for="meetingMan">联系人</label>
                 <div class="col-xs-9">
-                    <input type="text" class="input2" ng-model="user"/>
+                    <input type="text" class="input2" id="meetingMan"ng-model="user"/>
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label">联系方式</label>
+                <label class="col-xs-3 control-label room-label"for="meetingRelate">联系方式</label>
                 <div class="col-xs-9">
-                    <input type="tel" class="input2" ng-model="phone"/>
+                    <input type="tel" maxlength="11"id="meetingRelate" class="input2" ng-model="phone"/>
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
@@ -60,15 +60,15 @@
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label">公司名称</label>
+                <label class="col-xs-3 control-label room-label"for="meetingCompy">公司名称</label>
                 <div class="col-xs-9">
-                    <input type="text" class="input2" ng-model="company"/>
+                    <input type="text" id="meetingCompy"class="input2" ng-model="company"/>
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label">备注信息</label>
+                <label class="col-xs-3 control-label room-label"for="meetingInfo">备注信息</label>
                 <div class="col-xs-9">
-                    <input type="text" class="input2" ng-model="memo"/>
+                    <input type="text" class="input2" id="meetingInfo"ng-model="memo"/>
                 </div>
             </div>
 

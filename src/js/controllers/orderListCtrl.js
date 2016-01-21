@@ -43,8 +43,6 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
                     $scope.isOrder=false;
                     $scope.loading = false;
                     $scope.orderlist.push(order);
-                    $scope.orderlist.push(order);
-                    $scope.orderlist.push(order);
                 }
             })
      }
