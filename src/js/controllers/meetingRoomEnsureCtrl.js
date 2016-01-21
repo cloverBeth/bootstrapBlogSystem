@@ -39,7 +39,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
             remark : $scope.memo,
             mobile : $scope.phone,
             company : $scope.company,
-            paytype : false
+            paytype : true
 
     }).success(function(data){
         $state.go('meetingRoomSucceed',{orderId:data.data[0].orderId});
@@ -62,7 +62,8 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
             remark : $scope.memo,
             mobile : $scope.phone,
             company : $scope.company,
-            paytype : true
+            paytype : false
+
     }).success(function(data){
         $state.go('cardLogin',{from:{fromMeeting : true,orderId : data.data[0].orderId}});
         })

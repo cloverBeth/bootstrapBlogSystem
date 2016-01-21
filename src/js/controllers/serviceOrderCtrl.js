@@ -75,7 +75,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                           extraMsg : results.remark,
                            linkMan : results.contact,
                            linkTel : results.mobile,
-                         payMethod : results.paytype==false?"一卡通":"线下支付",
+                         payMethod : results.paytype,
                                _id : results._id,
                           payState : results.paystatus==true?"已支付":"未支付"
 

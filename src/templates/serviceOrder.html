@@ -97,7 +97,7 @@
                         <p class="col-xs-8 text-area"id="extraInfo02">{{order.extraMsg}}</p>
                     </li>
 
-                        <button ng-show="(order.payMethod == 'false'||'一卡通') && (order.payState=='false'||'未支付')&&
+                        <button ng-show="(order.payMethod == 'false') && (order.payState=='false'||'未支付')&&
                         (order.state!='已取消')" class="btn quickpay payAgainBtn"ng-click="payAgain(order._id)">
                             立即支付
                         </button>

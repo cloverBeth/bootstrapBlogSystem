@@ -31,7 +31,7 @@
             <p class="consume"><font>本次消费</font><span>¥{{expense || 0}}</span></p>
         </div>
         <div class="pay clearfix">
-            <h3>支付方式</h3><strong>{{payway == "true"?"一卡通":"线下支付"}}</strong>
+            <h3>支付方式</h3><strong>{{payway == "false"?"一卡通":"线下支付"}}</strong>
         </div>
         <div class="pay clearfix">
             <h3>联系电话</h3><a href="tel:{{telphone}}">{{telphone}}</a>
