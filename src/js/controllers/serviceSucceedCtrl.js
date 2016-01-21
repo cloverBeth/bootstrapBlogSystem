@@ -18,10 +18,12 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
         }).success(function (data){
 
                 if(!data.data){return;}
-                $scope.orderSucceed.type=data.data.result[0].services.parentTitle;
-                $scope.orderSucceed.orderNumber=data.data.result[0].ordersn;
-                $scope.orderSucceed.status=data.data.result[0].orderstatus;
-                $scope.orderSucceed.telphone=data.data.result[0].services.mobile;
+                var result=data.data.result[0];
+                $scope.orderSucceed.type=result.services.parentTitle;
+                $scope.orderSucceed.orderNumber=result.ordersn;
+                $scope.orderSucceed.status=result.orderstatus;
+                $scope.orderSucceed.telphone=result.services.mobile;
+                $scope.orderSucceed.address=result.address;
                 //
                 //if(!data.data[0]){return;}
                 //$scope.orderSucceed.type=data.data[0].services.parentTitle;

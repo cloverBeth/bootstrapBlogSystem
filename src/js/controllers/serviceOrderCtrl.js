@@ -61,9 +61,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                                      new Date(results.createddate).getMinutes()
                                    : new Date(results.createddate).getFullYear()+'/'+
                                     ($scope.displayZero(new Date(results.createddate).getMonth()+1))+'/'+
-                                     new Date(results.createddate).getDate()+'\n'+
-                                     new Date(results.createddate).getHours()+':'+
-                                    ($scope.displayZero(new Date(results.createddate).getMinutes())),
+                                     new Date(results.createddate).getDate(),
                              state : results.orderstatus==0?"未处理":results.orderstatus==1?"已处理":"已取消",
                            //linkTel : data.data.result[i].mobile,
                           showRoom : false,
