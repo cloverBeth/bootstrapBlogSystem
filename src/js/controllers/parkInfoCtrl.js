@@ -17,7 +17,7 @@ angular.module('ZJSY_WeChat').controller('ParkInfoController',function($scope,$s
     }
 
     $scope.getOrder = function(){
-        $http.post(X_context.api + 'info/listCompanyShow',
+        $http.post(X_context.api + 'info/listParkShow',
             {
                 "page" : $scope.page,
                 "pageSize" : 6
