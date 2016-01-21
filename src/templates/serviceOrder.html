@@ -42,12 +42,17 @@
                 </div>
                 <ul class="submenu" ng-show="order.showSub">
                     <li class="row">
-                        <label class="col-xs-4"for="serType0">服务类型</label><!--显示的是会议室名称-->
+                        <label class="col-xs-4"for="serType0">服务类型</label><!--线上物业-->
                         <p class="col-xs-8"id="serType0">{{order.type}}</p>
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="compyName0">公司名称</label>
                         <p class="col-xs-8"id="compyName0">{{order.compName}}</p>
+                    </li>
+                    <li class="row">
+                        <label class="col-xs-4"for="address">公司地址</label>
+                        <p class="col-xs-8"id="address">{{order.address}}</p>
+
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="compyGuy0">联 系 人</label>
@@ -62,7 +67,7 @@
                 </ul>
                 <ul class="submenu" ng-show="order.showRoom">
                     <li class="row">
-                        <label class="col-xs-4"for="serType7">会议室名称</label><!--显示的是会议室名称-->
+                        <label class="col-xs-4"for="serType7">会议室名称</label><!--会议室-->
                         <p class="col-xs-8"id="serType7">{{order.roomName}}</p>
                     </li>
                     <li class="row">
@@ -92,10 +97,10 @@
                         <p class="col-xs-8 text-area"id="extraInfo02">{{order.extraMsg}}</p>
                     </li>
 
-                    <button ng-show="order.payMethod == 'true' && order.paystatus=='false'"class="btn quickpay payAgainBtn" ng-click="payAgain(order._id)">
-                        立即支付
-                    </button>
-
+                        <button ng-show="(order.payMethod == 'false'||'一卡通') && (order.payState=='false'||'未支付')&&
+                        (order.state!='已取消')" class="btn quickpay payAgainBtn"ng-click="payAgain(order._id)">
+                            立即支付
+                        </button>
                 </ul>
             </li>
 

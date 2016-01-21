@@ -3,18 +3,9 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
     $scope.title="服务订单";
 
     $scope.currentPage = 1;
-    $scope.pageSize = 1;
+    $scope.pageSize = 1000;
     $scope.orderList=[];
-    $scope.displayZero=function(n) {//六位数字，当分钟或秒钟或时钟小于10时，加0，否则空格补救
-        if (n < 10) {
-            return '0' + n;
-        }else if(n==10){
-            return 10;
-        }
-        else {
-            return n;
-        }
-    }
+
     $scope.$parent.memberPromise.then(function(){
 
         $http.post(X_context.api+"servicesOrder/list", {
@@ -25,8 +16,15 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
         })
             .success(function (data){
 
-                console.log($scope.displayZero(new Date(data.data.result[1].createddate).getMinutes()))
+                //console.log($scope.displayZero(new Date(data.data.result[1].createddate).getMinutes()))
                 if(!data.data)return;
+                $scope.displayZero=function(n) {//六位数字，当分钟或秒钟或时钟小于10时，加0，否则空格补救
+                    if (n < 10) {
+                        return '0' + n;
+                    }else {
+                        return n;
+                    }
+                }
 
                 for(var i in data.data.result){
                     var results=data.data.result[i]
@@ -46,6 +44,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            linkTel : results.mobile,
                           compName : results.company,
                           extraMsg : results.note,
+                           address : results.address
                         };
                     }else{
 
@@ -58,9 +57,9 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                             doDate :(new Date(results.createddate).getFullYear()==new Date().getFullYear()&&
                                      new Date(results.createddate).getMonth()==new Date().getMonth()&&
                                      new Date(results.createddate).getDate()==new Date().getDate())
-                                    ?new Date(results.createddate).getHours()+':'+
-                                     new Date(results.createddate).getMinutes() :
-                                     new Date(results.createddate).getFullYear()+'/'+
+                                   ? new Date(results.createddate).getHours()+':'+
+                                     new Date(results.createddate).getMinutes()
+                                   : new Date(results.createddate).getFullYear()+'/'+
                                     ($scope.displayZero(new Date(results.createddate).getMonth()+1))+'/'+
                                      new Date(results.createddate).getDate()+'\n'+
                                      new Date(results.createddate).getHours()+':'+
@@ -76,9 +75,9 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                           extraMsg : results.remark,
                            linkMan : results.contact,
                            linkTel : results.mobile,
-                         payMethod : results.paytype,
+                         payMethod : results.paytype==false?"一卡通":"线下支付",
                                _id : results._id,
-                          payState : results.paystatus==false?"已支付":"未支付",
+                          payState : results.paystatus==true?"已支付":"未支付"
 
 
                         }

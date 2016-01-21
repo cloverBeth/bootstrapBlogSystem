@@ -19,6 +19,7 @@
         <div class="danhao">
             <p><font>订单编号</font>{{orderSucceed.orderNumber}}</p>
             <p><font>服务类型</font>{{orderSucceed.type}}</p>
+            <p><font>详细地址</font>{{orderSucceed.address}}</p>
             <p class="consume"ng-show="isActive('/meeting-room-order')"><font>本次消费</font><span>¥300{{orderSucceed.expense}}</span></p>
         </div>
         <div class="pay clearfix"ng-show="isActive('/meeting-room-order')">

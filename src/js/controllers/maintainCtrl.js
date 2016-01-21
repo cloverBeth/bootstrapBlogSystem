@@ -68,7 +68,8 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
                    "contactor":$scope.maintain.compyGuy,
                       "mobile":$scope.maintain.guyTel,
                         "note":$scope.maintain.extraInfo,
-                  "serviceId" : $scope.childType,
+                   "serviceId":$scope.childType,
+                     "address":$scope.maintain.address
 
 
                 })

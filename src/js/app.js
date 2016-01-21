@@ -543,6 +543,19 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('adviceAndComplain',{
+            url:'/advice-and-complain',
+            views:{
+                '':{
+                    templateUrl:'adviceAndComplain.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName="AdviceAndComplainController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
 
         .state('companyShow',{
             url:'/company-show',
