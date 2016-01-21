@@ -59,7 +59,8 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                        "contactor" : $scope.garden.compyGuy,
                           "mobile" : $scope.garden.guyTel,
                             "note" : $scope.garden.extraInfo,
-                       "serviceId" : $scope.childType
+                       "serviceId" : $scope.childType,
+                         "address" : $scope.garden.address
                     })
                         .success(function(data){
                             console.log('123');

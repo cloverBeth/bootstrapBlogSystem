@@ -12,16 +12,16 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
             "orderid" : $scope.orderId
         }).success(function (data){
             if(!data.data){return;}
-            $scope.cashPay=data.data[0].paytype;
-            if($scope.cashPay=="false"){
+            $scope.cashPay=data.data[0].paytype;//现金支付
+            if($scope.cashPay=="true"){
                 $scope.title = "预约成功";
-                $scope.cashPay=true;
+                $scope.cashPay=false;
 
 
             }
             else{
                 $scope.title = "下单成功";
-                $scope.cashPay=false;
+                $scope.cashPay=true;
 
             }
             $scope.orderNumber = data.data[0].ordersn;
@@ -29,7 +29,7 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
             $scope.payway = data.data[0].paytype;
 
 
-            if($scope.payway == "true" && data.data[0].paystatus == "false"){
+            if($scope.payway == "false" && data.data[0].paystatus == "false"){
                 $scope.success = false;
                 $scope.title = "下单失败";
             }

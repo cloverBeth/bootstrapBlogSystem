@@ -64,8 +64,9 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                      "company": $scope.parking.compyName,
                    "contactor": $scope.parking.compyGuy,
                       "mobile": $scope.parking.guyTel,
-                  "serviceId" : $scope.childType,
-                        "note": $scope.parking.extraInfo
+                   "serviceId": $scope.childType,
+                        "note": $scope.parking.extraInfo,
+                     "address": $scope.parking.address
                 })
                     .success(function (data) {
                         if(data.code==200){

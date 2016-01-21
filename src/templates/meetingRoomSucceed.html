@@ -11,7 +11,7 @@
     <div class="main mt-15">
 
         <div class="clearfix" ng-class="{succeed:success,failed:!success}">
-            <p ng-show="success && !cashPay">
+            <p ng-show="success && cashPay">
                 <strong>您的订单已提交成功，我们会尽快联系您！</strong>
                 如您需要取消订单，请拨打服务热线。
             </p>
@@ -19,7 +19,7 @@
                 <strong>您的订单未成功！</strong>
                 如您有其他问题，请拨打商家服务热线。
             </p>
-            <p ng-show="success && cashPay">
+            <p ng-show="success && !cashPay">
                 <strong>您的预约订单已提交成功，</strong>
                 请您在当天完成付款！否则定单将被取消哦～
             </p>
@@ -31,7 +31,7 @@
             <p class="consume"><font>本次消费</font><span>¥{{expense || 0}}</span></p>
         </div>
         <div class="pay clearfix">
-            <h3>支付方式</h3><strong>{{payway == "true"?"一卡通":"线下支付"}}</strong>
+            <h3>支付方式</h3><strong>{{payway == "false"?"一卡通":"线下支付"}}</strong>
         </div>
         <div class="pay clearfix">
             <h3>联系电话</h3><a href="tel:{{telphone}}">{{telphone}}</a>

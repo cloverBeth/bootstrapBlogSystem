@@ -1,6 +1,6 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($rootScope,$scope,$stateParams,$http,$state){
-    $scope.title="商务策划";
+angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function($rootScope,$scope,$stateParams,$http,$state){
+    $scope.title="评价与建议";
 
     $scope.typeList=[];
     $scope.childType = null;
@@ -33,12 +33,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
     $scope.goGardenOrder=function(){
 
-        if(!$scope.childType){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的商务策划服务～'});
-            return;
-        }
-
-        else if (!$scope.business.compyName) {
+        if (!$scope.business.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
         }
@@ -65,7 +60,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
                 .success(function(data){
                     if(data.code==200){
                         $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
-                        $scope.orderSure=true;//如何避免重复订单？？？？？
+                        $scope.orderSure=true;
                     }
                     else{
                         $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
