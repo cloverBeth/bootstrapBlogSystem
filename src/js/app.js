@@ -623,10 +623,11 @@ angular.module('ZJSY_WeChat', [
         })
         .state('mark.invalid', {
             url: '/mark-invalid',
+            params: {invalid: true},
             views: {
                 '': {
-                    templateUrl: 'markInvalid.html',
-                    controller: 'MarkInvalidController'
+                    templateUrl: 'markValid.html',
+                    controller: 'MarkValidController'
                 }
             }
         });
