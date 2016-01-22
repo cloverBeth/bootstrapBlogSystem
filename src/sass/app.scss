@@ -2,6 +2,7 @@
 $zjsyGreen : #00C500;
 $fontGrey : #E1E1E1;
 $fontDarkGrey : #908686;
+$fontLightBlack : #666;
 
 *{margin:0;padding:0;}
 ol li,ul li{ list-style-type:none; vertical-align:middle;}
@@ -41,12 +42,14 @@ body {
   -webkit-font-smoothing:antialiased;
   font-weight: 400 !important;
 }
-input,button, textarea, select {-webkit-appearance: none;-moz-appearance:none;appearance: none;border-radius: 0;
+input,button, textarea, select {
+  //-webkit-appearance: none;-moz-appearance:none;appearance: none;
+  border-radius: 0;
   margin: 0;
   padding: 0;
 }
 input[type="checkbox"]{-webkit-appearance: checkbox;-moz-appearance:checkbox;appearance:checkbox;}
-input[type="radio"]{-webkit-appearance: radio-button;-moz-appearance:radio-button;appearance:radio-group;}
+//input[type="radio"]{-webkit-appearance: radio-button;-moz-appearance:radio-button;appearance:radio-group;}
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -370,7 +373,7 @@ p{
 .parcel li p{float:left;width:36%;}
 .parcel li p strong{ display:block;color:#666666;font-size:14px;line-height:1.4em;}
 .parcel li p b{ display:block;color:#ff6600;font-size:12px;line-height:2em;font-weight:normal;color:#999;}
-.parcel li span{ display:block;float:right;color:#ff6600;font-size:14px;padding-right:12px;}
+.parcel li .get-order-right{ display:block;float:right;color:#ff6600;font-size:14px;padding-right:12px;}
 
 .pay{
   margin:10px 0;
@@ -1688,6 +1691,60 @@ label {
       color: #666;
     }
   }
+}
+.get-order{
+  .address{
+    margin-top: 10px;
+  }
+  .get-order-coupon{
+    padding: 0 10px;
+    margin-top: 10px;
+    height: 60px;
+    line-height: 60px;
+    background: white;
+    font-size: 16px;
+    border-top: 1px solid $fontGrey;
+    border-bottom: 1px solid $fontGrey;
+    color: $fontLightBlack;
+    img{
+      width:20px;
+      border-radius: 50%;
+      margin-top: -3px;
+    }
+    .coupon-toggle{
+      float: right;
+      color: $fontDarkGrey;
+      cursor: pointer;
+
+    }
+  }
+  .get-order-coupon-dropdown{
+    width: 100%;
+    padding: 0 10px;
+    background: white;
+    font-size: 14px;
+    border-bottom: 1px solid $fontGrey;
+    color: $fontLightBlack;
+    max-height: 200px;
+    position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    .coupon-list{
+      li{
+        height: 45px;
+        line-height: 45px;
+        border-bottom: 1px solid $fontGrey;
+      }
+    }
+  }
+  .coupon-products{
+    padding: 0 10px !important;
+    .coupon-products-list{
+      margin-left:20px;
+      display: inline-block;
+    }
+  }
+
 }
 
 

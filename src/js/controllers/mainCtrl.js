@@ -6,22 +6,22 @@ angular.module('ZJSY_WeChat')
         $scope.memberPromise = null;
         $scope.showLoading = false;
         $scope.cart = {};
-        //{
+        //$scope.cart = {1:{
         //    products : [
-        //        //{
-        //        //    id: 0,
-        //        //    name: "雀巢麦片",
-        //        //    num: 156,
-        //        //    img: "images/ph_1.jpg",
-        //        //    detail: "营养高，味道好",
-        //        //    cateId: 1,
-        //        //    price: 30,
-        //        //    buyNum: 1
-        //        //}
+        //        {
+        //            id: 0,
+        //            name: "雀巢麦片",
+        //            num: 156,
+        //            img: "images/ph_1.jpg",
+        //            detail: "营养高，味道好",
+        //            cateId: 1,
+        //            price: 30,
+        //            buyNum: 1
+        //        }
         //    ],
         //    min : 0,
         //    freightFee : 0
-        //};
+        //}};
         $scope.order = {
             //storeId : 1,
             product : [

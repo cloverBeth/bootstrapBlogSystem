@@ -1,4 +1,4 @@
-<div class="main main-section">
+<div class="main main-section get-order">
 
       <header class="header">
 
@@ -24,8 +24,38 @@
 
         <div class="navTop" ></div>
 
-        <div class=" ">
-            <div class="addressNoArrow address clearfix">
+        <div class=" " >
+            <div class="get-order-coupon" ng-show="payOption=='card'">
+                <span>使用优惠券</span>
+                <img src="images/coupon-icon.png" alt=""/>
+                <span class="coupon-toggle" ng-show="couponList.length > 0" ng-click="showToggle = !showToggle">
+                    {{_.find(couponList,{couponId : couponId}) ?
+                    _.find(couponList,{couponId : couponId}).name
+                    :'有可用优惠券'}}
+                    <i class="fa fa-caret-square-o-down" ng-hide="showToggle" ></i>
+                    <i class="fa fa-caret-square-o-up" ng-show="showToggle"></i>
+                </span>
+
+                <span class="coupon-toggle" ng-show="couponList.length == 0">
+                    无可用优惠券
+                </span>
+            </div>
+            <div class="get-order-coupon-dropdown" ng-show="showToggle&&payOption=='card'">
+                <ul class="coupon-list block">
+
+                    <li class="coupon-item" ng-repeat="coupon in couponList track by $index"
+                        ng-click="$parent.couponId != coupon.couponId
+                        ? $parent.couponId = coupon.couponId
+                        : $parent.couponId = null ">
+                        {{coupon.name}}
+                        <i class="pay-icon pay-icon-selected"
+                           ng-show="coupon.couponId == $parent.couponId"></i>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="addressNoArrow address clearfix get-order">
                 <em><img src="images/ico_6.png" /></em>
                 <p>
                     {{username}}    {{phone}}<br />
@@ -34,6 +64,8 @@
                 </p>
 
             </div>
+
+
 
             <div class="parcel">
 
@@ -52,19 +84,38 @@
 
                         </p>
 
-                        <span>￥{{(item.price * item.buyNum).toFixed(1)}}</span>
+                        <span class="get-order-right">￥{{(item.price * item.buyNum).toFixed(1)}}</span>
 
+                    </li>
+                    <li ng-show="payOption=='card' && showCouponProduct" class="coupon-products">
+                        <span style="float: left;margin-top: 10px;" >
+                            赠品
+                        </span>
+                        <div class="coupon-products-list" style="width: 100%;">
+                            <div style="width: 100%;"
+                                 ng-repeat="product in _.find(couponList,{couponId : couponId}).products track by $index">
+                                <div class="radio" style="width: 200px;display: inline-block;">
+                                    <label>
+                                        <input type="radio" name="couponRadios"  value="{{product.productId}}"  ng-model="$parent.couponProductId">
+                                        {{product.productName}}
+                                    </label>
+                                </div>
+                                <span style="float:right;float: right;margin-right: 30px;line-height: 40px;">
+                                    ￥0
+                                </span>
+                            </div>
+                        </div>
                     </li>
 
                     <li>
 
-                    <span style="float: right;">
+                        <span style="float: right;" class="get-order-right">
 
-                    总价 :￥{{(totalPrice + freight).toFixed(1)}}
+                        总价 :￥{{(totalPrice + freight).toFixed(1)}}
 
-                    (含配送费￥{{freight}})
+                        (含配送费￥{{freight}})
 
-                </span>
+                        </span>
 
                     </li>
 
