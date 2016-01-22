@@ -107,11 +107,21 @@
                         </div>
                     </li>
 
+                    <li ng-show="payOption=='card' && showCouponSale">
+
+                        <span style="float: right;" class="get-order-right">
+
+                        优惠券 :-￥{{couponSale}}
+
+                        </span>
+
+                    </li>
+
                     <li>
 
                         <span style="float: right;" class="get-order-right">
 
-                        总价 :￥{{(totalPrice + freight).toFixed(1)}}
+                        总价 :￥{{(totalPrice + freight - couponSale).toFixed(1)}}
 
                         (含配送费￥{{freight}})
 
