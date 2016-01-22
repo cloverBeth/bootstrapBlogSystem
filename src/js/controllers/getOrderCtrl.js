@@ -14,7 +14,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     //$scope.username = "陈冠希";
     //$scope.phone = "13232311009";
     //$scope.address = "香港XX摄影工作室";
-    //买赠券 买送券
+    //满赠券 抵用券
 
     $scope.payOption = "delivery";
     $scope.couponList = [];
@@ -63,13 +63,13 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
         $scope.couponSale = 0;
 
         if(coupon
-            &&coupon.type == "买赠券"
+            &&coupon.type == "满赠券"
             &&coupon.products
             &&coupon.products.length > 0){
             $scope.showCouponProduct = true;
             $scope.couponProductId = _.find($scope.couponList,{couponId : couponId}).products[0].productId;
         }else if(coupon
-            &&coupon.type == "买送券"
+            &&coupon.type == "抵用券"
             && coupon.discount > 0) {
             $scope.showCouponSale = true;
             $scope.couponSale = coupon.discount;
