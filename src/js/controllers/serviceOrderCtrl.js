@@ -33,8 +33,15 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                         var order = {
                             number : results.ordersn,
                                pro : results.services ? results.services.parentTitle : "",
-                            doDate : results.createddate,
-                           iconImg : results.services ? results.services.image : "",
+                            doDate : (new Date(results.createddate).getFullYear()==new Date().getFullYear()&&
+                                      new Date(results.createddate).getMonth()==new Date().getMonth()&&
+                                      new Date(results.createddate).getDate()==new Date().getDate())
+                                    ? new Date(results.createddate).getHours()+':'+
+                                      new Date(results.createddate).getMinutes()
+                                    : new Date(results.createddate).getFullYear()+'/'+
+                                     ($scope.displayZero(new Date(results.createddate).getMonth()+1))+'/'+
+                                      new Date(results.createddate).getDate(),
+                           iconImg : X_context.devHost + results.services.image,
                              state : results.orderstatus==0?"未处理":results.orderstatus==1?"已处理":"已取消",
                               type : results.services ? results.services.title:"",
                                 id : results.services ? results.services._id:"",
@@ -75,7 +82,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            linkTel : results.mobile,
                          payMethod : results.paytype,
                                _id : results._id,
-                          payState : results.paystatus==true?"已支付":"未支付"
+                          payState : results.paystatus=="true"?"已支付":"未支付"
 
 
                         }

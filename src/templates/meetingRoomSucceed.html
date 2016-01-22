@@ -26,15 +26,15 @@
 
         </div>
         <div class="danhao">
-            <p><font>订单编号</font>{{orderNumber}}</p>
-            <p><font>服务类型</font>会议室预订</p>
-            <p class="consume"><font>本次消费</font><span>¥{{expense || 0}}</span></p>
+            <p><span class="col-xs-4">订单编号</span><span class="col-xs-8 pad-left">{{orderNumber}}</span></p>
+            <p><span class="col-xs-4">服务类型</span><span class="col-xs-8 pad-left">会议室预订</span></p>
+            <p><span class="col-xs-4">本次消费</span><span class="col-xs-8 pad-left">¥{{expense || 0}}</span></p>
         </div>
         <div class="pay clearfix">
-            <h3>支付方式</h3><strong>{{payway == "false"?"一卡通":"线下支付"}}</strong>
+            <h3 class="col-xs-4">支付方式</h3><strong class="col-xs-8">{{payway == "false"?"一卡通":"线下支付"}}</strong>
         </div>
         <div class="pay clearfix">
-            <h3>联系电话</h3><a href="tel:{{telphone}}">{{telphone}}</a>
+            <h3 class="col-xs-4">联系电话</h3><a class="col-xs-8" href="tel:{{telphone}}">{{telphone}}</a>
         </div>
         <div style="width: 80%;margin: 10px 10%;">
 

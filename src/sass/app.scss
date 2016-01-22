@@ -413,8 +413,13 @@ p{
   background-image:url(../images/ico_8.png)
 }
 
-.succeed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_8.png) no-repeat 10px 16px;
-  background-size:18px;border-bottom:1px solid #ddd;}
+.succeed{
+  padding:15px 12px 15px 36px;
+  background:#fff url(../images/ico_8.png) no-repeat;
+  background-size:18px;
+  border-bottom:1px solid #ddd;
+  background-position:50% 12%;
+}
 .succeed em{ display:block;float:left;width:20px;padding-right:10px;}
 .succeed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
 .succeed p strong{ display:block;font-size:15px;color:#666;}
