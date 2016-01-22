@@ -7,7 +7,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
     $scope.phoneReg=/^([0-9]{11})$/;
 
 
-        $http.post(X_context.api + "services/listServices", {
+    $http.post(X_context.api + "services/listServices", {
             "servicesId": 1
         })
             .success(function (data) {
@@ -43,7 +43,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 return;
             }
             else if (!$scope.garden.address) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入贵公司正确的地址～'});
                 return;
             }
             else if(!$scope.garden.compyGuy) {
@@ -55,6 +55,10 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 return;
 
                     }
+            //else if(!$scope.garden.extraMsg){
+            //    $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请不要输入特殊字符哦～'});
+            //    return;
+            //}
             else{
 
                     $http.post(X_context.api+"servicesOrder/add", {

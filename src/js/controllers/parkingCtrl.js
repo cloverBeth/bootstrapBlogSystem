@@ -47,7 +47,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
         else if (!$scope.parking.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
-        }else if (!$scope.garden.compyName) {
+        }else if (!$scope.parking.address) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
             return;
         }
