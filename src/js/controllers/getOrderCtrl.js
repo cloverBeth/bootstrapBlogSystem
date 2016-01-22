@@ -6,8 +6,10 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     $scope.showToggle = false;
     $scope.couponId = null;
     $scope.couponProductId = null;
+    $scope.couponSale = 0;
     $scope._ = _;
     $scope.showCouponProduct = false;
+    $scope.showCouponSale = false;
 
     //$scope.username = "陈冠希";
     //$scope.phone = "13232311009";
@@ -54,12 +56,23 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     $scope.$watch('couponId',function(couponId,old){
         if(couponId == old)return;
         let coupon = _.find($scope.couponList,{couponId : couponId});
+        //
+        $scope.showCouponProduct = false;
+        $scope.showCouponSale = false;
+        $scope.couponProductId = null;
+        $scope.couponSale = 0;
+
         if(coupon
             &&coupon.type == "买赠券"
             &&coupon.products
             &&coupon.products.length > 0){
             $scope.showCouponProduct = true;
             $scope.couponProductId = _.find($scope.couponList,{couponId : couponId}).products[0].productId;
+        }else if(coupon
+            &&coupon.type == "买送券"
+            && coupon.discount > 0) {
+            $scope.showCouponSale = true;
+            $scope.couponSale = coupon.discount;
         }else{
             $scope.showCouponProduct = false;
         }
@@ -162,8 +175,8 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
                     orderId : data.data[0]._id,
                     items : [
                         {
-                            productId : $scope.couponProductId,
-                            price : 0
+                            productId : $scope.couponProductId || 0,
+                            price : $scope.couponSale || 0
                         }
                     ]
                 }).success(function(){
