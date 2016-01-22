@@ -5,7 +5,13 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
     $scope.currentPage = 1;
     $scope.pageSize = 1000;
     $scope.orderList=[];
-
+    $scope.displayZero=function(n) {//六位数字，当分钟或秒钟或时钟小于10时，加0，否则空格补救
+        if (n < 10) {
+            return '0' + n;
+        }else {
+            return n;
+        }
+    }
     $scope.$parent.memberPromise.then(function(){
 
         $http.post(X_context.api+"servicesOrder/list", {
@@ -18,13 +24,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
 
                 //console.log($scope.displayZero(new Date(data.data.result[1].createddate).getMinutes()))
                 if(!data.data)return;
-                $scope.displayZero=function(n) {//六位数字，当分钟或秒钟或时钟小于10时，加0，否则空格补救
-                    if (n < 10) {
-                        return '0' + n;
-                    }else {
-                        return n;
-                    }
-                }
+
 
                 for(var i in data.data.result){
                     var results=data.data.result[i]
@@ -65,10 +65,8 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                                      new Date(results.createddate).getMonth()==new Date().getMonth()&&
                                      new Date(results.createddate).getDate()==new Date().getDate())
                                    ? new Date(results.createddate).getHours()+':'+
-                                     new Date(results.createddate).getMinutes()
-                                   : new Date(results.createddate).getFullYear()+'/'+
-                                    ($scope.displayZero(new Date(results.createddate).getMonth()+1))+'/'+
-                                     new Date(results.createddate).getDate(),
+                                    ($scope.displayZero(new Date(results.createddate).getMinutes()))
+                                   : new Date(results.createddate).getFullYear()+'/'+($scope.displayZero(new Date(results.createddate).getMonth()+1))+'/'+new Date(results.createddate).getDate(),
                              state : results.orderstatus==0?"未处理":results.orderstatus==1?"已处理":"已取消",
                            //linkTel : data.data.result[i].mobile,
                           showRoom : false,
@@ -77,6 +75,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                                 id : results._id,
                           compName : results.company,
                           timeLine : results.meetingtime,
+                       meetingDate : results.meetingdate,
                           extraMsg : results.remark,
                            linkMan : results.contact,
                            linkTel : results.mobile,

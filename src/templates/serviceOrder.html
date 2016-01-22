@@ -1,16 +1,15 @@
-<div class="main-section main service-order">
 
-    <header class="header">
-        <div class="back">
-            <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
-        </div>
-        <div class="title">
-            {{title}}
-        </div>
-    </header>
+<header class="header">
+    <div class="back">
+        <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+    </div>
+    <div class="title">
+        {{title}}
+    </div>
+</header>
 
+<div class="service-order main-section main">
 
-    <div class="serviceList">
         <div>
             <img src="images/garden_banner.jpg" width="100%"alt=""/>
         </div>
@@ -72,7 +71,7 @@
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="timeline">会议室时间</label>
-                        <p class="col-xs-8"id="timeline">{{order.timeLine}}</p>
+                        <p class="col-xs-8"id="timeline">{{(order.meetingDate | date:"MM/dd")+" "+order.timeLine+"点"}}</p>
                     </li>
                     <li class="row">
                         <label class="col-xs-4"for="expense">总 消 费</label>
@@ -98,7 +97,7 @@
                         <p class="col-xs-8 text-area"id="extraInfo02">{{order.extraMsg}}</p>
                     </li>
 
-                        <button ng-show="order.payMethod=='false' && (order.payState=='false'||'未支付')&&
+                        <button ng-show="order.payMethod=='false' && (order.payState=='false'||order.payState=='未支付')&&
                         (order.state!='2'||'已取消')"class="btn quickpay payAgainBtn"ng-click="payAgain(order._id)">
                             立即支付
                         </button>
@@ -107,6 +106,4 @@
 
         </ul>
 
-
-    </div>
 </div>

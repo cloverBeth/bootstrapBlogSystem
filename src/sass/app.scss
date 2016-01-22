@@ -1092,16 +1092,24 @@ label {
            height:auto;font-size:16px;border:none;}
 
     }
-    .gardenbtn{width:85%;margin:0 auto;height:50px;font-size:18px;color:#FFFFFF;font-weight:600;margin-top:10px;
-           margin-bottom:15px;}
+    .gardenbtn{
+        width:85%;
+        margin:15px 0 15px 22%;
+        height:50px;
+        border:none;
+        border-radius:5px;
+        font-size:18px;
+        color:#FFFFFF;
+        font-weight:600;
+    }
 
 }
 
 
 .service-order{
 
-  .serviceList{
     margin:47px 0 0 0;
+    padding-bottom:60px;
     ul{margin-top:20px;}
     ul li.outerList{
       min-height:100px;
@@ -1145,12 +1153,15 @@ label {
           }
 
           .proTime{
-              margin:0 5px 0 0;
-              width:30px;
+              margin:0 10px 0 0;
+              width:40px;
               height:20px;
               float:right;
               font-size:15px;
-              span{display:block;width:80px;color:#AAAAAA;}
+              span{
+                display:block;
+                width:100px;
+                color:#AAAAAA;}
 
           }
       }
@@ -1185,7 +1196,7 @@ label {
       }
       .payAgainBtn{width:22%;margin-left:40%;}
     }
-  }
+
 }
 
 

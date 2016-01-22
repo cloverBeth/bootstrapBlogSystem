@@ -8,7 +8,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
 
     $http.post(X_context.api + "services/listServices", {
-        "servicesId": 5
+        "servicesId": 6
     })
         .success(function (data) {
             $scope.childType = data.data[0]._id;
@@ -25,7 +25,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
         });
     $scope.$parent.memberPromise.then(function(data){
-        $scope.business={
+        $scope.advice={
             compyGuy : data.data.data[0].nickName,
             guyTel : data.data.data[0].mobile
         }
@@ -33,16 +33,20 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
     $scope.goGardenOrder=function(){
 
-        if (!$scope.business.compyName) {
+        if (!$scope.advice.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
         }
-        else if(!$scope.business.compyGuy) {
+        else if(!$scope.advice.compyGuy) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
             return;
         }
-        else if(!$scope.phoneReg.test($scope.business.guyTel)) {
+        else if(!$scope.phoneReg.test($scope.advice.guyTel)) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
+            return;
+
+        }else if(!$scope.advice.extraInfo) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您宝贵的评价与建议～'});
             return;
 
         }
@@ -50,20 +54,16 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
             $http.post(X_context.api+"servicesOrder/add", {
                 "memberid" : X_context.memberId,
-                 "company" : $scope.business.compyName,
-               "contactor" : $scope.business.compyGuy,
-                  "mobile" : $scope.business.guyTel,
-                    "note" : $scope.business.extraInfo,
+                 "company" : $scope.advice.compyName,
+               "contactor" : $scope.advice.compyGuy,
+                  "mobile" : $scope.advice.guyTel,
+                    "note" : $scope.advice.extraInfo,
                "serviceId" : $scope.childType,
-                 "address" : $scope.business.address
+                 "address" : $scope.advice.address
             })
                 .success(function(data){
                     if(data.code==200){
-                        $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
-                        $scope.orderSure=true;
-                    }
-                    else{
-                        $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                        $rootScope.$broadcast('alerts', {type: 'danger', message: '留言成功！感谢您的评价和建议，我们将做得更好'});
                     }
                 })
 
