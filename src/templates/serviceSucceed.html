@@ -17,16 +17,12 @@
             </p>
         </div>
         <div class="danhao">
-            <p><font>订单编号</font>{{orderSucceed.orderNumber}}</p>
-            <p><font>服务类型</font>{{orderSucceed.type}}</p>
-            <p><font>详细地址</font>{{orderSucceed.address}}</p>
-            <p class="consume"ng-show="isActive('/meeting-room-order')"><font>本次消费</font><span>¥300{{orderSucceed.expense}}</span></p>
-        </div>
-        <div class="pay clearfix"ng-show="isActive('/meeting-room-order')">
-            <h3>支付方式</h3><strong>{{orderSucceed.payway}}</strong>
+            <p><span class="col-xs-4">订单编号</span><span class="col-xs-8 pad-left">{{orderSucceed.orderNumber}}</span></p>
+            <p><span class="col-xs-4">服务类型</span><span class="col-xs-8 pad-left">{{orderSucceed.type}}</span></p>
+            <p><span class="col-xs-4">详细地址</span><span class="col-xs-8 pad-left">{{orderSucceed.address}}</span></p>
         </div>
         <div class="pay clearfix">
-            <h3>联系电话</h3><a href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
+            <h3 class="col-xs-4">联系电话</h3><a class="col-xs-8"href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
         </div>
         <div style="width: 80%;margin: 10px 15%;">
             <button class="redBtn btn"ng-click="goToOnline()">返回线上物业</button>

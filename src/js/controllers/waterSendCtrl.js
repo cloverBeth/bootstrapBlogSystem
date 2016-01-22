@@ -42,6 +42,10 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
                 return;
             }
+            else if (!$scope.garden.address) {
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+                return;
+            }
             else if(!$scope.garden.compyGuy) {
                 $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
                 return;

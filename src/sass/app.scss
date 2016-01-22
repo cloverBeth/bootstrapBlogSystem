@@ -1193,9 +1193,15 @@ label {
       font-weight:600;
 
     }
-    .danhao p font {
+    .danhao{height:130px;width:100%}
+    .danhao p span {
       color: #666;
-      padding-right:18px;
+      display:inline-block;
+      padding:0 0 0 15px;
+    }
+    .danhao span.pad-left{
+      padding-left:0;
+      color:#9E9696;
     }
     .succeed{
       padding: 45px 12px 15px 36px;
@@ -1232,13 +1238,13 @@ label {
     }
     .danhao p {
       font-size: 16px;
-      padding-left: 20px;
       line-height: 1.8em;
       color: #999;
     }
+    .pay h3{font-size:16px;}
     .pay a{
       float: left;
-      padding: 12px 15px 12px 18px;
+      padding: 12px 15px 12px 5px;
       //margin:0 0 0 20px;
       font-size: 15px;
       line-height: 2.4em;

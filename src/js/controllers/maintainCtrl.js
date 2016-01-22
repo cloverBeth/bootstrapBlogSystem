@@ -50,6 +50,9 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
         else if (!$scope.maintain.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
+        }else if (!$scope.garden.compyName) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+            return;
         }
         else if(!$scope.maintain.compyGuy) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
