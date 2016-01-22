@@ -1,9 +1,15 @@
 <div class="main" data-ng-init="init()" infinite-scroll="addItems()" can-load="canLoad" threshold="{{maxItems}}">
     <div class="coupon-area">
+
+        <div class="no-coupon" ng-show="noCoupon">
+            暂无优惠券
+        </div>
+
         <div class="coupons" ng-repeat="coupon in couponList track by $index" ng-click="takeCoupon($index)"
              ng-style="{'background-image':'url(images/coupon_'+ checkBlue(coupon.status, true) +'.png)'}">
             <div class="left-coupon">
-                <div class="left-coupon-exclude-left-blank">
+                <div class="left-coupon-exclude-left-blank"
+                     ng-style="{'background-image':'url(images/coupon_circle_'+ checkBlue(coupon.status, true) +'.png)'}">
                     <div class="left-text">
                         <span class="coupon-price"><b>￥{{coupon.price}}</b></span>
                         <br/>
@@ -18,7 +24,7 @@
                     {{coupon.startDate}}至{{coupon.endDate}}
                 </div>
                 <div>
-                    <center><hr color="{{checkBlue(coupon.status, false)}}"/></center>
+                    <center><hr ng-style="{'background-color':checkBlue(coupon.status, false)}"/></center>
                 </div>
                 <div class="right-text">
                     <b>{{coupon.name}}</b>

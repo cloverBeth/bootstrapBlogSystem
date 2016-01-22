@@ -1605,6 +1605,11 @@ label {
   padding-top: 20px;
   padding-bottom: 100px;
 
+  .no-coupon {
+    text-align: center;
+    font-size: 18px;
+  }
+
   .coupons {
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -1620,6 +1625,8 @@ label {
         float: right;
         width: 76%;
         height: 100%;
+        background: no-repeat left center;
+        background-size: 92%;
 
         .left-text {
           text-align: center;
@@ -1652,6 +1659,8 @@ label {
         width: 85%;
         text-align: center;
         margin: 0px;
+        height: 1px;
+        border: none
       }
     }
 
