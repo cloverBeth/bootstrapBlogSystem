@@ -4,7 +4,8 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
     $scope.typeList=[];
     $scope.childType = null;
-    $scope.phoneReg=/^([0-9]{11})$/;
+    $scope.phoneReg=/^(1[0-9]{10})$/;
+    var pattern = /^[-'a-z\u4e00-\u9eff]{2,40}$/i;
 
 
     $http.post(X_context.api + "services/listServices", {
@@ -46,14 +47,17 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
             return;
         }
-        else if(!$scope.business.compyGuy) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+        else if(!pattern.test($scope.business.compyGuy)) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
         else if(!$scope.phoneReg.test($scope.business.guyTel)) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
             return;
 
+        }else if(!pattern.test($scope.business.extraInfo)){
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，最后一项请输入中、英文字符～'});
+            return;
         }
         else{
 
