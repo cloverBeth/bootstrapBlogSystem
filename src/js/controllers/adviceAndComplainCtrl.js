@@ -1,11 +1,11 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function($rootScope,$scope,$stateParams,$http,$state){
-    $scope.title="评价与建议";
+    $scope.title="留言&建议";
 
     $scope.typeList=[];
     $scope.childType = null;
     $scope.phoneReg=/^([0-9]{11})$/;
-
+    $scope.testReg=/^[\u4e00-\u9fa5a-zA-Z]/g;
 
     $http.post(X_context.api + "services/listServices", {
         "servicesId": 6
@@ -37,16 +37,16 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
             return;
         }
-        else if(!$scope.advice.compyGuy) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+        else if(!$scope.testReg.test($scope.advice.compyGuy)) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名,只能是中、英文～'});
             return;
         }
         else if(!$scope.phoneReg.test($scope.advice.guyTel)) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
             return;
 
-        }else if(!$scope.advice.extraInfo) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您宝贵的评价与建议～'});
+        }else if(!$scope.testReg.test($scope.advice.extraInfo)) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您宝贵的评价与建议,只能是中、英文～'});
             return;
 
         }
@@ -59,12 +59,15 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
                   "mobile" : $scope.advice.guyTel,
                     "note" : $scope.advice.extraInfo,
                "serviceId" : $scope.childType,
-                 "address" : $scope.advice.address
             })
                 .success(function(data){
                     if(data.code==200){
                         $rootScope.$broadcast('alerts', {type: 'danger', message: '留言成功！感谢您的评价和建议，我们将做得更好'});
+                        $scope.advice.extraInfo=null;
+                        $scope.advice.compyName=null;
+
                     }
+
                 })
 
 

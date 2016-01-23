@@ -626,9 +626,14 @@ strong.ng-binding{font-weight:400;}
   margin-top:15px;
   height:40px;
   -webkit-border-radius:5px;
-  border-radius:5px;}
-#checknum{
-  //margin-right:8%;
+  border-radius:5px;
+}
+
+#checknum::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+#checknum::-webkit-outer-spin-button {
+  -webkit-appearance: none;	/* 有无看不出差别 */
 }
 .btnQ{text-align:center;padding:15px 10px 15px;margin:0 0 60px 0;}
 .btnQ a{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#999999;
