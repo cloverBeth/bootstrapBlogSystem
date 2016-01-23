@@ -449,6 +449,20 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('inFinance', {
+            url:'/in-finance',
+            views:{
+                '':{
+                    templateUrl:'inFinance.html',
+                    controllerProvider: function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "InFinanceController";
+                        return ctrlName;
+
+                    }
+                }
+            }
+        })
         .state('gardenArt',{
             url:'/garden-art',
             views: {

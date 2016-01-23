@@ -990,6 +990,9 @@ label {
 .garden-art{
     padding:0;
     margin:0;
+    position:absolute;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling:touch;
     overflow-x:hidden;
     .middle-squar{margin-top:47px;}
     .garden-service{

@@ -1,6 +1,6 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($rootScope,$scope,$stateParams,$http,$state){
-    $scope.title="商务策划";
+angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootScope,$scope,$stateParams,$http,$state){
+    $scope.title="投融资";
 
     $scope.typeList=[];
     $scope.childType = null;
@@ -8,7 +8,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
 
     $http.post(X_context.api + "services/listServices", {
-        "servicesId": 5
+        "servicesId": 7
     })
         .success(function (data) {
             $scope.childType = data.data[0]._id;
@@ -21,7 +21,6 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
                 $scope.typeList.push(radio)
 
             }
-            //console.log( $scope.childType);
 
         });
     $scope.$parent.memberPromise.then(function(data){
@@ -34,7 +33,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
     $scope.goGardenOrder=function(){
 
         if(!$scope.childType){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的商务策划服务～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的投融资服务～'});
             return;
         }
 
@@ -48,6 +47,9 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
         }
         else if(!$scope.business.compyGuy) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+            return;
+        }else if(!$scope.business.proName) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的项目名～'});
             return;
         }
         else if(!$scope.phoneReg.test($scope.business.guyTel)) {
@@ -64,6 +66,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
                   "mobile" : $scope.business.guyTel,
                     "note" : $scope.business.extraInfo,
                "serviceId" : $scope.childType,
+                 "project" : $scope.business.proName,
                  "address" : $scope.business.address
             })
                 .success(function(data){

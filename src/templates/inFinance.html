@@ -11,44 +11,51 @@
 
     <div class="form-horizontal middle-squar"name="gardenForm">
         <div>
-            <img src="images/parking_banner.jpg" width="100%"alt=""/>
+            <img src="images/garden_banner.jpg" width="100%"alt=""/>
         </div>
         <div class="garden-service row">
             <span class="col-xs-4">服务类型</span>
-            <div class="outer">
-                <div class="choosed " ng-repeat="radio in typeList track by $index">
-                    <input type="radio"name="garden"id="{{'radio-'+radio.id}}"
-                           class="regular-checkbox"ng-value="radio.id"ng-model="$parent.childType">
+            <div class="outer col-xs-8">
+                <div class="choosed "ng-repeat="radio in typeList track by $index">
+                    <input type="radio" name="business" id="{{'radio-'+radio.id}}"
+                           class="regular-checkbox" ng-value="radio.id" ng-model="$parent.childType">
                     <label for="{{'radio-'+radio.id}}"></label><span>{{radio.typeTitle}}</span>
                 </div>
             </div>
+
+
         </div>
         <div class="companyInfo">
             <ul>
                 <li class="row">
                     <label class="col-xs-4"for="compyName">公司名称</label>
                     <input class="col-xs-8"placeholder="请填写公司名称" type="text"id="compyName"
-                           ng-model="parking.compyName"/>
+                           ng-model="business.compyName"/>
                 </li>
                 <li class="row">
                     <label class="col-xs-4"for="address">公司地址</label>
                     <input class="col-xs-8"placeholder="请填写公司地址" type="text"id="address"
-                           ng-model="parking.address"/>
+                           ng-model="business.address"/>
                 </li>
                 <li class="row">
                     <label class="col-xs-4"for="compyGuy">&nbsp;联 系&nbsp;人</label>
                     <input class="col-xs-8"placeholder="请填写联系人姓名"type="text"id="compyGuy"
-                           ng-model="parking.compyGuy"/>
+                           ng-model="business.compyGuy"/>
                 </li>
                 <li class="row">
                     <label class="col-xs-4"for="guyTel">联系电话</label>
-                    <input class="col-xs-8"maxlength="11"placeholder="请填写联系人手机号码"type="text"id="guyTel"
-                           ng-model="parking.guyTel"/>
+                    <input class="col-xs-8"placeholder="请填写联系人手机号码"type="text"id="guyTel"
+                           ng-model="business.guyTel"/>
                 </li>
                 <li class="row">
-                    <label class="col-xs-4"for="extraInfo">备注信息</label>
-                    <textarea class="col-xs-8 text-area"placeholder="请填写备注信息"id="extraInfo"
-                              ng-model="parking.extraInfo"></textarea>
+                    <label class="col-xs-4"for="proName">项目名称</label>
+                    <input class="col-xs-8"placeholder="请填写项目名称"type="text"id="proName"
+                           ng-model="business.proName"/>
+                </li>
+                <li class="row">
+                    <label class="col-xs-4"for="extraInfo">项目介绍</label>
+                    <textarea class="col-xs-8 text-area"placeholder="请填写项目介绍"id="extraInfo"
+                              ng-model="business.extraInfo"></textarea>
                 </li>
             </ul>
         </div>

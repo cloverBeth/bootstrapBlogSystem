@@ -6,7 +6,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
     $scope.childType = null;
     $scope.phoneReg=/^([0-9]{11})$/;
 
-
+    var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）&mdash;—|{}【】‘；：”“'。，、？][0-9]");
     $http.post(X_context.api + "services/listServices", {
             "servicesId": 1
         })
@@ -46,8 +46,8 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入贵公司正确的地址～'});
                 return;
             }
-            else if(!$scope.garden.compyGuy) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+            else if(pattern.test($scope.garden.compyGuy)) {
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名，只能是中、英文字符～'});
                 return;
             }
             else if(!$scope.phoneReg.test($scope.garden.guyTel)) {
@@ -55,10 +55,10 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 return;
 
                     }
-            //else if(!$scope.garden.extraMsg){
-            //    $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请不要输入特殊字符哦～'});
-            //    return;
-            //}
+            else if(pattern.test($scope.garden.extraMsg)){
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入中、英文字符～'});
+                return;
+            }
             else{
 
                     $http.post(X_context.api+"servicesOrder/add", {

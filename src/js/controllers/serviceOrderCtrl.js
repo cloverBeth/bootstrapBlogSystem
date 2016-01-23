@@ -51,7 +51,10 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            linkTel : results.mobile,
                           compName : results.company,
                           extraMsg : results.note,
-                           address : results.address
+                           address : results.address,
+                           proName : results.project,
+                          showFina : results.services.parentTitle=="投融资"?true:false
+
                         };
                     }else{
 
