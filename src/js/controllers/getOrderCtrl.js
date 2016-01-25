@@ -18,6 +18,8 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     $scope.showCouponSale = false;
     $scope.isPointStore = X_context.isPointStore;
 
+    $scope.selfGet = false;
+
 
     //满赠券 抵用券
 
@@ -38,13 +40,22 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     });
 
     $scope.freight = $scope.totalPrice < $scope.cart.min ? $scope.cart.freightFee : 0;
+    $scope.$watch('selfGet',function(selfGet){
+        if(selfGet){
+            $scope.freight = 0;
+        }else{
+            $scope.freight = $scope.totalPrice < $scope.cart.min ? $scope.cart.freightFee : 0;
+        }
 
+    });
 
 
     $http.get(X_context.api + 'member/getCurMem')
         .success(function(data){
             $scope.credit= data.data[0].point;
         });
+
+
 
 
     $scope.$parent.memberPromise.then(function () {
@@ -225,7 +236,7 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             $rootScope.$broadcast('alerts',{type:'danger',message:'请填写订单必要字段。'});
             return;
         }
-        let costAny = $scope.totalPrice > 0;
+        let costAny = $scope.totalPrice + $scope.freight > 0;
 
         $http.post(X_context.api + 'order/add',{
             "storeId" : $scope.order.storeId,
@@ -234,7 +245,8 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
             "payMethod" : costAny ? "一卡通" : '积分',
             "phone" : $scope.phone,
             "receiver" : $scope.username,
-            "orderItems" : orderList
+            "orderItems" : orderList,
+            "flag" : $scope.selfGet ? 1 : 0
 
         }).success(function(data){
             if(data.code != 200){

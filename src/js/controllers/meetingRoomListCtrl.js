@@ -14,7 +14,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomListController', function($
                     name : room.name,
                     info1 : room.subtitle,
                     info2 : room.descr,
-                    img : room.img || "images/meeting-room-1.png",
+                    img : X_context.devHost + room.image || "images/meeting-room-1.png",
                     id : room.id
                 });
             })
