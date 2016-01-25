@@ -6,34 +6,36 @@ angular.module('ZJSY_WeChat')
         $scope.memberPromise = null;
         $scope.showLoading = false;
         $scope.cart = {};
-        //$scope.cart = {1:{
-        //    products : [
-        //        {
-        //            id: 0,
-        //            name: "雀巢麦片",
-        //            num: 156,
-        //            img: "images/ph_1.jpg",
-        //            detail: "营养高，味道好",
-        //            cateId: 1,
-        //            price: 30,
-        //            buyNum: 1
-        //        }
-        //    ],
-        //    min : 0,
-        //    freightFee : 0
-        //}};
+        $scope.cart = {43:{
+            products : [
+                {
+                    id: 32,
+                    name: '米饭',
+                    num: 99969,
+                    img: 'http://192.168.6.49/products/43_333_1.png',
+                    detail:"",
+                    cateId: 9,
+                    price: 33,
+                    point: 20,
+                    buyNum: 1,
+                }
+            ],
+            min : 30,
+            freightFee : 5
+        }};
         $scope.order = {
-            //storeId : 1,
+            storeId : 43,
             product : [
                 {
-                    //id: 1,
-                    //name: "雀巢麦片",
-                    //num: 99999,
-                    //img: "https://www.baidu.com/img/bd_logo1.png",
-                    //detail: "frfr飒飒",
-                    //cateId: 29,
-                    //price: 30,
-                    //buyNum:1
+                    id: 32,
+                    name: '米饭',
+                    num: 99969,
+                    img: 'http://192.168.6.49/products/43_333_1.png',
+                    detail:"",
+                    cateId: 9,
+                    price: 0,
+                    point: 20,
+                    buyNum: 1,
                 }
             ]
         };

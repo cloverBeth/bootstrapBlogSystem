@@ -174,9 +174,10 @@
 
                 <!--<h3>支付方式</h3><strong>货到付款</strong>-->
 
+
                 <ul class="pay-list block">
 
-                    <li class="pay-item tap-action pay-item-wapweixin icon-ok" ng-show="totalPrice > 0">
+                    <li class="pay-item tap-action pay-item-wapweixin icon-ok" ng-show="totalPrice + freight > 0">
                         <i class="pay-icon pay-icon-wechat" ></i>
 
                         一卡通支付
@@ -184,7 +185,7 @@
                         <i class="pay-icon pay-icon-selected"></i>
                     </li>
                     <hr>
-                    <li class="pay-item tap-action  pay-item-delivery" ng-show="totalPrice == 0">
+                    <li class="pay-item tap-action  pay-item-delivery" ng-show="totalPrice + freight == 0">
 
                         <i class="pay-icon" style="float:left;"></i>
                         积分支付
@@ -194,6 +195,12 @@
 
                 </ul>
 
+            </div>
+
+            <div class="checkbox self-get" ng-show="isPointStore">
+                <label>
+                    <input type="checkbox" ng-model="selfGet"> 商品自提(可免运费)
+                </label>
             </div>
 
            <div style="width: 80%;margin: 15px auto;">
