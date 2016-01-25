@@ -16,7 +16,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
     $scope.childType=null;
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z0-9\u4e00-\u9eff]{2,40}$/i;
-
+    var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0]|\s)+/;
 
     $http.post(X_context.api+"services/listServices",{
         "servicesId":3
@@ -60,7 +60,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
 
             return;
 
-        }else if(!pattern.test($scope.parking.extraInfo)){
+        }else if(!reg.test($scope.parking.extraInfo)){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，最后一项请输入中、英文字符～'});
             return;
         }
@@ -73,7 +73,8 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                       "mobile": $scope.parking.guyTel,
                    "serviceId": $scope.childType,
                         "note": $scope.parking.extraInfo,
-                     "address": $scope.parking.address
+                     "address": $scope.parking.address,
+                    "prop1" : $scope.parking.carNo
                 })
                     .success(function (data) {
                         if(data.code==200){

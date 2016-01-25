@@ -24,6 +24,7 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
                 $scope.cashPay=true;
 
             }
+
             $scope.orderNumber = data.data[0].ordersn;
             $scope.expense = data.data[0].payamount;
             $scope.payway = data.data[0].paytype;
@@ -34,19 +35,14 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
             }
         });
 
-        setTimeout(function(){
-            $http.post(X_context.api + "meeting/listRooms",
-                {
-                    "page" : "1",
-                    "pageSize" : "1",
-                }).success(function(data){
-                    $scope.telphone = data.data[0].mobile;
-                });
-        },1000)
+
+        $http.post(X_context.api + "meeting/listRooms", {
+
+        }).success(function(data){
+            $scope.telphone = data.data[0].mobile;
+        });
 
     });
-
-
 
 
     $scope.goToList=function(){

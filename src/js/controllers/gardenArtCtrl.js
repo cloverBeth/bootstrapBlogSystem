@@ -4,6 +4,7 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
 
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z0-9\u4e00-\u9eff]{2,40}$/i;
+    var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
 
     $scope.typeList=[];
     $scope.childType=null;
@@ -48,7 +49,7 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
 
             return;
 
-        }else if(!pattern.test($scope.garden.extraInfo)){
+        }else if(!reg.test($scope.garden.extraInfo)){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，最后一项请输入中、英文字符～'});
             return;
         }

@@ -59,6 +59,12 @@
                             {{order.linkMan+order.linkTel}}
                         </p>
                     </li>
+                    <li class="row"ng-show="order.showCarNum">
+                        <label class="col-xs-4"for="carNum">车 牌 号</label>
+                        <p class="col-xs-8"id="carNum">
+                            {{order.carNum}}
+                        </p>
+                    </li>
                     <li class="row"ng-hide="order.showFina">
                         <label class="col-xs-4"for="extraInfo0">备注信息</label>
                         <p class="col-xs-7 textarea"id="extraInfo0">{{order.extraMsg}}</p>
