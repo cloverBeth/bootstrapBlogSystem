@@ -6,36 +6,37 @@ angular.module('ZJSY_WeChat')
         $scope.memberPromise = null;
         $scope.showLoading = false;
         $scope.cart = {};
-        $scope.cart = {43:{
-            products : [
-                {
-                    id: 32,
-                    name: '米饭',
-                    num: 99969,
-                    img: 'http://192.168.6.49/products/43_333_1.png',
-                    detail:"",
-                    cateId: 9,
-                    price: 33,
-                    point: 20,
-                    buyNum: 1,
-                }
-            ],
-            min : 30,
-            freightFee : 5
-        }};
+        //$scope.cart = {
+        //    43:{
+        //    products : [
+        //        {
+        //            id: 32,
+        //            name: '米饭',
+        //            num: 99969,
+        //            img: 'http://192.168.6.49/products/43_333_1.png',
+        //            detail:"",
+        //            cateId: 9,
+        //            price: 33,
+        //            point: 20,
+        //            buyNum: 1,
+        //        }
+        //    ],
+        //    min : 30,
+        //    freightFee : 5
+        //}};
         $scope.order = {
-            storeId : 43,
+            //storeId : 43,
             product : [
                 {
-                    id: 32,
-                    name: '米饭',
-                    num: 99969,
-                    img: 'http://192.168.6.49/products/43_333_1.png',
-                    detail:"",
-                    cateId: 9,
-                    price: 0,
-                    point: 20,
-                    buyNum: 1,
+                    //id: 32,
+                    //name: '米饭',
+                    //num: 99969,
+                    //img: 'http://192.168.6.49/products/43_333_1.png',
+                    //detail:"",
+                    //cateId: 9,
+                    //price: 0,
+                    //point: 20,
+                    //buyNum: 1,
                 }
             ]
         };

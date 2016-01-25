@@ -2,10 +2,10 @@
 angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$location,$state,$stateParams,$http,$rootScope){
     $scope.order = $scope.$parent.order;
 
-    if(X_context.devHost){
-        X_context.storeId = 43;
-        X_context.isPointStore = true;
-    }
+    //if(X_context.devHost){
+    //    X_context.storeId = 43;
+    //    X_context.isPointStore = true;
+    //}
 
     $scope.cart = $scope.$parent.cart[X_context.storeId || 1];
     $scope.freight = 0;
