@@ -6,7 +6,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
     $scope.childType = null;
     $scope.phoneReg=/^(1[0-9]{10})$/;
 
-    var pattern = /^[-'a-z\u4e00-\u9eff]{2,40}$/i;
+    var pattern = /^[-'a-z0-9\u4e00-\u9eff]{2,40}$/i;
     //alert(pattern.test('suny'));
     $http.post(X_context.api + "services/listServices", {
             "servicesId": 1
@@ -51,7 +51,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 return;
             }
             else if(!$scope.phoneReg.test($scope.garden.guyTel)) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的以1为开头的11位手机号～'});
                 return;
 
                     }
