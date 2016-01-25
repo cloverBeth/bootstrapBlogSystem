@@ -18,6 +18,8 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
     $scope.price = "";
     $scope.payType = "";
 
+    $scope.enroll = {};
+
 
     $scope.showForm = false;
     var api = $stateParams.showSubmit ? 'activity/getActivityDetail' : 'info/getInfoDetail'
@@ -43,6 +45,21 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
             $scope.embedHtml = $sce.trustAsHtml(data.content);
             $scope.payType = data.paytype;
             $scope.price = $scope.payType==1 ? data.price : data.point;
+            if($scope.submitted){
+                $http.post(X_context.api + 'activity/listMyEnroll',
+                    {
+                        activityId : $scope.activityId
+                    }).success(function(data){
+                        data = data.data[0];
+                        if(!data)return;
+                        $scope.enroll.price = data.payamount;
+                        $scope.enroll.payType = data.paytype;
+                        $scope.enroll.name = data.username;
+                        $scope.enroll.phone = data.mobile;
+                        $scope.enroll.orderId = data.enrollId;
+                        $scope.enroll.createDate = data.createddate;
+                    });
+            }
         });
 
     if($scope.isAuth){

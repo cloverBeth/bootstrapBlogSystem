@@ -25,7 +25,8 @@ angular.module("ZJSY_WeChat").controller("CreditAccountController",function($sco
 
             var creditAddApi=X_context.api+"order/list";
             $http.post(creditAddApi,{
-                id:X_context.memberId
+                id:X_context.memberId,
+                userPointDone : 1
             })
                 .success(function(data){
                     for(var i in data.data) {
