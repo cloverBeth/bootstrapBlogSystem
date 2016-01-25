@@ -19,6 +19,8 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         };
     }
 
+    $scope.isPointStore = false;
+
     $scope.notice = {};
 
     $scope.bannerImage = [];
@@ -33,6 +35,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         $scope.cart.freightFee = data.data[0].freightfee;
         $scope.notice.title = data.data[0].annTitle;
         $scope.notice.content = data.data[0].announcement;
+        X_context.isPointStore = $scope.isPointStore = (data.data[0].flag2 == "1");
     });
 
 
@@ -89,10 +92,14 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     };
 
     $scope.totalPrice = 0;
+    $scope.totalPoint = 0;
     $scope.$watch('cart.products',function(cart){
         $scope.totalPrice = 0;
+        $scope.totalPoint = 0;
         _.forEach($scope.cart.products,function(prod,key){
+            console.log('adsadsa',prod)
             $scope.totalPrice += prod.price * prod.buyNum;
+            $scope.totalPoint += prod.point * prod.buyNum;
         });
     },true);
 

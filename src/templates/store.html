@@ -53,7 +53,7 @@
           <img class="cart-img" src="images/ico_9.png" />
           <b>{{getProductLength()}}</b>
         </em>
-        <strong>￥{{(totalPrice).toFixed(1)}}
+        <strong>￥{{(totalPrice).toFixed(1)}} <i ng-show="isPointStore"> +{{totalPoint}}积分</i>
           <font ng-show="cart.min > totalPrice">还差￥{{(cart.min - totalPrice).toFixed(1)}}免配送费</font>
         </strong>
         <span ng-hide="isActive('/store-cart')">
@@ -81,7 +81,8 @@
             <ul>
               <li ng-repeat="pro in cart.products track by $index">
                 <strong>{{pro.name}}</strong>
-                <b class="org">￥{{(pro.price * pro.buyNum).toFixed(1)}}</b>
+                <b class="org" ng-show="isPointStore">￥{{(pro.price * pro.buyNum).toFixed(1)}} + {{(pro.point * pro.buyNum)}}积分</b>
+                <b class="org" ng-show="!isPointStore">￥{{(pro.price * pro.buyNum).toFixed(1)}}</b>
                 <div class="numN fr">
                   <a href="javascript:;" class="add1" ng-click="addProduct(pro.id)">
                     <img src="images/ico_a1.png" />

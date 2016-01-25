@@ -30,7 +30,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                 });
                 _.sortBy($scope.cateList,function(n){
                     return n.sort;
-                })
+                });
                 for(let i in $scope.cateList){
                     $scope.cateList[i].sec = `sec${parseInt(i)+1}`;
                 }
@@ -53,6 +53,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                     detail : pro.specification,
                     cateId : pro.category,
                     price : pro.marketPrice,
+                    point : pro.point
 
                 });
             });
@@ -79,6 +80,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
                     detail : pro.specification,
                     cateId : pro.category,
                     price : pro.marketPrice,
+                    point : pro.point
 
                 });
             })

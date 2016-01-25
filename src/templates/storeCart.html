@@ -14,7 +14,8 @@
                 <em><img src="{{item.img}}"/></em>
                 <p>
                     <strong>{{item.name}}</strong>
-                    <b>￥{{item.price}}</b>
+                    <b ng-show="!$parent.$parent.isPointStore">￥{{item.price}}</b>
+                    <b ng-show="$parent.$parent.isPointStore">￥{{item.price}} + {{item.point}}积分</b>
                 </p>
                 <div class="numN fl mt20">
                     <a href="javascript:;" class="add1" ng-click="addProduct(item.id);">

@@ -13,7 +13,7 @@
 <div class="main-section main">
     <div class="main mt-48">
         <div style="width:100%;margin:0 0 15px 0;"ng-repeat="business in businesslist track by $index">
-            <a href="javascript:;">
+            <a href="javascript:;" ui-sref="store.product({storeId:business.id})">
                 <img src="{{business.image}}"width="320px"height="150px"
                      onerror="this.src='images/default_image.png'"alt="store1"/>
             </a>

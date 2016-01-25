@@ -2,7 +2,8 @@ var X_context = {
     guest : "guest",
     api : "http://192.168.6.49/zjsy/api/v1/",
     memberId : null,
-    memberPhone : ""
+    memberPhone : "",
+    isPointStore : false
 };
 X_context.devHost = (location.host == "localhost") ? "http://192.168.6.49" : "";
 X_context.authorization = readCookie('authorization') || X_context.guest;
@@ -71,7 +72,7 @@ angular.module('ZJSY_WeChat', [
                 controller: 'StoreProductController'
             }
         }
-    })
+        })
         .state('store.coupon', {
             url: '/store-coupon',
             views: {

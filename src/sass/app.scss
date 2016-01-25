@@ -311,8 +311,8 @@ p{
 .cart dl dt span a{color:#999999;}.numN a.sub1 img
 .cart dl dd{height:80vw; overflow:auto;}
 .cart li{border-bottom:1px solid #eee;color:#333;padding:8px 3%;width:94%; clear:both; overflow:hidden;}
-.cart li strong{ display:block;float:left;width:50%;font-size:15px;line-height:2em;}
-.cart li b{ display:block;float:left;font-size:15px;line-height:2em;width:20%;text-align:right;}
+.cart li strong{ display:block;float:left;width:30%;font-size:15px;line-height:2em;}
+.cart li b{ display:block;float:left;font-size:15px;line-height:2em;width:40%;text-align:right;}
 
 .numN{width:30%;text-align:right;padding-top:4px;}
 .numN img{ display:block;width:23px;float:right;}
@@ -636,7 +636,7 @@ strong.ng-binding{font-weight:400;}
 
 .blue{color:#00aaff;}
 
-.org{color:#ff4a00;}
+.orgText{color:#ff4a00 !important;font-size: 15px;}
 .main-section{
   background:#eee;
   height : 100%;
@@ -1601,6 +1601,7 @@ label {
 
 /************************ coupon of store and user *********************************/
 .coupon-area {
+  min-height: 100%;
   background-color: white;
   padding-top: 20px;
   padding-bottom: 100px;

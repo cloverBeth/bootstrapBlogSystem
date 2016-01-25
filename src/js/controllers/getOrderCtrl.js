@@ -10,13 +10,14 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     $scope._ = _;
     $scope.showCouponProduct = false;
     $scope.showCouponSale = false;
+    $scope.isPointStore = X_context.isPointStore;
 
     //$scope.username = "陈冠希";
     //$scope.phone = "13232311009";
     //$scope.address = "香港XX摄影工作室";
     //买赠券 买送券
 
-    $scope.payOption = "delivery";
+    $scope.payOption = "card";
     $scope.couponList = [];
 
 
