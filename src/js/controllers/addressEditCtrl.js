@@ -31,21 +31,22 @@ angular.module('ZJSY_WeChat').controller('AddressEditController',function($rootS
 
     }
 
-
-    $scope.phoneReg=/^([0-9]{11})$/;
+    var pattern = /^[-'a-z0-9\u4e00-\u9eff]{2,40}$/i;
+    $scope.phoneReg=/^(1[0-9]{10})$/;
     $scope.update=function(){
 
-        if($scope.telphone!=null && $scope.phoneReg.test($scope.telphone)){
-
-        }else if(!$scope.user){$rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入您的收货人姓名'});
-            return;}
-        else if(!$scope.detailArea){$rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入您的收货地址'});
-            return;}
-        else{
-            $rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入正确的11位手机号'});
+        if(!$scope.phoneReg.test($scope.telphone)){
+            $rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入正确的以1为开头的11位手机号～'});
             return;
 
+        }else if(!pattern.test($scope.user)){
+            $rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入您的收货人姓名，只能是中、英文字符'});
+            return;
+        }else if(!$scope.detailArea){
+            $rootScope.$broadcast('alerts',{type:'danger',message:'亲，请输入您的收货地址'});
+            return;
         }
+
         if(!$stateParams.addrId){
             $http.post(X_context.api + "addr/add",{
                 "member" : X_context.memberId,
