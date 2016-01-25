@@ -4,7 +4,9 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
     $scope.typeList=[];
     $scope.childType = null;
-    $scope.phoneReg=/^([0-9]{11})$/;
+    $scope.phoneReg=/^(1[0-9]{10})$/;
+    var pattern = /^[-'a-z0-9\u4e00-\u9eff]{2,40}$/i;
+
     //$scope.testReg=/^[\u4e00-\u9fa5a-zA-Z]/g;
 
     $http.post(X_context.api + "services/listServices", {
@@ -26,7 +28,6 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
         });
     $scope.$parent.memberPromise.then(function(data){
         $scope.advice={
-            compyGuy : data.data.data[0].nickName,
             guyTel : data.data.data[0].mobile
         }
     });
@@ -45,8 +46,8 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
             $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
             return;
 
-        }else if(!($scope.advice.extraInfo)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您宝贵的评价与建议～'});
+        }else if(!pattern.test($scope.advice.extraInfo)) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您宝贵的评价与建议,只能是中文、英文～'});
             return;
 
         }
@@ -65,6 +66,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
                         $rootScope.$broadcast('alerts', {type: 'danger', message: '留言成功！感谢您的评价和建议，我们将做得更好'});
                         $scope.advice.extraInfo=null;
                         $scope.advice.compyName=null;
+                        $scope.advice.compyGuy=null;
 
                     }
 

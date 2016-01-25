@@ -414,11 +414,11 @@ p{
 }
 
 .succeed{
-  padding:15px 12px 15px 36px;
+  padding:12px 12px 12px 36px;
   background:#fff url(../images/ico_8.png) no-repeat;
   background-size:18px;
   border-bottom:1px solid #ddd;
-  background-position:50% 12%;
+  background-position:3% 25%;
 }
 .succeed em{ display:block;float:left;width:20px;padding-right:10px;}
 .succeed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
@@ -992,7 +992,6 @@ label {
     margin:0;
     position:absolute;
     overflow-y:scroll;
-    -webkit-overflow-scrolling:touch;
     overflow-x:hidden;
     .middle-squar{margin-top:47px;}
     .garden-service{
@@ -1236,6 +1235,7 @@ label {
       margin-top:30px;
       background: url(../images/ico_8.png)top 10px center no-repeat #fff;
       background-size: 30px;
+      background-position:50% 12%;
       border-bottom: 1px solid #ddd;
       p{font-size:16px;}
       p strong{font-size:18px;}
@@ -1428,7 +1428,7 @@ label {
   }
   .room-label {
     line-height: 40px;
-    padding-left: 40px;
+    padding:0 0 0 20px;
     color: $fontDarkGrey;
     font-size: 14px;
     padding-right: 0;
@@ -1456,7 +1456,7 @@ label {
         height: 30px;
         line-height: 30px;
         td{
-          padding: 5px 20px;
+          padding: 5px 0 5px 20px;
         }
       }
       .schedule-status{
@@ -1488,11 +1488,11 @@ label {
     border-bottom:1px solid #dddddd;
   }
   .room-label {
-    line-height: 40px;;
-    padding-left: 40px;
+    line-height:40px;
+    padding:0 0 0 27px;
     color: $fontDarkGrey;
     font-size: 14px;
-    padding-right: 0;
+    text-align:right;
   }
   .room-span{
     line-height: 30px;

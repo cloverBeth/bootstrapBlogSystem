@@ -37,7 +37,6 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
 
     $scope.$parent.memberPromise.then(function(data){
         $scope.maintain={
-            compyGuy : data.data.data[0].nickName,
             guyTel : data.data.data[0].mobile
         }
     });
@@ -59,7 +58,7 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
             return;
         }
         else if(!$scope.phoneReg.test($scope.maintain.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的以1为开头的11位手机号～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
 
             return;
 

@@ -24,7 +24,6 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
 
     $scope.$parent.memberPromise.then(function(data){
         $scope.garden={
-            compyGuy : data.data.data[0].nickName,
             guyTel : data.data.data[0].mobile
         }
     });
@@ -45,7 +44,7 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
             return;
         }
         else if(!$scope.phoneReg.test($scope.garden.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的以1为开头的11位手机号～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
 
             return;
 

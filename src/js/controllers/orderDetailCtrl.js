@@ -27,6 +27,8 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
                 carriage:datas[0].shippingPrice,
                 //credits:datas[0].userPoint,
                 realpay :datas[0].totalPrice,
+                storeName : datas[0].storeName,
+                storeTel : datas[0].storePhone,
                 orderpills:[],
 
             };

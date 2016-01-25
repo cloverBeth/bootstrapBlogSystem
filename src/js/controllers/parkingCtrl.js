@@ -34,7 +34,6 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
         })
     $scope.$parent.memberPromise.then(function(data){
         $scope.parking={
-            compyGuy : data.data.data[0].nickName,
             guyTel : data.data.data[0].mobile
         }
     });
@@ -57,7 +56,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
             return;
         }
         else if (!$scope.phoneReg.test($scope.parking.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的以1为开头的11位手机号～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
 
             return;
 
