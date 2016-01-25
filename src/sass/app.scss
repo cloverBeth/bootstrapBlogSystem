@@ -413,8 +413,13 @@ p{
   background-image:url(../images/ico_8.png)
 }
 
-.succeed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_8.png) no-repeat 10px 16px;
-  background-size:18px;border-bottom:1px solid #ddd;}
+.succeed{
+  padding:15px 12px 15px 36px;
+  background:#fff url(../images/ico_8.png) no-repeat;
+  background-size:18px;
+  border-bottom:1px solid #ddd;
+  background-position:50% 12%;
+}
 .succeed em{ display:block;float:left;width:20px;padding-right:10px;}
 .succeed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
 .succeed p strong{ display:block;font-size:15px;color:#666;}
@@ -621,9 +626,14 @@ strong.ng-binding{font-weight:400;}
   margin-top:15px;
   height:40px;
   -webkit-border-radius:5px;
-  border-radius:5px;}
-#checknum{
-  //margin-right:8%;
+  border-radius:5px;
+}
+
+#checknum::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+#checknum::-webkit-outer-spin-button {
+  -webkit-appearance: none;	/* 有无看不出差别 */
 }
 .btnQ{text-align:center;padding:15px 10px 15px;margin:0 0 60px 0;}
 .btnQ a{ display:block;font-size:16px;line-height:2.6em;color:#fff; background:#999999;
@@ -980,6 +990,9 @@ label {
 .garden-art{
     padding:0;
     margin:0;
+    position:absolute;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling:touch;
     overflow-x:hidden;
     .middle-squar{margin-top:47px;}
     .garden-service{
@@ -1087,16 +1100,24 @@ label {
            height:auto;font-size:16px;border:none;}
 
     }
-    .gardenbtn{width:85%;margin:0 auto;height:50px;font-size:18px;color:#FFFFFF;font-weight:600;margin-top:10px;
-           margin-bottom:15px;}
+    .gardenbtn{
+        width:85%;
+        margin:15px 0 15px 22%;
+        height:50px;
+        border:none;
+        border-radius:5px;
+        font-size:18px;
+        color:#FFFFFF;
+        font-weight:600;
+    }
 
 }
 
 
 .service-order{
 
-  .serviceList{
     margin:47px 0 0 0;
+    padding-bottom:60px;
     ul{margin-top:20px;}
     ul li.outerList{
       min-height:100px;
@@ -1140,12 +1161,15 @@ label {
           }
 
           .proTime{
-              margin:0 5px 0 0;
-              width:30px;
+              margin:0 10px 0 0;
+              width:40px;
               height:20px;
               float:right;
               font-size:15px;
-              span{display:block;width:80px;color:#AAAAAA;}
+              span{
+                display:block;
+                width:100px;
+                color:#AAAAAA;}
 
           }
       }
@@ -1180,7 +1204,7 @@ label {
       }
       .payAgainBtn{width:22%;margin-left:40%;}
     }
-  }
+
 }
 
 
@@ -1606,6 +1630,11 @@ label {
   padding-top: 20px;
   padding-bottom: 100px;
 
+  .no-coupon {
+    text-align: center;
+    font-size: 18px;
+  }
+
   .coupons {
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -1621,6 +1650,8 @@ label {
         float: right;
         width: 76%;
         height: 100%;
+        background: no-repeat left center;
+        background-size: 92%;
 
         .left-text {
           text-align: center;
@@ -1653,6 +1684,8 @@ label {
         width: 85%;
         text-align: center;
         margin: 0px;
+        height: 1px;
+        border: none
       }
     }
 

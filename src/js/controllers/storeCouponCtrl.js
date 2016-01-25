@@ -10,6 +10,8 @@ angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope
 
     $scope.couponList = [];
 
+    $scope.noCoupon = false;
+
     $scope.blueStatus = ["登录查看", "点击领取", "已领取"];
     $scope.clickStatus = ["登录查看", "点击领取"];
 
@@ -35,6 +37,11 @@ angular.module('ZJSY_WeChat').controller('StoreCouponController',function($scope
         }).success(function (resp) {
             var res = resp.data;
             $scope.couponList = $scope.couponList.concat(res.coupon);
+            if($scope.couponList.length == 0) {
+                $scope.noCoupon = true;
+            } else {
+                $scope.noCoupon = false;
+            }
             $scope.maxItems = res.page.total;
             $scope.pageNum = ($scope.maxItems && $scope.couponList.length >= 1)
                 ? Math.ceil($scope.maxItems / $scope.pageSize)

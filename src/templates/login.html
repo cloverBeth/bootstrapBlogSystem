@@ -19,7 +19,7 @@
         </div>
         <div class="iphone row">
                 <label class="col-sm-3 control-label"for="checknum">您的验证码:</label>
-                <input type="text" id="checknum" value="" class="input2" style="font-size: 20px;height:50px;"
+                <input type="number" id="checknum" value=""max-length="6" class="input2" style="font-size: 20px;height:50px;"
                        ng-model="captcha"required/>
                 <button type="button" href="javascript:;"
                    ng-disabled="addForm.phoneInput.$invalid"

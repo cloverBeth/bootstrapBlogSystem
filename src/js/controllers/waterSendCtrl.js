@@ -4,10 +4,11 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
 
     $scope.typeList=[];
     $scope.childType = null;
-    $scope.phoneReg=/^([0-9]{11})$/;
+    $scope.phoneReg=/^(1[0-9]{10})$/;
 
-
-        $http.post(X_context.api + "services/listServices", {
+    var pattern = /^[-'a-z\u4e00-\u9eff]{2,40}$/i;
+    //alert(pattern.test('suny'));
+    $http.post(X_context.api + "services/listServices", {
             "servicesId": 1
         })
             .success(function (data) {
@@ -43,11 +44,10 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 return;
             }
             else if (!$scope.garden.address) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入贵公司正确的地址～'});
                 return;
-            }
-            else if(!$scope.garden.compyGuy) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+            }else if(!pattern.test($scope.garden.compyGuy)) {
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名，只能是中、英文字符～'});
                 return;
             }
             else if(!$scope.phoneReg.test($scope.garden.guyTel)) {
@@ -55,6 +55,10 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 return;
 
                     }
+            else if(!pattern.test($scope.garden.extraInfo)){
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，最后一项请输入中、英文字符～'});
+                return;
+            }
             else{
 
                     $http.post(X_context.api+"servicesOrder/add", {
