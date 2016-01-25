@@ -130,7 +130,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     };
 
     $scope.goToCart = function(){
-        if($scope.totalPrice == 0)return;
+        //if($scope.totalPrice == 0)return;
         $state.go('store.cart',{storeId:X_context.storeId});
 
     }
@@ -147,7 +147,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
             $rootScope.$broadcast('alerts',{type:'danger',message:'地址填写不完整。'});
             return;
         }
-        if($scope.totalPrice == 0)return;
+        //if($scope.totalPrice == 0)return;
         $scope.$parent.order.product = $scope.cart.products;
         $scope.$parent.order.storeId = $scope.storeId;
         $state.transitionTo('getOrder');
