@@ -28,21 +28,25 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
             $scope.expense = data.data[0].payamount;
             $scope.payway = data.data[0].paytype;
 
-
             if($scope.payway == "false" && data.data[0].paystatus == "false"){
                 $scope.success = false;
                 $scope.title = "下单失败";
             }
         });
+
+        setTimeout(function(){
+            $http.post(X_context.api + "meeting/listRooms",
+                {
+                    "page" : "1",
+                    "pageSize" : "1",
+                }).success(function(data){
+                    $scope.telphone = data.data[0].mobile;
+                });
+        },1000)
+
     });
 
-    $http.post(X_context.api + "meeting/listRooms",
-        {
-            "page" : "1",
-            "pageSize" : "1"
-        }).success(function(data){
-            $scope.telphone = data.data[0].mobile;
-        });
+
 
 
     $scope.goToList=function(){
