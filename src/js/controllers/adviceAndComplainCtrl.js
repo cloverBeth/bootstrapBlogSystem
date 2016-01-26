@@ -22,7 +22,6 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
                 $scope.typeList.push(radio)
 
             }
-            //console.log( $scope.childType);
 
         });
     $scope.$parent.memberPromise.then(function(data){
@@ -34,19 +33,19 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
     $scope.goGardenOrder=function(){
 
         if (!$scope.advice.compyName) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
             return;
         }
-        else if(!($scope.advice.compyGuy)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+        else if(!pattern.test($scope.advice.compyGuy)||!$scope.advice.compyGuy) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
-        else if(!$scope.phoneReg.test($scope.advice.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
+        else if(!$scope.phoneReg.test($scope.advice.guyTel)||!$scope.advice.guyTel) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 
-        }else if(!reg.test($scope.advice.extraInfo)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您宝贵的评价与建议,只能是中文、英文～'});
+        }else if(!reg.test($scope.advice.extraInfo)||!$scope.advice.extraInfo) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您宝贵的评价与建议,只能是中文、英文～'});
             return;
 
         }

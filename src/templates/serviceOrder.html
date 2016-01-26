@@ -115,8 +115,8 @@
                     </li>
 
 
-                        <button ng-show="order.payMethod=='false' && (order.payState=='false'||order.payState=='未支付')&&
-                        (order.state!='2'||'已取消')"class="btn quickpay payAgainBtn"ng-click="payAgain(order._id)">
+                        <button ng-show="(order.state!='2'||order.state!='已取消') && order.payMethod=='false' && (order.payState=='false'||order.payState=='未支付')"
+                                class="btn quickpay payAgainBtn"ng-click="payAgain(order._id)">
                             立即支付
                         </button>
                 </ul>

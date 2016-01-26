@@ -41,27 +41,26 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
     $scope.goGardenOrder=function() {
 
         if(!$scope.childType){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的送水服务～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的送水服务～'});
             return;
-        }
-
-        else if (!$scope.parking.compyName) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+        }else if (!reg.test($scope.parking.compyName)||!$scope.parking.compyName) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
             return;
         }else if (!$scope.parking.address) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
         }else if(!pattern.test($scope.parking.compyGuy)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名，只能是中、英文字符～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
-        else if (!$scope.phoneReg.test($scope.parking.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
-
+        else if (!$scope.phoneReg.test($scope.parking.guyTel)||!$scope.parking.guyTel) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
-
+        }else if(!$scope.parking.carNo){
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的车牌号～'});
+            return;
         }else if(!reg.test($scope.parking.extraInfo)){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，最后一项请输入中、英文字符～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
             return;
         }
         else {
@@ -74,7 +73,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                    "serviceId": $scope.childType,
                         "note": $scope.parking.extraInfo,
                      "address": $scope.parking.address,
-                    "prop1" : $scope.parking.carNo
+                      "prop1" : $scope.parking.carNo
                 })
                     .success(function (data) {
                         if(data.code==200){

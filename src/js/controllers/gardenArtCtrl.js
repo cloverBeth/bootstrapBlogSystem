@@ -31,26 +31,24 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
 
     $scope.goGardenOrder=function(){
         if(!$scope.childType){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的园艺服务～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的园艺服务～'});
             return;
-        }
-        else if (!$scope.garden.compyName) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+        }else if (!reg.test($scope.garden.compyName)||!$scope.garden.compyName) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
             return;
         }else if (!$scope.garden.address) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
-        }else if(!pattern.test($scope.garden.compyGuy)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名，只能是中、英文字符～'});
+        }else if(!pattern.test($scope.garden.compyGuy)||!$scope.garden.compyGuy) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
-        else if(!$scope.phoneReg.test($scope.garden.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
-
+        else if(!$scope.phoneReg.test($scope.garden.guyTel)||!$scope.garden.guyTel) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 
         }else if(!reg.test($scope.garden.extraInfo)){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，最后一项请输入中、英文字符～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
             return;
         }
         else{

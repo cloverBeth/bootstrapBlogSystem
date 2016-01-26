@@ -7,7 +7,6 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
     var pattern = /^[-'a-z0-9\u4e00-\u9eff]{2,40}$/i;
-    //alert(pattern.test('suny'));
     $http.post(X_context.api + "services/listServices", {
             "servicesId": 1
         })
@@ -22,7 +21,6 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                     $scope.typeList.push(radio)
 
                 }
-                //console.log( $scope.childType);
 
             });
         $scope.$parent.memberPromise.then(function(data){
@@ -34,28 +32,27 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
         $scope.goGardenOrder=function(){
 
             if(!$scope.childType){
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的送水服务～'});
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的送水服务～'});
                 return;
             }
 
             else if (!$scope.garden.compyName) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
                 return;
             }
             else if (!$scope.garden.address) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入贵公司正确的地址～'});
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入贵公司正确的地址～'});
                 return;
-            }else if(!pattern.test($scope.garden.compyGuy)) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名，只能是中、英文字符～'});
+            }else if(!pattern.test($scope.garden.compyGuy)||!$scope.garden.compyGuy) {
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
                 return;
             }
-            else if(!$scope.phoneReg.test($scope.garden.guyTel)) {
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
+            else if(!$scope.phoneReg.test($scope.garden.guyTel)||!$scope.garden.guyTel) {
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
                 return;
 
-                    }
-            else if(!reg.test($scope.garden.extraInfo)){
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，最后一项请输入中、英文字符～'});
+            }else if(!reg.test($scope.garden.extraInfo)){
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
                 return;
             }
             else{

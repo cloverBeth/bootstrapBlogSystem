@@ -22,7 +22,6 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
                 $scope.typeList.push(radio)
 
             }
-            //console.log( $scope.childType);
 
         });
     $scope.$parent.memberPromise.then(function(data){
@@ -35,29 +34,29 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
     $scope.goGardenOrder=function(){
 
         if(!$scope.childType){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的商务策划服务～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的商务策划服务～'});
             return;
         }
 
-        else if (!$scope.business.compyName) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+        else if (!pattern.test($scope.business.compyGuy)||!$scope.business.compyGuy) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
             return;
         }
         else if (!$scope.business.address) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
         }
-        else if(!pattern.test($scope.business.compyGuy)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名，只能是中、英文字符～'});
+        else if(!pattern.test($scope.business.compyGuy)||!$scope.business.compyGuy) {
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
         else if(!$scope.phoneReg.test($scope.business.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的以1为开头的11位手机号～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的以1为开头的11位手机号～'});
 
             return;
 
         }else if(!reg.test($scope.business.extraInfo)){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，最后一项请输入中、英文字符～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
             return;
         }
         else{
