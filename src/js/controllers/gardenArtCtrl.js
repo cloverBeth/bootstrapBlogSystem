@@ -47,10 +47,11 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 
-        }else if(!reg.test($scope.garden.extraInfo)){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
-            return;
         }
+        //else if(!reg.test($scope.garden.extraInfo)){
+        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
+        //    return;
+        //}
         else{
             $scope.$parent.memberPromise.then(function(){
 

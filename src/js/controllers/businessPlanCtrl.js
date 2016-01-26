@@ -55,10 +55,11 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
             return;
 
-        }else if(!reg.test($scope.business.extraInfo)){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
-            return;
         }
+        //else if(!reg.test($scope.business.extraInfo)){
+        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
+        //    return;
+        //}
         else{
 
             $http.post(X_context.api+"servicesOrder/add", {
