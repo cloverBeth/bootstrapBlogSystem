@@ -11,8 +11,8 @@
     <div class="main pd-48">
         <form class="form-horizontal">
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label">会议室</label>
-                <div class="col-xs-9">
+                <label class="col-xs-4 control-label room-label">会议室</label>
+                <div class="col-xs-8">
                     <p class="room-span">
                         {{room.name}} {{date | date:yyyy-MM-dd}}
                     </p>
@@ -22,8 +22,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-xs-3 control-label room-label">金额</label>
-                <div class="col-xs-9">
+                <label class="col-xs-4 control-label room-label">金额</label>
+                <div class="col-xs-8">
                     ￥{{price}}
                 </div>
             </div>
@@ -32,20 +32,20 @@
 
         <form class="form-horizontal pay-detail" style="margin-top: 20px;">
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label"for="meetingMan">联系人</label>
-                <div class="col-xs-9">
+                <label class="col-xs-4 control-label room-label"for="meetingMan">联系人</label>
+                <div class="col-xs-8">
                     <input type="text" class="input2" id="meetingMan"ng-model="user"/>
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label"for="meetingRelate">联系方式</label>
-                <div class="col-xs-9">
+                <label class="col-xs-4 control-label room-label"for="meetingRelate">联系方式</label>
+                <div class="col-xs-8">
                     <input type="tel" maxlength="11"id="meetingRelate" class="input2" ng-model="phone"/>
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label">支付方式</label>
-                <div class="col-xs-9">
+                <label class="col-xs-4 control-label room-label">支付方式</label>
+                <div class="col-xs-8">
                     <div class="radio-sec">
                         <input type="radio" checked="checked"
                                ng-model="payMethod" value="card"
@@ -60,14 +60,14 @@
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label"for="meetingCompy">公司名称</label>
-                <div class="col-xs-9">
+                <label class="col-xs-4 control-label room-label"for="meetingCompy">公司名称</label>
+                <div class="col-xs-8">
                     <input type="text" id="meetingCompy"class="input2" ng-model="company"/>
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <label class="col-xs-3 control-label room-label"for="meetingInfo">备注信息</label>
-                <div class="col-xs-9">
+                <label class="col-xs-4 control-label room-label"for="meetingInfo">备注信息</label>
+                <div class="col-xs-8">
                     <input type="text" class="input2" id="meetingInfo"ng-model="memo"/>
                 </div>
             </div>

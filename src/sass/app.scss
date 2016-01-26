@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "utf-8;";
 $zjsyGreen : #00C500;
 $fontGrey : #E1E1E1;
 $fontDarkGrey : #908686;
@@ -14,6 +14,7 @@ html {
   height: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-user-select:none;
+  -webkit-font-smoothing:antialiased;
 }
 a{
   text-decoration:none;
@@ -1040,7 +1041,7 @@ label {
             //padding: 0 0 0 6%;
             line-height:60px;
             font-size:18px;
-          padding:0 0 0 20px;
+            padding:0 0 0 20px;
           //width:122px;
         }
         div.outer{
@@ -1085,13 +1086,13 @@ label {
           //padding:0 15px 0 10px;
           text-align:left;
           color:#7B7272;
-          font-size:18px;
+          font-size:17px;
           font-weight:bolder;
         }
 
         ul li input[type="text"]{
            border:none;
-          font-size:18px;
+          font-size:17px;
            //padding:0 25px 0 0;
 
          }
@@ -1101,7 +1102,7 @@ label {
     }
     .gardenbtn{
         width:85%;
-        margin:15px 0 15px 22%;
+        margin:0 0 15px 22%;
         height:50px;
         border:none;
         border-radius:5px;
@@ -1227,7 +1228,7 @@ label {
       font-weight:600;
 
     }
-    .danhao{height:130px;width:100%}
+    .danhao{height:130px;width:100%;padding:18px;}
     .danhao p span {
       color: #666;
       display:inline-block;
@@ -1310,6 +1311,9 @@ label {
       font-weight:600;
 
     }
+    .pay{
+      padding-left:5px;
+    }
     .pay h3 {
       float: left;
       padding: 12px 0 12px 31px;
@@ -1336,7 +1340,7 @@ label {
       min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
       color:#928A8A;margin:47px 0 0 0;
         .row{padding:0;margin:0 auto;}
-        .navbar{padding:5px;margin:0  0 0px 0;}
+        .navbar{padding:2px 5px;margin:0  0 0px 0;}
     }
 }
 
@@ -1497,10 +1501,10 @@ label {
   }
   .room-label {
     line-height:40px;
-    padding:0 0 0 27px;
+    padding:0 0 0 40px;
     color: $fontDarkGrey;
     font-size: 14px;
-    text-align:right;
+    //text-align:right;
   }
   .room-span{
     line-height: 30px;
