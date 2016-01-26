@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($scope,$state,$http,$stateParams,$sce,$rootScope){
+angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($scope,$state,$http,$stateParams,$sce,$rootScope,$q){
     $scope.activityId = $stateParams.activityId;
     $scope.showSubmit = $stateParams.showSubmit;
 
@@ -24,7 +24,8 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
     $scope.showForm = false;
     var api = $stateParams.showSubmit ? 'activity/getActivityDetail' : 'info/getInfoDetail'
 
-    let memberPromise = Promise.resolve();
+    //let memberPromise = Promise.resolve();
+    let memberPromise = $q.resolve();
     if($scope.isAuth){
         $http.get(X_context.api + 'member/getCurMem')
             .success(function(data){
