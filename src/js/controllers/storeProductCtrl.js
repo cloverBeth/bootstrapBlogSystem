@@ -127,7 +127,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     //    $('header').css('height').split('px')[0];
     $scope.$parent.bannerPromise.then(function(){
         $scope.$watch('$parent.navHeight',function(){
-            console.log($('.footer').css('height').split('px')[0]);
             $scope.mainHeight = X_context.bodyHeight -
                 47-//$('.navTop').css('height').split('px')[0] -
                 $scope.$parent.navHeight-
@@ -256,10 +255,11 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             scrollPass = false;
         }
 
-        var headerTop = $(".header").height()+$scope.$parent.navHeight+$(".sound").height()+$(".navTop").height();
+        var headerTop = $(".header").height()+$(".sound").height()+$(".navTop").height();
 
+        console.log(parseInt($(".greens ul:eq(0)").offset().top),headerTop)
         if($scope.$parent.navHeight == 150){
-            if(parseInt($(".greens ul:eq(0)").offset().top) < (headerTop)){
+            if(parseInt($(".greens ul:eq(0)").offset().top) < (headerTop + 150)){
                 $scope.$parent.navHeight = 0;
                 //$scope.$apply();
                 $scope.$digest();
@@ -269,7 +269,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             scrollPass = true;
         }
         else if($scope.$parent.navHeight == 0 && !$scope.$parent.noBanner) {
-            if (parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop)) {
+            if (parseInt($(".greens ul:eq(0)").offset().top) >= (headerTop+1)) {
                 $scope.$parent.navHeight = 150;
                 //$scope.$apply();
                 $scope.$digest();

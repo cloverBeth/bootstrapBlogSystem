@@ -16,11 +16,13 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
         $state.go('activityDetail',{activityId : id})
     }
 
+    let first = true;
+
     $scope.getOrder = function(){
         $http.post(X_context.api + 'activity/listAll',
             {
                 "page" : $scope.page,
-                "pageSize" : 6
+                "pageSize" : 8
             }).success(function(data){
                 if(!data.data[0])return;
                 $scope.total = data.data[0].countTotal;
@@ -37,14 +39,18 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
                     })
                 });
                 $scope.bannerList = _.filter($scope.activities,{showBanner : true});
+
                 $scope.$$postDigest(function(){
+                    if(!first)return;
+                    first = false;
                     var swiper = new Swiper('.swiper-container', {
                         pagination: '.swiper-pagination',
                         slidesPerView: 1
                     });
                 });
             });
-    }
+    };
+
     $scope.getOrder();
 
     $scope.goMy = function(){

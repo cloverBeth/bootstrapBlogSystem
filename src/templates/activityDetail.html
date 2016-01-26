@@ -14,39 +14,42 @@
         </h3>
         <h4 class="activity-date">{{date}}</h4>
 
-        <div class="activity-info-item">
-            <div class="info-icon">
-                <img src="images/time.png" alt=""/>
-            </div>
+        <div ng-show="showSubmit">
+            <div class="activity-info-item">
+                <div class="info-icon">
+                    <img src="images/time.png" alt=""/>
+                </div>
             <span>
                 活动时间: {{period}}
             </span>
-        </div>
-        <div class="activity-info-item">
-            <div class="info-icon">
-                <img src="images/weizhi.png" alt=""/>
             </div>
+            <div class="activity-info-item">
+                <div class="info-icon">
+                    <img src="images/weizhi.png" alt=""/>
+                </div>
             <span>
                 活动地点: {{location}}
             </span>
-        </div>
-        <div class="activity-info-item">
-            <div class="info-icon">
-                <img src="images/tel.png" alt=""/>
             </div>
+            <div class="activity-info-item">
+                <div class="info-icon">
+                    <img src="images/tel.png" alt=""/>
+                </div>
             <span>
                 联系电话: {{mobile}}
             </span>
+            </div>
         </div>
+
         <div ng-bind-html="embedHtml" class="embed-html">
         </div>
         <hr/>
-        <div class="enroll col-sm-7">
+        <div class="enroll col-sm-7" ng-show="showSubmit && submitted">
             <form class="form-horizontal">
                 <div class="form-group">
                     <label class="col-xs-4 control-label">活动费用:</label>
                     <div class="col-xs-8" ng-show="enroll.payType==1">
-                        <p class="form-control-static">￥{{enroll.price}}</p>
+                        <p class="form-control-static">{{enroll.price}}</p>
                     </div>
                     <div class="col-xs-8" ng-show="enroll.payType==3">
                         <p class="form-control-static">￥{{enroll.price}}</p>
@@ -112,12 +115,23 @@
             </span>
         </div>
 
-        <div class="submit-sec grey-sec"  ng-show="!expried && submitted">
+        <div class="submit-sec grey-sec"  ng-show="!expried && submitted && enroll.payed">
             <div class="submit-icon">
                 <img src="images/ren.png" alt=""/>
             </div>
             <span>
                 您已报名
+            </span>
+        </div>
+
+        <div class="submit-sec red-sec"  ng-show="!expried && submitted
+                                                    && !enroll.payed"
+                ng-click="payAgain()">
+            <div class="submit-icon">
+                <img src="images/ren.png" alt=""/>
+            </div>
+            <span>
+                继续支付
             </span>
         </div>
 
