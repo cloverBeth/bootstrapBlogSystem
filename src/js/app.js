@@ -434,7 +434,7 @@ angular.module('ZJSY_WeChat', [
                 '': {
                     templateUrl:'businessList.html',
                     controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(!checkAuth.check())return $state.go('login');
+                        //if(!checkAuth.check())return $state.go('login');
                         var ctrlName = "BusinessListController";
                         return ctrlName;
                     }
