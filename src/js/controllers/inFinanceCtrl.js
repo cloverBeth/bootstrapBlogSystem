@@ -5,7 +5,7 @@ angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootSc
     $scope.typeList=[];
     $scope.childType = null;
     $scope.phoneReg=/^(1[0-9]{10})$/;
-    var pattern = /^[-'a-z\u4e00-\u9eff]{2,40}$/i;
+    var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0]|\s)+/;
 
 
@@ -27,7 +27,8 @@ angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootSc
         });
     $scope.$parent.memberPromise.then(function(data){
         $scope.business={
-            guyTel : data.data.data[0].mobile
+            guyTel : data.data.data[0].mobile,
+            compyGuy : data.data.data[0].nickName
         }
     });
 

@@ -381,8 +381,23 @@ p{
   background:#fff;font-size:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 
 .pay h3{float:left;padding:12px 0;font-size:15px;line-height:2.4em;color:#444;padding-left:15px;margin-bottom: 0;}
-.pay strong { display:block;float:right;color:#999;padding:12px 0;font-size:14px;line-height:2.4em;padding-right:15px;}
-.pay a{ display:inline-block;float:right;color:#999;padding:12px 0;font-weight:bolder;font-size:14px;line-height:2.4em;padding-right:15px;}
+.pay strong {
+  display: inline-block;
+  float: left;
+  color: #999;
+  padding: 14px 8px;
+  font-size: 14px;
+  line-height: 2.4em;
+}
+.pay a{
+  display:inline-block;
+  float:left;
+  color:#999;
+  padding:12px 8px;
+  font-weight:bolder;
+  font-size:14px;
+  line-height:2.4em;
+  padding-right:15px;}
 .pay li {
   height: 45px;
   line-height: 45px;
@@ -431,7 +446,7 @@ p{
 .failed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
 .failed p strong{ display:block;font-size:15px;color:#666;}
 
-.danhao{margin-top:15px;padding:12px;background:#fff;border-bottom:1px solid #ddd;}
+.danhao{margin-top:15px;padding:12px 0 12px 35px ;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
 .danhao font{color:#666;padding-right:8px;}
 div.iphone button.autocodeBtn{
@@ -1260,16 +1275,18 @@ label {
       p{font-size:16px;}
       p strong{font-size:18px;}
     }
-    p.consume span{color:orangered;font-size:20px;}
-    .pay strong{
-      float:left;
-      padding:13px 0 0 18px;
-      font-size:15px;}
+    p.consume span.expense{color:orangered;font-size:20px;padding:0;}
+    //.pay strong{
+    //  float:left;
+    //  display:inline-block;
+    //  padding:13px 20px 0 18px;
+    //  font-size:15px;}
     .pay h3 {
       float: left;
       padding: 12px 0 12px 31px;
       line-height: 2.4em;
       color: #444;
+      display:inline-block;
       margin-bottom: 0;
     }
     .danhao p {
@@ -1278,13 +1295,13 @@ label {
       color: #999;
     }
     .pay h3{font-size:16px;}
-    .pay a{
-      float: left;
-      padding: 12px 15px 12px 5px;
-      //margin:0 0 0 20px;
-      font-size: 15px;
-      line-height: 2.4em;
-    }
+    //.pay a{
+    //  float: left;
+    //  padding: 12px 15px 12px 5px;
+    //  //margin:0 0 0 20px;
+    //  font-size: 15px;
+    //  line-height: 2.4em;
+    //}
 
 }
 

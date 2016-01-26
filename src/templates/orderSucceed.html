@@ -30,13 +30,13 @@
             <p ng-show="isPoint"><font>本次消费</font>￥{{orderSucceed.expense}}+{{orderSucceed.point}}分 （含配送费￥{{orderSucceed.distribution}}）</p>
         </div>
         <div class="pay clearfix">
-            <h3>支付方式</h3><strong>{{orderSucceed.payway}}</strong>
+            <h3 style="padding-left:35px;">支付方式</h3><strong>{{orderSucceed.payway}}</strong>
         </div>
         <div class="pay clearfix" ng-show="selfGet">
-            <h3>商家地址(商品自提)</h3><strong>{{storeAddress}}</strong>
+            <h3 style="padding-left:35px;">商家地址(商品自提)</h3><strong>{{storeAddress}}</strong>
         </div>
         <div class="pay clearfix">
-            <h3>商家电话</h3><a href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
+            <h3 style="padding-left:35px;">商家电话</h3><a href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
         </div>
         <div style="width: 80%;margin: 10px 10%;">
             <button class="redBtn btn"ng-click="goIndex()"href="javascript:;"

@@ -63,7 +63,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
 
     $scope.goEnsureAndPay = function(){
         $scope.phoneReg=/^(1[0-9]{10})$/;
-        var pattern = /^[-'a-z\u4e00-\u9eff]{2,40}$/i;
+        var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
         var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
         if(!$scope.phoneReg.test($scope.phone)||!$scope.phone){
             $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的11位手机号码."});

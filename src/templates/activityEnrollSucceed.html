@@ -21,10 +21,10 @@
             </p>
         </div>
         <div class="danhao">
-            <p><font>订单编号</font>{{orderSucceed.orderNumber}}</p>
-            <p><font>服务类型</font>活动报名</p>
+            <p><span class="col-xs-4">订单编号</span><span class="col-xs-8 pad-left">{{orderSucceed.orderNumber}}</span></p>
+            <p><span class="col-xs-4">服务类型</span>活动报名</p>
             <p class="consume"
-               ng-show="cost"><font>本次消费</font><span>¥{{orderSucceed.expense || 0}}</span></p>
+               ng-show="cost"><span class="col-xs-4">本次消费</span><span class="expense">¥{{orderSucceed.expense || 0}}</span></p>
         </div>
         <div class="pay clearfix" ng-show="cost">
             <h3>支付方式</h3><strong>{{orderSucceed.payway}}</strong>
