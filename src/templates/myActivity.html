@@ -11,7 +11,7 @@
         </div>
     </header>
 
-    <div class="main actitity-sec">
+    <div class="main actitity-sec" infinite-scroll="getOrder()" can-load="canLoad">
         <div class="activityList lazy-sec relR " style="margin-top:46px;" id="base">
             <ul class="clearfix" >
                 <li ng-repeat="hot in activities track by $index" ng-click="goDetail(hot.id)">

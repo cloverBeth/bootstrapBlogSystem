@@ -96,7 +96,6 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             item.products = _.filter($scope.proList,{cateId : item.id});
         });
         if($stateParams.productId){
-            console.log('hahaha',$scope.proList);
             $scope.showProduct($stateParams.productId);
         }
         $rootScope.$broadcast('hideLoading');
