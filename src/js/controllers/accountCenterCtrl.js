@@ -37,11 +37,12 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
                             $state.reload();
 
                         })
-                    });
+
+                });
 
             }
-        });
 
+        });
     $scope.upload = function (files) {
         if(!files[0])return;
         var file = files[0];

@@ -49,7 +49,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
         }else if (!$scope.parking.address) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
-        }else if(!pattern.test($scope.parking.compyGuy)) {
+        }else if(!pattern.test($scope.parking.compyGuy)||!$scope.parking.compyGuy) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
