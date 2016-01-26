@@ -12,11 +12,13 @@ angular.module('ZJSY_WeChat').controller('MyActivityController',function($scope,
         $state.go('activityDetail',{activityId : id})
     }
 
+    $scope.canLoad = true;
+
     $scope.getOrder = function(){
         $http.post(X_context.api + 'activity/my',
             {
                 "page" : $scope.page,
-                "pageSize" : 6
+                "pageSize" : 8
             }).success(function(data){
                 $scope.total = data.data[0].countTotal;
                 _.forEach(data.data,function(order,i){
@@ -29,6 +31,8 @@ angular.module('ZJSY_WeChat').controller('MyActivityController',function($scope,
                         expired : order.enddate < Date.now()
                     })
                 });
+                if($scope.activities.length >= $scope.total)$scope.canLoad = false;
+                $scope.page++;
             });
     }
     $scope.getOrder();
@@ -37,14 +41,15 @@ angular.module('ZJSY_WeChat').controller('MyActivityController',function($scope,
         $state.go('allActivity');
     }
 
-    $(".main").on('scroll',function() {
-
-        if( $('.actitity-sec').scrollTop() + $('.actitity-sec').height() > $('.activityList').height() + 200){
-            $scope.page++;
-            if($scope.activities.length >= $scope.total)return;
-            $scope.getOrder();
-            $scope.$digest();
-        }
-    });
+    //$(".actitity-sec").on('scroll',function() {
+    //    console.log($('.actitity-sec').scrollTop() + $('.actitity-sec').height(),$('.activityList').height())
+    //
+    //    if( $('.actitity-sec').scrollTop() + $('.actitity-sec').height() > $('.activityList').height() + 40){
+    //        $scope.page++;
+    //        if($scope.activities.length >= $scope.total)return;
+    //        $scope.getOrder();
+    //        $scope.$digest();
+    //    }
+    //});
 
 })

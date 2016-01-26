@@ -62,7 +62,6 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
                 slidesPerView: 1
-
             });
         });
     });
