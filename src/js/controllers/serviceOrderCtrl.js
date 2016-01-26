@@ -21,13 +21,13 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
 
         })
             .success(function (data){
-
+                console.log(data.data);
                 //console.log($scope.displayZero(new Date(data.data.result[1].createddate).getMinutes()))
                 if(!data.data)return;
 
 
                 for(var i in data.data.result){
-                    var results=data.data.result[i]
+                    var results=data.data.result[i];
                     //console.log(data.data.result);
                     if(data.data.result[i].serviceType!="会议服务"){
                         var order = {
@@ -86,14 +86,14 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            linkTel : results.mobile,
                          payMethod : results.paytype,
                                _id : results._id,
-                          payState : results.paystatus=="true"?"已支付":"未支付"
+                          payState : results.paystatus=="true"?"已支付":"未支付",
+                      showMeetIcon : results.serviceType=="会议服务" ? true:false
 
 
                         }
 
 
                     }
-
                     $scope.orderList.push(order);
 
                 }

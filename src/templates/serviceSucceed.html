@@ -24,8 +24,11 @@
         <div class="pay clearfix">
             <h3 class="col-xs-4">联系电话</h3><a class="col-xs-8"href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
         </div>
-        <div style="width: 80%;margin: 10px 15%;">
+        <div style="width: 80%;margin: 10px 15%;"ng-hide="showBusiness">
             <button class="redBtn btn"ng-click="goToOnline()">返回线上物业</button>
+        </div>
+        <div style="width: 80%;margin: 10px 15%;"ng-show="showBusiness">
+            <button class="redBtn btn"ng-click="goBusiness()">返回</button>
         </div>
     </div>
     <div class="kong"></div>

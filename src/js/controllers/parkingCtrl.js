@@ -59,10 +59,11 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
         }else if(!$scope.parking.carNo){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的车牌号～'});
             return;
-        }else if(!reg.test($scope.parking.extraInfo)){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
-            return;
         }
+        //else if(!reg.test($scope.parking.extraInfo)){
+        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
+        //    return;
+        //}
         else {
             $scope.$parent.memberPromise.then(function () {
                 $http.post(X_context.api + "servicesOrder/add", {

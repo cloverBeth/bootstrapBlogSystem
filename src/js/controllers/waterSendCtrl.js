@@ -51,10 +51,11 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                 $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
                 return;
 
-            }else if(!reg.test($scope.garden.extraInfo)){
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
-                return;
             }
+            //else if(!reg.test($scope.garden.extraInfo)){
+            //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
+            //    return;
+            //}
             else{
 
                     $http.post(X_context.api+"servicesOrder/add", {

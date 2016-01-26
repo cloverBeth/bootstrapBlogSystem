@@ -1086,7 +1086,7 @@ label {
           text-align:left;
           color:#7B7272;
           font-size:18px;
-          font-weight:600;
+          font-weight:bolder;
         }
 
         ul li input[type="text"]{
@@ -1147,16 +1147,24 @@ label {
     }
 
       .proState{
-          right:40px;
+          right:25px;
           top:20px;
-          div.subBtn{width:60px;height:30px;margin:25px -20px 0 30px;
+          div.subBtn{width:60px;height:30px;margin:5px 0 0 10px;
 
             span.serviceStatus{display:block;float:left;width:55px;margin:0 0 0 -10px;font-size:15px;color:#FF0000;}
             span{margin:0 10px 0 0;display:block;width:20px;height:20px;}
-            .toggleBg{margin:-2px 0 0 40px;float:left;display:block;background:url(../images/up.png)no-repeat;}
+            .toggleBg{
+                margin:-16px 0 0 45px;
+                float:left;display:block;
+                background:url(../images/up.png)no-repeat;
+            }
 
-            .isTrue{background:url(../images/up.png)no-repeat;}
-            .isFalse{background:url(../images/down.png)no-repeat;}
+            .isTrue{
+              background:url(../images/up.png)no-repeat;
+              }
+            .isFalse{
+              background:url(../images/down.png)no-repeat;
+            }
           }
 
           .proTime{
@@ -1328,7 +1336,7 @@ label {
       min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
       color:#928A8A;margin:47px 0 0 0;
         .row{padding:0;margin:0 auto;}
-        .navbar{padding:5px;margin:0  0 10px 0;}
+        .navbar{padding:5px;margin:0  0 0px 0;}
     }
 }
 
