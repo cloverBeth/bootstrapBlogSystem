@@ -378,26 +378,26 @@ p{
 
 .pay{
   margin:10px 0;
-  background:#fff;font-size:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
+  background:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 
-.pay h3{float:left;padding:12px 0;font-size:15px;line-height:2.4em;color:#444;padding-left:15px;margin-bottom: 0;}
+.pay h3{float:left;padding:12px 10px 12px 15px;font-size:15px;line-height:2.4em;color:#444;margin-bottom: 0;}
 .pay strong {
   display: inline-block;
   float: left;
   color: #999;
-  padding: 14px 8px;
-  font-size: 14px;
+  padding: 11px 15px 15px 5px;
+  font-size: 16px;
   line-height: 2.4em;
 }
 .pay a{
   display:inline-block;
   float:left;
   color:#999;
-  padding:12px 8px;
-  font-weight:bolder;
-  font-size:14px;
+  padding: 11px 15px 15px 5px;
+  font-weight:bold;
+  font-size:16px;
   line-height:2.4em;
-  padding-right:15px;}
+}
 .pay li {
   height: 45px;
   line-height: 45px;
@@ -430,14 +430,15 @@ p{
 }
 
 .succeed{
-  padding:12px 12px 12px 36px;
-  background:#fff url(../images/ico_8.png) no-repeat;
-  background-size:18px;
-  border-bottom:1px solid #ddd;
-  background-position:3% 25%;
+  padding: 45px 12px 15px 20px;
+  margin:0 auto;
+  background: url(../images/ico_8.png)top 10px center no-repeat #fff;
+  background-size: 30px;
+  background-position:50% 12%;
+  border-bottom: 1px solid #ddd;
 }
 .succeed em{ display:block;float:left;width:20px;padding-right:10px;}
-.succeed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
+.succeed p{float:left;font-size:16px;line-height:1.6em;color:#999;}
 .succeed p strong{ display:block;font-size:15px;color:#666;}
 
 .failed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_fail.png) no-repeat 10px 16px;
@@ -446,9 +447,9 @@ p{
 .failed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
 .failed p strong{ display:block;font-size:15px;color:#666;}
 
-.danhao{margin-top:15px;padding:12px 0 12px 35px ;background:#fff;border-bottom:1px solid #ddd;}
+.danhao{margin-top:15px;padding:12px 0 12px 20px ;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
-.danhao font{color:#666;padding-right:8px;}
+.danhao font{color:#666;padding-right:15px;}
 div.iphone button.autocodeBtn{
   height: 32px;
   margin-top: 9px;
@@ -1009,13 +1010,22 @@ label {
     position:absolute;
     overflow-y:scroll;
     overflow-x:hidden;
-    .middle-squar{margin-top:47px;}
+    .middle-squar{margin-top:42px;}
     .garden-service{
-          min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
-          color:#928A8A;margin:20px 0 0 0;
+          min-height:60px;
+          height:auto;
+          width:100%;
+          background:#ffffff;
+          text-align:left;
+          font-size:16px;
+          color:#777;
+          margin:20px 0 0 0;
           label {
           display: inline;
         }
+      span.typeOfService{
+        padding-left:15px;
+      }
 
         .regular-checkbox {
             display: none;
@@ -1067,13 +1077,15 @@ label {
         }
         div.choosed{
           display:inline-block;
-          margin: 0 10px 0 -6px;
+          margin: 0;
+          //left:-25px;
           height:40px;
 
         }
         div.choosed>span{
-          padding:0 0 0 5px;
+          padding:0 1px 0 5px;
           color:#444141;
+          font-size:16px;
           line-height:60px;
         }
 
@@ -1086,35 +1098,40 @@ label {
           width:100%;
           height:auto;
           background:#ffffff;
+          li.row{
+            padding:5px;
+            margin:0;width:100%;
+            text-align:left;
+            line-height:4rem;
+            border-bottom:1px solid #f0f0f0;
+            span{
+              display:inline-block;
+              margin-bottom:0;
+              padding:0 0 0 10px;
+              text-align:left;
+              color: #777;
+              font-size:18px;
+            }
+            input[type="text"]{
+              border:none;
+              font-size:17px;
+              padding:0 0 0 22px;
 
+            }
+            .text-area{
+              margin:12px 0 10px 0;
+              line-height:2rem;/*min-height:100px;*/
+              height:auto;
+              font-size:16px;
+              border:none;
+              padding:0 0 0 22px;
+
+            }
         }
-      .row{padding:5px;margin:0;
-        label{margin-bottom:0;}
+
       }
-        ul li{
-        width:100%;
-        text-align:left;
-        line-height:4rem;
-        border-bottom:1px solid #f0f0f0;
-       }
-        ul li label{
-          //padding:0 15px 0 10px;
-          text-align:left;
-          color:#7B7272;
-          font-size:17px;
-          font-weight:bolder;
-        }
 
-        ul li input[type="text"]{
-           border:none;
-          font-size:17px;
-           //padding:0 25px 0 0;
-
-         }
-      .text-area{margin:12px 0 10px 0;line-height:2rem;/*min-height:100px;*/
-           height:auto;font-size:16px;border:none;}
-
-    }
+  }
     .gardenbtn{
         width:85%;
         margin:0 0 15px 22%;
@@ -1243,18 +1260,37 @@ label {
       font-weight:600;
 
     }
-    .danhao{height:130px;width:100%;padding:18px;}
+    .pay strong {
+      display: inline-block;
+      float: left;
+      color: #999;
+      padding: 13px 15px 15px 5px;
+      font-size: 16px;
+      line-height: 2.4em;
+    }
+    .pay a{
+      display:inline-block;
+      float:left;
+      color:#999;
+      padding: 13px 15px 15px 5px;
+      font-weight:bold;
+      font-size:16px;
+      line-height:2.4em;
+    }
+    .pay h3{padding:0 0 0 15px;}
+    .danhao{height:130px;width:100%;padding:20px 0 0 5px;}
     .danhao p span {
       color: #666;
       display:inline-block;
       padding:0 0 0 15px;
     }
+    .danhao span#money-total{color:#D00;}
     .danhao span.pad-left{
       padding-left:0;
       color:#9E9696;
     }
     .succeed{
-      padding: 45px 12px 15px 36px;
+      padding: 45px 12px 15px 20px;
       margin:0 auto;
       margin-top:30px;
       background: url(../images/ico_8.png)top 10px center no-repeat #fff;
@@ -1262,28 +1298,14 @@ label {
       background-position:50% 12%;
       border-bottom: 1px solid #ddd;
       p{font-size:16px;}
-      p strong{font-size:18px;}
+      p strong{font-size:16px;}
         }
 
-    .failed{
-      padding: 45px 12px 15px 36px;
-      margin:0 auto;
-      margin-top:30px;
-      background: url(../images/ico_fail.png)top 10px center no-repeat #fff;
-      background-size: 30px;
-      border-bottom: 1px solid #ddd;
-      p{font-size:16px;}
-      p strong{font-size:18px;}
-    }
-    p.consume span.expense{color:orangered;font-size:20px;padding:0;}
-    //.pay strong{
-    //  float:left;
-    //  display:inline-block;
-    //  padding:13px 20px 0 18px;
-    //  font-size:15px;}
+    p.consume span.expense{color:orangered;font-size:18px;padding:0;}
+
     .pay h3 {
       float: left;
-      padding: 12px 0 12px 31px;
+      padding: 12px 0 12px 20px;
       line-height: 2.4em;
       color: #444;
       display:inline-block;
@@ -1295,20 +1317,14 @@ label {
       color: #999;
     }
     .pay h3{font-size:16px;}
-    //.pay a{
-    //  float: left;
-    //  padding: 12px 15px 12px 5px;
-    //  //margin:0 0 0 20px;
-    //  font-size: 15px;
-    //  line-height: 2.4em;
-    //}
+
 
 }
 
 
 .service-failed{
     .failed{
-      padding: 45px 12px 15px 36px;
+      padding: 45px 12px 15px 20px;
       margin:0 auto;
       margin-top:30px;
       background: url(../images/ico_fail.png)top 10px center no-repeat #fff;
@@ -1333,7 +1349,7 @@ label {
     }
     .pay h3 {
       float: left;
-      padding: 12px 0 12px 31px;
+      padding: 12px 0 12px 15px;
       line-height: 2.4em;
       color: #444;
       margin-bottom: 0;
@@ -1355,7 +1371,7 @@ label {
     }
     .navOnline{
       min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
-      color:#928A8A;margin:47px 0 0 0;
+      color:#928A8A;margin:42px 0 0 0;
         .row{padding:0;margin:0 auto;}
         .navbar{padding:2px 5px;margin:0  0 0px 0;}
     }
@@ -1459,7 +1475,8 @@ label {
     line-height: 40px;
     padding:0 0 0 20px;
     color: $fontDarkGrey;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight:700;
     padding-right: 0;
   }
 
@@ -1516,11 +1533,13 @@ label {
     background: white;
     border-bottom:1px solid #dddddd;
   }
+  .money-total{color: #DD0000}
   .room-label {
     line-height:40px;
     padding:0 0 0 40px;
     color: $fontDarkGrey;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight:700;
     //text-align:right;
   }
   .room-span{

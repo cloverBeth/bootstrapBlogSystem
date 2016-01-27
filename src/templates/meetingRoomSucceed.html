@@ -20,7 +20,7 @@
                 如您有其他问题，请拨打商家服务热线。
             </p>
             <p ng-show="success && !cashPay">
-                <strong>您的预约订单已提交成功，</strong>
+                <strong>您的预约订单已提交成功</strong>
                 请您在当天完成付款！否则定单将被取消哦～
             </p>
 
@@ -28,7 +28,7 @@
         <div class="danhao">
             <p><span class="col-xs-4">订单编号</span><span class="col-xs-8 pad-left">{{orderNumber}}</span></p>
             <p><span class="col-xs-4">服务类型</span><span class="col-xs-8 pad-left">会议室预订</span></p>
-            <p><span class="col-xs-4">本次消费</span><span class="col-xs-8 pad-left">¥{{expense || 0}}</span></p>
+            <p><span class="col-xs-4">本次消费</span><span class="col-xs-8 pad-left"id="money-total">¥ {{expense || 0}}</span></p>
         </div>
         <div class="pay clearfix">
             <h3 class="col-xs-4">支付方式</h3><strong class="col-xs-8">{{payway == "false"?"一卡通":"线下支付"}}</strong>

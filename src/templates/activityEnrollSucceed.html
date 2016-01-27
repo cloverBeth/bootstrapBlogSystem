@@ -27,10 +27,10 @@
                ng-show="cost"><span class="col-xs-4">本次消费</span><span class="expense">¥{{orderSucceed.expense || 0}}</span></p>
         </div>
         <div class="pay clearfix" ng-show="cost">
-            <h3>支付方式</h3><strong>{{orderSucceed.payway}}</strong>
+            <h3 class="col-xs-4">支付方式</h3><strong class="col-xs-8">{{orderSucceed.payway}}</strong>
         </div>
         <div class="pay clearfix">
-            <h3>联系电话</h3><a href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
+            <h3 class="col-xs-4">联系电话</h3><a class="col-xs-8"href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a>
         </div>
         <div style="width: 80%;margin: 10px 10%;">
 

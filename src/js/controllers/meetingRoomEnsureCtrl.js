@@ -35,10 +35,11 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
         }else if(!$scope.company){
             $rootScope.$broadcast('alerts',{type:'danger',message:"请填写公司名称."});
             return;
-        }else if(!reg.test($scope.memo)){
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的备注信息，只能是中文或者英文."});
-            return;
         }
+        //else if(!reg.test($scope.memo)){
+        //    $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的备注信息，只能是中文或者英文."});
+        //    return;
+        //}
         //if(!$scope.user || !$scope.phone || !$scope.company){
         //    $rootScope.$broadcast('alerts',{type:'danger',message:"请完整填写."});
         //    return;

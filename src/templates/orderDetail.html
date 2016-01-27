@@ -39,7 +39,7 @@
                         <li><span>订单编号</span><p>{{orderone.orderNum}}</p></li>
                         <li><span>收货地址</span><p>{{orderone.address}}</p></li>
                         <li><span>收 货 人</span><p>{{orderone.guest}}</p></li>
-                        <li><span>供 货 商</span><p>{{orderone.storeName}}</p></li>
+                        <li><span>供 货 商</span><p ui-sref="businessList">{{orderone.storeName}}</p></li>
                         <li><span>供货商电话</span><p><a href="tel:{{orderone.storeTel}}">{{orderone.storeTel}}</a></p></li>
                         <li><span>支付方式</span><p>{{orderone.payway}}</p></li>
                     </ul>
