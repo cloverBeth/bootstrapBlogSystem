@@ -35,7 +35,13 @@
                     </b>
                 </p>
                 <p ng-show="$parent.$parent.isPointStore">
-                    <strong class="orgText"><b>￥{{hot.price}}+{{hot.point}}分</b></strong>
+                    <strong class="orgText">
+                        <b>
+                        {{hot.price ? '￥'+hot.price : ''}}
+                        {{hot.price&&hot.point ? '+' : ''}}
+                        {{hot.point ? hot.point+'分':''}}
+                        </b>
+                    </strong>
                     <b class="org " >
                         <b ng-hide="_.find(cart.products,{id:hot.id})">
                             {{hot.name}}
@@ -99,7 +105,13 @@
                     </b>
                 </p>
                 <p ng-show="$parent.$parent.isPointStore">
-                    <strong class="orgText"><b>￥{{pro.price}}+{{pro.point}}分</b></strong>
+                    <strong class="orgText">
+                        <b>
+                        {{pro.price ? '￥'+pro.price : ''}}
+                        {{pro.price&&pro.point ? '+' : ''}}
+                        {{pro.point ? pro.point+'分':''}}
+                        </b>
+                    </strong>
                     <b class="org" >
                         <b ng-hide="_.find(cart.products,{id:pro.id})">
                             {{pro.name}}

@@ -99,6 +99,7 @@ angular.module('ZJSY_WeChat', [
                     //controller:'StoreCartController'
                     controllerProvider: function($state,$stateParams,checkAuth) {
                         if(!checkAuth.check()){
+                            window.history.pushState({}, "storeCart", `#/store/${X_context.storeId}/store-cart`);
                             return $state.go('login');
                         }
                         var ctrlName = "StoreCartController";
@@ -352,7 +353,7 @@ angular.module('ZJSY_WeChat', [
 
         .state('activityDetail',{
             url:'/activity-detail/{activityId}',
-            params: {showSubmit: true},
+            params: {showSubmit: true,from: 'activity'},
             views:{
                 '':{
                     templateUrl:'activityDetail.html',

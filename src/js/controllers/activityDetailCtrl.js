@@ -22,7 +22,11 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
 
 
     $scope.showForm = false;
-    var api = $stateParams.showSubmit ? 'activity/getActivityDetail' : 'info/getInfoDetail'
+    var api = $stateParams.showSubmit ? 'activity/getActivityDetail' : 'info/getInfoDetail';
+
+    if($stateParams.showSubmit){
+        $scope.pageTitle = "活动详情"
+    }
 
     //let memberPromise = Promise.resolve();
     let memberPromise = $q.resolve();
@@ -46,6 +50,7 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
                 let startDate = data.startdate ? new Date(data.startdate) : new Date();
                 let endDate = data.enddate ? new Date(data.enddate) : new Date();
 
+                $scope.pageTitle = data.type == 1 ? '园区资讯' : '企业秀';
                 $scope.endDate = data.enddate;
                 $scope.expried = $scope.endDate < Date.now();
                 $scope.title = data.title;
