@@ -47,7 +47,7 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的维修服务～'});
             return;
-        }else if (!reg.test($scope.maintain.compyName)||!$scope.maintain.compyName) {
+        }else if (!$scope.maintain.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
             return;
         }else if (!$scope.maintain.address) {

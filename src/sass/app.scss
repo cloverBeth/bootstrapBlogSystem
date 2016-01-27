@@ -279,7 +279,11 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .shop strong{ display:block;float:left;padding:0.6em;font-size:15px;line-height:1.5em;color:#fff;}
 .shop strong font{font-size:12px;color:#666;padding-left:10px;}
 .shop span{ display:block;float:right;}
-.shop span a{ display:block;font-size:18px;padding:0.4em 1em;line-height:1.6em;color:#fff; background:#dd0000;}
+.shop span a{
+  right: 0;
+  top: 0;
+  position: absolute;
+  display:block;font-size:18px;padding:0.4em 1em;line-height:1.6em;color:#fff; background:#dd0000;}
 .shop span button{ display:block;font-size:18px;padding:0.4em 1em;line-height:1.6em;color:#fff; background:#dd0000;}
 
 .shop em{ display:block;float:left;width:40px;padding:0.6em;font-size:15px;font-style:normal; cursor:pointer; position:relative;}
@@ -525,7 +529,7 @@ dl{
 .pic li{float:left;width:40px;padding:5px 10px;margin-right:10px;text-align:center;}
 .pic li p{font-size:15px;line-height:1.4em;padding:15px 0 20px 0;color:#999;display:inline-block;text-align:center;width:40px;height:30px;}
 .pic span{ display:block;float:right;padding:40px 30px;font-size:12px;color:#999;margin:0 15px 0 0;background:url(../images/ico_7.png) no-repeat right center; background-size:9px;}
-.pic ul li em {display:inline-block;text-align:center;width:40px;height:40px;}
+.pic ul li em {display:inline-block;text-align:center;width:40px;height:40px;line-height: 40px;}
 .pic ul li em img{margin:0 auto;width:40px;height:40px;margin-top:20%;}
 
 .time{font-size:12px;line-height:2em;padding:5px 10px;color:#999;border-bottom:1px solid #ddd;border-top:1px solid #ddd;}
@@ -915,7 +919,7 @@ label {
 .quickpay{background: #dd0000;width:60%;margin:15px 0 0 20%;}
 .isloading{text-align: center;padding: 10px 0;}
 .uintpart{margin-top:10px;}
-.listlimit{width:160px;height:80px;overflow:hidden;}
+.listlimit{width:200px;height:80px;overflow:hidden;}
 .activity-swiper{
   height:auto;
 }
@@ -1559,6 +1563,9 @@ label {
   height: 100%;
   img {
     max-width: 100%;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
   }
   .activity-content {
     margin-top: 10px;
@@ -1723,10 +1730,11 @@ label {
     }
 
     .right-coupon {
-      float: right;
-      width: 74%;
+      display:inline-block;
+      width: 72%;
       height: 100%;
       text-align: center;
+      vertical-align: top;
 
       .right-text {
         height: 50%;
@@ -1839,5 +1847,9 @@ label {
   }
 
 }
-
+.activity-enroll-succeed{
+  .activity-enroll-form strong,a{
+    margin-left:5%;
+  }
+}
 

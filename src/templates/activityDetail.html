@@ -4,7 +4,7 @@
             <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
         </div>
         <div class="title">
-            活动详情
+            {{pageTitle}}
         </div>
     </header>
 
@@ -92,9 +92,8 @@
 
     <div class="activity-footer" ng-show="showSubmit">
         <div class="footer-title">
-            <div class="footer-icon">
-                <img src="images/qian.png"  alt=""/>
-            </div>
+            <img src="images/qian.png"  alt=""/>
+
             <span ng-show="payType!=1 && payType!=3">
                 免费活动
             </span>

@@ -44,7 +44,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的送水服务～'});
             return;
-        }else if (!reg.test($scope.parking.compyName)||!$scope.parking.compyName) {
+        }else if (!$scope.parking.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
             return;
         }else if (!$scope.parking.address) {

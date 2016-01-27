@@ -12,9 +12,14 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
             console.log(data.data);
             var datas=data.data;
             if(!datas[0]){return;}
+            let num = 0;
+            _.forEach(datas[0].orderDetail,function(item,i){
+                num += item.quantity
+            })
+
             $scope.orderSucceed = {
                 orderNumber :datas[0].orderSn,
-                quantity : datas[0].orderDetail.length,
+                quantity : num,
                 payway:datas[0].paymentMethod,
                 distribution:datas[0].shippingPrice,
                 expense:datas[0].totalPrice,
