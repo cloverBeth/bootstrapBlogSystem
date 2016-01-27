@@ -1704,10 +1704,12 @@ label {
     }
 
     .right-coupon {
-      float: right;
-      width: 74%;
+      //float: right;
+      display:inline-block;
+      width: 72%;
       height: 100%;
       text-align: center;
+      vertical-align: top;
 
       .right-text {
         height: 50%;
