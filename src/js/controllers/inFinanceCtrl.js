@@ -37,7 +37,7 @@ angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootSc
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的投融资服务～'});
             return;
-        }else if (!reg.test($scope.business.compyName)||!$scope.business.compyName) {
+        }else if (!$scope.business.compyName) {
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
             return;
         }
