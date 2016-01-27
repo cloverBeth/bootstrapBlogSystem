@@ -264,7 +264,6 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             }
-
         })
        .state('orderSucceed',{
             url:'/order-succeed/{orderId}',
@@ -670,7 +669,7 @@ angular.module('ZJSY_WeChat', [
             }
         });
 
-        //$urlRouterProvider.otherwise('/store/1/store-product/');
+        $urlRouterProvider.otherwise('/store/1/store-product/');
 
 
     });
