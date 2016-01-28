@@ -246,7 +246,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     });
 
 
-    $(".greens").on('scroll',function() {
+    $(".productList").on('scroll',function() {
 
         if(!scrollPass){
             return;
@@ -254,11 +254,11 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             scrollPass = false;
         }
 
-        var headerTop = $(".header").height()+$(".sound").height()+$(".navTop").height();
+        var headerTop = $(".header").height()+$(".sound").height()+$(".navTop").height()+$scope.$parent.navHeight ;
 
         console.log(parseInt($(".greens ul:eq(0)").offset().top),headerTop)
         if($scope.$parent.navHeight == 150){
-            if(parseInt($(".greens ul:eq(0)").offset().top) < (headerTop + 150)){
+            if(parseInt($(".greens ul:eq(0)").offset().top) < (headerTop)){
                 $scope.$parent.navHeight = 0;
                 //$scope.$apply();
                 $scope.$digest();
@@ -285,6 +285,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
             for(var i=0;i<$(".greens ul").length;i++)
             {
                 var top = parseInt($(".greens ul:eq("+i+")").offset().top);
+
 
                 if(top < headerTop + 30)
                 {
