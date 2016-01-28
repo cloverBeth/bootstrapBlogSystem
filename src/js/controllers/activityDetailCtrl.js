@@ -49,8 +49,12 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
                 let createDate = data.createddate ? new Date(data.createddate) : new Date();
                 let startDate = data.startdate ? new Date(data.startdate) : new Date();
                 let endDate = data.enddate ? new Date(data.enddate) : new Date();
+                if($stateParams.showSubmit){
+                    $scope.pageTitle = "活动详情"
+                }else{
+                    $scope.pageTitle = data.type == 1 ? '园区资讯' : '企业秀';
+                }
 
-                $scope.pageTitle = data.type == 1 ? '园区资讯' : '企业秀';
                 $scope.endDate = data.enddate;
                 $scope.expried = $scope.endDate < Date.now();
                 $scope.title = data.title;
