@@ -45,19 +45,24 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的送水服务～'});
             return;
         }else if (!$scope.parking.compyName) {
+            $('#compyName').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
             return;
         }else if (!$scope.parking.address) {
+            $('#address').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
         }else if(!pattern.test($scope.parking.compyGuy)||!$scope.parking.compyGuy) {
+            $('#compyGuy').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
         else if (!$scope.phoneReg.test($scope.parking.guyTel)||!$scope.parking.guyTel) {
+            $('#guyTel').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
         }else if(!$scope.parking.carNo){
+            $('#carNo').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的车牌号～'});
             return;
         }

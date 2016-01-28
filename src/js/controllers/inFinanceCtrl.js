@@ -38,23 +38,29 @@ angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootSc
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的投融资服务～'});
             return;
         }else if (!$scope.business.compyName) {
+            $('#compyName').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
             return;
         }
         else if (!$scope.business.address) {
+            $('#address').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
         }else if(!pattern.test($scope.business.compyGuy)||!$scope.business.compyGuy) {
+            $('#compyGuy').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }else if(!$scope.business.proName) {
+            $('#proName').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的项目名～'});
             return;
         }else if(!$scope.phoneReg.test($scope.business.guyTel)||!$scope.business.guyTel) {
+            $('#guyTel').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 
         }else if(!$scope.business.extraInfo){
+            $('#extraInfo').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的项目介绍～'});
             return;
         }

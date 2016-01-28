@@ -35,18 +35,20 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的园艺服务～'});
             return;
         }else if (!$scope.garden.compyName) {
+            $('#compyName').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
-            $scope.garden.compyName.focus();
-
             return;
         }else if (!$scope.garden.address) {
+            $('#address').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
         }else if(!pattern.test($scope.garden.compyGuy)||!$scope.garden.compyGuy) {
+            $('#compyGuy').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
         else if(!$scope.phoneReg.test($scope.garden.guyTel)||!$scope.garden.guyTel) {
+            $('#guyTel').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 

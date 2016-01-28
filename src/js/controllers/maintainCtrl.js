@@ -48,15 +48,19 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的维修服务～'});
             return;
         }else if (!$scope.maintain.compyName) {
+            $('#compyName').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
             return;
         }else if (!$scope.maintain.address) {
+            $('#address').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
         }else if(!pattern.test($scope.maintain.compyGuy)||!$scope.maintain.compyGuy) {
+            $('#compyGuy').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }else if(!$scope.phoneReg.test($scope.maintain.guyTel)||!$scope.maintain.guyTel) {
+            $('#guyTel').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 
