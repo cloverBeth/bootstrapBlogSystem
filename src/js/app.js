@@ -414,6 +414,7 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+
         .state('serviceOrder',{
             url:'/service-order/{serviceOrderId}',
             views:{
@@ -427,7 +428,16 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('businessService',{
+            url:'/business-service',
+            views:{
+                '':{
+                    templateUrl:'businessService.html',
+                    controller: 'BusinessServiceController'
+                }
 
+            }
+        })
         .state('businessList', {
             url:'/business-list',
             views: {
