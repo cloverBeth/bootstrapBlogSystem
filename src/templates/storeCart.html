@@ -1,4 +1,4 @@
-<div ng-style="{height:mainHeight-42}" class="main">
+<div ng-style="{height:mainHeight-42}" class="main store-cart">
 
     <div class="address clearfix" ng-click="selectAddress()">
         <em><img src="images/ico_6.png" /></em>
@@ -18,15 +18,15 @@
                     <b ng-show="$parent.$parent.isPointStore">￥{{item.price}} + {{item.point}}积分</b>
                 </p>
                 <div class="numN fl mt20">
-                    <a href="javascript:;" class="add1" ng-click="addProduct(item.id);">
-                        <img src="images/ico_a1.png"></a>
+                    <a href="javascript:;" class="add1 big-link" ng-click="addProduct(item.id);">
+                        <img src="images/ico_a1.png"/></a>
                     <span>
                         {{
                             item.buyNum
                         }}
                     </span>
-                    <a href="javascript:;" class="sub1" ng-click="removeProduct(item.id)">
-                        <img src="images/ico_j1.png">
+                    <a href="javascript:;" class="sub1 big-link" ng-click="removeProduct(item.id)">
+                        <img src="images/ico_j1.png"/>
                     </a>
                 </div>
             </li>
