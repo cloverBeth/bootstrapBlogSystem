@@ -32,13 +32,13 @@
 
         <form class="form-horizontal pay-detail" style="margin-top: 20px;">
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <span class="col-xs-4 control-label room-label"for="meetingMan">联&nbsp; 系&nbsp;人</span>
+                <label class="col-xs-4 control-label room-label"for="meetingMan">联&nbsp; 系&nbsp;人</label>
                 <div class="col-xs-8">
                     <input type="text" class="input2" id="meetingMan"ng-model="user"/>
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <span class="col-xs-4 control-label room-label"for="meetingRelate">联系方式</span>
+                <label class="col-xs-4 control-label room-label"for="meetingRelate">联系方式</label>
                 <div class="col-xs-8">
                     <input type="tel" maxlength="11"id="meetingRelate" class="input2" ng-model="phone"/>
                 </div>
@@ -50,23 +50,23 @@
                         <input type="radio" checked="checked"
                                ng-model="payMethod" value="card"
                                id="checkbox-card" class="regular-checkbox">
-                        <label for="checkbox-card"></label><span>一&nbsp; 卡&nbsp; 通</span>
+                        <label for="checkbox-card"></label><label class="beLarge"for="checkbox-card">一&nbsp; 卡&nbsp; 通</label>
                         <input type="radio" checked="checked"
                                ng-model="payMethod" value="cash"
                                id="checkbox-cash" class="regular-checkbox">
-                        <label for="checkbox-cash" style="margin-left: 20px;"></label><span>线下支付</span>
+                        <label for="checkbox-cash" style="margin-left: 10px;"></label><label class="beLarge"for="checkbox-cash">线下支付</label>
                     </div>
 
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <span class="col-xs-4 control-label room-label"for="meetingCompy">公司名称</span>
+                <label class="col-xs-4 control-label room-label"for="meetingCompy">公司名称</label>
                 <div class="col-xs-8">
                     <input type="text" id="meetingCompy"class="input2" ng-model="company"/>
                 </div>
             </div>
             <div class="form-group" style="border-bottom:1px solid #dddddd">
-                <span class="col-xs-4 control-label room-label"for="meetingInfo">备注信息</span>
+                <label class="col-xs-4 control-label room-label"for="meetingInfo">备注信息</label>
                 <div class="col-xs-8">
                     <input type="text" class="input2" id="meetingInfo"ng-model="memo"/>
                 </div>

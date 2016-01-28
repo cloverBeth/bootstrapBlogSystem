@@ -19,39 +19,40 @@
                 <div class="choosed " ng-repeat="radio in typeList track by $index">
                     <input type="radio"name="garden"id="{{'radio-'+radio.id}}"
                            class="regular-checkbox"ng-value="radio.id"ng-model="$parent.childType">
-                    <label for="{{'radio-'+radio.id}}"></label><span>{{radio.typeTitle}}</span>
+                    <label for="{{'radio-'+radio.id}}"></label>
+                    <label class="beLarge"for="{{'radio-'+radio.id}}">{{radio.typeTitle}}</label>
                 </div>
             </div>
         </div>
         <div class="companyInfo">
             <ul>
                 <li class="row">
-                    <span class="col-xs-4"for="compyName">公司名称</span>
+                    <label class="col-xs-4"for="compyName">公司名称</label>
                     <input class="col-xs-8"placeholder="请填写公司名称" type="text"id="compyName"
                            ng-model="parking.compyName"/>
                 </li>
                 <li class="row">
-                    <span class="col-xs-4"for="address">公司地址</span>
+                    <label class="col-xs-4"for="address">公司地址</label>
                     <input class="col-xs-8"placeholder="请填写公司地址" type="text"id="address"
                            ng-model="parking.address"/>
                 </li>
                 <li class="row">
-                    <span class="col-xs-4"for="compyGuy">联&nbsp; 系&nbsp; 人</span>
+                    <label class="col-xs-4"for="compyGuy">联&nbsp; 系&nbsp; 人</label>
                     <input class="col-xs-8"placeholder="请填写联系人姓名"type="text"id="compyGuy"
                            ng-model="parking.compyGuy"/>
                 </li>
                 <li class="row">
-                    <span class="col-xs-4"for="guyTel">联系电话</span>
+                    <label class="col-xs-4"for="guyTel">联系电话</label>
                     <input class="col-xs-8"maxlength="11"placeholder="请填写联系人手机号码"type="text"id="guyTel"
                            ng-model="parking.guyTel"/>
                 </li>
                 <li class="row">
-                    <span class="col-xs-4"for="carNo">车&nbsp; 牌&nbsp; 号</span>
+                    <label class="col-xs-4"for="carNo">车&nbsp; 牌&nbsp; 号</label>
                     <input class="col-xs-8"placeholder="请填写您的车牌号"type="text"id="carNo"
                            ng-model="parking.carNo"/>
                 </li>
                 <li class="row">
-                    <span class="col-xs-4"for="extraInfo">备注信息</span>
+                    <label class="col-xs-4"for="extraInfo">备注信息</label>
                     <textarea class="col-xs-8 text-area"placeholder="请填写备注信息"id="extraInfo"
                               ng-model="parking.extraInfo"></textarea>
                 </li>

@@ -834,7 +834,7 @@ div.main div.head em img{
 }
 
 
-form.loginForm{margin-top:60px;}
+form.loginForm{margin-top:60px;font-family: "Helvetica-Bold";}
 
 .scrollable-content-div {
   height: 100%;
@@ -1055,6 +1055,7 @@ label {
         }
       span.typeOfService{
         padding-left:15px;
+        font-family:"Helvetica-Bold";
       }
 
         .regular-checkbox {
@@ -1102,7 +1103,7 @@ label {
         div.outer{
           //display:inline-block;
           //margin:20px 0 25px 15px;
-          padding:0 0 20px 0;
+          padding: 10px 0 10px 0;
 
         }
         div.choosed{
@@ -1112,11 +1113,13 @@ label {
           height:40px;
 
         }
-        div.choosed>span{
-          padding:0 1px 0 5px;
+        div.choosed>label.beLarge{
+          display:inline-block;
+          padding:0 3px 0 2px;
+          font-family:"Helvetica-Bold";
           color:#444141;
-          font-size:16px;
-          line-height:60px;
+          font-size:15px;
+          line-height:30px;
         }
 
     }
@@ -1134,12 +1137,13 @@ label {
             text-align:left;
             line-height:4rem;
             border-bottom:1px solid #f0f0f0;
-            span{
+            label{
               display:inline-block;
               margin-bottom:0;
               padding:0 0 0 10px;
               text-align:left;
               color: #777;
+              font-family:"Helvetica-Bold";
               font-size:18px;
             }
             input[type="text"]{
@@ -1178,7 +1182,7 @@ label {
 
 .service-order{
 
-    margin:47px 0 0 0;
+    margin:43px 0 0 0;
     padding-bottom:60px;
     ul{margin-top:20px;}
     ul li.outerList{
@@ -1507,6 +1511,7 @@ label {
     color: $fontDarkGrey;
     font-size: 16px;
     font-weight:700;
+    font-family:"Helvetica-Bold";
     padding-right: 0;
   }
 
@@ -1570,6 +1575,7 @@ label {
     color: $fontDarkGrey;
     font-size: 16px;
     font-weight:700;
+    font-family:"Helvetica-Bold";
     //text-align:right;
   }
   .room-span{
@@ -1580,6 +1586,7 @@ label {
   }
   .radio-sec label{
     margin-right: 5px;
+    font-family: "Helvetica-Bold";
   }
   .input2{
     width: 100%;
