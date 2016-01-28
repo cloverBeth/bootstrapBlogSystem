@@ -12,8 +12,8 @@
         </li>
     </ul>
 </div>
-<div class="productList fl" ng-style="{height:mainHeight-78}">
-    <div class="greens lazy-sec relR scrollable-content-div" id="base">
+<div class="productList fl scrollable-content-div" id="base" ng-style="{height:mainHeight-78}">
+    <div class="greens lazy-sec relR "  ng-style="{'min-height':mainHeight-38}">
         <ul class="clearfix" id="hot">
             <li class="product-item" ng-repeat="hot in hots track by $index">
                 <em>
@@ -22,7 +22,6 @@
 
                             <img class="product-image" bn-lazy-src="{{hot.img}}"
                                  onerror="this.src='images/default_image.png'"/>
-
                         </a>
                     </div>
                 </em>

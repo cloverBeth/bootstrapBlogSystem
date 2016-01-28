@@ -40,11 +40,11 @@
                     </div>
 
                     <div ng-show="isAuth">
-                        <div class="activity-end"  ng-show="!hot.expired && hot.submitted">
+                        <div class="activity-end"  ng-show="!hot.expired && hot.submitted && !hot.noPaid">
                             <img src="images/activity_sub.png" alt=""/>
                         </div>
 
-                        <div class="activity-end"  ng-show="!hot.expired && !hot.submitted">
+                        <div class="activity-end"  ng-show="!hot.expired && (!hot.submitted || (hot.submitted && hot.noPaid))">
                             <img src="images/activity_fresh.png" alt=""/>
                         </div>
                     </div>

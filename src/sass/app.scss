@@ -116,7 +116,18 @@ h1,h2,h3,h4,strong{font-weight:normal;}
   behavior: url(PIE.htc);
 }
 
-/****************************************************/
+.big-link{position:relative;}
+.big-link:before{
+  position:absolute;
+  content:'';
+  top:-10px;
+  right:-10px;
+  left:-10px;
+  bottom:-10px;
+}
+
+
+  /****************************************************/
 /****************************************************/
 
 
@@ -223,6 +234,21 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .greensSale li b{ display:block;font-size:15px;font-weight:normal;padding-top:12px;}
 
 /*************************加减按钮***************************/
+.store-cart{
+  .add1{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    float: right;
+  }
+  .sub1{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    float: right;
+  }
+}
+
 .numProduct{
   float: left;
   //position:absolute;
@@ -1859,4 +1885,5 @@ label {
     margin-left:5%;
   }
 }
+
 

@@ -64,7 +64,8 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
                         bannerImg : X_context.devHost + order.banner,
                         id : order.activityId,
                         submitted : $scope.isAuth && order.memberId == X_context.memberId,
-                        expired : order.enddate < Date.now()
+                        expired : order.enddate < Date.now(),
+                        noPaid : order.paytype == 1 && order.paystatus == 0
                     })
                 });
 
