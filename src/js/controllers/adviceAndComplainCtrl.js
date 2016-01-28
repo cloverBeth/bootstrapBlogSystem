@@ -1,6 +1,6 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function($rootScope,$scope,$stateParams,$http,$state){
-    $scope.title="留言&建议";
+    $scope.title="留言建议";
 
     $scope.typeList=[];
     $scope.childType = null;
