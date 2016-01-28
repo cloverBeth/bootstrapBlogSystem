@@ -148,7 +148,12 @@
     </div>
 
     <div class="activity-form" ng-show="showForm">
-        <i class="fa fa-times close-icon" ng-click="showForm = false"></i>
+        <div class="close-icon">
+            <a href="javascript:;" class="big-link" ng-click="showForm = false">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+
         <p class="form-label">
             姓名
         </p>
