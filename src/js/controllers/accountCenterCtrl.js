@@ -6,7 +6,7 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
         title : '我的中心',
         tel : "",
         nick : "",
-        //contact : '021-12345678',
+        contact : '021-12345678',
         payWay : '一卡通',
         portrait : ""
     };

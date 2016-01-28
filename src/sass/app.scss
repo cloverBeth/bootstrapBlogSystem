@@ -1181,7 +1181,7 @@ label {
 
 
 .service-order{
-
+    overflow-x: hidden;
     margin:43px 0 0 0;
     padding-bottom:60px;
     ul{margin-top:20px;}
@@ -1518,7 +1518,14 @@ label {
   input {
     line-height: 34px !important;
   }
-
+.beLarge{
+  display:inline-block;
+  padding:0 3px 0 5px;
+  font-family:"Helvetica-Bold";
+  color:#444141;
+  font-size:15px;
+  line-height:30px;
+}
 
   .uib-datepicker-popup.dropdown-menu {
     left : -20px !important;
