@@ -471,11 +471,17 @@ p{
 .succeed p{float:left;font-size:16px;line-height:1.6em;color:#999;}
 .succeed p strong{ display:block;font-size:15px;color:#666;}
 
-.failed{padding:15px 12px 15px 36px;background:#fff url(../images/ico_fail.png) no-repeat 10px 16px;
-  background-size:18px;border-bottom:1px solid #ddd;}
+.failed {
+  padding: 45px 12px 15px 20px;
+  margin: 0 auto;
+  background: #fff url(../images/ico_fail.png) no-repeat 10px 16px;
+  background-size: 30px;
+  background-position: 50% 12%;
+  border-bottom: 1px solid #ddd;
+}
 .failed em{ display:block;float:left;width:20px;padding-right:10px;}
 .failed p{float:left;font-size:13px;line-height:1.6em;color:#999;}
-.failed p strong{ display:block;font-size:15px;color:#666;}
+.failed p strong{ display:block;font-size:17px;color:#666;}
 
 .danhao{margin-top:15px;padding:12px 0 12px 20px ;background:#fff;border-bottom:1px solid #ddd;}
 .danhao p{font-size:15px;line-height:1.8em;color:#999;}
@@ -1340,7 +1346,17 @@ label {
       p{font-size:16px;}
       p strong{font-size:16px;}
         }
-
+    .failed{
+      padding: 45px 12px 15px 20px;
+      margin:0 auto;
+      margin-top:30px;
+      background: url(../images/ico_fail.png)top 10px center no-repeat #fff;
+      background-size: 30px;
+      border-bottom: 1px solid #ddd;
+      p{font-size:16px;}
+      p strong{font-size:17px;}
+      div.result{margin:0 auto;clear:both;font-size:16px;color:#615858;}
+    }
     p.consume span.expense{color:orangered;font-size:18px;padding:0;}
 
     .pay h3 {

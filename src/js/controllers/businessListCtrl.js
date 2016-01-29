@@ -6,8 +6,20 @@ angular.module('ZJSY_WeChat').controller('BusinessListController', function($roo
 
     $http.post(X_context.api+"store/list",{})
     .success(function (data) {
-        if (data.data.length==0 || !data.data){return;}
-            console.log(data.data);
+        if (data.data.length==0 || !data.data){return;}  $scope.showClosed=function(){
+                for(var i in data.data){
+                    console.log(data.data[i].flag1);
+                    if(data.data[i].flag1==0){
+                        $rootScope.$broadcast('alerts', {type: 'danger', message: '该店铺已关闭哦～'});
+                    }
+                    else{
+                        $rootScope.$broadcast('alerts', {type: 'danger', message: '欢迎光临～'});
+
+                    }
+                }
+
+            }
+            //console.log(data.data);
         _.forEach(data.data, function (item, index) {
             $scope.businesslist.push({
                 image: X_context.devHost + item.listImage,
@@ -15,8 +27,9 @@ angular.module('ZJSY_WeChat').controller('BusinessListController', function($roo
                 id : item.id
 
             });
-            console.log(item.listImage);
+            //console.log(item.listImage);
         })
+
 
 
         //for (var i in data.data) {
