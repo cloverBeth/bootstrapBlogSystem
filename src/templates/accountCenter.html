@@ -8,7 +8,7 @@
             {{account.title}}
         </div>
         <div class="del">
-            <a ng-click="goIndex()" href="javascript:;" class="blue">主页</a>
+            <a ng-click="goIndex()" href="javascript:;" class="blue big-link">主页</a>
         </div>
     </header>
 
@@ -22,7 +22,7 @@
             <p>
                 <!--<a id="editNick"href="tel:{{account.tel}}">{{account.tel}}</a>-->
                 <a id="editNick"href="javascript:;">{{account.tel}}</a>
-                <input id="changeNick"ng-model="account.nick"type="text"placeholder="请输入您的昵称"/>
+                <input id="changeNick"maxlength="10"ng-model="account.nick"type="text"placeholder="请输入您的昵称"/>
             <span>
                 <a id="nick-name"ng-click="getNick()"><img src="images/ico_10.png"style="width:20px;"/></a>
             </span>

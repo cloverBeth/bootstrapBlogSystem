@@ -16,11 +16,42 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
         $state.go('activityDetail',{activityId : id})
     }
 
+    let first = true;
+
+    $http.post(X_context.api + 'activity/listAll',
+        {
+            "page" : $scope.page,
+            "pageSize" : 5,
+            "showBanner" : 1
+        }).success(function(data){
+            _.forEach(data.data,function(order,i){
+                $scope.bannerList.push({
+                    name : order.title,
+                    img : X_context.devHost + order.image,
+                    content : order.subtitle,
+                    showBanner : order.showBanner == 1,
+                    bannerImg : X_context.devHost + order.banner,
+                    id : order.activityId,
+                    submitted : $scope.isAuth && order.memberId == X_context.memberId,
+                    expired : order.enddate < Date.now()
+                })
+            });
+
+            $scope.$$postDigest(function(){
+                if(!first)return;
+                first = false;
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    slidesPerView: 1
+                });
+            });
+        });
+
     $scope.getOrder = function(){
         $http.post(X_context.api + 'activity/listAll',
             {
                 "page" : $scope.page,
-                "pageSize" : 6
+                "pageSize" : 8
             }).success(function(data){
                 if(!data.data[0])return;
                 $scope.total = data.data[0].countTotal;
@@ -33,18 +64,14 @@ angular.module('ZJSY_WeChat').controller('AllActivityController',function($scope
                         bannerImg : X_context.devHost + order.banner,
                         id : order.activityId,
                         submitted : $scope.isAuth && order.memberId == X_context.memberId,
-                        expired : order.enddate < Date.now()
+                        expired : order.enddate < Date.now(),
+                        noPaid : order.paytype == 1 && order.paystatus == 0
                     })
                 });
-                $scope.bannerList = _.filter($scope.activities,{showBanner : true});
-                $scope.$$postDigest(function(){
-                    var swiper = new Swiper('.swiper-container', {
-                        pagination: '.swiper-pagination',
-                        slidesPerView: 1
-                    });
-                });
+
             });
-    }
+    };
+
     $scope.getOrder();
 
     $scope.goMy = function(){

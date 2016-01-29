@@ -9,7 +9,7 @@
             {{card.title}}
         </div>
         <div class="del">
-            <a ng-click="goIndex()"href="javascript:;" class="blue">主页</a>
+            <a ng-click="goIndex()"href="javascript:;" class="blue big-link">主页</a>
         </div>
     </header>
 
@@ -155,7 +155,7 @@
     <div style="height: 46px;"></div>
     <div class="card-left">
         <span style="margin-right: 20px;">余额</span>
-        <span style="font-size: 25px;" class="redText">{{left}}元</span>
+        <span style="font-size: 25px;" class="redText">{{(left/100).toFixed(2)}}元</span>
     </div>
 
     <div class="card-left-footer">

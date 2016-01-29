@@ -6,7 +6,7 @@
 {{title}}
 </div>
 <div class="del">
-<a ng-click="goIndex()"href="javascript:;" class="blue">主页</a>
+<a ng-click="goIndex()"href="javascript:;" class="blue big-link">主页</a>
 </div>
 </header>
 <div class="main-section main">
@@ -19,12 +19,15 @@
                     <strong>订单号：{{order.number}}</strong>
                     <span>{{order.states}}</span>
                 </div>
-                <span ui-sref="orderDetail({orderId:order.id})">
+                <span ui-sref="orderDetail({orderId:order.id})" >
                     <div class="pic clearfix">
                         <ul class="listlimit">
-                            <li ng-repeat="product in order.products">
+                            <li ng-repeat="product in order.products track by $index" ng-if="$index < 3">
                                 <em><img src="{{product.image}}" /></em>
                                 <p>×{{product.quantity}}</p>
+                            </li>
+                            <li ng-if="order.products.length > 3">
+                                <em>...</em>
                             </li>
                         </ul>
                         <span>共 {{order.totalNum}} 件</span>
@@ -32,7 +35,8 @@
                 </span>
                 <div class="time clearfix">
                     <strong>{{order.orderDate | date:"yyyy-MM-dd HH:mm:ss"}}</strong>
-                    <span class="iscanceled">合计：<font>¥{{order.total}}</font></span>
+                    <span class="iscanceled" ng-show="!order.isPoint">合计：<font>¥{{order.total}}</font></span>
+                    <span class="iscanceled" ng-show="order.isPoint">合计：<font>¥{{order.total}}+{{order.point}}分</font></span>
                 </div>
             </div>
             <p ng-show="isLoading"class="isloading">加载中...</p>

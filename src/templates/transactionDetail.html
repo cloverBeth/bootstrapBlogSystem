@@ -1,4 +1,4 @@
-<div class="mian-section">
+<div class="mian-section main">
 
     <header class="header">
         <div class="back">
@@ -8,11 +8,11 @@
             {{title}}
         </div>
         <div class="del">
-            <a ng-click="goIndex()"href="javascript:;" class="blue">主页</a>
+            <a ng-click="goIndex()"href="javascript:;" class="blue big-link">主页</a>
         </div>
     </header>
 
-    <div class="main mt-48">
+    <div class="mt-48">
         <div class="ordertips"ng-show="isOrder"><em>亲，您的交易明细还没有哦，快去用一卡通支付试试吧～</em></div>
         <div class="dan" ng-repeat="items in transaction">
             <div class="hao clearfix">

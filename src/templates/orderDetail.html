@@ -7,7 +7,7 @@
         {{title}}
     </div>
     <div class="del">
-        <a ng-click="goIndex()" class="blue">主页</a>
+        <a ng-click="goIndex()" class="blue big-link">主页</a>
     </div>
 </header>
 
@@ -24,7 +24,8 @@
                         <li ng-repeat="pills in orderone.orderpills track by $index">
                             <p>{{pills.brands}}{{pills.weight}}*{{pills.standard}}</p>
                             <span>× {{pills.quantity}}</span>
-                            <strong>¥{{pills.price}}</strong>
+                            <strong ng-show="!$parent.orderone.isPoint">¥{{pills.price}}</strong>
+                            <strong ng-show="$parent.orderone.isPoint">¥{{pills.price}}+{{pills.point}}分</strong>
                         </li>
                     </ul>
                 </dd>
@@ -38,6 +39,8 @@
                         <li><span>订单编号</span><p>{{orderone.orderNum}}</p></li>
                         <li><span>收货地址</span><p>{{orderone.address}}</p></li>
                         <li><span>收 货 人</span><p>{{orderone.guest}}</p></li>
+                        <li><span>供 货 商</span><p ui-sref="businessList">{{orderone.storeName}}</p></li>
+                        <li><span>供货商电话</span><p><a href="tel:{{orderone.storeTel}}">{{orderone.storeTel}}</a></p></li>
                         <li><span>支付方式</span><p>{{orderone.payway}}</p></li>
                     </ul>
                 </dd>
@@ -48,10 +51,16 @@
                 </dt>
                 <dd>
                     <ul class="shou">
-                        <li><span>总价</span><p>¥{{orderone.total}}</p></li>
+                        <li ng-show="!orderone.isPoint"><span>总价</span><p>¥{{orderone.total}}</p></li>
+                        <li ng-show="orderone.isPoint"><span>总价</span>
+                            <p>¥{{orderone.total}}+{{orderone.point}}分</p>
+                        </li>
                         <li><span>含运费</span><p>¥{{orderone.carriage}}</p></li>
                         <!--<li><span>积分抵用</span><p>-¥{{orderone.credits}}</p></li>-->
-                        <li><span>实付金额</span><p class="org">¥{{orderone.realpay}}</p></li>
+                        <li ng-show="!orderone.isPoint"><span>实付金额</span><p class="org">¥{{orderone.realpay}}</p></li>
+                        <li ng-show="orderone.isPoint"><span>实付金额</span>
+                            <p class="org">¥{{orderone.realpay}}+{{orderone.point}}分</p>
+                        </li>
                     </ul>
                 </dd>
             </dl>

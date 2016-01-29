@@ -30,7 +30,9 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
                         products: [],
                         total: data.data[i].totalPrice,
                         totalNum: data.data[i].orderDetail ? data.data[i].orderDetail.length : 0,
-                        id: data.data[i].id
+                        id: data.data[i].id,
+                        isPoint : data.data[i].storeType == "1",
+                        point : data.data[i].point
                     };
                     _.forEach(data.data[i].orderDetail, function (item, i) {
                         order.products.push({
@@ -38,8 +40,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
                             image: item.productImage,
                             id: item.id
                         });
-
-                    })
+                    });
                     $scope.isOrder=false;
                     $scope.loading = false;
                     $scope.orderlist.push(order);
@@ -50,7 +51,8 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
     $scope.getOrder();
     $scope.goIndex=function(){
         $state.go('store.product',{storeId:X_context.storeId});
-    }
+    };
+
     $(".order_list").on('scroll',function() {
 
         if( $('.order_list').scrollTop() + $('.order_list').height() > $('.order_all').height() - 50){

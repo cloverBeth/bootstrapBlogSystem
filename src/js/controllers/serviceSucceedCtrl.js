@@ -3,10 +3,7 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
     $scope.title="下单成功";
     $scope.currentPage = 1;
     $scope.pageSize = 5;
-    $scope.orderSucceed={
-        //telphone:"66666666666"
-    }
-
+    $scope.orderSucceed={};
 
         console.log("serviceOrderId:"+$stateParams.serviceOrderId);
 
@@ -24,15 +21,20 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
                 $scope.orderSucceed.status=result.orderstatus;
                 $scope.orderSucceed.telphone=result.services.mobile;
                 $scope.orderSucceed.address=result.address;
-                //
                 //if(!data.data[0]){return;}
                 //$scope.orderSucceed.type=data.data[0].services.parentTitle;
                 //$scope.orderSucceed.orderNumber=data.data[0].ordersn;
                 //$scope.orderSucceed.status=data.data[0].orderstatus;
+                if($scope.orderSucceed.type=="商务策划"||$scope.orderSucceed.type=="投融资"){
+                    $scope.showBusiness=true;
+                }
             });
 
     $scope.goToOnline=function(){
         $state.go('onlineService');
+    }
+    $scope.goBusiness=function(){
+        window.history.back();
     }
 
 })

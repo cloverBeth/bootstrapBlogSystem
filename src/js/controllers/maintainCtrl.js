@@ -17,8 +17,9 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
     }
     $scope.typeList=[];
     $scope.childType = null;
-    $scope.phoneReg=/^([0-9]{11})$/;
-
+    $scope.phoneReg=/^(1[0-9]{10})$/;
+    var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
+    var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
     $http.post(X_context.api+"services/listServices", {
         "servicesId":2
     })
@@ -36,33 +37,38 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
 
     $scope.$parent.memberPromise.then(function(data){
         $scope.maintain={
-            compyGuy : data.data.data[0].nickName,
-            guyTel : data.data.data[0].mobile
+            guyTel : data.data.data[0].mobile,
+            compyGuy : data.data.data[0].nickName
         }
     });
 
     $scope.goGardenOrder=function(){
 
         if(!$scope.childType){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的维修服务～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的维修服务～'});
             return;
-        }
-        else if (!$scope.maintain.compyName) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+        }else if (!$scope.maintain.compyName) {
+            $('#compyName').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
             return;
         }else if (!$scope.maintain.address) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+            $('#address').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
             return;
-        }
-        else if(!$scope.maintain.compyGuy) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+        }else if(!pattern.test($scope.maintain.compyGuy)||!$scope.maintain.compyGuy) {
+            $('#compyGuy').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
-        }
-        else if(!$scope.phoneReg.test($scope.maintain.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
+        }else if(!$scope.phoneReg.test($scope.maintain.guyTel)||!$scope.maintain.guyTel) {
+            $('#guyTel').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 
         }
+        //else if(!reg.test($scope.maintain.extraInfo)){
+        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
+        //    return;
+        //}
         else{
             $scope.$parent.memberPromise.then(function(){
                 $http.post(X_context.api+"servicesOrder/add", {

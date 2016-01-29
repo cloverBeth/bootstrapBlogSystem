@@ -12,8 +12,8 @@
         </li>
     </ul>
 </div>
-<div class="productList fl" ng-style="{height:mainHeight-78}">
-    <div class="greens lazy-sec relR scrollable-content-div" id="base">
+<div class="productList lazy-sec fl scrollable-content-div" id="base" ng-style="{height:mainHeight-78}">
+    <div class="greens  relR "  ng-style="{'min-height':mainHeight-38}">
         <ul class="clearfix" id="hot">
             <li class="product-item" ng-repeat="hot in hots track by $index">
                 <em>
@@ -22,15 +22,28 @@
 
                             <img class="product-image" bn-lazy-src="{{hot.img}}"
                                  onerror="this.src='images/default_image.png'"/>
-
                         </a>
                     </div>
                 </em>
-                <p>
-                    <strong>{{hot.name}}</strong>
-                    <b class="org" >
+                <p ng-show="!$parent.$parent.isPointStore">
+                    <strong >{{hot.name}}</strong>
+                    <b class="org orgText" >
                         <b ng-hide="_.find(cart.products,{id:hot.id})">
                             ￥{{hot.price}}
+                        </b>
+                    </b>
+                </p>
+                <p ng-show="$parent.$parent.isPointStore">
+                    <strong class="orgText">
+                        <b>
+                        {{hot.price ? '￥'+hot.price : ''}}
+                        {{hot.price&&hot.point ? '+' : ''}}
+                        {{hot.point ? hot.point+'分':''}}
+                        </b>
+                    </strong>
+                    <b class="org " >
+                        <b ng-hide="_.find(cart.products,{id:hot.id})">
+                            {{hot.name}}
                         </b>
                     </b>
                 </p>
@@ -81,14 +94,30 @@
                              onerror="this.src='images/default_image.png'"/></a>
                     </div>
                 </em>
-                <p>
+
+                <p ng-show="!$parent.$parent.isPointStore">
                     <strong>{{pro.name}}</strong>
-                    <b class="org" >
+                    <b class="org orgText" >
                         <b ng-hide="_.find(cart.products,{id:pro.id})">
                             ￥{{pro.price}}
                         </b>
                     </b>
                 </p>
+                <p ng-show="$parent.$parent.isPointStore">
+                    <strong class="orgText">
+                        <b>
+                        {{pro.price ? '￥'+pro.price : ''}}
+                        {{pro.price&&pro.point ? '+' : ''}}
+                        {{pro.point ? pro.point+'分':''}}
+                        </b>
+                    </strong>
+                    <b class="org" >
+                        <b ng-hide="_.find(cart.products,{id:pro.id})">
+                            {{pro.name}}
+                        </b>
+                    </b>
+                </p>
+
                 <div class="numProduct">
                     <div style="display: inline-block;width: 70px;padding-left: 15px;float: left;text-align: center">
                         <div ng-show="_.find(cart.products,{id:pro.id})">
@@ -156,7 +185,10 @@
             </div>
 
             <div class="money clearfix">
-                <strong>￥{{productDetail.price}}</strong>
+                <strong ng-show="!$parent.isPointStore">￥{{productDetail.price}}</strong>
+                <strong ng-show="$parent.isPointStore">
+                    ￥{{productDetail.price}} + {{productDetail.point}}分
+                </strong>
 
                 <div class="numN fr" style="padding:0;">
                     <a href="javascript:;" class="add1" ng-click="addProduct(productDetail.id)">

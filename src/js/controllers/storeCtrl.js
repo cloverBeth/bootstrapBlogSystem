@@ -19,6 +19,8 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         };
     }
 
+    $scope.isPointStore = false;
+
     $scope.notice = {};
 
     $scope.bannerImage = [];
@@ -33,6 +35,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         $scope.cart.freightFee = data.data[0].freightfee;
         $scope.notice.title = data.data[0].annTitle;
         $scope.notice.content = data.data[0].announcement;
+        X_context.isPointStore = $scope.isPointStore = (data.data[0].flag2 == "1");
     });
 
 
@@ -49,7 +52,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         _.forEach(data.data,function(banner,index){
             if(!banner.url || !banner.image)return;
             $scope.bannerImage.push({
-                url : banner.url.startsWith('http') ? banner.url : `#${banner.url}`,
+                url : banner.url.startsWith('http') ? banner.url : `${location.pathname == "/" ? "" : location.pathname}/#${banner.url}`,
                 proId : banner.url.startsWith('http') ? null : (banner.url.split('store-product')[1]||null),
                 image : X_context.devHost + banner.image
             });
@@ -59,7 +62,6 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
                 slidesPerView: 1
-
             });
         });
     });
@@ -89,10 +91,14 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     };
 
     $scope.totalPrice = 0;
+    $scope.totalPoint = 0;
     $scope.$watch('cart.products',function(cart){
         $scope.totalPrice = 0;
+        $scope.totalPoint = 0;
         _.forEach($scope.cart.products,function(prod,key){
+            console.log('adsadsa',prod)
             $scope.totalPrice += prod.price * prod.buyNum;
+            $scope.totalPoint += prod.point * prod.buyNum;
         });
     },true);
 
@@ -123,7 +129,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     };
 
     $scope.goToCart = function(){
-        if($scope.totalPrice == 0)return;
+        //if($scope.totalPrice == 0)return;
         $state.go('store.cart',{storeId:X_context.storeId});
 
     }
@@ -140,7 +146,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
             $rootScope.$broadcast('alerts',{type:'danger',message:'地址填写不完整。'});
             return;
         }
-        if($scope.totalPrice == 0)return;
+        //if($scope.totalPrice == 0)return;
         $scope.$parent.order.product = $scope.cart.products;
         $scope.$parent.order.storeId = $scope.storeId;
         $state.transitionTo('getOrder');

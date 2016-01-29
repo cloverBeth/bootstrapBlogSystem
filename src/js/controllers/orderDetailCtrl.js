@@ -3,7 +3,7 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
     console.log($stateParams.orderId);
 
     $scope.title = '我的订单';
-    var orderListApi = X_context.api + "order/listAll";
+    var orderListApi = X_context.api + "order/list";
 
     $scope.orderpills=[];
 
@@ -27,7 +27,11 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
                 carriage:datas[0].shippingPrice,
                 //credits:datas[0].userPoint,
                 realpay :datas[0].totalPrice,
+                storeName : datas[0].storeName,
+                storeTel : datas[0].storePhone,
                 orderpills:[],
+                isPoint : datas[0].storeType == "1",
+                point : datas[0].point
 
             };
 
@@ -40,6 +44,7 @@ angular.module('ZJSY_WeChat').controller('OrderDetailController',function($scope
                     weight:item.itemSn,
                     id:item.id,
                     price:item.unitPrice,
+                    point: item.unitPoint
 
                 });
             })

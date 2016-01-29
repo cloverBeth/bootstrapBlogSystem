@@ -2,7 +2,8 @@ var X_context = {
     guest : "guest",
     api : "http://192.168.6.49/zjsy/api/v1/",
     memberId : null,
-    memberPhone : ""
+    memberPhone : "",
+    isPointStore : false
 };
 X_context.devHost = (location.host == "localhost") ? "http://192.168.6.49" : "";
 X_context.authorization = readCookie('authorization') || X_context.guest;
@@ -71,7 +72,7 @@ angular.module('ZJSY_WeChat', [
                 controller: 'StoreProductController'
             }
         }
-    })
+        })
         .state('store.coupon', {
             url: '/store-coupon',
             views: {
@@ -97,7 +98,10 @@ angular.module('ZJSY_WeChat', [
                     templateUrl:'storeCart.html',
                     //controller:'StoreCartController'
                     controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(!checkAuth.check())return $state.go('login');
+                        if(!checkAuth.check()){
+                            window.history.pushState({}, "storeCart", `#/store/${X_context.storeId}/store-cart`);
+                            return $state.go('login');
+                        }
                         var ctrlName = "StoreCartController";
                         return ctrlName;
                     }
@@ -111,7 +115,10 @@ angular.module('ZJSY_WeChat', [
                     templateUrl: 'accountCenter.html',
                     //controller: 'AccountCenterController'
                     controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(!checkAuth.check())return $state.go('login');
+                        if(!checkAuth.check()){
+                            window.history.pushState({}, "addHisory", "#/account-center");
+                            return $state.go('login');
+                        }
                         var ctrlName = "AccountCenterController";
                         return ctrlName;
                     }
@@ -258,7 +265,6 @@ angular.module('ZJSY_WeChat', [
                     }
                 }
             }
-
         })
        .state('orderSucceed',{
             url:'/order-succeed/{orderId}',
@@ -347,7 +353,7 @@ angular.module('ZJSY_WeChat', [
 
         .state('activityDetail',{
             url:'/activity-detail/{activityId}',
-            params: {showSubmit: true},
+            params: {showSubmit: true,from: 'activity'},
             views:{
                 '':{
                     templateUrl:'activityDetail.html',
@@ -408,6 +414,7 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+
         .state('serviceOrder',{
             url:'/service-order/{serviceOrderId}',
             views:{
@@ -421,14 +428,23 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('businessService',{
+            url:'/business-service',
+            views:{
+                '':{
+                    templateUrl:'businessService.html',
+                    controller: 'BusinessServiceController'
+                }
 
+            }
+        })
         .state('businessList', {
             url:'/business-list',
             views: {
                 '': {
                     templateUrl:'businessList.html',
                     controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(!checkAuth.check())return $state.go('login');
+                        //if(!checkAuth.check())return $state.go('login');
                         var ctrlName = "BusinessListController";
                         return ctrlName;
                     }
@@ -441,8 +457,28 @@ angular.module('ZJSY_WeChat', [
                 '':{
                     templateUrl:'businessPlan.html',
                     controllerProvider: function($state,$stateParams,checkAuth){
-                        if(!checkAuth.check())return $state.go('login');
+                        if(!checkAuth.check()){
+                            window.history.pushState({}, "addHisory", "#/business-plan");
+                            return $state.go('login');
+                        }
                         var ctrlName = "BusinessPlanController";
+                        return ctrlName;
+
+                    }
+                }
+            }
+        })
+        .state('inFinance', {
+            url:'/in-finance',
+            views:{
+                '':{
+                    templateUrl:'inFinance.html',
+                    controllerProvider: function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check()){
+                            window.history.pushState({}, "addHisory", "#/in-finance");
+                            return $state.go('login');
+                        }
+                        var ctrlName = "InFinanceController";
                         return ctrlName;
 
                     }
@@ -455,7 +491,10 @@ angular.module('ZJSY_WeChat', [
                 '': {
                     templateUrl: 'gardenArt.html',
                     controllerProvider: function ($state, $stateParams, checkAuth) {
-                        if (!checkAuth.check())return $state.go('login');
+                        if (!checkAuth.check()){
+                            window.history.pushState({}, "addHisory", "#/garden-art");
+                            return $state.go('login');
+                        }
                         var ctrlName = "GardenArtController";
                         return ctrlName;
                     }
@@ -468,7 +507,10 @@ angular.module('ZJSY_WeChat', [
                 '':{
                     templateUrl:'meetingRoomList.html',
                     controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(!checkAuth.check())return $state.go('login');
+                        if(!checkAuth.check()){
+                            window.history.pushState({}, "addHisory", "#/meeting-room-list");
+                            return $state.go('login');
+                        }
                         var ctrlName = "MeetingRoomListController";
                         return ctrlName;
                     }
@@ -509,7 +551,10 @@ angular.module('ZJSY_WeChat', [
                 '':{
                     templateUrl:'waterSend.html',
                     controllerProvider:function($state,$stateParams,checkAuth){
-                        if(!checkAuth.check())return $state.go('login');
+                        if(!checkAuth.check()){
+                            //window.history.pushState({}, "addHisory", "#/water-send");
+                            return $state.go('login');
+                        }
                         var ctrlName="WaterSendController";
                         return ctrlName;
                     }
@@ -523,7 +568,10 @@ angular.module('ZJSY_WeChat', [
                 '':{
                     templateUrl:'maintain.html',
                     controllerProvider:function($state,$stateParams,checkAuth){
-                        if(!checkAuth.check())return $state.go('login');
+                        if(!checkAuth.check()){
+                            //window.history.pushState({}, "addHisory", "#/maintain");
+                            return $state.go('login');
+                        }
                         var ctrlName="MaintainController";
                         return ctrlName;
                     }

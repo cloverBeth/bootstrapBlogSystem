@@ -1,5 +1,5 @@
 <div class="main-section main" data-ng-init="init()" infinite-scroll="addItems()" can-load="canLoad" threshold="{{maxItems}}">
-    <header class="header">
+    <header class="header orderlistheader">
         <div class="back">
             <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
         </div>
@@ -8,7 +8,7 @@
         </div>
     </header>
 
-    <div class="coupon-area coupon-area-user">
+    <div class="coupon-area">
 
         <div class="no-coupon" ng-show="noCoupon">
             暂无优惠券
@@ -36,9 +36,9 @@
                     <center><hr ng-style="{'background-color':checkBlue(coupon.status, false)}"/></center>
                 </div>
                 <div class="right-text">
-                    <b>{{coupon.name}}</b>
+                    <b>{{coupon.name.length > 21? coupon.name.substring(0, 18) + '...' : coupon.name}}</b>
                     <br/>
-                    {{coupon.description}}
+                    {{coupon.description.length > 21? coupon.description.substring(0, 18) + '...' : coupon.description}}
                 </div>
             </div>
         </div>

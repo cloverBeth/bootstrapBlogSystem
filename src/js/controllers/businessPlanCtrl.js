@@ -4,8 +4,9 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
     $scope.typeList=[];
     $scope.childType = null;
-    $scope.phoneReg=/^([0-9]{11})$/;
-
+    $scope.phoneReg=/^(1[0-9]{10})$/;
+    var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
+    var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
 
     $http.post(X_context.api + "services/listServices", {
         "servicesId": 5
@@ -21,7 +22,6 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
                 $scope.typeList.push(radio)
 
             }
-            //console.log( $scope.childType);
 
         });
     $scope.$parent.memberPromise.then(function(data){
@@ -34,23 +34,36 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
     $scope.goGardenOrder=function(){
 
         if(!$scope.childType){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的商务策划服务～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的商务策划服务～'});
             return;
         }
 
         else if (!$scope.business.compyName) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+            $('#compyName').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
             return;
         }
-        else if(!$scope.business.compyGuy) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+        else if (!$scope.business.address) {
+            $('#address').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
+            return;
+        }
+        else if(!pattern.test($scope.business.compyGuy)||!$scope.business.compyGuy) {
+            $('#compyGuy').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
         else if(!$scope.phoneReg.test($scope.business.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
+            $('#guyTel').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的以1为开头的11位手机号～'});
+
             return;
 
         }
+        //else if(!reg.test($scope.business.extraInfo)){
+        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
+        //    return;
+        //}
         else{
 
             $http.post(X_context.api+"servicesOrder/add", {

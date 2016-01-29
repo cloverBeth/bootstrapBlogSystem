@@ -21,13 +21,13 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
 
         })
             .success(function (data){
-
+                console.log(data.data);
                 //console.log($scope.displayZero(new Date(data.data.result[1].createddate).getMinutes()))
                 if(!data.data)return;
 
 
                 for(var i in data.data.result){
-                    var results=data.data.result[i]
+                    var results=data.data.result[i];
                     //console.log(data.data.result);
                     if(data.data.result[i].serviceType!="会议服务"){
                         var order = {
@@ -37,7 +37,7 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                                       new Date(results.createddate).getMonth()==new Date().getMonth()&&
                                       new Date(results.createddate).getDate()==new Date().getDate())
                                     ? new Date(results.createddate).getHours()+':'+
-                                      new Date(results.createddate).getMinutes()
+                                     ($scope.displayZero(new Date(results.createddate).getMinutes()))
                                     : new Date(results.createddate).getFullYear()+'/'+
                                      ($scope.displayZero(new Date(results.createddate).getMonth()+1))+'/'+
                                       new Date(results.createddate).getDate(),
@@ -51,7 +51,12 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            linkTel : results.mobile,
                           compName : results.company,
                           extraMsg : results.note,
-                           address : results.address
+                           address : results.address,
+                           proName : results.project,
+                            carNum : results.prop1,
+                        showCarNum : results.services.parentTitle=="车位服务"?true:false,
+                          showFina : results.services.parentTitle=="投融资"?true:false
+
                         };
                     }else{
 
@@ -81,14 +86,14 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                            linkTel : results.mobile,
                          payMethod : results.paytype,
                                _id : results._id,
-                          payState : results.paystatus=="true"?"已支付":"未支付"
+                          payState : results.paystatus=="true"?"已支付":"未支付",
+                      showMeetIcon : results.serviceType=="会议服务" ? true:false
 
 
                         }
 
 
                     }
-
                     $scope.orderList.push(order);
 
                 }

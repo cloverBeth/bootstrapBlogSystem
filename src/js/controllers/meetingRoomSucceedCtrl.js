@@ -24,25 +24,25 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
                 $scope.cashPay=true;
 
             }
+
             $scope.orderNumber = data.data[0].ordersn;
             $scope.expense = data.data[0].payamount;
             $scope.payway = data.data[0].paytype;
-
 
             if($scope.payway == "false" && data.data[0].paystatus == "false"){
                 $scope.success = false;
                 $scope.title = "下单失败";
             }
         });
-    });
 
-    $http.post(X_context.api + "meeting/listRooms",
-        {
-            "page" : "1",
-            "pageSize" : "1"
+
+        $http.post(X_context.api + "meeting/listRooms", {
+
         }).success(function(data){
             $scope.telphone = data.data[0].mobile;
         });
+
+    });
 
 
     $scope.goToList=function(){

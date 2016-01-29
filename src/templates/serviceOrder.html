@@ -1,4 +1,5 @@
 
+
 <header class="header">
     <div class="back">
         <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
@@ -7,103 +8,123 @@
         {{title}}
     </div>
 </header>
+<div class="main-section main">
+    <div class="service-order main">
 
-<div class="service-order main-section main">
+            <div>
+                <img src="images/serviceOrder_banner.png" width="100%"alt=""/>
+            </div>
+            <div class="ordertips"ng-show="orderList.length==0"><em>您的服务订单还没有哦，快去线上物业瞧瞧吧～</em></div>
 
-        <div>
-            <img src="images/garden_banner.jpg" width="100%"alt=""/>
-        </div>
-        <div class="ordertips"ng-show="orderList.length==0"><em>您的服务订单还没有哦，快去线上物业瞧瞧吧～</em></div>
+            <ul>
 
-        <ul>
+                <li class="outerList"ng-repeat="order in orderList track by $index">
+                    <div class="picTitle col-xs-2"ng-hide="order.showMeetIcon"><img src="{{order.iconImg}}"alt=""/></div>
+                    <div class="picTitle col-xs-2"ng-show="order.showMeetIcon"><img src="images/icon_meeting.jpg"alt=""/></div>
 
-            <li class="outerList"ng-repeat="order in orderList track by $index">
-                <div class="picTitle col-xs-2"><img src="{{order.iconImg}}"alt=""/></div>
-                <div class="proTitle col-xs-7">
-                    <h4>{{order.pro}}</h4><!--显示的是会议室预定-->
-                    <p>订单号：{{order.number}}</p>
-                </div>
-                <div class="proState col-xs-3">
-                    <div class="proTime"ng-show="order.showMeet">
-                        <span>{{order.doDate | date:"yyyy/MM/dd"}}</span>
+                    <div class="proTitle col-xs-7">
+                        <h4>{{order.pro}}</h4>
+                        <p>订单号：{{order.number}}</p>
                     </div>
-                    <div class="proTime"ng-hide="order.showMeet">
-                        <span>{{order.doDate}}</span><!--会议室显示的是订单时间-->
+                    <div class="proState col-xs-3">
+                        <div class="proTime"ng-show="order.showMeet"style="float:left;clear:right;">
+                            <span>{{order.doDate | date:"yyyy/MM/dd"}}</span>
+                        </div>
+                        <div class="proTime"ng-hide="order.showMeet"style="float:left;clear:right;">
+                            <span>{{order.doDate}}</span>
+                        </div>
+                        <div class="subBtn"style="float:left;clear:right;">
+                            <span class="serviceStatus">{{order.state}}</span>
+                            <span class="toggleBg" ng-show="order.showMeet"ng-class="{isTrue:!order.showSub,isFalse:order.showSub}"
+                                  ng-click="order.showSub = !order.showSub"> </span>
+                            <span class="toggleBg" ng-hide="order.showMeet"ng-class="{isTrue:!order.showRoom,isFalse:order.showRoom}"
+                                  ng-click="order.showRoom = !order.showRoom"> </span>
+
+                        </div>
                     </div>
-                    <div class="subBtn">
-                        <span class="serviceStatus">{{order.state}}</span>
-                        <span class="toggleBg" ng-show="order.showMeet"ng-class="{isTrue:!order.showSub,isFalse:order.showSub}"
-                              ng-click="order.showSub = !order.showSub"> </span>
-                        <span class="toggleBg" ng-hide="order.showMeet"ng-class="{isTrue:!order.showRoom,isFalse:order.showRoom}"
-                              ng-click="order.showRoom = !order.showRoom"> </span>
+                    <ul class="submenu" ng-show="order.showSub">
+                        <li class="row">
+                            <label class="col-xs-4"for="serType0">服务类型</label><!--线上物业-->
+                            <p class="col-xs-8"id="serType0">{{order.type}}</p>
+                        </li>
+                        <li class="row">
+                            <label class="col-xs-4"for="compyName0">公司名称</label>
+                            <p class="col-xs-8"id="compyName0">{{order.compName}}</p>
+                        </li>
+                        <li class="row">
+                            <label class="col-xs-4"for="address">公司地址</label>
+                            <p class="col-xs-8"id="address">{{order.address}}</p>
 
-                    </div>
-                </div>
-                <ul class="submenu" ng-show="order.showSub">
-                    <li class="row">
-                        <label class="col-xs-4"for="serType0">服务类型</label><!--线上物业-->
-                        <p class="col-xs-8"id="serType0">{{order.type}}</p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="compyName0">公司名称</label>
-                        <p class="col-xs-8"id="compyName0">{{order.compName}}</p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="address">公司地址</label>
-                        <p class="col-xs-8"id="address">{{order.address}}</p>
+                        </li>
+                        <li class="row">
+                            <label class="col-xs-4"for="compyGuy0">联&nbsp; 系&nbsp; 人</label>
+                            <p class="col-xs-8"id="compyGuy0">
+                                {{order.linkMan+order.linkTel}}
+                            </p>
+                        </li>
+                        <li class="row"ng-show="order.showCarNum">
+                            <label class="col-xs-4"for="carNum">车&nbsp; 牌&nbsp; 号</label>
+                            <p class="col-xs-8"id="carNum">
+                                {{order.carNum}}
+                            </p>
+                        </li>
+                        <li class="row"ng-hide="order.showFina">
+                            <label class="col-xs-4"for="extraInfo0">备注信息</label>
+                            <p class="col-xs-7 textarea"id="extraInfo0">{{order.extraMsg}}</p>
+                        </li>
+                        <li class="row"ng-show="order.showFina">
+                            <label class="col-xs-4"for="compyName11">项目名称</label>
+                            <p class="col-xs-8"id="compyName11">{{order.proName}}</p>
+                        </li>
+                        <li class="row"ng-show="order.showFina">
+                            <label class="col-xs-4"for="extraInfo03">项目介绍</label>
+                            <p class="col-xs-8 text-area"id="extraInfo03">{{order.extraMsg}}</p>
+                        </li>
+                    </ul>
 
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="compyGuy0">联 系 人</label>
-                        <p class="col-xs-8"id="compyGuy0">
-                            {{order.linkMan+order.linkTel}}
-                        </p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="extraInfo0">备注信息</label>
-                        <p class="col-xs-7 textarea"id="extraInfo0">{{order.extraMsg}}</p>
-                    </li>
-                </ul>
-                <ul class="submenu" ng-show="order.showRoom">
-                    <li class="row">
-                        <label class="col-xs-4"for="serType7">会议室名称</label><!--会议室-->
-                        <p class="col-xs-8"id="serType7">{{order.roomName}}</p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="timeline">会议室时间</label>
-                        <p class="col-xs-8"id="timeline">{{(order.meetingDate | date:"MM/dd")+" "+order.timeLine+"点"}}</p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="expense">总 消 费</label>
-                        <p class="col-xs-8"id="expense">¥{{order.expense}}</p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="paystate">支付状态</label>
-                        <p class="col-xs-8"id="payState">{{order.payState}}</p>
 
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="compyName9">公司名称</label>
-                        <p class="col-xs-8"id="compyName9">{{order.compName}}</p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="compyGuy01">联 系 人</label>
-                        <p class="col-xs-8"id="compyGuy01">
-                            {{order.linkMan+order.linkTel}}
-                        </p>
-                    </li>
-                    <li class="row">
-                        <label class="col-xs-4"for="extraInfo02">备注信息</label>
-                        <p class="col-xs-8 text-area"id="extraInfo02">{{order.extraMsg}}</p>
-                    </li>
+                    <ul class="submenu" ng-show="order.showRoom">
+                        <li class="row">
+                            <label class="col-xs-4"for="serType7">会议室名称</label><!--会议室-->
+                            <p class="col-xs-8"id="serType7">{{order.roomName}}</p>
+                        </li>
+                        <li class="row">
+                            <label class="col-xs-4"for="timeline">会议室时间</label>
+                            <p class="col-xs-8"id="timeline">{{(order.meetingDate | date:"MM/dd")+" "+order.timeLine+"点"}}</p>
+                        </li>
+                        <li class="row">
+                            <label class="col-xs-4"for="expense">总&nbsp; 消&nbsp; 费</label>
+                            <p class="col-xs-8"id="expense">¥{{order.expense}}</p>
+                        </li>
+                        <li class="row">
+                            <label class="col-xs-4"for="paystate">支付状态</label>
+                            <p class="col-xs-8"id="payState">{{order.payState}}</p>
 
-                        <button ng-show="order.payMethod=='false' && (order.payState=='false'||order.payState=='未支付')&&
-                        (order.state!='2'||'已取消')"class="btn quickpay payAgainBtn"ng-click="payAgain(order._id)">
-                            立即支付
-                        </button>
-                </ul>
-            </li>
+                        </li>
+                        <li class="row">
+                            <label class="col-xs-4"for="compyName9">公司名称</label>
+                            <p class="col-xs-8"id="compyName9">{{order.compName}}</p>
+                        </li>
 
-        </ul>
+                        <li class="row">
+                            <label class="col-xs-4"for="compyGuy01">联&nbsp; 系&nbsp; 人</label>
+                            <p class="col-xs-8"id="compyGuy01">
+                                {{order.linkMan+order.linkTel}}
+                            </p>
+                        </li>
+                        <li class="row">
+                            <label class="col-xs-4"for="extraInfo02">备注信息</label>
+                            <p class="col-xs-8 text-area"id="extraInfo02">{{order.extraMsg}}</p>
+                        </li>
 
+
+                            <button ng-hide="(order.payMethod=='true')||(order.state=='2'||order.state=='已取消')||(order.payState=='true'||order.payState=='已支付')"
+                                    class="btn quickpay payAgainBtn"ng-click="payAgain(order._id)">
+                                立即支付
+                            </button>
+                    </ul>
+                </li>
+
+            </ul>
+    </div>
 </div>

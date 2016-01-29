@@ -14,7 +14,9 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
     }
     $scope.typeList=[];
     $scope.childType=null;
-    $scope.phoneReg=/^([0-9]{11})$/;
+    $scope.phoneReg=/^(1[0-9]{10})$/;
+    var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
+    var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0]|\s)+/;
 
     $http.post(X_context.api+"services/listServices",{
         "servicesId":3
@@ -32,34 +34,42 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
         })
     $scope.$parent.memberPromise.then(function(data){
         $scope.parking={
-            compyGuy : data.data.data[0].nickName,
-            guyTel : data.data.data[0].mobile
+            guyTel : data.data.data[0].mobile,
+            compyGuy : data.data.data[0].nickName
         }
     });
 
     $scope.goGardenOrder=function() {
 
         if(!$scope.childType){
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您需要的送水服务～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的送水服务～'});
             return;
-        }
-
-        else if (!$scope.parking.compyName) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司名～'});
+        }else if (!$scope.parking.compyName) {
+            $('#compyName').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
             return;
         }else if (!$scope.parking.address) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入您的公司地址～'});
+            $('#address').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
+            return;
+        }else if(!pattern.test($scope.parking.compyGuy)||!$scope.parking.compyGuy) {
+            $('#compyGuy').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入联系人姓名，只能是中、英文字符～'});
             return;
         }
-        else if (!$scope.parking.compyGuy) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入联系人姓名～'});
+        else if (!$scope.phoneReg.test($scope.parking.guyTel)||!$scope.parking.guyTel) {
+            $('#guyTel').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
+            return;
+        }else if(!$scope.parking.carNo){
+            $('#carNo').focus();
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的车牌号～'});
             return;
         }
-        else if (!$scope.phoneReg.test($scope.parking.guyTel)) {
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '亲，请输入正确的11位手机号～'});
-            return;
-
-        }
+        //else if(!reg.test($scope.parking.extraInfo)){
+        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
+        //    return;
+        //}
         else {
             $scope.$parent.memberPromise.then(function () {
                 $http.post(X_context.api + "servicesOrder/add", {
@@ -69,7 +79,8 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                       "mobile": $scope.parking.guyTel,
                    "serviceId": $scope.childType,
                         "note": $scope.parking.extraInfo,
-                     "address": $scope.parking.address
+                     "address": $scope.parking.address,
+                      "prop1" : $scope.parking.carNo
                 })
                     .success(function (data) {
                         if(data.code==200){

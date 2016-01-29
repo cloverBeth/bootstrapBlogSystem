@@ -1,6 +1,12 @@
 "use strict";
 angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$location,$state,$stateParams,$http,$rootScope){
     $scope.order = $scope.$parent.order;
+
+    //if(X_context.devHost){
+    //    X_context.storeId = 43;
+    //    X_context.isPointStore = true;
+    //}
+
     $scope.cart = $scope.$parent.cart[X_context.storeId || 1];
     $scope.freight = 0;
     $scope.showToggle = false;
@@ -10,23 +16,46 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
     $scope._ = _;
     $scope.showCouponProduct = false;
     $scope.showCouponSale = false;
+    $scope.isPointStore = X_context.isPointStore;
 
-    //$scope.username = "陈冠希";
-    //$scope.phone = "13232311009";
-    //$scope.address = "香港XX摄影工作室";
+    $scope.selfGet = false;
+
+
     //满赠券 抵用券
 
-    $scope.payOption = "delivery";
+    $scope.payOption = "card";
+
+    if($scope.isPointStore){
+        $scope.payOption = "card";
+    }
     $scope.couponList = [];
 
 
     var posted = false;
     $scope.totalPrice = 0;
+    $scope.totalPoint = 0;
     _.forEach($scope.order.product, function (item, index) {
             $scope.totalPrice += item.price * item.buyNum;
+            $scope.totalPoint += item.point * item.buyNum;
     });
 
     $scope.freight = $scope.totalPrice < $scope.cart.min ? $scope.cart.freightFee : 0;
+    $scope.$watch('selfGet',function(selfGet){
+        if(selfGet){
+            $scope.freight = 0;
+        }else{
+            $scope.freight = $scope.totalPrice < $scope.cart.min ? $scope.cart.freightFee : 0;
+        }
+
+    });
+
+
+    $http.get(X_context.api + 'member/getCurMem')
+        .success(function(data){
+            $scope.credit= data.data[0].point;
+        });
+
+
 
 
     $scope.$parent.memberPromise.then(function () {
@@ -184,6 +213,57 @@ angular.module('ZJSY_WeChat').controller('GetOrderController', function($scope,$
                 })
 
         });
+    };
+
+    $scope.pointPay = function(){
+        if(posted == true)return;
+        posted = true;
+        var orderList = [];
+        _.forEach($scope.order.product,function(item,index){
+            orderList.push({
+                productId : item.id,
+                quantity : item.buyNum,
+                unitPrice : item.price,
+                unitPoint : item.point
+            });
+        });
+        if(orderList.length == 0
+            || !$scope.order.storeId
+            || !$scope.address
+            || !$scope.payOption
+            || !$scope.phone
+            || !$scope.username){
+            $rootScope.$broadcast('alerts',{type:'danger',message:'请填写订单必要字段。'});
+            return;
+        }
+        let costAny = $scope.totalPrice + $scope.freight > 0;
+
+        $http.post(X_context.api + 'order/add',{
+            "storeId" : $scope.order.storeId,
+            "address" : $scope.address,
+            "orderStatus" : "未处理",
+            "payMethod" : costAny ? "一卡通" : '积分',
+            "phone" : $scope.phone,
+            "receiver" : $scope.username,
+            "orderItems" : orderList,
+            "flag" : $scope.selfGet ? 1 : 0
+
+        }).success(function(data){
+            if(data.code != 200){
+                $scope.orderErrModal = true;
+                posted = false;
+                $scope.errMsg = data.message;
+            }
+            $scope.cart.products = [];
+            $scope.order.product = [];
+            if(costAny){
+                $state.go('cardLogin',{from:{fromOrder : true,orderId : data.data[0]._id}});
+            }else{
+                $state.go('orderSucceed',{orderId:data.data[0]._id});
+            }
+
+        });
+
     }
 
 
