@@ -6,7 +6,7 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
         title : '我的中心',
         tel : "",
         nick : "",
-        contact : '021-12345678',
+        contact : '',
         payWay : '一卡通',
         portrait : ""
     };
@@ -43,6 +43,14 @@ angular.module('ZJSY_WeChat').controller('AccountCenterController',function($sco
             }
 
         });
+
+    $http.post(X_context.api + 'admin/listSysConfig',{
+        id:1
+    }).success(function(data){
+        $scope.account.contact=data.data[0].sysPropertyIntroduce;
+        console.log(data.data[0].sysPropertyIntroduce);
+    })
+
     $scope.upload = function (files) {
         if(!files[0])return;
         var file = files[0];
