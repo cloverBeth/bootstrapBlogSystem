@@ -49,7 +49,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         _.forEach(data.data,function(banner,index){
             if(!banner.url || !banner.image)return;
             $scope.bannerImage.push({
-                url : banner.url.startsWith('http') ? banner.url : `/#${banner.url}`,
+                url : banner.url.startsWith('http') ? banner.url : `#${banner.url}`,
                 proId : banner.url.startsWith('http') ? null : (banner.url.split('store-product')[1]||null),
                 image : X_context.devHost + banner.image
             });
