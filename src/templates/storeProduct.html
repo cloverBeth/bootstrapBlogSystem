@@ -26,29 +26,41 @@
                     </div>
                 </em>
                 <p ng-show="!$parent.$parent.isPointStore">
-                    <strong >{{hot.name}}</strong>
-                    <b class="org orgText" >
+                    <strong class="product-name">{{hot.name}}</strong>
+                    <b class="org orgText product-price" >
                         <b ng-hide="_.find(cart.products,{id:hot.id})">
                             ￥{{hot.price}}
                         </b>
                     </b>
                 </p>
                 <p ng-show="$parent.$parent.isPointStore">
-                    <strong class="orgText">
-                        <b>
-                        {{hot.price ? '￥'+hot.price : ''}}
-                        {{hot.price&&hot.point ? '+' : ''}}
-                        {{hot.point ? hot.point+'分':''}}
-                        </b>
+                    <strong class="product-name">
+                        {{hot.name}}
                     </strong>
-                    <b class="org " >
+                    <b class="org orgText product-price" >
                         <b ng-hide="_.find(cart.products,{id:hot.id})">
-                            {{hot.name}}
+                            {{hot.price ? '￥'+hot.price : ''}}
+                            {{hot.price && hot.point ? '+' : ''}}
+                            {{hot.point ? hot.point+'分':''}}
                         </b>
                     </b>
                 </p>
+                <!--<p ng-show="$parent.$parent.isPointStore">-->
+                    <!--<strong class="orgText">-->
+                        <!--<b>-->
+                        <!--{{hot.price ? '￥'+hot.price : ''}}-->
+                        <!--{{hot.price&&hot.point ? '+' : ''}}-->
+                        <!--{{hot.point ? hot.point+'分':''}}-->
+                        <!--</b>-->
+                    <!--</strong>-->
+                    <!--<b class="org " >-->
+                        <!--<b ng-hide="_.find(cart.products,{id:hot.id})">-->
+                            <!--{{hot.name}}-->
+                        <!--</b>-->
+                    <!--</b>-->
+                <!--</p>-->
                 <div class="numProduct">
-                    <div style="display: inline-block;width: 70px;padding-left: 15px;float: left;text-align: center">
+                    <div style="display: inline-block;width: 74px;padding-left: 15px;float: left;text-align: center">
                         <div ng-show="_.find(cart.products,{id:hot.id})">
                             <span>
                                 {{
@@ -97,29 +109,41 @@
 
                 <p ng-show="!$parent.$parent.isPointStore">
                     <strong>{{pro.name}}</strong>
-                    <b class="org orgText" >
+                    <b class="org orgText product-price" >
                         <b ng-hide="_.find(cart.products,{id:pro.id})">
                             ￥{{pro.price}}
                         </b>
                     </b>
                 </p>
                 <p ng-show="$parent.$parent.isPointStore">
-                    <strong class="orgText">
-                        <b>
-                        {{pro.price ? '￥'+pro.price : ''}}
-                        {{pro.price&&pro.point ? '+' : ''}}
-                        {{pro.point ? pro.point+'分':''}}
-                        </b>
+                    <strong class="product-name">
+                        {{pro.name}}
                     </strong>
-                    <b class="org" >
+                    <b class="org orgText product-price" >
                         <b ng-hide="_.find(cart.products,{id:pro.id})">
-                            {{pro.name}}
+                            {{hot.price ? '￥'+hot.price : ''}}
+                            {{pro.price && pro.point ? '+' : ''}}
+                            {{pro.point ? pro.point+'分':''}}
                         </b>
                     </b>
                 </p>
+                <!--<p ng-show="$parent.$parent.isPointStore">-->
+                    <!--<strong class="orgText">-->
+                        <!--<b>-->
+                        <!--{{pro.price ? '￥'+pro.price : ''}}-->
+                        <!--{{pro.price&&pro.point ? '+' : ''}}-->
+                        <!--{{pro.point ? pro.point+'分':''}}-->
+                        <!--</b>-->
+                    <!--</strong>-->
+                    <!--<b class="org" >-->
+                        <!--<b ng-hide="_.find(cart.products,{id:pro.id})">-->
+                            <!--{{pro.name}}-->
+                        <!--</b>-->
+                    <!--</b>-->
+                <!--</p>-->
 
                 <div class="numProduct">
-                    <div style="display: inline-block;width: 70px;padding-left: 15px;float: left;text-align: center">
+                    <div style="display: inline-block;width: 74px;padding-left: 15px;float: left;text-align: center">
                         <div ng-show="_.find(cart.products,{id:pro.id})">
                             <span>
                                 {{
