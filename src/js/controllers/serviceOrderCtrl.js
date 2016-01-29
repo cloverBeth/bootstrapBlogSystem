@@ -26,8 +26,9 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                 //console.log($scope.displayZero(new Date(data.data.result[1].createddate).getMinutes()))
                 if(!data.data)return;
                 if($scope.orderList.length >= data.data.result[0].count){
-                    $scope.canload = false;
+                   $scope.canload = false;
                 }
+                if($scope.canload == false)return;
 
 
                 for(var i in data.data.result){
