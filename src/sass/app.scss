@@ -144,7 +144,7 @@ h1,h2,h3,h4,strong{font-weight:normal;}
 .swiper-slide img {
   height: 150px;
 }
-.title{color:#555;text-align:center;font-size:18px;line-height:2.6em;}
+.title{color:#151212;text-align:center;font-size:18px;line-height:2.6em;}
 .back{ position:absolute;left:10px;top:13px;width:100px;height:25px;}
 .header div.back a{width:100px;height:25px;padding:20px 40px 20px 10px;}
 .back img{width:10px;}
@@ -1061,6 +1061,7 @@ label {
         }
       span.typeOfService{
         padding-left:15px;
+        color:#999;
         font-family:"Helvetica-Bold";
       }
 
@@ -1123,7 +1124,7 @@ label {
           display:inline-block;
           padding:0 3px 0 2px;
           font-family:"Helvetica-Bold";
-          color:#444141;
+          color:#666;
           font-size:15px;
           line-height:30px;
         }
@@ -1148,12 +1149,14 @@ label {
               margin-bottom:0;
               padding:0 0 0 10px;
               text-align:left;
-              color: #777;
+              color: #999;
               font-family:"Helvetica-Bold";
               font-size:18px;
             }
             input[type="text"]{
               border:none;
+              color:#666;
+              font-family:"Helvetica-Bold";
               font-size:17px;
               padding:0 0 0 22px;
 
@@ -1261,9 +1264,10 @@ label {
         line-height:4rem;
         height:auto;
         border-top: 1px solid rgba(35, 25, 25, 0.05);
-        label{
-          color:#B8B8B8;
-          font-family: "Helvetica-Bold";
+        span{
+          color:#999;
+          //font-family: "Helvetica-Bold";
+          margin-left:20px;
           font-size:18px;
           padding:0 10px 0 15px;
           text-align:right;
@@ -1273,7 +1277,7 @@ label {
           background:#FAFAFA;
           line-height:2rem;
           padding: 12px 20px 12px 10px;
-          color:#999999;
+          color:#666666;
           font-size:18px;
           word-wrap: break-word;
         }
@@ -1544,7 +1548,7 @@ label {
   display:inline-block;
   padding:0 3px 0 5px;
   font-family:"Helvetica-Bold";
-  color:#444141;
+  color:#666666;
   font-size:15px;
   line-height:30px;
 }

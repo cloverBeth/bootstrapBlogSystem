@@ -44,77 +44,77 @@
                     </div>
                     <ul class="submenu" ng-show="order.showSub">
                         <li class="row">
-                            <label class="col-xs-4"for="serType0">服务类型</label><!--线上物业-->
-                            <p class="col-xs-8"id="serType0">{{order.type}}</p>
+                            <span class="col-xs-4"for="serType0">服务类型</span><!--线上物业-->
+                            <p class="col-xs-7"id="serType0">{{order.type}}</p>
                         </li>
                         <li class="row">
-                            <label class="col-xs-4"for="compyName0">公司名称</label>
-                            <p class="col-xs-8"id="compyName0">{{order.compName}}</p>
+                            <span class="col-xs-4"for="compyName0">公司名称</span>
+                            <p class="col-xs-7"id="compyName0">{{order.compName}}</p>
                         </li>
                         <li class="row">
-                            <label class="col-xs-4"for="address">公司地址</label>
-                            <p class="col-xs-8"id="address">{{order.address}}</p>
+                            <span class="col-xs-4"for="address">公司地址</span>
+                            <p class="col-xs-7"id="address">{{order.address}}</p>
 
                         </li>
                         <li class="row">
-                            <label class="col-xs-4"for="compyGuy0">联&nbsp; 系&nbsp; 人</label>
-                            <p class="col-xs-8"id="compyGuy0">
+                            <span class="col-xs-4"for="compyGuy0">联&nbsp;&nbsp;系&nbsp;&nbsp;人</span>
+                            <p class="col-xs-7"id="compyGuy0">
                                 {{order.linkMan+order.linkTel}}
                             </p>
                         </li>
                         <li class="row"ng-show="order.showCarNum">
-                            <label class="col-xs-4"for="carNum">车&nbsp; 牌&nbsp; 号</label>
-                            <p class="col-xs-8"id="carNum">
+                            <span class="col-xs-4"for="carNum">车&nbsp;&nbsp;牌&nbsp;&nbsp;号</span>
+                            <p class="col-xs-7"id="carNum">
                                 {{order.carNum}}
                             </p>
                         </li>
                         <li class="row"ng-hide="order.showFina">
-                            <label class="col-xs-4"for="extraInfo0">备注信息</label>
+                            <span class="col-xs-4"for="extraInfo0">备注信息</span>
                             <p class="col-xs-7 textarea"id="extraInfo0">{{order.extraMsg}}</p>
                         </li>
                         <li class="row"ng-show="order.showFina">
-                            <label class="col-xs-4"for="compyName11">项目名称</label>
-                            <p class="col-xs-8"id="compyName11">{{order.proName}}</p>
+                            <span class="col-xs-4"for="compyName11">项目名称</span>
+                            <p class="col-xs-7"id="compyName11">{{order.proName}}</p>
                         </li>
                         <li class="row"ng-show="order.showFina">
-                            <label class="col-xs-4"for="extraInfo03">项目介绍</label>
-                            <p class="col-xs-8 text-area"id="extraInfo03">{{order.extraMsg}}</p>
+                            <span class="col-xs-4"for="extraInfo03">项目介绍</span>
+                            <p class="col-xs-7 text-area"id="extraInfo03">{{order.extraMsg}}</p>
                         </li>
                     </ul>
 
 
                     <ul class="submenu" ng-show="order.showRoom">
                         <li class="row">
-                            <label class="col-xs-4"for="serType7">会议室名称</label><!--会议室-->
-                            <p class="col-xs-8"id="serType7">{{order.roomName}}</p>
+                            <span class="col-xs-4"for="serType7">会议室名</span><!--会议室-->
+                            <p class="col-xs-7"id="serType7">{{order.roomName}}</p>
                         </li>
                         <li class="row">
-                            <label class="col-xs-4"for="timeline">会议室时间</label>
-                            <p class="col-xs-8"id="timeline">{{(order.meetingDate | date:"MM/dd")+" "+order.timeLine+"点"}}</p>
+                            <span class="col-xs-4"for="timeline">会议时间</span>
+                            <p class="col-xs-7"id="timeline">{{(order.meetingDate | date:"MM/dd")+" "+order.timeLine+"点"}}</p>
                         </li>
                         <li class="row">
-                            <label class="col-xs-4"for="expense">总&nbsp; 消&nbsp; 费</label>
-                            <p class="col-xs-8"id="expense">¥{{order.expense}}</p>
+                            <span class="col-xs-4"for="expense">总&nbsp;&nbsp;消&nbsp;&nbsp;费</span>
+                            <p class="col-xs-7"id="expense">¥{{order.expense}}</p>
                         </li>
                         <li class="row">
-                            <label class="col-xs-4"for="paystate">支付状态</label>
-                            <p class="col-xs-8"id="payState">{{order.payState}}</p>
+                            <span class="col-xs-4"for="paystate">支付状态</span>
+                            <p class="col-xs-7"id="payState">{{order.payState}}</p>
 
                         </li>
                         <li class="row">
-                            <label class="col-xs-4"for="compyName9">公司名称</label>
-                            <p class="col-xs-8"id="compyName9">{{order.compName}}</p>
+                            <span class="col-xs-4"for="compyName9">公司名称</span>
+                            <p class="col-xs-7"id="compyName9">{{order.compName}}</p>
                         </li>
 
                         <li class="row">
-                            <label class="col-xs-4"for="compyGuy01">联&nbsp; 系&nbsp; 人</label>
-                            <p class="col-xs-8"id="compyGuy01">
+                            <span class="col-xs-4"for="compyGuy01">联&nbsp;&nbsp;系&nbsp;&nbsp;人</span>
+                            <p class="col-xs-7"id="compyGuy01">
                                 {{order.linkMan+order.linkTel}}
                             </p>
                         </li>
                         <li class="row">
-                            <label class="col-xs-4"for="extraInfo02">备注信息</label>
-                            <p class="col-xs-8 text-area"id="extraInfo02">{{order.extraMsg}}</p>
+                            <span class="col-xs-4"for="extraInfo02">备注信息</span>
+                            <p class="col-xs-7 text-area"id="extraInfo02">{{order.extraMsg}}</p>
                         </li>
 
 
