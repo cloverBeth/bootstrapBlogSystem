@@ -39,7 +39,7 @@ angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootSc
             return;
         }else if (!$scope.business.compyName) {
             $('#compyName').focus();
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});
             return;
         }
         else if (!$scope.business.address) {

@@ -36,7 +36,7 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
             return;
         }else if (!$scope.garden.compyName) {
             $('#compyName').focus();
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});
             return;
         }else if (!$scope.garden.address) {
             $('#address').focus();

@@ -39,7 +39,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
 
             else if (!$scope.garden.compyName) {
                 $('#compyName').focus();
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});
                 return;
             }
             else if (!$scope.garden.address) {
