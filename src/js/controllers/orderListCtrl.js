@@ -34,13 +34,16 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
                         isPoint : data.data[i].storeType == "1",
                         point : data.data[i].point
                     };
+					var orderTotalNum = 0;
                     _.forEach(data.data[i].orderDetail, function (item, i) {
                         order.products.push({
                             quantity: item.quantity,
                             image: item.productImage,
                             id: item.id
                         });
+						orderTotalNum += item.quantity;
                     });
+					order.totalNum = orderTotalNum;
                     $scope.isOrder=false;
                     $scope.loading = false;
                     $scope.orderlist.push(order);
