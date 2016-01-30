@@ -27,12 +27,15 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
 
     $scope.goEnsure = function(){
         if(!$scope.phoneReg.test($scope.phone)||!$scope.phone){
+            $('#meetingRelate').focus();
             $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的11位手机号码～"});
             return;
         }else if(!pattern.test($scope.user)||!$scope.user){
+            $('#meetingMan').focus();
             $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的联系人，只能是中文或者英文～"});
             return;
         }else if(!$scope.company){
+            $('#meetingCompy').focus();
             $rootScope.$broadcast('alerts',{type:'danger',message:"请填写公司名称～"});
             return;
         }
