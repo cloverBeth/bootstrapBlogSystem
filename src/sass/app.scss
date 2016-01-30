@@ -1037,14 +1037,44 @@ label {
 
 
 .business-list{
-  .business-banner{
-    .list-left{
-      float:left;
-    }
-    .list-right{
-      float:left;
+  @media screen and (max-width:320px){
+    .business-banner {
+      height: 335px;
     }
   }
+  @media screen and (min-width:320px){
+    .business-banner {
+      height: 365px;
+    }
+  }
+  .business-banner{
+    width:100%;
+  }
+
+    margin-bottom:10px;
+    .list-left{
+      float:left;
+      padding-right:5px;
+      width:60%;
+    }
+    .list-right{
+        float:left;
+        padding-left:10px;
+        width:40%;
+        .right-banner{
+          a{
+
+            display:block;
+          }
+      }
+      .right-top{
+        padding:0 0 5px 0;
+      }
+      .right-bot{
+        margin-top:10px;
+      }
+    }
+
   .paperAds{
     padding:0 0 0 15px;
     width:100%;
