@@ -28,6 +28,7 @@ angular.module("ZJSY_WeChat").controller("OrderSucceedController",function($scop
                 status : (datas[0].orderStatus == "未处理"
                         && datas[0].paymentMethod == "一卡通"
                         && !datas[0].paidSn) ? "未付款" : datas[0].orderStatus,
+                businessName : datas[0].storeName
             };
             $scope.title = $scope.orderSucceed.status == "未付款" ? "购物未成功" : "购物成功";
             $scope.isBe=false;

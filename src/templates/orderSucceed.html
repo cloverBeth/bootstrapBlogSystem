@@ -14,8 +14,12 @@
     <div class="main mt-48">
 
         <div class="succeed clearfix" ng-class="{succeed:isBe,failed:isFal}">
-            <p ng-show="orderSucceed.status!='未付款'">
+            <p ng-show="orderSucceed.status!='未付款'&&orderSucceed.businessName!='积分商城'">
                 <strong>您的订单已提交成功，我们会尽快配送！</strong>
+                如您需要取消订单，请拨打商家服务热线。
+            </p>
+            <p ng-show="orderSucceed.businessName=='积分商城'">
+                <strong>您的订单已提交成功，我们会尽快处理！</strong>
                 如您需要取消订单，请拨打商家服务热线。
             </p>
             <p ng-show="orderSucceed.status=='未付款'">
