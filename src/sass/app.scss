@@ -1035,8 +1035,29 @@ label {
     border:none;background:transparent;color: #fff;margin: 30px 0 30px 20px;
 }
 
-.paperAds{padding:0 0 0 15px;width:100%;margin-top:-20px;font-weight:bolder;
-    height:20px;color:#FFFFFF;font-size:14px;background:#000000;opacity:0.4;}
+
+.business-list{
+  .business-banner{
+    .list-left{
+      float:left;
+    }
+    .list-right{
+      float:left;
+    }
+  }
+  .paperAds{
+    padding:0 0 0 15px;
+    width:100%;
+    margin-top:-20px;
+    font-weight:bolder;
+    height:20px;
+    color:#FFFFFF;
+    font-size:14px;
+    background:#000000;
+    opacity:0.4;
+  }
+}
+
 
 
 
