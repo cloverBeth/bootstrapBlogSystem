@@ -19,6 +19,7 @@ angular.module('ZJSY_WeChat').controller('OrderListController',function($rootSco
             pageSize: $scope.pageSize,
         })
             .success(function (data) {
+                $scope.orderLength=data.data.length==0?true:false;
                 if (data.data.length==0 || !data.data){return;}
                 for (var i in data.data) {
                     var order = {

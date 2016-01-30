@@ -22,8 +22,9 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
 
         })
             .success(function (data){
-                console.log(data.data);
+                //console.log(data.data);
                 //console.log($scope.displayZero(new Date(data.data.result[1].createddate).getMinutes()))
+                $scope.orderLength=data.data.length==0?true:false;
                 if(!data.data)return;
                 if($scope.orderList.length >= data.data.result[0].count){
                    $scope.canload = false;
@@ -96,8 +97,9 @@ angular.module('ZJSY_WeChat').controller('ServiceOrderController', function($sco
                         }
                     }
                     $scope.orderList.push(order);
-                    $scope.currentPage++;
                 }
+                $scope.currentPage++;
+
             })
     };
 
