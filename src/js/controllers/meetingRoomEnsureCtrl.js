@@ -27,13 +27,13 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
 
     $scope.goEnsure = function(){
         if(!$scope.phoneReg.test($scope.phone)||!$scope.phone){
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的11位手机号码."});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的11位手机号码～"});
             return;
         }else if(!pattern.test($scope.user)||!$scope.user){
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的联系人，只能是中文或者英文."});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的联系人，只能是中文或者英文～"});
             return;
         }else if(!$scope.company){
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写公司名称."});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写公司名称～"});
             return;
         }
         //else if(!reg.test($scope.memo)){
@@ -48,13 +48,13 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
             {
                 roomid : $scope.room.id,
                 meetingdate : `${$scope.date.getFullYear()}-${$scope.date.getMonth()+1}-${$scope.date.getDate()}`,
-            meetingtime : _.pluck($scope.time,'id').join(','),
-            memberid : X_context.memberId,
-            contact : $scope.user,
-            remark : $scope.memo,
-            mobile : $scope.phone,
-            company : $scope.company,
-            paytype : true
+                meetingtime : _.pluck($scope.time,'id').join(','),
+                memberid : X_context.memberId,
+                contact : $scope.user,
+                remark : $scope.memo,
+                mobile : $scope.phone,
+                company : $scope.company,
+                paytype : true
 
     }).success(function(data){
         $state.go('meetingRoomSucceed',{orderId:data.data[0].orderId});
@@ -68,15 +68,15 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
         var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
         if(!$scope.phoneReg.test($scope.phone)||!$scope.phone){
             $('#meetingRelate').focus();
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的11位手机号码."});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的11位手机号码～"});
             return;
         }else if(!pattern.test($scope.user)||!$scope.user){
             $('#meetingMan').focus();
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的联系人，只能是中文或者英文."});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的联系人，只能是中文或者英文～"});
             return;
         }else if(!$scope.company){
             $('#meetingCompy').focus();
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写公司名称."});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写公司名称～"});
             return;
         }
         //if(!reg.test($scope.memo)){

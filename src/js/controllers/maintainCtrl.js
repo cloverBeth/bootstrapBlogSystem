@@ -49,7 +49,7 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
             return;
         }else if (!$scope.maintain.compyName) {
             $('#compyName').focus();
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名,只能是中、英文字符～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});
             return;
         }else if (!$scope.maintain.address) {
             $('#address').focus();
