@@ -44,7 +44,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
             }
             else if (!$scope.garden.address) {
                 $('#address').focus();
-                $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入贵公司正确的地址～'});
+                $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司地址～'});
                 return;
             }else if(!pattern.test($scope.garden.compyGuy)||!$scope.garden.compyGuy) {
                 $('#compyGuy').focus();

@@ -22,17 +22,17 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
 
 
     $scope.phoneReg=/^(1[0-9]{10})$/;
-    var pattern = /^[-'a-z\u4e00-\u9eff]{2,40}$/i;
+    var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
 
     $scope.goEnsure = function(){
         if(!$scope.phoneReg.test($scope.phone)||!$scope.phone){
             $('#meetingRelate').focus();
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的11位手机号码～"});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请输入正确的11位手机号～"});
             return;
         }else if(!pattern.test($scope.user)||!$scope.user){
             $('#meetingMan').focus();
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的联系人，只能是中文或者英文～"});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请输入联系人姓名，只能是中、英文字符～"});
             return;
         }else if(!$scope.company){
             $('#meetingCompy').focus();
@@ -71,11 +71,11 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
         var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
         if(!$scope.phoneReg.test($scope.phone)||!$scope.phone){
             $('#meetingRelate').focus();
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的11位手机号码～"});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请输入正确的11位手机号～"});
             return;
         }else if(!pattern.test($scope.user)||!$scope.user){
             $('#meetingMan').focus();
-            $rootScope.$broadcast('alerts',{type:'danger',message:"请填写正确格式的联系人，只能是中文或者英文～"});
+            $rootScope.$broadcast('alerts',{type:'danger',message:"请输入联系人姓名，只能是中、英文字符～"});
             return;
         }else if(!$scope.company){
             $('#meetingCompy').focus();

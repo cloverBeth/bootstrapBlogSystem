@@ -35,7 +35,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
         if (!$scope.advice.compyName) {
             $('#compyName').focus();
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});
             return;
         }
         else if(!pattern.test($scope.advice.compyGuy)||!$scope.advice.compyGuy) {
@@ -50,7 +50,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
         }else if(!reg.test($scope.advice.extraInfo)||!$scope.advice.extraInfo) {
             $('#extraInfo').focus();
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您宝贵的评价与建议,只能是中文、英文～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您宝贵的评价与建议，只能是中、英文字符～'});
             return;
 
         }

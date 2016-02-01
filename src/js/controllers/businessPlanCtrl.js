@@ -40,7 +40,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
         else if (!$scope.business.compyName) {
             $('#compyName').focus();
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的公司名～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});
             return;
         }
         else if (!$scope.business.address) {
@@ -55,7 +55,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
         }
         else if(!$scope.phoneReg.test($scope.business.guyTel)) {
             $('#guyTel').focus();
-            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的以1为开头的11位手机号～'});
+            $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
 
             return;
 
