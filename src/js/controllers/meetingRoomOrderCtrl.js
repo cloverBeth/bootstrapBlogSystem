@@ -121,14 +121,41 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
             name : '晚上',
             occupy : false,
             order : false,
-            id : "晚上"
+            id : "19"
         }
     ];
 
+    //判断是不是过期时间,是则不能选
+    $scope.getNum=function(text){
+        var value = text.replace(/[^0-9]/ig,"");
+        return value;
+    }
+    for(var i in originList){
+        $scope.this=$scope.getNum(originList[i].id);
+        $scope.nowTime=new Date().getHours();
+        if($scope.this<$scope.nowTime) {
+            //originList[i].order=true;
+            originList[i].occupy = true;
+        }
+
+        $scope.changeTime=function() {
+            if ($scope.dt.getYear()< new Date().getYear()||($scope.dt.getDay()<new Date().getDay()
+                &&$scope.dt.getMonth()==new Date().getMonth())){
+                for (var i in originList) {
+                    originList[i].occupy = true;
+                }
+            }else{
+                for (var i in originList) {
+                    originList[i].occupy = false;
+                }
+            }
+        }
+    }
 
     $scope.orderTime = function(index){
         if($scope.timeList[index].occupy)return;
         $scope.timeList[index].order = !$scope.timeList[index].order;
+
     };
 
     $scope.goEnsure = function(){
@@ -206,7 +233,6 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
         }
         $scope.dateModal = false;
     }
-
 
 })
 

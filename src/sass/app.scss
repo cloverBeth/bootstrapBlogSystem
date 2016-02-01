@@ -367,6 +367,7 @@ p{
 
 .store{ background:#fff;}
 .store .store-detail{ display:inline-block;padding-top:5%;vertical-align: top;}
+.store .store-detail strong{font-size:18px;}
 .store .store-image{display:inline-block;padding:5%;width:35%;}
 
 .store p{border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;color:#999;padding:0.6em 0;line-height:2em;text-align:right;padding-right:15px;font-size:15px;}
@@ -1348,10 +1349,10 @@ label {
     .redBtn{
       display:inline-block;
       margin:0 auto;
-      padding:12px;
+      padding:6px 12px;
       width:90%;
       margin-top:15px;
-      font-size:16px;
+      font-size:14px;
       font-weight:600;
 
     }
