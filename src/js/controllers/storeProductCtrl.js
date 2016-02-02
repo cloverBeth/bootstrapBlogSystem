@@ -16,6 +16,8 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
     $scope.cateList = [];
     $scope.proList = [];
 
+    $scope.isAuth = $stateParams.isAuth;
+
 
     var catePromise =
     $scope.$parent.storePromise.then(function(){
@@ -178,6 +180,7 @@ angular.module('ZJSY_WeChat').controller('StoreProductController', function($sco
         if($scope.productDetail){
             $scope.productShown = true;
         }
+        if(!$scope.isAuth)return;
         $http.post(X_context.api + 'mark/listMark',{
             productId : id
         }).success(function(data){

@@ -195,18 +195,22 @@
                     src="{{productDetail.img}}"
                     onerror="this.src='images/default_image.png'"/></em>
             <h3>{{productDetail.name}}</h3>
-            <div class="mark-sec" ng-show="!productDetail.mark" ng-click="mark(productDetail.id)">
-                <img src="images/ic_uncollected.png" alt=""/>
+
+            <div ng-show="isAuth">
+                <div class="mark-sec" ng-show="!productDetail.mark" ng-click="mark(productDetail.id)">
+                    <img src="images/ic_uncollected.png" alt=""/>
                 <span>
                     收藏
                 </span>
-            </div>
-            <div class="mark-sec" ng-show="productDetail.mark" ng-click="unmark(productDetail.id)">
-                <img src="images/ic_collected.png" alt=""/>
+                </div>
+                <div class="mark-sec" ng-show="productDetail.mark" ng-click="unmark(productDetail.id)">
+                    <img src="images/ic_collected.png" alt=""/>
                 <span>
                     取消
                 </span>
+                </div>
             </div>
+
 
             <div class="money clearfix">
                 <strong ng-show="!$parent.isPointStore">￥{{productDetail.price}}</strong>

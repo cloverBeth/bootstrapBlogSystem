@@ -69,7 +69,15 @@ angular.module('ZJSY_WeChat', [
         views: {
             '': {
                 templateUrl: 'storeProduct.html',
-                controller: 'StoreProductController'
+                controllerProvider: function($state,$stateParams,checkAuth) {
+                    if(checkAuth.check()){
+                        $stateParams.isAuth = true;
+                    }else{
+                        $stateParams.isAuth = false;
+                    }
+                    var ctrlName = "StoreProductController";
+                    return ctrlName;
+                }
             }
         }
         })
