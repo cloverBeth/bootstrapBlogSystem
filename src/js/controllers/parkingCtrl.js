@@ -84,10 +84,12 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                 })
                     .success(function (data) {
                         if(data.code==200){
+                            $scope.orderSure=true;
                             $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                             //console.log(data.data);
                         }
                         else{
+                            $scope.orderSure=true;
                             $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
                         }
 

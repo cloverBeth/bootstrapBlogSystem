@@ -1287,6 +1287,8 @@ label {
             span.serviceStatus{display:block;float:left;width:55px;margin:0 0 0 -10px;font-size:15px;color:#FF0000;}
             span{margin:0 10px 0 0;display:block;width:20px;height:20px;}
             .toggleBg{
+                width:40px;
+                height:25px;
                 margin:-16px 0 0 45px;
                 float:left;display:block;
                 background:url(../images/up.png)no-repeat;
@@ -1294,10 +1296,14 @@ label {
             }
 
             .isTrue{
+              width:40px;
+              height:25px;
               background:url(../images/up.png)no-repeat;
               background-size: 16px 18px;
               }
             .isFalse{
+              width:40px;
+              height:25px;
               background:url(../images/down.png)no-repeat;
               background-size: 16px 18px;
             }

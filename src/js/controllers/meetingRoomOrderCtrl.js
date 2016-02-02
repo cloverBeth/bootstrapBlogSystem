@@ -121,7 +121,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
             name : '晚上',
             occupy : false,
             order : false,
-            id : "19"
+            id : "23"
         }
     ];
 

@@ -82,10 +82,11 @@ angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootSc
             })
                 .success(function(data){
                     if(data.code==200){
-                        $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                         $scope.orderSure=true;//如何避免重复订单？？？？？
+                        $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                     }
                     else{
+                        $scope.orderSure=true;
                         $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
                     }
                 })
