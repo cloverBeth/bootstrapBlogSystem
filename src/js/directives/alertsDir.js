@@ -12,7 +12,7 @@ angular.module('ZJSY_WeChat')
             //        <strong>{{alert.msg}}</strong></div>\
             //    </div>',
             template: '<div class="site-alert col-sm-12 ">\
-                <div  class="alert alert-danger alert-dismissible" role="alert" ng-show="alerts.length > 0">\
+                <div  class="alert alert-danger alert-dismissible"style="margin-top:150px;" role="alert" ng-show="alerts.length > 0">\
                     <button type="button" class="close" data-dismiss="alert" ng-click="closeAlert(alerts.length-1)" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
                     <strong>{{alerts[alerts.length-1].msg}}</strong></div>\
                 </div>',
