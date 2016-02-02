@@ -1,5 +1,5 @@
 "use strict";
-angular.module('ZJSY_WeChat').controller('MyCouponController',function($scope,$http){
+angular.module('ZJSY_WeChat').controller('MyCouponController',function($scope,$http, $state){
     "use strict";
 
     $scope.title = '我的优惠券';
@@ -58,6 +58,10 @@ angular.module('ZJSY_WeChat').controller('MyCouponController',function($scope,$h
         }
 
     };
+
+    $scope.jumpToStore = function(index) {
+        $state.go('store.product',{storeId : $scope.couponList[index].storeId});
+    }
 
 
 });
