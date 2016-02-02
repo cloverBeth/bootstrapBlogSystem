@@ -52,7 +52,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         _.forEach(data.data,function(banner,index){
             if(!banner.url || !banner.image)return;
             $scope.bannerImage.push({
-                url : _.startsWith(banner.url, 'http') ? banner.url : `${location.pathname == "/" ? "" : location.pathname}/#${banner.url}`,
+                url : _.startsWith(banner.url, 'http') ? banner.url : `${location.pathname == "/" ? "" : location.pathname}#${banner.url}`,
                 proId : _.startsWith(banner.url, 'http') ? null : (banner.url.split('store-product')[1]||null),
                 image : X_context.devHost + banner.image
             });
