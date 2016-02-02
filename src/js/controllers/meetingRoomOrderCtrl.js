@@ -132,7 +132,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
     }
     for(var i in originList){
         if(originList[i].id=='晚上'){originList[i].id='23';console.log(originList[i].id);}
-        
+
         $scope.this=$scope.getNum(originList[i].id);
         $scope.nowTime=new Date().getHours();
         if($scope.this<$scope.nowTime) {
