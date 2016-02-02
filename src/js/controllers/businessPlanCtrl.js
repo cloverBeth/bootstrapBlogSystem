@@ -4,6 +4,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
     $scope.typeList=[];
     $scope.childType = null;
+    $scope.orderSure=false;
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;

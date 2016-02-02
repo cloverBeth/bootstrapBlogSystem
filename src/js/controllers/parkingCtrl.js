@@ -13,6 +13,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
         _id:null
     }
     $scope.typeList=[];
+    $scope.orderSure=false;
     $scope.childType=null;
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;

@@ -3,6 +3,7 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
     $scope.title="园艺服务";
 
     $scope.phoneReg=/^(1[0-9]{10})$/;
+    $scope.orderSure=false;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
 
@@ -72,10 +73,12 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
                 })
                     .success(function (data){
                         if(data.code==200){
+                            $scope.orderSure=true;
                             $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                             //console.log(data.data);
                         }
                         else{
+                            $scope.orderSure=true;
                             $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
                         }
 
