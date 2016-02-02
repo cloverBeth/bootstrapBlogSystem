@@ -30,7 +30,7 @@
         <div class="danhao">
             <p><font>订单编号</font>{{orderSucceed.orderNumber}}</p>
             <p><font>商品数量</font>{{orderSucceed.quantity}}件</p>
-            <p ng-show="!isPoint"><font>本次消费</font>{{orderSucceed.expense}} （含配送费{{orderSucceed.distribution}}）</p>
+            <p ng-show="!isPoint"><font>本次消费</font>￥{{orderSucceed.expense}} （含配送费￥{{orderSucceed.distribution}}）</p>
             <p ng-show="isPoint"><font>本次消费</font>￥{{orderSucceed.expense}}+{{orderSucceed.point}}分 （含配送费￥{{orderSucceed.distribution}}）</p>
         </div>
         <div class="pay clearfix">

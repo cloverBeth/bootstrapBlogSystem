@@ -52,13 +52,13 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
 
     var originList = [
         {
-            name : '上午8点',
+            name : '上午 8 点',
             occupy : false,
             order : false,
             id : "8"
         },
         {
-            name : '上午9点',
+            name : '上午 9 点',
             occupy : false,
             order : false,
             id : "9"
@@ -83,45 +83,45 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
         }
         ,
         {
-            name : '下午1点',
+            name : '下午 1 点',
             occupy : false,
             order : false,
             id : "13"
         },
         {
-            name : '下午2点',
+            name : '下午 2 点',
             occupy : false,
             order : false,
             id : "14"
         },{
-            name : '下午3点',
+            name : '下午 3 点',
             occupy : false,
             order : false,
             id : "15"
         }
         ,{
-            name : '下午4点',
+            name : '下午 4 点',
             occupy : false,
             order : false,
             id : "16"
         }
         ,{
-            name : '下午5点',
+            name : '下午 5 点',
             occupy : false,
             order : false,
             id : "17"
         }
         ,{
-            name : '下午6点',
+            name : '下午 6 点',
             occupy : false,
             order : false,
             id : "18"
         }
         ,{
-            name : '晚上',
+            name : '晚 上',
             occupy : false,
             order : false,
-            id : "23"
+            id : "晚上"
         }
     ];
 
@@ -131,6 +131,8 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
         return value;
     }
     for(var i in originList){
+        if(originList[i].id=='晚上'){originList[i].id='23';console.log(originList[i].id);}
+        
         $scope.this=$scope.getNum(originList[i].id);
         $scope.nowTime=new Date().getHours();
         if($scope.this<$scope.nowTime) {
