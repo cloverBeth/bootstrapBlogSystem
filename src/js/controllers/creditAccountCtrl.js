@@ -33,4 +33,10 @@ angular.module("ZJSY_WeChat").controller("CreditAccountController",function($sco
 
         });
 
+    $scope.gotoStore = function(id){
+
+        $state.go('store.product',{storeId : id})
+    }
+
+
 });
