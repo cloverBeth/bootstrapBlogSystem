@@ -592,9 +592,19 @@ dl{
 .notice dl dt{padding:0 3%;color:#999999;text-align:right;background:#fff;border-top:2px solid #00aaff;}
 .notice dl dt em{ display:inline-block;width:33px;}
 .notice dl dt em img{margin-right:2vw;margin-top:-23px;}
-.notice dd{padding-bottom:15px;
-  min-height:200px;}
-.notice dd h3{font-size:16px;line-height:1.6em;text-align:center;padding:10px 0 5px;color:#666;}
+.notice dd{
+  padding-bottom:15px;
+  min-height:200px;
+}
+.notice dd h3{
+  font-size: 16px;
+  width: 80%;
+  line-height: 1.6em;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 0 5px;
+  color: #666;
+}
 .notice dd p{font-size:14px;line-height:1.8em;text-align:left;padding:10px 12px;color:#777; text-indent:2em;}
 em#close{opacity:1;}
 
@@ -798,6 +808,7 @@ strong.ng-binding{font-weight:400;}
   padding-top:48px;
 }
 .mb-60{margin-bottom:60px;}
+.mb-65{margin-bottom:65px;}
 .mb-40{margin-bottom:40px;}
 .alert-danger {
   background-color: white !important;
@@ -1317,6 +1328,9 @@ label {
           padding: 0 0 0 30px;
           //text-align: right;
           
+        }
+        #expense{
+          color:red;
         }
         p{
           margin:20px 0 0 0;
@@ -1903,6 +1917,7 @@ label {
   }
 }
 .get-order{
+  margin-top:35px;
   .address{
     margin-top: 10px;
   }
