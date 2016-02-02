@@ -1290,13 +1290,16 @@ label {
                 margin:-16px 0 0 45px;
                 float:left;display:block;
                 background:url(../images/up.png)no-repeat;
+                background-size: 16px 18px;
             }
 
             .isTrue{
               background:url(../images/up.png)no-repeat;
+              background-size: 16px 18px;
               }
             .isFalse{
               background:url(../images/down.png)no-repeat;
+              background-size: 16px 18px;
             }
           }
 
