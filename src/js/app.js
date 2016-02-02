@@ -1,6 +1,6 @@
 var X_context = {
     guest : "guest",
-    api : "http://192.168.6.49/zjsy/api/v1/",
+    api : "<replaceSec>" + "/zjsy/api/v1/",
     memberId : null,
     memberPhone : "",
     isPointStore : false

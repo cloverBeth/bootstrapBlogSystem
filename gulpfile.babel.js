@@ -11,6 +11,7 @@ var config = {
   appName : 'ZJSY_WeChat',
   dest: 'www',
   cordova: true,
+  host : "",
   sass: {
     src: [
       './src/sass/app.scss', './src/sass/responsive.scss',
@@ -80,6 +81,14 @@ var config = {
 if (require('fs').existsSync('./config.js')) {
   var configFn = require('./config');
   configFn(config);
+}
+
+console.log('process.argv[3]',process.argv)
+switch (process.argv[4]){
+    case '49' : config.host = "http://192.168.6.49";break;
+    case 'pro' : config.host = "http://demo1.yzlpie.com";break;
+    case undefined :config.host = "http://192.168.6.49";break;
+    default : config.host = process.argv[4];break;
 }
 
 /*-----  End of Configuration  ------*/
@@ -266,10 +275,13 @@ gulp.task('libcss', function () {
 // - Precompile templates to ng templateCache
 
 gulp.task('js', function() {
-    streamqueue({ objectMode: true },
-      gulp.src('./src/js/**/*.js').pipe(babel()).pipe(ngFilesort()),
-      gulp.src(['src/templates/**/*.html']).pipe(templateCache({ module: config.appName }))
+    !streamqueue({objectMode: true},
+        gulp.src('./src/js/app.js').pipe(babel())
+            .pipe(replace('<replaceSec>', config.host)).pipe(ngFilesort()),
+        gulp.src('./src/js/*/*.js').pipe(babel()).pipe(ngFilesort()),
+        gulp.src(['src/templates/**/*.html']).pipe(templateCache({module: config.appName}))
     )
+
     .pipe(sourcemaps.init())
     .pipe(concat('app' + '.' + config.round + '.js'))
     .pipe(ngAnnotate())
