@@ -81,6 +81,7 @@ angular.module('ZJSY_WeChat').controller('ActivityDetailController',function($sc
                             $scope.enroll.payed = !($scope.enroll.payType == 1 && $scope.enroll.payStatus == 0);
                             $scope.enroll.phone = data.mobile;
                             $scope.enroll.orderId = data.enrollId;
+                            $scope.enroll.extraInfo=data.note;
                             $scope.enroll.createDate = data.createddate;
                         });
                 }

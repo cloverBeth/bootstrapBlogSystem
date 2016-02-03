@@ -49,14 +49,14 @@
         <div class="modal" ng-if="payModal">
             <div class="modal-backdrop in"></div>
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" onclick="getElementById('pay_input').focus()">
                     <div class="modal-header">
                         <button class="close"
                                 ng-click="$parent.payModal=false">&times;</button>
                         <h5 class="modal-title">一卡通支付</h5>
                     </div>
                     <div class="modal-body">
-                        <p >
+                        <p>
                             请输入一卡通密码:
                         </p>
                         <input type="password" ng-model="card.pwd" class="form-control" id="pay_input" style="margin:10px 0;width: 80%;font-size: 20px;" autocomplete="off"/>
