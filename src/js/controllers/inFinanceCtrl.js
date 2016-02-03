@@ -4,7 +4,7 @@ angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootSc
 
     $scope.typeList=[];
     $scope.childType = null;
-    $scope.orderSure=false;
+    var posted=false;
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0]|\s)+/;
@@ -64,36 +64,30 @@ angular.module('ZJSY_WeChat').controller('InFinanceController', function($rootSc
             $('#extraInfo').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的项目介绍～'});
             return;
-        }
-        //else if(!reg.test($scope.business.extraInfo)){
-        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文、数字字符～'});
-        //    return;
-        //}
-        else{
-
-            $http.post(X_context.api+"servicesOrder/add", {
-                "memberid" : X_context.memberId,
-                 "company" : $scope.business.compyName,
-               "contactor" : $scope.business.compyGuy,
-                  "mobile" : $scope.business.guyTel,
-                    "note" : $scope.business.extraInfo,
-               "serviceId" : $scope.childType,
-                 "project" : $scope.business.proName,
-                 "address" : $scope.business.address
-            })
-                .success(function(data){
-                    if(data.code==200){
-                        $scope.orderSure=true;//如何避免重复订单？？？？？
-                        $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
-                    }
-                    else{
-                        $scope.orderSure=true;
-                        $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
-                    }
+        }else{
+                if(posted == true)return;
+                posted = true;
+                $http.post(X_context.api+"servicesOrder/add", {
+                    "memberid" : X_context.memberId,
+                     "company" : $scope.business.compyName,
+                   "contactor" : $scope.business.compyGuy,
+                      "mobile" : $scope.business.guyTel,
+                        "note" : $scope.business.extraInfo,
+                   "serviceId" : $scope.childType,
+                     "project" : $scope.business.proName,
+                     "address" : $scope.business.address
                 })
+                    .success(function(data){
+                        if(data.code==200){
+                            $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                        }
+                        else{
+                            $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                        }
+                    })
 
 
-        }
+            }
 
 
     }

@@ -4,7 +4,6 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
     $scope.typeList=[];
     $scope.childType = null;
-    $scope.orderSure=false;
     var posted = false;
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
@@ -34,7 +33,6 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
     });
 
     $scope.goGardenOrder=function(){
-        if(posted == true)return;
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的商务策划服务～'});
             return;
@@ -61,24 +59,18 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
             return;
 
-        }
-        //else if(!reg.test($scope.business.extraInfo)){
-        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
-        //    return;
-        //}
-        else{
-
-            $http.post(X_context.api+"servicesOrder/add", {
-                "memberid" : X_context.memberId,
-                 "company" : $scope.business.compyName,
-               "contactor" : $scope.business.compyGuy,
-                  "mobile" : $scope.business.guyTel,
-                    "note" : $scope.business.extraInfo,
-               "serviceId" : $scope.childType,
-                 "address" : $scope.business.address
-            })
-                .success(function(data){
-                    posted = true;
+        }else{
+                if(posted == true)return;
+                posted = true;
+                $http.post(X_context.api+"servicesOrder/add", {
+                    "memberid" : X_context.memberId,
+                     "company" : $scope.business.compyName,
+                   "contactor" : $scope.business.compyGuy,
+                      "mobile" : $scope.business.guyTel,
+                        "note" : $scope.business.extraInfo,
+                   "serviceId" : $scope.childType,
+                     "address" : $scope.business.address
+                }).success(function(data){
                     if(data.code==200){
                         $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                     }

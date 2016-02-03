@@ -3,7 +3,6 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
     $scope.title="园艺服务";
 
     $scope.phoneReg=/^(1[0-9]{10})$/;
-    $scope.orderSure=false;
     var posted = false;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
@@ -33,7 +32,6 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
     });
 
     $scope.goGardenOrder=function(){
-        if(posted == true)return;
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的园艺服务～'});
             return;
@@ -55,43 +53,37 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 
-        }
-        //else if(!reg.test($scope.garden.extraInfo)){
-        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
-        //    return;
-        //}
-        else{
-            $scope.$parent.memberPromise.then(function(){
+        }else{
+                if(posted == true)return;
+                posted = true;
+                $scope.$parent.memberPromise.then(function(){
 
-                $http.post(X_context.api+"servicesOrder/add", {
-                    "memberid": X_context.memberId,
-                     "company":$scope.garden.compyName,
-                   "contactor":$scope.garden.compyGuy,
-                      "mobile":$scope.garden.guyTel,
-                        "note":$scope.garden.extraInfo,
-                   "serviceId":$scope.childType,
-                     "address":$scope.garden.address
-
-                })
-                    .success(function (data){
-                        posted = true;
-                        if(data.code==200){
-                            $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
-                            //console.log(data.data);
-                        }
-                        else{
-                            $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
-                        }
+                    $http.post(X_context.api+"servicesOrder/add", {
+                        "memberid": X_context.memberId,
+                         "company":$scope.garden.compyName,
+                       "contactor":$scope.garden.compyGuy,
+                          "mobile":$scope.garden.guyTel,
+                            "note":$scope.garden.extraInfo,
+                       "serviceId":$scope.childType,
+                         "address":$scope.garden.address
 
                     })
+                        .success(function (data){
+                            if(data.code==200){
+                                $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                                //console.log(data.data);
+                            }
+                            else{
+                                $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                            }
 
-            });
+                        })
 
-        }
+                });
 
+            }
 
-
-    }
+       }
 
 
 })

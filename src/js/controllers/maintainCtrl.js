@@ -17,7 +17,6 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
     }
     $scope.typeList=[];
     $scope.childType = null;
-    $scope.orderSure=false;
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
@@ -67,34 +66,34 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
             return;
 
         }else{
-            if(posted == true)return;
-            $scope.$parent.memberPromise.then(function(){
-                $http.post(X_context.api+"servicesOrder/add", {
-                    "memberid": X_context.memberId,
-                     "company":$scope.maintain.compyName,
-                   "contactor":$scope.maintain.compyGuy,
-                      "mobile":$scope.maintain.guyTel,
-                        "note":$scope.maintain.extraInfo,
-                   "serviceId":$scope.childType,
-                     "address":$scope.maintain.address
+                if(posted == true)return;
+                posted = true;
+                $scope.$parent.memberPromise.then(function(){
+                    $http.post(X_context.api+"servicesOrder/add", {
+                        "memberid": X_context.memberId,
+                         "company":$scope.maintain.compyName,
+                       "contactor":$scope.maintain.compyGuy,
+                          "mobile":$scope.maintain.guyTel,
+                            "note":$scope.maintain.extraInfo,
+                       "serviceId":$scope.childType,
+                         "address":$scope.maintain.address
 
-
-                })
-                    .success(function (data){
-                        posted = true;
-                        if(data.code==200){
-                            $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
-                            //console.log(data.data);
-                        }
-                        else{
-                            $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
-                        }
 
                     })
+                        .success(function (data){
+                            if(data.code==200){
+                                $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                                //console.log(data.data);
+                            }
+                            else{
+                                $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                            }
 
-              });
+                        })
 
-        }
+                  });
+
+            }
 
 
 

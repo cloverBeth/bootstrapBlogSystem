@@ -13,7 +13,6 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
         _id:null
     }
     $scope.typeList=[];
-    $scope.orderSure=false;
     var posted=false;
     $scope.childType=null;
     $scope.phoneReg=/^(1[0-9]{10})$/;
@@ -42,7 +41,6 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
     });
 
     $scope.goGardenOrder=function() {
-        if(posted == true)return;
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的送水服务～'});
             return;
@@ -67,40 +65,36 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
             $('#carNo').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您的车牌号～'});
             return;
-        }
-        //else if(!reg.test($scope.parking.extraInfo)){
-        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
-        //    return;
-        //}
-        else {
-            $scope.$parent.memberPromise.then(function () {
-                $http.post(X_context.api + "servicesOrder/add", {
-                    "memberid": X_context.memberId,
-                     "company": $scope.parking.compyName,
-                   "contactor": $scope.parking.compyGuy,
-                      "mobile": $scope.parking.guyTel,
-                   "serviceId": $scope.childType,
-                        "note": $scope.parking.extraInfo,
-                     "address": $scope.parking.address,
-                      "prop1" : $scope.parking.carNo
-                })
-                    .success(function (data) {
-                        posted = true;
-                        if(data.code==200){
-                            $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
-                            //console.log(data.data);
-                        }
-                        else{
-                            $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
-                        }
-
+        }else {
+                if(posted == true)return;
+                posted = true;
+                $scope.$parent.memberPromise.then(function () {
+                    $http.post(X_context.api + "servicesOrder/add", {
+                        "memberid": X_context.memberId,
+                         "company": $scope.parking.compyName,
+                       "contactor": $scope.parking.compyGuy,
+                          "mobile": $scope.parking.guyTel,
+                       "serviceId": $scope.childType,
+                            "note": $scope.parking.extraInfo,
+                         "address": $scope.parking.address,
+                          "prop1" : $scope.parking.carNo
                     })
+                        .success(function (data) {
+                            if(data.code==200){
+                                $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                                //console.log(data.data);
+                            }
+                            else{
+                                $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
+                            }
 
-              });
+                        })
 
-         }
+                  });
 
-    }
+             }
+
+        }
 
 
 });

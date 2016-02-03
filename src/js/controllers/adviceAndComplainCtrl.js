@@ -33,7 +33,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
     });
 
     $scope.goGardenOrder=function(){
-        if(posted == true)return;
+
         if (!$scope.advice.compyName) {
             $('#compyName').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});
@@ -54,34 +54,33 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您宝贵的评价与建议，只能是中、英文字符～'});
             return;
 
-        }
-        else{
-
-            $http.post(X_context.api+"servicesOrder/add", {
-                "memberid" : X_context.memberId,
-                 "company" : $scope.advice.compyName,
-               "contactor" : $scope.advice.compyGuy,
-                  "mobile" : $scope.advice.guyTel,
-                    "note" : $scope.advice.extraInfo,
-               "serviceId" : $scope.childType,
-            })
-                .success(function(data){
-                    posted = true;
-                    if(data.code==200){
-                        $rootScope.$broadcast('alerts', {type: 'danger', message: '留言成功！感谢您的评价和建议，我们将做得更好'});
-                        $scope.advice.extraInfo=null;
-                        $scope.advice.compyName=null;
-                        $scope.advice.compyGuy=null;
-
-                    }
-
+        }else{
+                if(posted == true)return;
+                posted = true;
+                $http.post(X_context.api+"servicesOrder/add", {
+                    "memberid" : X_context.memberId,
+                     "company" : $scope.advice.compyName,
+                   "contactor" : $scope.advice.compyGuy,
+                      "mobile" : $scope.advice.guyTel,
+                        "note" : $scope.advice.extraInfo,
+                   "serviceId" : $scope.childType,
                 })
+                    .success(function(data){
+                        if(data.code==200){
+                            $rootScope.$broadcast('alerts', {type: 'danger', message: '留言成功！感谢您的评价和建议，我们将做得更好'});
+                            $scope.advice.extraInfo=null;
+                            $scope.advice.compyName=null;
+                            $scope.advice.compyGuy=null;
+
+                        }
+
+                    })
 
 
-        }
+             }
 
 
-    }
+     }
 
 
 })
