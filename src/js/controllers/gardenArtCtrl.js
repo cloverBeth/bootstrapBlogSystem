@@ -34,7 +34,6 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
 
     $scope.goGardenOrder=function(){
         if(posted == true)return;
-        posted = true;
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的园艺服务～'});
             return;
@@ -75,13 +74,12 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
 
                 })
                     .success(function (data){
+                        posted = true;
                         if(data.code==200){
-                            $scope.orderSure=true;
                             $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                             //console.log(data.data);
                         }
                         else{
-                            $scope.orderSure=true;
                             $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
                         }
 

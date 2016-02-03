@@ -44,8 +44,7 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
     });
 
     $scope.goGardenOrder=function(){
-        if(posted == true)return;
-        posted = true;
+
 
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的维修服务～'});
@@ -67,12 +66,8 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入正确的11位手机号～'});
             return;
 
-        }
-        //else if(!reg.test($scope.maintain.extraInfo)){
-        //    $rootScope.$broadcast('alerts', {type: 'danger', message: '最后一项请输入中、英文字符～'});
-        //    return;
-        //}
-        else{
+        }else{
+            if(posted == true)return;
             $scope.$parent.memberPromise.then(function(){
                 $http.post(X_context.api+"servicesOrder/add", {
                     "memberid": X_context.memberId,
@@ -86,6 +81,7 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
 
                 })
                     .success(function (data){
+                        posted = true;
                         if(data.code==200){
                             $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                             //console.log(data.data);

@@ -35,7 +35,6 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
 
     $scope.goGardenOrder=function(){
         if(posted == true)return;
-        posted = true;
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的商务策划服务～'});
             return;
@@ -79,6 +78,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
                  "address" : $scope.business.address
             })
                 .success(function(data){
+                    posted = true;
                     if(data.code==200){
                         $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                     }

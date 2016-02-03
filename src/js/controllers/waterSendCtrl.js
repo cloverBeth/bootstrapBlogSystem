@@ -34,7 +34,6 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
 
         $scope.goGardenOrder=function(){
             if(posted == true)return;
-            posted = true;
             if(!$scope.childType){
                 $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的送水服务～'});
                 return;
@@ -77,12 +76,11 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                     })
                         .success(function(data){
                             console.log('123');
+                            posted = true;
                             if(data.code==200){
-                                $scope.orderSure=true;
                                 $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                             }
                             else{
-                                $scope.orderSure=true;
                                 $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
                             }
                         })

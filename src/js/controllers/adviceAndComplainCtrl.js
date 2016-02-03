@@ -34,7 +34,6 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
     $scope.goGardenOrder=function(){
         if(posted == true)return;
-        posted = true;
         if (!$scope.advice.compyName) {
             $('#compyName').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});
@@ -67,6 +66,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
                "serviceId" : $scope.childType,
             })
                 .success(function(data){
+                    posted = true;
                     if(data.code==200){
                         $rootScope.$broadcast('alerts', {type: 'danger', message: '留言成功！感谢您的评价和建议，我们将做得更好'});
                         $scope.advice.extraInfo=null;
