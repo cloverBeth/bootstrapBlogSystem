@@ -6,6 +6,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
     $scope.childType = null;
     $scope.orderSure=false;
     $scope.phoneReg=/^(1[0-9]{10})$/;
+    var posted=false;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     $http.post(X_context.api + "services/listServices", {
@@ -32,7 +33,8 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
         });
 
         $scope.goGardenOrder=function(){
-
+            if(posted == true)return;
+            posted = true;
             if(!$scope.childType){
                 $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的送水服务～'});
                 return;

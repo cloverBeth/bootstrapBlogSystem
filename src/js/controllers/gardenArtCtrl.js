@@ -4,6 +4,7 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
 
     $scope.phoneReg=/^(1[0-9]{10})$/;
     $scope.orderSure=false;
+    var posted = false;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
 
@@ -32,6 +33,8 @@ angular.module('ZJSY_WeChat').controller('GardenArtController', function($rootSc
     });
 
     $scope.goGardenOrder=function(){
+        if(posted == true)return;
+        posted = true;
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的园艺服务～'});
             return;

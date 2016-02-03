@@ -4,6 +4,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
 
     $scope.typeList=[];
     $scope.childType = null;
+    var posted = false;
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
@@ -32,7 +33,8 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
     });
 
     $scope.goGardenOrder=function(){
-
+        if(posted == true)return;
+        posted = true;
         if (!$scope.advice.compyName) {
             $('#compyName').focus();
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请填写公司名称～'});

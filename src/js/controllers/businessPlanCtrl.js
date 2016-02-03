@@ -5,6 +5,7 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
     $scope.typeList=[];
     $scope.childType = null;
     $scope.orderSure=false;
+    var posted = false;
     $scope.phoneReg=/^(1[0-9]{10})$/;
     var pattern = /^[-'a-z\u4e00-\u9eff]{1,40}$/i;
     var reg=/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])+/;
@@ -33,7 +34,8 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
     });
 
     $scope.goGardenOrder=function(){
-
+        if(posted == true)return;
+        posted = true;
         if(!$scope.childType){
             $rootScope.$broadcast('alerts', {type: 'danger', message: '请输入您需要的商务策划服务～'});
             return;
@@ -78,11 +80,9 @@ angular.module('ZJSY_WeChat').controller('BusinessPlanController', function($roo
             })
                 .success(function(data){
                     if(data.code==200){
-                        $scope.orderSure=true;//如何避免重复订单？？？？？
                         $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
                     }
                     else{
-                        $scope.orderSure=true;
                         $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});
                     }
                 })
