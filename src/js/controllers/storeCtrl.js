@@ -5,7 +5,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     $scope.title = "";
     $scope.navHeight = 150;
     $scope.noBanner = false;
-
+    $scope.resting='(打烊了)';
     console.log('storeId',$stateParams.storeId);
     $scope.storeId = $stateParams.storeId || X_context.storeId || 1;
     X_context.storeId = $scope.storeId;
@@ -28,9 +28,21 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     $scope.storePromise = $http.post(X_context.api + 'store/list',{
         storeId : $scope.storeId,
     }).success(function(data){
+
+        for(var i in data.data) {
+            if (data.data[i].flag1 == 2) {
+                $scope.title = data.data[i].storeName + $scope.resting;
+                $scope.storeTitle = data.data[i].storeName + $scope.resting;
+                console.log($scope.storeTitle)
+
+            } else {
+                $scope.title = data.data[i].storeName;
+                $scope.storeTitle = data.data[i].storeName;
+            }
+        }
+        //$scope.storeTitle = data.data[0].storeName;
+        //$scope.title = data.data[0].storeName;
         $scope.storeDetail = data.data[0];
-        $scope.storeTitle = data.data[0].storeName;
-        $scope.title = data.data[0].storeName;
         $scope.cart.min = data.data[0].freight;
         $scope.cart.freightFee = data.data[0].freightfee;
         $scope.notice.title = data.data[0].annTitle;
@@ -130,7 +142,23 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
 
     $scope.goToCart = function(){
         //if($scope.totalPrice == 0)return;
-        $state.go('store.cart',{storeId:X_context.storeId});
+        $scope.storePromise = $http.post(X_context.api + 'store/list',{
+            storeId : $scope.storeId,
+        }).success(function(data){
+
+            for(var i in data.data) {
+                if(data.data[i].flag1==2){
+                    $rootScope.$broadcast('alerts', {type: 'danger', message: 'Sorry!暂停营业～'});
+                    return;
+                }
+                else{
+                    $state.go('store.cart',{storeId:X_context.storeId});
+
+                }
+            }
+
+        });
+
 
     }
 
