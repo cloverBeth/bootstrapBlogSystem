@@ -6,6 +6,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
     $scope.navHeight = 150;
     $scope.noBanner = false;
     $scope.resting='(打烊了)';
+    $scope.flag='';
     console.log('storeId',$stateParams.storeId);
     $scope.storeId = $stateParams.storeId || X_context.storeId || 1;
     X_context.storeId = $scope.storeId;
@@ -33,7 +34,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
             if (data.data[i].flag1 == 2) {
                 $scope.title = data.data[i].storeName + $scope.resting;
                 $scope.storeTitle = data.data[i].storeName + $scope.resting;
-                console.log($scope.storeTitle)
+                console.log($scope.storeTitle+$scope.title);
 
             } else {
                 $scope.title = data.data[i].storeName;
@@ -42,6 +43,7 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
         }
         //$scope.storeTitle = data.data[0].storeName;
         //$scope.title = data.data[0].storeName;
+        $scope.flag=data.data[0].flag1;
         $scope.storeDetail = data.data[0];
         $scope.cart.min = data.data[0].freight;
         $scope.cart.freightFee = data.data[0].freightfee;
@@ -142,23 +144,14 @@ angular.module('ZJSY_WeChat').controller('StoreController', function($scope,$loc
 
     $scope.goToCart = function(){
         //if($scope.totalPrice == 0)return;
-        $scope.storePromise = $http.post(X_context.api + 'store/list',{
-            storeId : $scope.storeId,
-        }).success(function(data){
-
-            for(var i in data.data) {
-                if(data.data[i].flag1==2){
+                if($scope.flag==2){
                     $rootScope.$broadcast('alerts', {type: 'danger', message: 'Sorry!暂停营业～'});
+                    //console.log($scope.flag);
                     return;
-                }
-                else{
+                }else{
                     $state.go('store.cart',{storeId:X_context.storeId});
 
                 }
-            }
-
-        });
-
 
     }
 
