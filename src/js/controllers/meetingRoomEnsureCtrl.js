@@ -49,15 +49,15 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
         //}
         $http.post(X_context.api + 'meeting/rentRoom',
             {
-                roomid : $scope.room.id,
-                meetingdate : `${$scope.date.getFullYear()}-${$scope.date.getMonth()+1}-${$scope.date.getDate()}`,
-                meetingtime : _.pluck($scope.time,'id').join(','),
-                memberid : X_context.memberId,
+                roomId : $scope.room.id,
+                meetingDate : `${$scope.date.getFullYear()}-${$scope.date.getMonth()+1}-${$scope.date.getDate()}`,
+                meetingTime : _.pluck($scope.time,'id').join(','),
+                memberId : X_context.memberId,
                 contact : $scope.user,
                 remark : $scope.memo,
                 mobile : $scope.phone,
                 company : $scope.company,
-                paytype : true
+                payType : true
 
     }).success(function(data){
         $state.go('meetingRoomSucceed',{orderId:data.data[0].orderId});
@@ -92,15 +92,15 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomEnsureController', function
         //}
         $http.post(X_context.api + 'meeting/rentRoom',
             {
-                roomid : $scope.room.id,
-                meetingdate : `${$scope.date.getFullYear()}-${$scope.date.getMonth()+1}-${$scope.date.getDate()}`,
-        meetingtime : _.pluck($scope.time,'id').join(','),
-            memberid : X_context.memberId,
+            roomId : $scope.room.id,
+            meetingDate : `${$scope.date.getFullYear()}-${$scope.date.getMonth()+1}-${$scope.date.getDate()}`,
+            meetingTime : _.pluck($scope.time,'id').join(','),
+            memberId : X_context.memberId,
             contact : $scope.user,
             remark : $scope.memo,
             mobile : $scope.phone,
             company : $scope.company,
-            paytype : false
+            payType : false
 
     }).success(function(data){
         $state.go('cardLogin',{from:{fromMeeting : true,orderId : data.data[0].orderId}});

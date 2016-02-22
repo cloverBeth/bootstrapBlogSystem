@@ -8,7 +8,7 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
         console.log("serviceOrderId:"+$stateParams.serviceOrderId);
 
         $http.post(X_context.api+"servicesOrder/list", {
-            "memberid": X_context.memberId,
+            "memberId": X_context.memberId,
                  "_id": $stateParams.serviceOrderId,
                   page: $scope.currentPage,
               pageSize: $scope.pageSize,
@@ -17,8 +17,8 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedController",function($sc
                 if(!data.data){return;}
                 var result=data.data.result[0];
                 $scope.orderSucceed.type=result.services.parentTitle;
-                $scope.orderSucceed.orderNumber=result.ordersn;
-                $scope.orderSucceed.status=result.orderstatus;
+                $scope.orderSucceed.orderNumber=result.orderSn;
+                $scope.orderSucceed.status=result.orderStatus;
                 $scope.orderSucceed.telphone=result.services.mobile;
                 $scope.orderSucceed.address=result.address;
                 //if(!data.data[0]){return;}

@@ -58,7 +58,7 @@ angular.module('ZJSY_WeChat').controller('AdviceAndComplainController', function
                 if(posted == true)return;
                 posted = true;
                 $http.post(X_context.api+"servicesOrder/add", {
-                    "memberid" : X_context.memberId,
+                    "memberId" : X_context.memberId,
                      "company" : $scope.advice.compyName,
                    "contactor" : $scope.advice.compyGuy,
                       "mobile" : $scope.advice.guyTel,

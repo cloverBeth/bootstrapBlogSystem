@@ -70,7 +70,7 @@ angular.module('ZJSY_WeChat').controller('ParkingController', function($rootScop
                 posted = true;
                 $scope.$parent.memberPromise.then(function () {
                     $http.post(X_context.api + "servicesOrder/add", {
-                        "memberid": X_context.memberId,
+                        "memberId": X_context.memberId,
                          "company": $scope.parking.compyName,
                        "contactor": $scope.parking.compyGuy,
                           "mobile": $scope.parking.guyTel,

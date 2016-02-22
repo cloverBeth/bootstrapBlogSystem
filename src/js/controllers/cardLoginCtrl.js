@@ -165,7 +165,7 @@ angular.module('ZJSY_WeChat').controller('CardLoginController',function($scope,$
     }
 
     $http.get(X_context.api + 'member/getCurMem').success(function(data){
-        $scope.card.num = data.data[0].allincardNo;
-        $scope.originNo = data.data[0].allincardNo;
+        $scope.card.num = data.data[0].allinCardNo;
+        $scope.originNo = data.data[0].allinCardNo;
     });
 });

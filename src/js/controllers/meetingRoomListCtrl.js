@@ -12,7 +12,7 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomListController', function($
             _.forEach(data.data,function(room,i){
                 $scope.roomList.push({
                     name : room.name,
-                    info1 : room.subtitle,
+                    info1 : room.subTitle,
                     info2 : room.descr,
                     img : X_context.devHost + room.image || "images/meeting-room-1.png",
                     id : room.id

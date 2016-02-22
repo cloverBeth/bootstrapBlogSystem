@@ -70,7 +70,7 @@ angular.module('ZJSY_WeChat').controller('MaintainController', function($rootSco
                 posted = true;
                 $scope.$parent.memberPromise.then(function(){
                     $http.post(X_context.api+"servicesOrder/add", {
-                        "memberid": X_context.memberId,
+                        "memberId": X_context.memberId,
                          "company":$scope.maintain.compyName,
                        "contactor":$scope.maintain.compyGuy,
                           "mobile":$scope.maintain.guyTel,

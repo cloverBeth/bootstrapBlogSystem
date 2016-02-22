@@ -195,8 +195,8 @@ angular.module('ZJSY_WeChat').controller('MeetingRoomOrderController', function(
         $scope.timeList = _.cloneDeep(originList);
         $http.post(X_context.api + 'meeting/listTime',
             {
-                "meetingdate" : `${$scope.dt.getFullYear()}-${$scope.dt.getMonth()+1}-${$scope.dt.getDate()}`,
-                "roomid" : $scope.roomId
+                "meetingDate" : `${$scope.dt.getFullYear()}-${$scope.dt.getMonth()+1}-${$scope.dt.getDate()}`,
+                "roomId" : $scope.roomId
             }).success(function(data){
                 let orderList = [];
                 _.forEach(data.data,function(order,i){

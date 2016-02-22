@@ -60,7 +60,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendController', function($rootSc
                     if(posted == true)return;
                     posted = true;
                     $http.post(X_context.api+"servicesOrder/add", {
-                        "memberid" : X_context.memberId,
+                        "memberId" : X_context.memberId,
                          "company" : $scope.garden.compyName,
                        "contactor" : $scope.garden.compyGuy,
                           "mobile" : $scope.garden.guyTel,

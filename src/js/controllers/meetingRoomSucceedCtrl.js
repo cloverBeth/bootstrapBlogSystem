@@ -8,11 +8,11 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
 
     $scope.$parent.memberPromise.then(function(){
         $http.post(X_context.api+"meeting/listMemberOrder", {
-            "memberid" : X_context.memberId,
-            "orderid" : $scope.orderId
+            "memberId" : X_context.memberId,
+            "orderId" : $scope.orderId
         }).success(function (data){
             if(!data.data){return;}
-            $scope.cashPay=data.data[0].paytype;//现金支付
+            $scope.cashPay=data.data[0].payType;//现金支付
             if($scope.cashPay=="true"){
                 $scope.title = "预约成功";
                 $scope.cashPay=false;
@@ -25,11 +25,11 @@ angular.module("ZJSY_WeChat").controller("MeetingRoomSucceedController",function
 
             }
 
-            $scope.orderNumber = data.data[0].ordersn;
-            $scope.expense = data.data[0].payamount;
-            $scope.payway = data.data[0].paytype;
+            $scope.orderNumber = data.data[0].orderSn;
+            $scope.expense = data.data[0].payAmount;
+            $scope.payway = data.data[0].payType;
 
-            if($scope.payway == "false" && data.data[0].paystatus == "false"){
+            if($scope.payway == "false" && data.data[0].payStatus == "false"){
                 $scope.success = false;
                 $scope.title = "下单失败";
             }
