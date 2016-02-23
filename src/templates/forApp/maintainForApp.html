@@ -1,0 +1,83 @@
+
+<header class="header">
+    <div class="back">
+        <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+    </div>
+    <div class="title">
+        {{title}}
+    </div>
+
+</header>
+<div class="main-section main garden-art">
+
+    <div class="form-horizontal middle-squar"name="gardenForm">
+        <div>
+            <img src="images/maintain_banner.jpg" width="100%"height="100%"alt=""/>
+        </div>
+        <div class="garden-service row">
+            <span class="col-xs-4 typeOfService">服务类型</span>
+            <div class="outer col-xs-8">
+                <div class="choosed "ng-repeat="radio in typeList track by $index">
+                    <input type="radio" checked="checked" name="garden"id="{{'radio-'+radio.id}}"
+                           class="regular-checkbox"ng-value="radio.id"ng-model="$parent.childType">
+                    <label for="{{'radio-'+radio.id}}"></label>
+                    <label class="beLarge"for="{{'radio-'+radio.id}}">{{radio.typeTitle}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="companyInfo">
+            <ul>
+                <li class="row">
+                    <label class="col-xs-4"for="compyName">公司名称</label>
+                    <input class="col-xs-8"placeholder="请填写公司名称" type="text"id="compyName"
+                           ng-model="maintain.compyName"/>
+                </li>
+                <li class="row">
+                    <label class="col-xs-4"for="address">公司地址</label>
+                    <input class="col-xs-8"placeholder="请填写公司地址" type="text"id="address"
+                           ng-model="maintain.address"/>
+                </li>
+                <li class="row">
+                    <label class="col-xs-4"for="compyGuy">联&nbsp; 系&nbsp; 人</label>
+                    <input class="col-xs-8"placeholder="请填写联系人姓名"type="text"id="compyGuy"
+                           ng-model="maintain.compyGuy"/>
+                </li>
+                <li class="row">
+                    <label class="col-xs-4"for="guyTel">联系电话</label>
+                    <input class="col-xs-8"maxlength="11"placeholder="请填写联系人手机号码"type="text"id="guyTel"
+                           ng-model="maintain.guyTel"/>
+                </li>
+                <li class="row">
+                    <label class="col-xs-4"for="extraInfo">备注信息</label>
+                    <textarea class="col-xs-8 text-area"placeholder="请填写备注信息"id="extraInfo"
+                              ng-model="maintain.extraInfo"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="form-group gardenbtn">
+            <button type="submit"class="gardenbtn redBtn"ng-click="goGardenOrder()"style="line-height:2rem">确定提交</button>
+        </div>
+    </div>
+    <!--<div ui-content-for="modals">-->
+
+        <!--<div class="modal" ng-if="cancelModal">-->
+            <!--<div class="modal-backdrop in"></div>-->
+            <!--<div class="modal-dialog">-->
+                <!--<div class="modal-content">-->
+                    <!--<div class="modal-header"style="margin-bottom:20px;">-->
+                        <!--<button class="close"-->
+                                <!--ng-click="$parent.cancelModal=false"style="margin-top:-15px;">&times;</button>-->
+                    <!--</div>-->
+                    <!--<div class="modal-body">-->
+                        <!--<p >-->
+                            <!--您的订单已提交，我们会尽快联系您～-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="modal-footer">-->
+                        <!--<button ng-click="goGardenOrder()" class="btn redBtn">确定</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

@@ -1487,10 +1487,19 @@ label {
     }
 }
 
-
+.online-service-for-app{
+  .header{
+    background-color:#081131;
+  }
+  .title{
+    color:white;
+    font-weight:bold;
+  }
+}
 .online-service{
     width:100%;
     background:white;
+
     .header{
       .back img{
       width: 10px;

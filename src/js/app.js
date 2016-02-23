@@ -422,7 +422,15 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-
+        .state('onlineServiceForApp',{
+            url:'/online-service-for-app',
+            views:{
+                '':{
+                    templateUrl:'forApp/onlineServiceForApp.html',
+                    controller: 'OnlineServiceForAppController'
+                }
+            }
+        })
         .state('serviceOrder',{
             url:'/service-order/{serviceOrderId}',
             views:{
@@ -509,6 +517,22 @@ angular.module('ZJSY_WeChat', [
                 }
                 }
         })
+        .state('gardenArtForApp',{
+            url:'/garden-art-for-app',
+            views: {
+                '': {
+                    templateUrl: 'forApp/gardenArtForApp.html',
+                    controllerProvider: function ($state, $stateParams, checkAuth) {
+                        if (!checkAuth.check()){
+                            window.history.pushState({}, "addHisory", "#/garden-art");
+                            return $state.go('login');
+                        }
+                        var ctrlName = "GardenArtForAppController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
         .state('meetingRoomList',{
             url:'/meeting-room-list',
             views:{
@@ -569,22 +593,22 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-            .state('waterSendForApp',{
-                url:'/water-send-for-app',
-                views:{
-                    '':{
-                        templateUrl:'waterSendForApp.html',
-                        controllerProvider:function($state,$stateParams,checkAuth){
-                            if(!checkAuth.check()){
-                                //window.history.pushState({}, "addHisory", "#/water-send");
-                                return $state.go('login');
-                            }
-                            var ctrlName="WaterSendForAppController";
-                            return ctrlName;
+        .state('waterSendForApp',{
+            url:'/water-send-for-app',
+            views:{
+                '':{
+                    templateUrl:'forApp/waterSendForApp.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check()){
+                            //window.history.pushState({}, "addHisory", "#/water-send");
+                            return $state.go('login');
                         }
+                        var ctrlName="WaterSendForAppController";
+                        return ctrlName;
                     }
                 }
-            })
+            }
+        })
         .state('maintain',{
             url:'/maintain',
             views:{
@@ -596,6 +620,22 @@ angular.module('ZJSY_WeChat', [
                             return $state.go('login');
                         }
                         var ctrlName="MaintainController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
+        .state('maintainForApp',{
+            url:'/maintain-for-app',
+            views:{
+                '':{
+                    templateUrl:'forApp/maintainForApp.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check()){
+                            //window.history.pushState({}, "addHisory", "#/maintain");
+                            return $state.go('login');
+                        }
+                        var ctrlName="MaintainForAppController";
                         return ctrlName;
                     }
                 }
@@ -614,6 +654,19 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('parkingForApp',{
+            url:'/parking-for-app',
+            views:{
+                '':{
+                    templateUrl:'forApp/parkingForApp.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName="ParkingForAppController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
         .state('adviceAndComplain',{
             url:'/advice-and-complain',
             views:{
@@ -622,6 +675,19 @@ angular.module('ZJSY_WeChat', [
                     controllerProvider:function($state,$stateParams,checkAuth){
                         if(!checkAuth.check())return $state.go('login');
                         var ctrlName="AdviceAndComplainController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
+        .state('adviceAndComplainForApp',{
+            url:'/advice-and-complain-for-app',
+            views:{
+                '':{
+                    templateUrl:'forApp/adviceAndComplainForApp.html',
+                    controllerProvider:function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName="AdviceAndComplainForAppController";
                         return ctrlName;
                     }
                 }
