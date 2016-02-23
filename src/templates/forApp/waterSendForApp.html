@@ -1,13 +1,12 @@
-
-<header class="header">
+<header class="header" id="water-send-head">
     <div class="back">
-        <a href="javascript:window.history.back();"><img src="images/ico_1.png" /></a>
+        <a href="javascript:window.history.back();"><img src="images/white_back.png" /></a>
     </div>
     <div class="title">
         {{title}}
     </div>
 </header>
-<div class="main-section main garden-art">
+<div class="main-section main garden-art water-send-for-app">
 
     <div class="form-horizontal middle-squar"name="gardenForm">
         <div>
@@ -16,9 +15,10 @@
         <div class="garden-service row">
             <span class="col-xs-4 typeOfService">服务类型</span>
             <div class="outer col-xs-8">
-                <div class="choosed "ng-repeat="radio in typeList track by $index">
+                <div class="f_l"ng-repeat="radio in typeList track by $index">
+                    <span class="check_switch"></span>
                     <input type="radio" name="garden" id="{{'radio-'+radio.id}}"
-                           class="regular-checkbox" ng-value="radio.id" ng-model="$parent.childType">
+                          ng-value="radio.id" ng-model="$parent.childType">
                     <label for="{{'radio-'+radio.id}}"></label>
                     <label class="beLarge"for="{{'radio-'+radio.id}}">{{radio.typeTitle}}</label>
                 </div>
@@ -54,7 +54,7 @@
             </ul>
         </div>
         <div class="form-group gardenbtn">
-            <button type="submit"class="gardenbtn redBtn"ng-click="goGardenOrder()"style="line-height:2rem">确定提交</button>
+            <button type="submit"class="water-send gardenbtn redBtn"ng-click="goGardenOrder()"style="line-height:2rem">确定提交</button>
         </div>
     </div>
 

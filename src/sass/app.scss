@@ -1244,6 +1244,9 @@ label {
         color:#FFFFFF;
         font-weight:600;
     }
+ .water-send{
+    background-color:#3792ec;
+  }
 
 }
 
@@ -1292,7 +1295,8 @@ label {
                 width:40px;
                 height:25px;
                 margin:-16px 0 0 45px;
-                float:left;display:block;
+                float:left;
+                display:block;
                 background:url(../images/up.png)no-repeat;
                 background-size: 16px 18px;
             }
@@ -2019,4 +2023,44 @@ label {
   font-size:12px !important;
 }
 
+
+
+
+
+#water-send-head{
+  background-color:#3792ec;
+  border:none;
+  .title{
+    color:white;
+    font-weight:bold;
+  }
+}
+.water-send-for-app{
+  .outer .f_l{
+    display:inline-block;
+    margin: 0;
+    height: 40px;
+  }
+  .check_switch{
+    dispay:block;
+    width:30px;
+    height:30px;
+    border-radius:3px;
+    margin-right:3px;
+    background:url(../images/no_check.png)no-repeat center;
+  }
+  input[type="radio"]{
+    margin: -5px 0 0 -20px;
+    display: none;
+  }
+  .form-horizontal .garden-service .outer {
+    padding: 0 0 10px 0;
+  }
+  .beLarge{
+    margin:0 2px 0 3px;
+    font-family: Helvetica-lighter;
+    color: #666;
+    font-size: 1.6rem;
+  }
+}
 
