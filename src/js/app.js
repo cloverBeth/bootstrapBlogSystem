@@ -569,7 +569,22 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
-
+            .state('waterSendForApp',{
+                url:'/water-send-for-app',
+                views:{
+                    '':{
+                        templateUrl:'waterSendForApp.html',
+                        controllerProvider:function($state,$stateParams,checkAuth){
+                            if(!checkAuth.check()){
+                                //window.history.pushState({}, "addHisory", "#/water-send");
+                                return $state.go('login');
+                            }
+                            var ctrlName="WaterSendForAppController";
+                            return ctrlName;
+                        }
+                    }
+                }
+            })
         .state('maintain',{
             url:'/maintain',
             views:{
