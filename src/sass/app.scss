@@ -726,6 +726,7 @@ strong.ng-binding{font-weight:400;}
 .mt20{margin-top:22px;}
 .mt-40{margin-top:40px;}
 .mt-15{margin-top:15px;}
+.mt-35{margin-top:35px;}
 /****************************************************/
 
 .btn{ display:block;color:#fff;font-size:4.6vw;line-height:2.8em;text-align:center;
@@ -1244,8 +1245,20 @@ label {
         color:#FFFFFF;
         font-weight:600;
     }
- .water-send{
+ .water-send-btn{
     background-color:#3792ec;
+  }
+  .garden-art-btn{
+    background-color:#209557;
+  }
+  .maintain-btn{
+    background-color:#6f4ea0;
+  }
+  .advice-btn{
+    background-color:#c9195a;
+  }
+  .parking-btn{
+    background-color:#e8be41;
   }
 
 }
@@ -1403,14 +1416,17 @@ label {
       line-height:2.4em;
     }
     .pay h3{padding:0 0 0 15px;}
-    .danhao{height:125px;width:100%;padding:20px 0 20px 5px;}
-    .danhao p span {
-      color: #666;
+    .danhao{height:150px;width:100%;padding:20px 0 20px 5px;}
+  .danhao p span.col-xs-4{
+    color: #666 !important;
+  }
+    .danhao p .col-xs-8{
+      color: #999 !important;
       display:inline-block;
       padding:0 0 0 15px;
     }
     .danhao span#money-total{color:#D00;}
-    .danhao span.pad-left{
+    .danhao span.pad-left.danhao a.pad-left{
       padding-left:0;
       color:#9E9696;
     }
@@ -1454,6 +1470,24 @@ label {
     .pay h3{font-size:16px;}
 
 
+}
+.service-succeed-for-app {
+  .header {
+    background-color: #081131 !important;
+  }
+  .title {
+    color: white;
+    font-weight: bold;
+  }
+
+  .danhao{
+    margin-top:0;
+  }
+  .service-succeed-btn {
+    background: #666666;
+    font-size:16px;
+    height:50px;
+  }
 }
 
 
@@ -1514,8 +1548,13 @@ label {
       height:130px;
     }
     .navOnline{
-      min-height:60px;height:auto;width:100%;background:#ffffff;text-align:left;font-size:16px;
-      color:#928A8A;margin:42px 0 0 0;
+      min-height:60px;
+      height:auto;
+      width:100%;
+      background:#ffffff;
+      text-align:left;font-size:16px;
+      color:#928A8A;
+      margin:42px 0 20px 0;
         .row{padding:0;margin:0 auto;}
         .navbar{padding:2px 5px;margin:0  0 0px 0;}
     }
@@ -2026,7 +2065,7 @@ label {
 
 
 
-
+/************************ css  for app *********************************/
 #water-send-head{
   background-color:#3792ec;
   border:none;
@@ -2035,32 +2074,94 @@ label {
     font-weight:bold;
   }
 }
-.water-send-for-app{
-  .outer .f_l{
-    display:inline-block;
-    margin: 0;
-    height: 40px;
-  }
-  .check_switch{
-    dispay:block;
-    width:30px;
-    height:30px;
-    border-radius:3px;
-    margin-right:3px;
-    background:url(../images/no_check.png)no-repeat center;
-  }
-  input[type="radio"]{
-    margin: -5px 0 0 -20px;
-    display: none;
-  }
-  .form-horizontal .garden-service .outer {
-    padding: 0 0 10px 0;
-  }
-  .beLarge{
-    margin:0 2px 0 3px;
-    font-family: Helvetica-lighter;
-    color: #666;
-    font-size: 1.6rem;
+#garden-art-head{
+  background-color:#209557;
+  border:none;
+  .title{
+    color:white;
+    font-weight:bold;
   }
 }
+#maintain-head{
+  background-color:#6f4ea0;
+  border:none;
+  .title{
+    color:white;
+    font-weight:bold;
+  }
+}
+#parking-head{
+  background-color:#e8be41;
+  border:none;
+  .title{
+    color:white;
+    font-weight:bold;
+  }
+}
+
+#advice-head{
+  background-color:#c9195a;
+  border:none;
+  .title{
+    color:white;
+    font-weight:bold;
+  }
+
+}
+
+.water-send-for-app{
+  .regular-checkbox:checked + label:after {
+    content: '\2714';
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    color: #3792EC !important;
+  }
+}
+  .garden-art-for-app{
+    .regular-checkbox:checked + label:after {
+      content: '\2714';
+      font-size: 14px;
+      position: absolute;
+      top: 0px;
+      left: 1px;
+      color: #209557 !important;
+    }
+  }
+
+  .maintain-for-app{
+    .regular-checkbox:checked + label:after {
+      content: '\2714';
+      font-size: 14px;
+      position: absolute;
+      top: 0px;
+      left: 1px;
+      color: #6f4ea0 !important;
+    }
+  }
+
+  .parking-for-app{
+    .regular-checkbox:checked + label:after {
+      content: '\2714';
+      font-size: 14px;
+      position: absolute;
+      top: 0px;
+      left: 1px;
+      color:#e8be41 !important;
+    }
+
+  }
+
+  .advice-for-app{
+    .regular-checkbox:checked + label:after {
+      content: '\2714';
+      font-size: 14px;
+      position: absolute;
+      top: 0px;
+      left: 1px;
+      color:#c9195a !important;
+    }
+  }
+
 

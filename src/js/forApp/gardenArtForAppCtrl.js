@@ -70,7 +70,7 @@ angular.module('ZJSY_WeChat').controller('GardenArtForAppController', function($
                     })
                         .success(function (data){
                             if(data.code==200){
-                                $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                                $state.go('serviceSucceedForApp',{serviceOrderId:data.data[0]._id});
                                 //console.log(data.data);
                             }
                             else{

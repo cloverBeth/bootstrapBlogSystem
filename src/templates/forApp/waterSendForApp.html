@@ -15,15 +15,15 @@
         <div class="garden-service row">
             <span class="col-xs-4 typeOfService">服务类型</span>
             <div class="outer col-xs-8">
-                <div class="f_l"ng-repeat="radio in typeList track by $index">
-                    <span class="check_switch"></span>
-                    <input type="radio" name="garden" id="{{'radio-'+radio.id}}"
-                          ng-value="radio.id" ng-model="$parent.childType">
+                <div class="choosed "ng-repeat="radio in typeList track by $index">
+                    <input type="radio" name="garden"id="{{'radio-'+radio.id}}" class="regular-checkbox"
+                           ng-value="radio.id"ng-model="$parent.childType">
                     <label for="{{'radio-'+radio.id}}"></label>
                     <label class="beLarge"for="{{'radio-'+radio.id}}">{{radio.typeTitle}}</label>
                 </div>
             </div>
         </div>
+
         <div class="companyInfo">
             <ul>
                 <li class="row">
@@ -54,7 +54,7 @@
             </ul>
         </div>
         <div class="form-group gardenbtn">
-            <button type="submit"class="water-send gardenbtn redBtn"ng-click="goGardenOrder()"style="line-height:2rem">确定提交</button>
+            <button type="submit"class="water-send-btn gardenbtn redBtn"ng-click="goGardenOrder()"style="line-height:2rem">确定提交</button>
         </div>
     </div>
 

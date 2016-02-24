@@ -71,7 +71,7 @@ angular.module('ZJSY_WeChat').controller('WaterSendForAppController', function($
                         .success(function(data){
                             console.log('123');
                             if(data.code==200){
-                                $state.go('serviceSucceed',{serviceOrderId:data.data[0]._id});
+                                $state.go('serviceSucceedForApp',{serviceOrderId:data.data[0]._id});
                             }
                             else{
                                 $state.go('serviceFailed',{serviceOrderId:data.data[0]._id});

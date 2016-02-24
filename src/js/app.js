@@ -301,6 +301,19 @@ angular.module('ZJSY_WeChat', [
                 }
             }
         })
+        .state('serviceSucceedForApp',{
+            url:'/service-succeed-for-app/{serviceOrderId}',
+            views:{
+                '':{
+                    templateUrl:'forApp/serviceSucceedForApp.html',
+                    controllerProvider: function($state,$stateParams,checkAuth) {
+                        if(!checkAuth.check())return $state.go('login');
+                        var ctrlName = "ServiceSucceedForAppController";
+                        return ctrlName;
+                    }
+                }
+            }
+        })
         .state('serviceFailed',{
             url:'/service-failed/{serviceOrderId}',
             views:{
