@@ -1260,6 +1260,9 @@ label {
   .parking-btn{
     background-color:#e8be41;
   }
+  .business-plan-btn{
+    background-color:#3792ec;
+  }
 
 }
 
@@ -1416,8 +1419,12 @@ label {
       line-height:2.4em;
     }
     .pay h3{padding:0 0 0 15px;}
-    .danhao{height:150px;width:100%;padding:20px 0 20px 5px;}
-  .danhao p span.col-xs-4{
+    .danhao {
+      display: block;
+      overflow: hidden;
+      padding: 20px 0 20px 5px;
+    }
+    .danhao p span.col-xs-4{
     color: #666 !important;
   }
     .danhao p .col-xs-8{
@@ -1472,6 +1479,7 @@ label {
 
 }
 .service-succeed-for-app {
+  background:#e2e1e1;
   .header {
     background-color: #081131 !important;
   }
@@ -1479,12 +1487,44 @@ label {
     color: white;
     font-weight: bold;
   }
-
+  .pay h3{padding:0 0 0 15px;}
   .danhao{
     margin-top:0;
+    display:block;
+    overflow:hidden;
+    background:#f0f0f0;
+    border-bottom: 1px solid #ddd;
+    padding:20px 0 20px 5px;
+  }
+  .danhao p span.order-list-left{
+    display:inline-block;
+    float:left;
+    color: #666 !important;
+    width:25%;
+    margin-left:40px;
+    word-break:break-all;
+    word-wrap:break-word ;
+  }
+  .succeed {
+    padding: 15px 12px 15px 20px;
+    margin: 30px auto 0;
+    background: url(../images/ok_app.png) 15px 18px no-repeat #f0f0f0;
+    background-size: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  .succeed p strong {
+    margin-left:25px;
+  }
+  .danhao p .order-list-right{
+    float:left;
+    display:inline-block;
+    color: #999 !important;
+    width:55%;
+    word-break:break-all;
+    word-wrap:break-word ;
   }
   .service-succeed-btn {
-    background: #666666;
+    background: #666666 !important;
     font-size:16px;
     height:50px;
   }
@@ -2107,6 +2147,24 @@ label {
     font-weight:bold;
   }
 
+}
+
+#business-service-head{
+  background-color:#081131;
+  border:none;
+  .title{
+    color:white;
+    font-weight:bold;
+  }
+}
+
+#business-plan-head{
+  background-color:#3792ec;
+  border:none;
+  .title{
+    color:white;
+    font-weight:bold;
+  }
 }
 
 .water-send-for-app{

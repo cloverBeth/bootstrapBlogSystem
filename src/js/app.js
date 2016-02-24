@@ -467,6 +467,16 @@ angular.module('ZJSY_WeChat', [
 
             }
         })
+        .state('businessServiceForApp',{
+            url:'/business-service-for-app',
+            views:{
+                '':{
+                    templateUrl:'forApp/businessServiceForApp.html',
+                    controller: 'BusinessServiceForAppController'
+                }
+
+            }
+        })
         .state('businessList', {
             url:'/business-list',
             views: {
@@ -491,6 +501,23 @@ angular.module('ZJSY_WeChat', [
                             return $state.go('login');
                         }
                         var ctrlName = "BusinessPlanController";
+                        return ctrlName;
+
+                    }
+                }
+            }
+        })
+        .state('businessPlanForApp', {
+            url:'/business-plan-for-app',
+            views:{
+                '':{
+                    templateUrl:'forApp/businessPlanForApp.html',
+                    controllerProvider: function($state,$stateParams,checkAuth){
+                        if(!checkAuth.check()){
+                            window.history.pushState({}, "addHisory", "#/business-plan-for-app");
+                            return $state.go('login');
+                        }
+                        var ctrlName = "BusinessPlanForAppController";
                         return ctrlName;
 
                     }

@@ -1,6 +1,6 @@
 "use strict";
 angular.module("ZJSY_WeChat").controller("ServiceSucceedForAppController",function($scope,$state,$http,$stateParams){
-    $scope.title="下单成功";
+    $scope.title="线上物业";
     $scope.currentPage = 1;
     $scope.pageSize = 5;
     $scope.orderSucceed={};
