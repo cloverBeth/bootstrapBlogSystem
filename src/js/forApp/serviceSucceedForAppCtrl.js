@@ -3,6 +3,8 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedForAppController",functi
     $scope.title="线上物业";
     $scope.currentPage = 1;
     $scope.pageSize = 5;
+    $scope.success = true;
+    $scope.serviceState=false;
     $scope.orderSucceed={};
 
         console.log("serviceOrderId:"+$stateParams.serviceOrderId);
@@ -25,9 +27,21 @@ angular.module("ZJSY_WeChat").controller("ServiceSucceedForAppController",functi
                 //$scope.orderSucceed.type=data.data[0].services.parentTitle;
                 //$scope.orderSucceed.orderNumber=data.data[0].ordersn;
                 //$scope.orderSucceed.status=data.data[0].orderstatus;
-                if($scope.orderSucceed.type=="商务策划"||$scope.orderSucceed.type=="投融资"){
-                    $scope.showBusiness=true;
+                if(data.code==200){
+                    $scope.success = true;
+                    $scope.serviceState=false;
+
+                }else{
+                    $scope.success = false;
+                    $scope.serviceState=true;
+
                 }
+
+
+                if($scope.orderSucceed.type=="商务策划"||$scope.orderSucceed.type=="投融资"){
+                        $scope.showBusiness=true;
+                }
+
             });
 
     $scope.goToOnline=function(){

@@ -10,9 +10,13 @@
 
     <div class="main mt-35">
 
-        <div class="succeed clearfix">
-            <p>
+        <div class="succeed clearfix"ng-class="{succeed:success,failed:!success}">
+            <p ng-hide="serviceState">
                 <strong>您的预约已提交成功，我们会尽快处理！</strong>
+            </p>
+            <p ng-show="serviceState">
+                <strong>您的预约未成功！</strong>
+                <span>可能是服务器响应出错了。</span>
             </p>
         </div>
         <div class="danhao">
@@ -22,10 +26,10 @@
             <p><span class="order-list-left">联系电话</span><a class="order-list-right pad-left"href="tel:{{orderSucceed.telphone}}">{{orderSucceed.telphone}}</a></p>
 
         </div>
-        <div style="width: 80%;margin: 10px 15%;"ng-hide="showBusiness">
+        <div style="width: 100%;margin: 10px 5%;"ng-hide="showBusiness">
             <button class="redBtn btn service-succeed-btn"ng-click="goToOnline()">继续逛逛</button>
         </div>
-        <div style="width: 80%;margin: 10px 15%;"ng-show="showBusiness">
+        <div style="width: 100%;margin: 10px 5%;"ng-show="showBusiness">
             <button class="redBtn btn service-succeed-btn"ng-click="goBusiness()">返回</button>
         </div>
     </div>

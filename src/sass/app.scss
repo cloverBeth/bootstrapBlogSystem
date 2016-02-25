@@ -1236,8 +1236,8 @@ label {
 
   }
     .gardenbtn{
-        width:85%;
-        margin:0 0 30px 22%;
+        width: 95%;
+        margin: 0 0 30px 10%;
         height:50px;
         border:none;
         border-radius:5px;
@@ -1479,13 +1479,16 @@ label {
 
 }
 .service-succeed-for-app {
-  background:#e2e1e1;
   .header {
     background-color: #081131 !important;
   }
   .title {
     color: white;
     font-weight: bold;
+  }
+  .mt-35{
+    background:#f0f0f0;
+    //margin-top:60px;
   }
   .pay h3{padding:0 0 0 15px;}
   .danhao{
@@ -1506,8 +1509,11 @@ label {
     word-wrap:break-word ;
   }
   .succeed {
+    border-top-width: 15px;
+    border-top-style: solid;
+    border-top-color: #e2e1e1;
     padding: 15px 12px 15px 20px;
-    margin: 30px auto 0;
+    margin:10px 0 0 0!important;
     background: url(../images/ok_app.png) 15px 18px no-repeat #f0f0f0;
     background-size: 20px;
     border-bottom: 1px solid #ddd;
@@ -1515,18 +1521,35 @@ label {
   .succeed p strong {
     margin-left:25px;
   }
+
+
+  .failed {
+    border-top-width: 15px;
+    border-top-style: solid;
+    border-top-color: #e2e1e1;
+    padding: 15px 12px 15px 20px;
+    margin:10px 0 0 0!important;
+    background: url(../images/fail_app.png) 15px 18px no-repeat #f0f0f0;
+    background-size: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .failed p strong,
+  .failed p span {
+    margin-left:25px;
+  }
   .danhao p .order-list-right{
     float:left;
     display:inline-block;
     color: #999 !important;
-    width:55%;
+    width:58%;
     word-break:break-all;
     word-wrap:break-word ;
   }
   .service-succeed-btn {
     background: #666666 !important;
     font-size:16px;
-    height:50px;
+    height:45px;
   }
 }
 
@@ -1565,15 +1588,6 @@ label {
     }
 }
 
-.online-service-for-app{
-  .header{
-    background-color:#081131;
-  }
-  .title{
-    color:white;
-    font-weight:bold;
-  }
-}
 .online-service{
     width:100%;
     background:white;
@@ -2106,6 +2120,14 @@ label {
 
 
 /************************ css  for app *********************************/
+#online-service-head{
+      background-color:#081131;
+    .title{
+      color:white;
+      font-weight:bold;
+    }
+  }
+
 #water-send-head{
   background-color:#3792ec;
   border:none;
@@ -2168,57 +2190,108 @@ label {
 }
 
 .water-send-for-app{
-  .regular-checkbox:checked + label:after {
-    content: '\2714';
-    font-size: 14px;
-    position: absolute;
-    top: 0px;
-    left: 1px;
-    color: #3792EC !important;
+  input[type='radio'].radioSel {opacity:0; display:inline-block; height:30px; }
+  .choosed label.radioSel{
+    padding:0 0 10px 23px !important;
+    display:inline-block;
+    height:30px;
+    background:url(../images/no_check.png)left center no-repeat;
+    background-size:20px;
+    margin:5px 2px 0 -18px !important;
   }
+  .choosed input[type='radio'].radioSel:checked + .radioSel {
+    padding-left:23px!important;
+    display:inline-block;
+    height:30px;
+    background:url(../images/blue_arrow.png)left center no-repeat;
+    background-size:20px;
+    margin:5px 2px 0 -18px !important;
+
+  }
+
 }
   .garden-art-for-app{
-    .regular-checkbox:checked + label:after {
-      content: '\2714';
-      font-size: 14px;
-      position: absolute;
-      top: 0px;
-      left: 1px;
-      color: #209557 !important;
+    input[type='radio'].radioSel {opacity:0; display:inline-block; height:30px; }
+    .choosed label.radioSel{
+      padding:0 0 10px 23px !important;
+      display:inline-block;
+      height:30px;
+      background:url(../images/no_check.png)left center no-repeat;
+      background-size:20px;
+      margin:5px 2px 0 -18px !important;
+    }
+    .choosed input[type='radio'].radioSel:checked + .radioSel {
+      padding-left:23px!important;
+      display:inline-block;
+      height:30px;
+      background:url(../images/garden_arrow.png)left center no-repeat;
+      background-size:20px;
+      margin:5px 2px 0 -18px !important;
+
     }
   }
 
   .maintain-for-app{
-    .regular-checkbox:checked + label:after {
-      content: '\2714';
-      font-size: 14px;
-      position: absolute;
-      top: 0px;
-      left: 1px;
-      color: #6f4ea0 !important;
+    input[type='radio'].radioSel {opacity:0; display:inline-block; height:30px; }
+    .choosed label.radioSel{
+      padding:0 0 10px 23px !important;
+      display:inline-block;
+      height:30px;
+      background:url(../images/no_check.png)left center no-repeat;
+      background-size:20px;
+      margin:5px 2px 0 -18px !important;
+    }
+    .choosed input[type='radio'].radioSel:checked + .radioSel {
+      padding-left:23px!important;
+      display:inline-block;
+      height:30px;
+      background:url(../images/fix_arrow.png)left center no-repeat;
+      background-size:20px;
+      margin:5px 2px 0 -18px !important;
+
     }
   }
 
   .parking-for-app{
-    .regular-checkbox:checked + label:after {
-      content: '\2714';
-      font-size: 14px;
-      position: absolute;
-      top: 0px;
-      left: 1px;
-      color:#e8be41 !important;
+    input[type='radio'].radioSel {opacity:0; display:inline-block; height:30px; }
+    .choosed label.radioSel{
+      padding:0 0 10px 23px !important;
+      display:inline-block;
+      height:30px;
+      background:url(../images/no_check.png)left center no-repeat;
+      background-size:20px;
+      margin:5px 2px 0 -18px !important;
+    }
+    .choosed input[type='radio'].radioSel:checked + .radioSel {
+      padding-left:23px!important;
+      display:inline-block;
+      height:30px;
+      background:url(../images/park_arrow.png)left center no-repeat;
+      background-size:20px;
+      margin:5px 2px 0 -18px !important;
+
     }
 
   }
 
   .advice-for-app{
-    .regular-checkbox:checked + label:after {
-      content: '\2714';
-      font-size: 14px;
-      position: absolute;
-      top: 0px;
-      left: 1px;
-      color:#c9195a !important;
+    input[type='radio'].radioSel {opacity:0; display:inline-block; height:30px; }
+    .choosed label.radioSel{
+      padding:0 0 10px 23px !important;
+      display:inline-block;
+      height:30px;
+      background:url(../images/no_check.png)left center no-repeat;
+      background-size:20px;
+      margin:5px 2px 0 -18px !important;
+    }
+    .choosed input[type='radio'].radioSel:checked + .radioSel {
+      padding-left:23px!important;
+      display:inline-block;
+      height:30px;
+      background:url(../images/advice_arrow.png)left center no-repeat;
+      background-size:20px;
+      margin:5px 2px 0 -18px !important;
+
     }
   }
 

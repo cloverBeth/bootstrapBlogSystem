@@ -17,14 +17,12 @@
             <span class="col-xs-4 typeOfService">服务类型</span>
             <div class="outer col-xs-8">
                 <div class="choosed "ng-repeat="radio in typeList track by $index">
-                    <input type="radio" name="business" id="{{'radio-'+radio.id}}"
-                           class="regular-checkbox" ng-value="radio.id" ng-model="$parent.childType">
-                    <label for="{{'radio-'+radio.id}}"></label>
-                    <label class="beLarge"for="{{'radio-'+radio.id}}">{{radio.typeTitle}}</label>
+                    <input type="radio" name="garden"id="{{'radio-'+radio.id}}" class="radioSel"
+                           ng-value="radio.id"ng-model="$parent.childType">
+                    <!--<label for="{{'radio-'+radio.id}}"></label>-->
+                    <label class="beLarge radioSel"for="{{'radio-'+radio.id}}">{{radio.typeTitle}}</label>
                 </div>
             </div>
-
-
         </div>
         <div class="companyInfo">
             <ul>
