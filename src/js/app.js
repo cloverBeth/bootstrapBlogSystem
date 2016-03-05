@@ -622,14 +622,7 @@ angular.module('ZJSY_WeChat', [
             views:{
                 '':{
                     templateUrl:'waterSend.html',
-                    controllerProvider:function($state,$stateParams,checkAuth){
-                        if(!checkAuth.check()){
-                            //window.history.pushState({}, "addHisory", "#/water-send");
-                            return $state.go('login');
-                        }
-                        var ctrlName="WaterSendController";
-                        return ctrlName;
-                    }
+                    controller:"WaterSendController"
                 }
             }
         })
