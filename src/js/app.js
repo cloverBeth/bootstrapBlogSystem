@@ -54,28 +54,7 @@ angular.module('ZJSY_WeChat', [
         };
 
         $stateProvider
-        .state('serviceSucceed',{
-            url:'/service-succeed/{serviceOrderId}',
-            views:{
-                '':{
-                    templateUrl:'serviceSucceed.html',
-                    controllerProvider: function($state,$stateParams,checkAuth) {
-                        if(!checkAuth.check())return $state.go('login');
-                        var ctrlName = "ServiceSucceedController";
-                        return ctrlName;
-                    }
-                }
-            }
-        })
-        .state('activityEnrollSucceed',{
-            url:'/activity-enroll-succeed/{orderId}',
-            views:{
-                '':{
-                    templateUrl:'activityEnrollSucceed.html',
-                    controller:'ActivityEnrollSucceedController'
-                }
-            }
-        })
+
         .state('accountCenter',{
             url:'/account-center',
             views:{
