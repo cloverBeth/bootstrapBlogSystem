@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="css/responsive.min.css" />
     <link rel="stylesheet" href="css/lib.min.css" />
 
-
   </head>
   <body ng-app="ZJSY_WeChat" class="main-section" ng-controller="MainController">
 
@@ -27,36 +26,35 @@
             <!--ui-track-as-search-param='true'-->
             <!--class="sidebar sidebar-left"></div>-->
 
-    <div class="app">
+    <!--<div class="app">-->
     <alerts>
 
     </alerts>
 
 
       <!-- App Body -->
-      <div class="app-body">
-        <div class="app-content">
-          <div ui-view style="height: 100%;"class="main-section"></div>
-        </div>
-      </div>
-    </div><!-- ~ .app -->
+      <!--<div class="app-body">-->
+        <!--<div class="app-content">-->
+          <div ui-view style="height:100%;"class="main-section"></div>
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>&lt;!&ndash; ~ .app &ndash;&gt;-->
 
 
-    <div class="loading" ng-show="showLoading" >
-      <div class="loading-img">
-        <img src="images/start_logo.png" alt=""/>
-      </div>
-      <div class="loading-word">
-        <!--<div class="loader">Loading...</div>-->
-        <p>载入中<b>...</b></p>
-      </div>
-    </div>
+    <!--<div class="loading" ng-show="showLoading" >-->
+      <!--<div class="loading-img">-->
+        <!--<img src="images/start_logo.png" alt=""/>-->
+      <!--</div>-->
+      <!--<div class="loading-word">-->
+        <!--&lt;!&ndash;<div class="loader">Loading...</div>&ndash;&gt;-->
+        <!--<p>载入中<b>...</b></p>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <div ui-yield-to="modals" id="zjsy_modal"></div>
 
     <!-- inject:js -->
     <script src="js/lib.min.js"></script>
-
     <!-- app.js -->
   </body>
 </html>
