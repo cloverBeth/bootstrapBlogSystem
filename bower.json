@@ -7,7 +7,7 @@
     "angular-route": "1.x",
     "mobile-angular-ui": "1.2.x",
     "font-awesome": "4.4",
-    "bootstrap": "3.x",
+    "bootstrap": "~3.3.6",
     "angular-bootstrap": "~0.14.3",
     "angular-ui-router": "ui-router#~0.2.15",
     "ng-file-upload": "~5.0.9"
